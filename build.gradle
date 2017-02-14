@@ -1,0 +1,57 @@
+apply plugin: 'java'
+// 이클립스 웹 프로젝트 관련 설정 파일 생성하는 플러그인
+apply plugin: 'eclipse-wtp' // 기존의 eclipse 플러그인을 포함한다.
+apply plugin: 'war'         // 웹 애플리케이션 배포 관련 플러그인.
+
+// Maven 기본 프로젝트 폴더 구조를 따르기 때문에 다음과 같이
+// 소스 폴더의 구조를 따로 명시할 필요가 없다.
+//sourceSets {}
+
+repositories {
+  mavenCentral()  
+}
+
+dependencies {
+  // 로컬에서 의존 라이브러리 가져오기
+  compile fileTree(dir:'libs', include: '*.jar')
+  
+  // 파일 업로드에서 멀티파트 데이터를 처리하는 라이브러리
+  compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.3.2'
+  
+  // 스프링 관련 라이브러리
+  //compile group: 'org.springframework', name: 'spring-context', version: '4.3.5.RELEASE'
+  
+  // 스프링 webmvc 라이브러리
+  // => 이 라이브러리는 spring-context 라이브러리를 사용하기 때문에
+  //    이 라이브러리만 포함해도 이 라이브러리가 의존하는 다른 라이브러리까지 자동으로 포함된다.
+  //    그래서 위의 spring-context를 제거해도 된다.
+  compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.5.RELEASE'
+  
+  // JSTL 확장 라이브러리
+  compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+  
+  // Mybatis 퍼시스턴스 프레임워크 라이브러리
+  compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
+  
+  // Mybatis를 스프링과 연동시키는 객체가 들어있는 라이브러리
+  compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.1'
+  
+  // 스프링에서 관리할 DataSource 라이브러리
+  compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+  
+  // 스프링 트랜잭션 관리 라이브러리
+  compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.5.RELEASE'
+ 
+  // AOP 관련 라이브러리 가져오기
+  compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.10'
+  
+  // Log4j 의존 라이브러리 가져오기
+  compile group: 'log4j', name: 'log4j', version: '1.2.17'
+  
+  // 객체를 JSON 문자열로 자동 변환시켜주는 ViewResolver 라이브러리 가져오기
+  compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.6'
+  
+  // 컴파일 할 때만 사용하고 배치에는 포함시키지 않는 라이브러리들
+  providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+  
+}
