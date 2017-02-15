@@ -7,6 +7,7 @@
 li {list-style: none;}
 a { text-decoration: none; color: black;}
 img { border: 0;}
+body { margin: 0;}
 
 #dum_header {
   width:100%;
