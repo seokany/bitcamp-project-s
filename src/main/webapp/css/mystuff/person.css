@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+#container {
+  width: 100%; 
+  font-size: 13px; 
+}
+
+#contents {
+  margin: 0 auto;
+  width: 960px;
+}
