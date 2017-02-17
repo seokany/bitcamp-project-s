@@ -13,7 +13,7 @@ html{
 body{
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-*{box-sizing: border-box;}
+/* *{box-sizing: border-box;} */
 main{
     width: 80%;
     margin: 2rem auto;
