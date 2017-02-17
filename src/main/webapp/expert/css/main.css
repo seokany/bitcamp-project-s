@@ -1,8 +1,7 @@
 @CHARSET "UTF-8";
 
 img {
-	width: 100%; 
-	border-radius: 10px;
+
 }
 
 #container {
@@ -42,10 +41,8 @@ img {
 .node-img {
 	position: inherit;
   height: 192px;
-}
-
-#node > img {
-	border-radius: 10px;
+  border-radius: 10px;
+  width: 100%; 
 }
 
 #node-badge {
