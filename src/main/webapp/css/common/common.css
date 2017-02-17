@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+
+
+/* 초기화 */
+* { margin: 0; padding: 0; }
+li {list-style: none;}
+a { text-decoration: none; color: black;}
+img { border: 0;}
+body { margin: 0px;}
+
+/* 헤더 영역 CSS  */
+#con_header {
+	margin-bottom: 30px;
+	height: 90px;
+  background-color: rgba(0,0,0,1);
+}
+
+#wrap_header {
+  width:100%;
+  background-color: rgba(0,0,0,0.9);
+  position:fixed;
+  z-index:9999;
+}
+
+#main_header {
+  position:relative;
+  width: 960px;
+  margin: 0 auto;
+  height: 90px;
+  color: white;
+  font-family: 'Pangolin', 'sans-serif';
+}
+
+#main_header #title {
+  display: inline-block;
+  position: inherit;
+  left: 350px;
+  overflow: hidden;
+}
+
+#main_header #title > div {
+  float: left;
+  padding: 0px;
+}
+
+#title img {
+  display: block;
+  padding: 2px 0px;
+  height: 90px;
+  width: auto;
+}
+
+#main_header #title > a {
+  display: block;
+  padding: 2px 10px;
+  height: 90px;
+}
+
+#main_header #title div.dreamtree {
+  height: 90px;
+  line-height: 90px;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+#main_header > #main_gnb {
+  display: inline-block;
+  position: absolute;
+  right: 0; top: o;
+}
+
+#main_header > #main_lnb {
+  display: inline-block;
+  position: absolute;
+  left: 0; top: o;
+  
+}
+
+#main_gnb > ul {
+  overflow: hidden;
+  margin: 0;
+} 
+
+#main_gnb > ul > li {
+  float: left;
+} 
+
+#main_gnb > ul > li a {
+  display: block;
+  padding: 0 10px;
+  color: white;
+  height: 60px;
+  line-height: 90px;
+  text-transform: uppercase;
+  font-size: 12px;
+} 
+
+#main_gnb > ul a:hover, #main_lnb > ul a:hover {
+  border-bottom: 2.5px solid #86F021;
+  text-decoration: none;
+}
+
+#main_gnb > ul a:hover, #main_lnb > ul a:hover {
+  border-bottom: 2.5px solid #86F021;
+  text-decoration: none;
+}
+
+#main_lnb > ul {
+  overflow: hidden;
+  margin: 0 ;
+} 
+
+#main_lnb > ul > li {
+  float: left;
+} 
+
+#main_lnb > ul > li a{
+  display: block;
+  padding: 0 10px;
+  color: white;
+  height: 60px;
+  line-height: 90px;
+  text-transform: uppercase;
+  font-size: 12px;
+} 
+
+
+/* 풋터 영역 CSS */
+#con_footer {
+  height:120px;
+}
+

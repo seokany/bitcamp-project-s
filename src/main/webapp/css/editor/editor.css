@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+#container {
+  width: 100%; 
+}
+
+#tool_bar {
+/*   height: 40px;  */
+/*   background-color: silver;  */
+}
+
+#content {
+  width: 960px;
+}

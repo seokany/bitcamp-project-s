@@ -1,0 +1,772 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900);
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+body {
+  font-family:'Daum_SemiBold';
+}
+
+* { margin: 0; padding: 0; }
+li {list-style: none;}
+a { text-decoration: none; color: black;}
+img { border: 0;}
+
+#wrap_header {
+  width:100%;
+  background-color: black;
+  position:fixed;
+  display: inline-block;
+  z-index:9999;
+}
+
+#dum_header {
+  width:100%;
+  height: 90px;
+}
+#main_header {
+  position:relative;
+  width: 960px;
+  margin: 0 auto;
+  background-color: black;
+  height: 90px;
+  color: white;
+  font-family: 'Pangolin', sans-serif;
+}
+#main_header #title {
+  display: inline-block;
+  position: inherit;
+  left: 350px;
+  overflow: hidden;
+}
+
+#main_header #title > div {
+  float: left;
+  padding: 0px;
+}
+
+#title img {
+  display: block;
+  padding: 2px 0px;
+  height: 90px;
+  width: auto;
+}
+
+#main_header #title > a {
+  display: block;
+  padding: 2px 10px;
+  height: 90px;
+}
+#main_header #title div.dreamtree {
+  height: 90px;
+  line-height: 90px;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+#main_header > #main_gnb {
+  display: inline-block;
+  position: absolute;
+  right: 0; top: o;
+}
+
+#main_header > #main_lnb {
+  display: inline-block;
+  position: absolute;
+  left: 0; top: o;
+  
+}
+
+#main_gnb > ul {
+  overflow: hidden;
+  margin: 0;
+} 
+#main_gnb > ul > li {
+  float: left;
+} 
+
+#main_gnb > ul > li a {
+  display: block;
+  padding: 0 10px;
+  color: white;
+  height: 60px;
+  line-height: 90px;
+  text-transform: uppercase;
+  font-size: 12px;
+} 
+#main_gnb > ul a:hover {
+  border-bottom: 2.5px solid #86F021;
+}
+
+#main_lnb > ul {
+  overflow: hidden;
+  margin: 0 ;
+} 
+#main_lnb > ul > li {
+  float: left;
+} 
+#main_lnb > ul > li a{
+  display: block;
+  padding: 0 10px;
+  color: white;
+  height: 60px;
+  line-height: 90px;
+  text-transform: uppercase;
+  font-size: 12px;
+} 
+
+#main_lnb > ul a:hover {
+  border-bottom: 2.5px solid #86F021;
+}
+
+
+ 
+/*   #seed {
+  font-famliy:'Daum_SemiBold';
+    position: relative;
+    text-align: center;
+    margin: 10px auto;
+    height: 200px;
+  margin-bottom:2%;
+} */
+
+/* .seed-title {
+  font-famliy:'Daum_SemiBold';
+} */
+
+ .object, .object2 {
+/*  color: #6a6f8c; */
+  position: relative;
+  width: 960px;
+  margin: 2% auto;
+
+} 
+
+.list-type {
+  display: inline-block;
+  position: relative;
+    width: 400px;
+    height: 40px;
+    margin-left: 65%;
+}
+
+
+.list-type ul {  /* 추천목록 좋아요 목록 바깥 틀 */
+    width: 200px;
+    margin: 0 auto;
+    padding-left: 10%;
+/*     border: 1px solid; */
+}
+.list-type li {
+	padding:3%;
+display: inline-block;
+/* 	    border: 1px solid; */
+}
+
+#rec-list {
+	margin-right:10px;
+	border-bottom:2px solid blue;
+}
+
+#rec-list:hover {
+	border-bottom:2px solid blue;
+}
+
+#like-list:hover {
+  border-bottom:2px solid blue;
+}
+
+/* .object .rec-list-htm, */
+/* .object .like-list-htm{ */
+/*    top:0; */
+/*   left:0; */
+/*   right:100px;  */
+/*   margin:0 auto;  border: 1px solid red;  */
+/*   margin-left: 13%; */
+/*   width:100%; */
+/*   height:100%; */
+/*   -webkit-transform:rotateY(180deg); */
+/*           transform:rotateY(180deg); */
+/*   -webkit-backface-visibility:hidden; */
+/*           backface-visibility:hidden; */
+/*   -webkit-transition:all .4s linear; */
+/*   transition:all .4s linear; */
+/* } */
+
+/* 
+#seed .circle {
+  margin:0 2%;
+  background-color: #609;
+  display:inline-block;
+  position:0px 50%;
+  width: 80px;
+  height: 100px;
+  -webkit-border-radius:50%;
+}
+
+.not-seed span {
+  font-size:250%!important;
+  margin-left: -13px;
+}
+
+
+.seed-Button {
+  -moz-box-shadow: 0px 10px 14px -7px #276873;
+  -webkit-box-shadow: 0px 10px 14px -7px #276873;
+  box-shadow: 0px 10px 14px -7px #276873;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+  background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+  background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+  background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+  background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+  background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+  background-color:#599bb3;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border-radius:8px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:20px;
+  font-weight:bold;
+  padding:13px 15px;
+  text-decoration:none;
+  text-shadow:3px 8px 4px #3d768a;
+}
+.seed-Button:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+  background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+  background-color:#408c99;
+}
+.seed-Button:active {
+  position:absolute;
+  top:1px;
+}
+ .seed-list {
+ display:inline-block;
+    width: 100px;
+    height: 150px;
+ } */
+
+
+/* =================================아래부터 추천직업=============================================================== */
+  .title-bar {
+cursor: pointer;
+    width: 100%;
+    height: 50px;
+     } 
+     
+     
+/*       .title-bar:hover {
+      background: radial-gradient(50% 50%, #fff, #fff);
+      background-color: blue;
+      } */
+  
+  /*   .title:before {
+    content: '';
+    display: block;
+    width: 600px;
+    height: 4px;
+    position:absolute;
+    background: #e5e5e5;
+    left: 95px;
+    top: 50%;
+    margin: 0 auto;
+    } */
+    
+    .title {
+    width:200px;
+    font-family: 'Daum_SemiBold';
+    background: radial-gradient(50% 50%, #fff, #fff);
+    color: rgba(38, 38, 38, 0.5);
+     text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
+     }
+     .title:hover {
+         /* background: radial-gradient(50% 50%, #fff, #fff); */
+     color: yellow;
+     text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
+     }
+  
+  
+   #list-form{
+  color:black;
+  width: 100%;
+  height: 100%;
+  min-height:20%;
+  position:relative;
+  -webkit-perspective:1000px;
+          perspective:1000px;
+  -webkit-transform-style:preserve-3d;
+          transform-style:preserve-3d;
+}
+  #all-like-list {
+  display: none;
+  }
+  
+ /* .all-rec-list {
+  width: 100%;
+  }
+  
+  
+  
+  .all-like-list, .all-rec-list {
+  margin:0 auto; border: 1px solid red;
+  width:100%;
+  height:100%;
+    -webkit-transform:rotateY(180deg);
+          transform:rotateY(180deg);
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  -webkit-transition:all .4s linear;
+  transition:all .4s linear;
+  } 
+  
+  .list-type .rec-list:checked + .tab{
+  color:#000000;
+  border-color:#1161ee;
+}
+.list-type .like-list:checked + .tab{
+  color:#000000;
+  border-color:#1161ee;
+}
+
+ .list-type .rec-list:checked + .tab + .rec-list + .tab + .all-rec-list{
+  -webkit-transform:rotate(0);
+          transform:rotate(0);
+}
+ .list-type .like-list:checked + .tab + .all-like-list{
+  -webkit-transform:rotate(0);
+          transform:rotate(0);
+}  */
+     
+     
+.job-all, .all-rec-model, .all-rec-mento, .video-all {
+  margin-left: 4%;
+  width: 80%;
+  height: 40%;
+  
+} 
+
+.title-btn {
+  width:150px;
+      display: inline-block;
+    position: relative;
+  
+}
+
+.object .obj-line {
+  margin-top: 1%;
+  margin-left:7%;
+  width:15%;
+  color:rgba(255,255,255,.2);
+}
+
+/* .toggler { 
+   width: 100%; 
+   height: 100%; 
+   position: relative; 
+   margin-top:2%;
+} */
+ .rec { /* 추천 목록들 사진 */
+  width:220px;
+  display:inline-block;
+  height:50%;
+  height: 148px;
+  margin-top:2%;
+  margin-left:4.5%;
+  margin-right:3%;
+      bottom: 50px;
+   } 
+   
+    .job-conts, .model-conts, .mento-conts, .video-conts {
+  position: relative;
+    margin-right: 50px;
+   display:inline-block;
+    width:200px;
+  height: 180px;
+   
+   } 
+   
+    .job-name span {
+    font-family: 'Daum_SemiBold';
+     color: black;
+    }
+    .job-detail p {
+    margin-top:3%;
+    width:200px;
+    font-size:10px;
+     filter:alpha(style=2);
+     color:#585858;
+    }
+    
+    .mento-name span {
+     color: black;
+    }
+    .mento-detail p {
+    margin-top:3px;
+    margin-bottom:2px;
+    width:200px;
+    font-size:10px;
+     filter:alpha(style=2);
+     color:#585858;
+    }
+    
+      .mento-date span, .mento-tag span  {
+     position:absolute;
+     margin-bottom: 2px;
+     
+    font-size:13px;
+     color:black;
+    }
+     .mento-date p, .mento-tag p {
+    margin-top:2px;
+    font-size:10px;
+    margin-bottom:1px;
+    margin-left:50px;
+     color:#585858;
+    }
+    
+     .model-name span {
+     color: black;
+    }
+    .model-detail p {
+    margin-top:3px;
+    margin-bottom:2px;
+    width:200px;
+    font-size:10px;
+     filter:alpha(style=2);
+     color:#585858;
+    }
+    
+      .model-date span, .model-tag span  {
+     position:absolute;
+     margin-bottom: 2px;
+     
+    font-size:13px;
+     color:black;
+    }
+     .model-date p, .model-tag p {
+    margin-top:2px;
+    font-size:10px;
+    margin-bottom:1px;
+    margin-left:50px;
+     color:#585858;
+    }
+    
+     .video-name span {
+     font-size:11px;
+     color: #585858;
+    }
+    .video-title p {
+    margin-top:3px;
+    margin-bottom:2px;
+    width:200px;
+    font-size:13px;
+     filter:alpha(style=2);
+     color:black;
+    }
+    
+    .video-date span, .video-tag span  {
+     position:absolute;
+     margin-bottom: 2px;
+     
+    font-size:13px;
+     color:black;
+    }
+     .video-date p, .video-tag p {
+    margin-top:2px;
+    font-size:10px;
+    margin-bottom:1px;
+    margin-left:50px;
+     color:#585858;
+    }
+    
+   .job2-conts, .model2-conts, .mento2-conts, .video2-conts {
+   position: relative;
+    margin-right: 50px;
+    display:none;
+    width:200px;
+   height: 180px;
+   
+   }
+   
+   .job-btm, .mento-btm, .video-btm {
+   width:110%;
+   font-family: 'Daum_SemiBold';
+   margin-top:3px;
+   margin-left:10px;
+   }
+   .job-name {
+   position:absolute;
+   }
+   .job-name-favor input {
+     width:7%;
+   }
+   
+   .favor-btn {
+   margin-left:75%;
+    font-size: 10px;
+    color: lightcoral;
+   }
+   
+   #job1, #job2, #job3, #job4, #job5, #job6,
+   #mento1, #mento2, #mento3, #mento4, #mento5, #mento6,
+   #video1, #video2, #video3, #video4, #video5, #video6
+   {
+   top:5px;
+   background-position: center center;
+   background-size: cover;
+   background-repeat:no-repeat;
+   }
+   
+   
+    .all-btn { 
+     width: 80px;
+    position: relative;
+    display: inline-block;
+    bottom:50%;
+       margin-left: 100%;
+/*     margin-left: 710px; */
+     
+    }
+    
+    .job-name img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .job-effect,  .model-effect, .mento-effect, .video-effect {
+    width: 800px;
+    height: 250px;
+    background: #fff;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-left: 60px;
+    border:1px solid;
+    
+    }
+    
+    h4 {
+    font-famliy:'Daum_SemiBold';
+     margin:0 auto;
+     position:absolute; 
+     padding: 0.4em; 
+     }
+     
+   /*   #title-btn-mento {
+     padding-left: -50px;
+    } */
+    
+  
+     
+     /* ========================추천인물=================== */
+     
+/*     #img-box {
+     margin-left:100px;
+    } */
+/* .all-rec-model {
+  display: inline-block;
+  max-width:800px;
+  height: 300px;
+  
+} */
+
+ 
+ imag {
+ width: 120%;
+ }
+
+/* .mySlides {
+margin-left: 25%;
+    display: inline-block;
+    top: 5px;
+    width: 500px;
+    height: 250px;
+    background-position: center center;
+    background-size: 100% 100%;
+   background-repeat:no-repeat;
+  } */
+
+
+/*    ====================슬라이드 ========================== */
+
+
+.wrapper {
+  margin-left:10%;
+  
+}
+
+.wrapper p {
+  font-size:12px;
+  color:#BDBDBD;
+  
+}
+
+/* .jcarousel-wrapper .selector {
+  width:100%;
+  height:100%;
+  margin-bottom:50%;
+} */
+
+.jcarousel-wrapper {
+    margin: 20px auto;
+    position: relative;
+    border: 10px solid #fff;
+    width: 450px;
+    height: 250px;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 0 2px #999;
+       -moz-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+}
+
+
+.jcarousel-wrapper .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.jcarousel-wrapper .photo-credits a {
+    color: #fff;
+}
+
+/** Carousel **/
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+  float: left;
+    width:450px;
+    height:250px;
+}
+
+img{
+    width:450px;
+    height:250px;
+}
+
+.jcarousel li .rec-model-title {
+  position:absolute;
+    width:470px;
+    height:60px;
+    margin-bottom:200px;
+}
+
+.jcarousel li h1, .jcarousel li p{
+  position:relative;
+    width:450px;
+    height:50px;
+}
+
+/** Carousel Controls **/
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+    position: absolute;
+    top: 120px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #4E443C;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 24px/27px Arial, sans-serif;
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px #999;
+       -moz-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+}
+
+.jcarousel-control-prev {
+    left: -50px;
+}
+
+.jcarousel-control-next {
+    right: -50px;
+}
+
+.jcarousel-control-prev:hover span,
+.jcarousel-control-next:hover span {
+    display: block;
+}
+
+.jcarousel-control-prev.inactive,
+.jcarousel-control-next.inactive {
+    opacity: .5;
+    cursor: default;
+}
+
+/** Carousel Pagination **/
+
+.jcarousel-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
+
+.jcarousel-pagination a {
+    text-decoration: none;
+    display: inline-block;
+    
+    font-size: 11px;
+    line-height: 14px;
+    min-width: 14px;
+    
+    background: #fff;
+    color: #4E443C;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    
+    margin-right: 2px;
+    
+    opacity: .75;
+}
+
+.jcarousel-pagination a.active {
+    background: #4E443C;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    
