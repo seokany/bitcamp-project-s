@@ -10,22 +10,113 @@
   width: 960px;
 }
 
-.person-back {
+.person-wrap {
+	position: relative;
   width: 100%; 
-  border: 1px solid black; 
   border-radius: 10px; 
 }
 
-#back-top.
-#back-bottom {
-	display: block;
-  height: 300px;
+#person-btn {
+	position: absolute;
+  top: 340px;
+  left: 370px;
+	z-index: 9998;
+	display: inline-block;
 }
 
-#back-top {
-	background-color: white; 
+.person-btn {
+	cursor: pointer;
 }
 
-#back-bottom {
-	background-color: pink; 
+#like-btn,
+#down-btn {
+	display: inline-block;
+}
+
+#like-c-btn {
+  display: none;
+}
+
+#like-btn:hover #like-n-btn {
+	display: none;
+}
+
+#like-btn:hover #like-c-btn{
+	display: inline-block;
+}
+
+#down-btn img:nth-child(2) {
+  display: none;	
+}
+
+#down-btn:hover img:nth-child(1) {
+  display: none;	
+}
+
+#down-btn:hover img:nth-child(2) {
+  display: inline-block;	
+}
+
+#x-btn {
+	right: 0px;
+}
+
+#comment {
+	position: absolute;
+  top: 100px;
+  left: 460px;
+}
+
+#comment div:NTH-CHILD(odd) {
+	border-radius: 10px;
+	opacity: 0;
+	position: relative;
+	padding: 10px;
+	overflow: hidden;
+}
+
+#comment div:NTH-CHILD(even) {
+	border: 1px solid gray;
+	border-radius: 10px;
+	background-color: white;
+	position: relative;
+	display: none;
+	padding: 10px;
+}
+
+#comment div:nth-child(1),
+#comment div:nth-child(2) {
+	width: 200px;
+  height: 70px;
+  left: 15px;
+}
+
+#comment div:nth-child(2) {
+	top: -90px;
+}
+
+#comment div:nth-child(2):hover,
+#comment div:nth-child(1):hover+div {
+  display:inline-block;
+  cursor: pointer;
+}
+
+#comment div:nth-child(3),
+#comment div:nth-child(4) {
+	width: 130px;
+	height: 150px;
+	top: 240px;
+	left: 40px;
+}
+
+#comment div:nth-child(4) {
+	top: 60px;
+  width: 180px;
+  height: 190px;
+}
+
+#comment div:nth-child(4):hover,
+#comment div:nth-child(3):hover+div {
+  display:inline-block;
+  cursor: pointer;
 }
