@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#wrap_header {
+	position: absolute;
+}
+
 #container {
   width: 100%; 
   font-size: 13px; 
@@ -10,11 +14,21 @@
   width: 960px;
 }
 
-.person-wrap {
+.person-back {
+  position: fixed;
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+  width: 100vmax;
+  z-index: 9999;
+}
+
+.person-modal {
 	position: relative;
 	top: 30px;
   width: 100%; 
   border-radius: 10px; 
+  z-index: 10000;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
 }
 
 #person-btn {
@@ -56,11 +70,12 @@
 
 #down-btn:hover img:nth-child(2) {
   display: inline-block;	
+  text-align: justify;
 }
 
 #x-btn {
 	position: absolute;
-	top: -30px;
+	top: -40px;
 	right: 10px;
 }
 
