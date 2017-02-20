@@ -560,7 +560,7 @@ margin-left: 25%;
     margin: 20px auto;
     position: relative;
     border: 10px solid #fff;
-    width: 430px;
+    width: 450px;
     height: 230px;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
@@ -609,7 +609,7 @@ margin-left: 25%;
  .jcarousel li {
 float: left;
     width:430px;
-    height:230px;
+    height:210px;
     text-align: -webkit-match-parent;
 } 
 
