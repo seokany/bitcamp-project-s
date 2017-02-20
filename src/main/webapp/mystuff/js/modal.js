@@ -6,9 +6,10 @@ $( function() {
         $( ".modal-content" ).css({"animation-delay": "0.1s", 
 								"animation-duration": "0.8s"
         });
-        $( "#pop-modal").css("display", "none");
         setTimeout( function() {
         	$('.modal').remove();
+        	$(".pop-modal", parent.document).css("display", "none");
+        	$("#iframe",parent.document).attr("src", function(i, val) {return val});
         }, 1000); 
     });
 });
@@ -62,6 +63,6 @@ $( ".down-btn" ).hover(
 
 $(function() {
 	$(document.body).on("click", "#pop-modal", function() {
-		$(".pop-modal").css("display", "block"); 
+			$(".pop-modal").css("display", "block");
 	});
 });

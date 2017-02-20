@@ -4,9 +4,8 @@
 	display:none;
   -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
-/*   position:relative;  */
-  width: 100vmax; 
-  height: 100vmax; 
+  width: 100vw; 
+  height: 100vh; 
   z-index: 10000; 
   top: 0;
 }
