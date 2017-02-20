@@ -1,13 +1,21 @@
 @CHARSET "UTF-8";
 
+.pop-modal {
+	display:none;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+/*   position:relative;  */
+  width: 100vmax; 
+  height: 100vmax; 
+  z-index: 10000; 
+  top: 0;
+}
+
 #wrap_header {
 	position: absolute;
 }
 
 #container {
-  width: 100vmax; 
-  height: 100vmax;
-  background-color: red;
   font-size: 13px; 
 }
 
@@ -24,11 +32,14 @@
   bottom: 0;
   left: 0;
   right: 0;
+  width: 100vmax;
+  height: 100vmax;
 }
 
 .modal-content {
 	position: relative;
-	top: 30px;
+	margin-bottom: 100px;
+	top: 80px;
   width: 100%; 
   border-radius: 10px; 
   z-index: 10000;

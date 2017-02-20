@@ -15,7 +15,7 @@ $(function() {
 	var pageState = document.location.href.split("/");
 	if (pageState[4] == "mystuff") {
 		$("#mystuff").css({"border-bottom": "2.5px solid #86F021",
-					"text-decoration": "none"});
+			"text-decoration": "none"});
 	} else if (pageState[4] == "mentos") {
 		$("#mentos").css({"border-bottom": "2.5px solid #86F021",
 			"text-decoration": "none"});

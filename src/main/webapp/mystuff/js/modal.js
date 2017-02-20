@@ -6,6 +6,7 @@ $( function() {
         $( ".modal-content" ).css({"animation-delay": "0.1s", 
 								"animation-duration": "0.8s"
         });
+        $( "#pop-modal").css("display", "none");
         setTimeout( function() {
         	$('.modal').remove();
         }, 1000); 
@@ -58,3 +59,9 @@ $( ".down-btn" ).hover(
 		$( this ).removeClass( "animated jello" );
 	}
 );
+
+$(function() {
+	$(document.body).on("click", "#pop-modal", function() {
+		$(".pop-modal").css("display", "block"); 
+	});
+});
