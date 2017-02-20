@@ -109,6 +109,10 @@ body { margin: 0px;}
   text-decoration: none;
 }
 
+#mystuff {
+	border-bottom: rgba(0,0,0,0);
+}
+
 #main_lnb > ul {
   overflow: hidden;
   margin: 0 ;

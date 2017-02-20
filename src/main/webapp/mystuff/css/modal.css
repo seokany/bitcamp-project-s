@@ -5,7 +5,9 @@
 }
 
 #container {
-  width: 100%; 
+  width: 100vmax; 
+  height: 100vmax;
+  background-color: red;
   font-size: 13px; 
 }
 
@@ -61,14 +63,6 @@
 
 #like-c-btn {
   display: none;
-}
-
-#like-btn:hover #like-n-btn {
-	display: none;
-}
-
-#like-btn:hover #like-c-btn{
-	display: inline-block;
 }
 
 #down-btn img:nth-child(2) {

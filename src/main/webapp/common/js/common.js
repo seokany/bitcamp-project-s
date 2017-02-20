@@ -10,27 +10,24 @@ $( function() {
 	});
 	
 });
-	
-//		$.getJSON("../auth/loginUser.json", function(ajaxResult) {
-//			
-//			if (ajaxResult.status == "fail") {
-//				$('#logon-div').css('display', 'none');
-//				$('#login-btn').click(function(event) {
-//					event.preventDefault(); 
-//					location.href = '../auth'; 
-//				});
-//				return; 
-//			}
-//			$('#logoff-div').css('display', 'none'); 
-//			if (ajaxResult.data.photoPath == null) 
-//				$('#logon-img').css('display', 'none'); 
-//			if (ajaxResult.data.photoPath != null) 
-//				$('#logon-div img').attr('src', '../upload/' + ajaxResult.data.photoPath); 
-//			$('#logon-div span').text(ajaxResult.data.name); 
-//			$('#logout-btn').click(function(event) {
-//				event.preventDefault(); 
-//				$.getJSON('../auth/logout.json', function(ajaxResult) {
-//					location.href = '../auth'; 
-//				});
-//			});
-//		});
+
+$(function() {
+	var pageState = document.location.href.split("/");
+	if (pageState[4] == "mystuff") {
+		$("#mystuff").css({"border-bottom": "2.5px solid #86F021",
+					"text-decoration": "none"});
+	} else if (pageState[4] == "mentos") {
+		$("#mentos").css({"border-bottom": "2.5px solid #86F021",
+			"text-decoration": "none"});
+	} else if (pageState[4] == "seeds") {
+		$("#seeds").css({"border-bottom": "2.5px solid #86F021",
+			"text-decoration": "none"});
+	} else if (pageState[4] == "setting") {
+		$("#setting").css({"border-bottom": "2.5px solid #86F021",
+			"text-decoration": "none"});
+	}
+});
+
+//$(function() {
+//	$(iframe).css("display:none");
+//});
