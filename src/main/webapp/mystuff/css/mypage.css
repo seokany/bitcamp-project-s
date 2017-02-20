@@ -45,9 +45,8 @@ img { border: 0;}
 
 
 .list-type ul {  /* 추천목록 좋아요 목록 바깥 틀 */
-    width: 200px;
+    width: 220px;
     margin: 0 auto;
-    padding-left: 10%;
     margin-bottom:5%;
 /*     border: 1px solid; */
 }
@@ -62,13 +61,17 @@ display: inline-block;
 	border-bottom:2px solid blue;
 }
 
-#rec-list:hover {
-	border-bottom:2px solid blue;
+/* #rec-list a:hover,
+#like-list a:hover {
+	text-decoration:none;
+} */
+ 
+#like-list:hover, #rec-list:hover,
+.rec-btn:hover, .like-btn:hover {
+	font-size:17px;
+text-decoration:none;
 }
 
-#like-list:hover {
-  border-bottom:2px solid blue;
-}
 
 /* .object .rec-list-htm, */
 /* .object .like-list-htm{ */
@@ -182,9 +185,15 @@ cursor: pointer;
     color: rgba(38, 38, 38, 0.5);
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
-     .title:hover {
+    #all-like-list .title:hover {
          /* background: radial-gradient(50% 50%, #fff, #fff); */
-     color: yellow;
+     color: indianred;
+     text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
+     }
+     
+     #all-rec-list .title:hover {
+         /* background: radial-gradient(50% 50%, #fff, #fff); */
+     color: firebrick;
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
   
@@ -249,8 +258,15 @@ cursor: pointer;
   
 } 
 
-.title-btn {
-  width:150px;
+#all-rec-list .title {
+  width:75px;
+      display: inline-block;
+    position: relative;
+  
+}
+
+#all-like-list .title {
+  width:120px;
       display: inline-block;
     position: relative;
   
@@ -283,19 +299,38 @@ cursor: pointer;
    .rec-job1, .rec-job2, .rec-mento1, .rec-mento2,
    .rec-model1, .rec-model2, 
    .rec-video1, .rec-video2 {
-     border-radius: 5px;
+     border-radius: 18px;
    }
    
    
     .job-conts, .model-conts, .mento-conts, .video-conts {
   position: relative;
-    margin-right: 50px;
-    margin-bottom:10%;
    display:inline-block;
-    width:200px;
-  height: 180px;
+    width: 250px;
+    padding-left: 3px;
+    height: 235px;
    
    } 
+   
+   .job2-conts, .model2-conts, .mento2-conts, .video2-conts {
+   position: relative;
+    display:none;
+    width: 250px;
+    padding-left: 3px;
+    height: 235px;
+   
+   }
+   
+   .job-conts:hover, .model-conts:hover, .mento-conts:hover, .video-conts:hover,
+   .job2-conts:hover, .model2-conts:hover, .mento2-conts:hover, .video2-conts:hover {
+   background-color: cornflowerblue;
+   opacity:0.7;
+   border-radius: 15px;
+   cursor:pointer;
+   z-index:100;
+   
+   }
+    
    
     .job-name span,
     .mento-name span,
@@ -389,14 +424,7 @@ cursor: pointer;
      color:#585858;
     }
     
-   .job2-conts, .model2-conts, .mento2-conts, .video2-conts {
-   position: relative;
-    margin-right: 50px;
-    display:none;
-    width:200px;
-   height: 180px;
    
-   }
    
    .job-btm, .mento-btm, .video-btm, .model-btm {
    width:110%;
@@ -453,12 +481,12 @@ cursor: pointer;
     .mento-name img,
     .model-name img,
     .video-name img {
-      width: 100%;
-      height: 100%;
-    }
+     max-width: 100%; 
+     height: auto;
+    } 
     
     .job-effect,  .model-effect, .mento-effect, .video-effect {
-    width: 800px;
+    width: 850px;
     height: 250px;
     background: #fff;
     margin: 0 auto;
@@ -495,10 +523,6 @@ cursor: pointer;
   
 } */
 
- 
- imag {
- width: 120%;
- }
 
 /* .mySlides {
 margin-left: 25%;
@@ -526,18 +550,18 @@ margin-left: 25%;
   
 }
 
-/* .jcarousel-wrapper .selector {
+ .jcarousel-wrapper .selector {
   width:100%;
   height:100%;
   margin-bottom:50%;
-} */
+} 
 
 .jcarousel-wrapper {
     margin: 20px auto;
     position: relative;
     border: 10px solid #fff;
-    width: 450px;
-    height: 250px;
+    width: 430px;
+    height: 230px;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;
@@ -566,39 +590,37 @@ margin-left: 25%;
 .jcarousel {
     position: relative;
     overflow: hidden;
+        padding-left: 5px;
 }
 
-.jcarousel ul {
+.model-short {
+	position: relative;
+}
+
+ .jcarousel ul {
     width: 20000em;
     position: relative;
     list-style: none;
     margin: 0;
     padding: 0;
-}
 
-.jcarousel li {
-  float: left;
-    width:450px;
-    height:250px;
-}
+} 
 
-img{
-    width:450px;
-    height:250px;
-}
+ .jcarousel li {
+float: left;
+    width:430px;
+    height:230px;
+    text-align: -webkit-match-parent;
+} 
 
-.jcarousel li .rec-model-title {
+
+.rec-model-title {
   position:absolute;
     width:470px;
     height:60px;
     margin-bottom:200px;
-}
+} 
 
-.jcarousel li h1, .jcarousel li p{
-  position:relative;
-    width:450px;
-    height:50px;
-}
 
 /** Carousel Controls **/
 
@@ -652,7 +674,6 @@ img{
 .jcarousel-pagination a {
     text-decoration: none;
     display: inline-block;
-    
     font-size: 11px;
     line-height: 14px;
     min-width: 14px;
@@ -798,4 +819,106 @@ img{
     box-sizing: border-box;
 }
 
+
+
+
+/* 좋아요 목록  X 버튼 */
+
+#x-btn {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    left: 205px;
+    top: 7px;
+}
+.modal-btn {
+    cursor: pointer;
+}
+ .job-conts img, .model-conts img, .mento-conts img, .video-conts img,
+.job2-conts img, .mento2-conts img, .video2-conts img {
+    border: 0;
+}
+.job-conts img, .model-conts img, .mento-conts img, .video-conts img,
+.job2-conts img, .mento2-conts img, .video2-conts img {
+    width: 20px;
+    height: 20px;
     
+} 
+    
+    
+    /* hover 그림자 생기기 */
+    
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+
+
+    /* hover X 삭제 허버 */
+
+ .hvr-icon-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  padding-right: 2.2em;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+/*   z-index:1000; */
+}
+.hvr-icon-grow-rotate:before {
+  content: "\f095";
+  position: absolute;
+  right: 1em;
+  padding: 0 1px;
+  font-family: FontAwesome;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-icon-grow-rotate:hover:before, .hvr-icon-grow-rotate:focus:before, .hvr-icon-grow-rotate:active:before {
+  -webkit-transform: scale(1.5) rotate(12deg);
+  transform: scale(1.5) rotate(12deg);
+}

@@ -109,9 +109,9 @@ body { margin: 0px;}
   text-decoration: none;
 }
 
-#mystuff {
-	border-bottom: rgba(0,0,0,0);
-}
+/*  #mystuff, #seeds, #mentos, #setting { */
+/* 	border-bottom: 2.5px solid #86F021; */
+/* }  */
 
 #main_lnb > ul {
   overflow: hidden;
