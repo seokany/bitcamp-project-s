@@ -9,9 +9,9 @@ $( function() {
 		$("#footer").html(result); 
 	});
 	
-});
-
-$(function() {
+	
+	$(document).ready(function() {
+		
 	var pageState = document.location.href.split("/");
 	if (pageState[4] == "mystuff") {
 		$("#mystuff").css({"border-bottom": "2.5px solid #86F021",
@@ -26,7 +26,11 @@ $(function() {
 		$("#setting").css({"border-bottom": "2.5px solid #86F021",
 			"text-decoration": "none"});
 	}
+	});
 });
+	
+
+	
 
 //$(function() {
 //	$(iframe).css("display:none");

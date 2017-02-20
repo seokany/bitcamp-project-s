@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+#test {
+    width: 100%;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    font: 1em Arial, Tahoma, sans-serif;
+}
+#test > ol {
+}
+#test > ol > li {
+    margin-bottom: 1.5em;
+}
+#test > ol > li > .question {
+    font-weight: bold;
+}
+#test > ol > li > div[class!="question"] {
+    line-height: 1em;
+}
+#test > ol > li input[type="radio"] {
+    margin: 3px 6px 0 0;
+}
+#test #btn_submit {
+    margin: 5px auto;
+    padding: 5px 14px;
+    font-weight: bold;
+}
+#result {
+    display: none;
+    background: #eee;
+    border: 1px dotted #444;
+    padding: 20px;
+    text-align: center;
+}
+#resultText {
+    font-size: 1.6em;
+    margin: 0;
+    padding: 0.8em;
+}
+#result > div {
+    margin-bottom: 1.5em;
+}
+#personality-descriptions {
+    margin: 1.5em 0 0;
+}
+#personality-descriptions > div {
+    display: none;
+    margin-bottom: 1.5em;
+}
+#dynamic-links {
+    margin-bottom: 0;
+}
+}

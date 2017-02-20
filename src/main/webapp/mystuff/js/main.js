@@ -213,7 +213,29 @@ function ButtonUp() {
 })(jQuery);
 
 	
-	
+// 헤더 부분 
+$(document).ready(function(){ 
+	  //모든 웹페이지의 항목들이 로딩이 완료되었을때 처리해줄 내용
+	var pageState = document.location.href.split("/");
+	if (pageState[4] == "mystuff") {
+		$("#mystuff").css({"border-bottom": "2.5px solid #86F021"});
+	} else if (pageState[4] == "mentos") {
+		console.log(pageState);
+		$("#mentos").css({"border-bottom": "2.5px solid #86F021",
+			"text-decoration": "none"});
+	} else if (pageState[4] == "seeds") {
+		console.log(pageState);
+		$("#seeds").css({"border-bottom": "2.5px solid #86F021",
+			"text-decoration": "none"});
+	} else if (pageState[4] == "setting") {
+		console.log(pageState);
+		$("#setting").css({"border-bottom": "2.5px solid #86F021",
+			"text-decoration": "none"});
+	}
+	else {
+		alert("오류");
+	}
+});
 	
 	
 	
