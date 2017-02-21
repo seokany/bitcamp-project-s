@@ -1,13 +1,10 @@
 $( function() { 
     $(document.body).on( "click", ".modal-esc", function() { 
-    	$( ".modal" ).removeClass("animated zoomOut");
-        $( ".modal" ).addClass("animated zoomOut");
-        $( ".modal-back" ).css("animation-duration", "0.5s");
-        $( ".modal-content" ).css({"animation-delay": "0.1s", 
-								"animation-duration": "0.8s"
-        });
+    	$( ".modal-back" ).addClass("animated fadeOut");
+        $( ".modal-content" ).addClass("animated slideOutRight");
+        $( ".modal-back" ).css("animation-duration", "0.8s");
+        $( ".modal-content" ).css("animation-duration", "0.5s");
         setTimeout( function() {
-        	$('.modal').remove();
         	$(".pop-modal", parent.document).css("display", "none");
         }, 1000); 
     });
@@ -60,14 +57,9 @@ $( ".down-btn" ).hover(
 	}
 );
 
-var frameSrc = "";
 $(function() {
-	frameSrc = ($("#pop-modal",parent.document).attr("frame-src"));
-});
-
-$(function() {
-	$(document.body).on("click", "#pop-modal", function() {
-			$(".pop-modal").css("display", "block");
-			$("#iframe").attr("src", frameSrc);
+	$(document.body).on("click", ".frame-modal", function() {
+		$("#iframe").attr("src", $($(this)).attr("frame-src"));
+		$(".pop-modal").css("display", "block");
 	});
 });
