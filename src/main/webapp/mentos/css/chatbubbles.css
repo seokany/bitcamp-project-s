@@ -10,7 +10,7 @@
   background-color: lightyellow;
 }
 .border{
-  border: 8px solid #666;
+  border: 3px solid #666;
 }
 .round{
   border-radius: 30px;
@@ -217,8 +217,8 @@
   width: 0;
   height: 0;
   left: auto;
-  right: -40px;
-  top: -8px;
+  right: -35px;
+  top: -5px;
   bottom: auto;
   border: 32px solid;
   border-color: #666 transparent transparent transparent;
@@ -226,13 +226,13 @@
 .tri-right.right-top:after{
   content: ' ';
   position: absolute;
-  width: 0;
+  width: 20px;
   height: 0;
   left: auto;
-  right: -20px;
+  right: -23px;
   top: 0px;
   bottom: auto;
-  border: 20px solid;
+  border: 25px solid;
   border-color: lightyellow transparent transparent transparent;
 }
 
