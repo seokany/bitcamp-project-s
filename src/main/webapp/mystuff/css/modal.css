@@ -38,7 +38,7 @@
 .modal-content {
 	position: relative;
 	margin-bottom: 100px;
-	top: 80px;
+	top: 10vmin;
   width: 100%; 
   border-radius: 10px; 
   z-index: 10000;
@@ -83,7 +83,7 @@
 #x-btn {
 	position: absolute;
   top: -40px;
-  right: -50px;
+  right: -60px;
 }
 
 #comment {

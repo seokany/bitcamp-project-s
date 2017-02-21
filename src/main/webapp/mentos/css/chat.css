@@ -10,18 +10,17 @@ body {
 
 .planning-box {
   width: 100%;
-  height: 400px;
-	background: pink;
+  height: 480px;
+	background: #fff;
 }
 
 
 /* 여기부터 whole ? */
 
 .whole_box {
-	width: 900px;
-	min-width: 480px;
-	height: 750px;
-	background: #fff;
+	width: 960px;
+	height: 775px;
+	background: #c0c0c0;
 	padding: 25px;
 }
 
