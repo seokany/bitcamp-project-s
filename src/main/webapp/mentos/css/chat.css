@@ -15,13 +15,7 @@ body {
 }
 
 
-
-
-
-
-
-
-
+/* 여기부터 whole ? */
 
 .whole_box {
 	width: 960px;
@@ -29,6 +23,7 @@ body {
 	background: #c0c0c0;
 	padding: 25px;
 }
+
 .chatlogs {
 	padding: 10px;
 	width: 100%;

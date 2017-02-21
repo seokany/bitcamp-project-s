@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="css/mypage.css">
+<link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/Daum_SemiBold.css">
 <link rel="stylesheet" type="text/css" href="cssstyles.css" />
 <link rel="stylesheet" type="text/css" href="../common/css/common.css" />
@@ -72,54 +73,54 @@ web01 - ex9 / 86.html
 <!-- <div class="toggler"> -->
   <div id="rec-job" class="job-effect ui-widget-content ui-corner-all">
   
-   <div id="job1-conts" class="job-conts" onclick="location.href='work.html'">
+   <div id="job1-conts" class="job-conts frame-modal"  frame-src="work.html">
 
      <div class="rec rec-job1" id="job1" style="background-image:url('img/program.jpg')"></div>
      <div class="job-btm">
      <div class="job-name-favor"><span class="job-name">프로그래머</span></div>
      <!-- <span class="favor-name">좋아요<input id="favor-btn1" type="img" src="img/heart.png" onclick="changeimg.call(this)"></span> -->
-     <div class="job-detail"><p>프로그래머가 갖춰야할 사항은 인내심이다. <br>인내를 가지고 일에 몰두해야 한다.</p></div>
+     <div class="job-detail"><p>프로그래머가 갖춰야할 사항은 <span>인내심이다.</span> <br>인내를 가지고 일에 몰두해야 한다.</p></div>
      </div>
      </div>
      <div class="job-conts">
      <div class="rec rec-job1" id="job2" style="background-image:url('img/actor.jpg')"></div>
      <div class="job-btm">
       <div class="job-name-favor"><span class="job-name">영화배우</span></div>
-     <div class="job-detail"><p>영화배우가 갖춰야할 사항은 집중력이다. <br>집중력을 가지고 연기에 몰입해야 한다</p></div>
+     <div class="job-detail"><p>영화배우가 갖춰야할 사항은 <span>집중력이다.</span> <br>집중력을 가지고 연기에 몰입해야 한다</p></div>
      </div>
      </div>
      <div class="job-conts">
      <div class="rec rec-job1" id="job3" style="background-image:url('img/teacher.jpg')"></div>
      <div class="job-btm">
       <div class="job-name-favor"><span class="job-name">선생님</span></div>
-    <div class="job-detail"><p>선생님이 갖춰야할 사항은 사랑이다. <br>사랑으로 학생을 대해야 한다.</p></div>
+    <div class="job-detail"><p>선생님이 갖춰야할 사항은 <span>리더쉽이다.</span> <br>바른 리더쉽으로 학생을 대해야 한다.</p></div>
      </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job4" style="background-image:url('img/police.jpg')"></div>
      <div class="job-btm">
-     <div class="job-name-favor"><span class="job-name">선생님</span></div>
-     <div class="job-detail"><p>경찰관이 갖춰야할 사항은 냉철함이다. <br>항상 정확한 판단을 내려야한다.</p></div>
+     <div class="job-name-favor"><span class="job-name">경찰관</span></div>
+     <div class="job-detail"><p>경찰관이 갖춰야할 사항은 <span>냉철함이다.</span> <br>항상 정확한 판단을 내려야한다.</p></div>
         </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job5" style="background-image:url('img/doc.jpg')"></div>
      <div class="job-btm">
-     <div class="job-name-favor"><span class="job-name">선생님</span></div>
-     <div class="job-detail"><p>의사들이 갖춰야할 사항은 냉철함이다. <br>항상 정확한 판단을 내려야한다.</p></div>
+     <div class="job-name-favor"><span class="job-name">의사</span></div>
+     <div class="job-detail"><p>의사들이 갖춰야할 사항은 <span>냉철함이다.</span> <br>항상 정확한 판단을 내려야한다.</p></div>
      </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job6" style="background-image:url('img/arc.jpg')"></div>
      <div class="job-btm">
-     <div class="job-name-favor"><span class="job-name">선생님</span></div>
-    <div class="job-detail"><p>건축가가 가져야할 사항은 섬세함이다. <br>섬세함으로 건축한다.</p></div>
+     <div class="job-name-favor"><span class="job-name">건축가</span></div>
+    <div class="job-detail"><p>건축가가 가져야할 사항은 <span>섬세함이다.</span> <br>섬세함으로 건축한다.</p></div>
      </div>
      </div>
   </div>
   </div> 
 <!-- </div> -->
-
+<hr class="all-hr job-all">
 <!-- =====================================추천 인물 =============================== -->
  <div class="all-rec-model">
  <div class="title-bar">
@@ -139,7 +140,7 @@ web01 - ex9 / 86.html
                 <div class="jcarousel">
                 
                     <ul>
-                      <li> <a href="person.html"><img src="img/steve.jpg" width="420" height="230" alt=""></a></li>
+                      <li class="frame-modal" frame-src="person.html"><img src="img/steve.jpg" width="420" height="230" alt=""></li>
                       <li><img src="img/lee.jpg" width="420" height="230" alt=""></li>
                       <li><img src="img/eom.jpg" width="420" height="230" alt=""></li>
                       <li><img src="img/teacher.jpg" width="420" height="230" alt=""></li>
@@ -156,7 +157,8 @@ web01 - ex9 / 86.html
             </div>
         </div> 
 </div>
- 
+</div>
+ <hr class="all-hr all-rec-model">
 <!-- ========================추천멘토================== -->
   
   <div class="all-rec-mento">
@@ -218,8 +220,8 @@ web01 - ex9 / 86.html
      </div>
   </div>
 </div>
+<hr class="all-hr all-rec-mento">
 <!-- ====================================추천 영상=================================== -->
-
  <div class="video-all">
    <div class="title-bar">
 <h4 id="rec-video-title" class="title-btn video-more title hvr-float-shadow">추천영상</h4>
@@ -344,6 +346,7 @@ web01 - ex9 / 86.html
      </div>
   </div>
  </div>
+ <hr class="all-hr job-all">
 
 <!-- =====================================좋아하는 인물 =============================== -->
  <div class="all-rec-model">
@@ -412,6 +415,7 @@ web01 - ex9 / 86.html
      </div>
   </div>
 </div>
+<hr class="all-hr all-rec-model">
 <!-- ========================종아하는 멘토================== -->
   
  <div class="all-rec-mento">
@@ -479,6 +483,7 @@ web01 - ex9 / 86.html
      </div>
   </div>
 </div>
+<hr class="all-hr all-rec-mento">
 <!-- ====================================종아하는 영상=================================== -->
 
   <div class="video-all">
@@ -490,7 +495,6 @@ web01 - ex9 / 86.html
   <div id="rec-video" class="video-effect ui-widget-content ui-corner-all">
   
   <div class="video-conts">
-  <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
      <div class="rec rec-video1" id="video1" style="background-image:url('img/video-1.jpg')"></div>
                <div class="video-btm">
        <div class="video-name-favor"><span class="video-name">Steve</span></div>
@@ -501,7 +505,6 @@ web01 - ex9 / 86.html
      
      
      <div class="video-conts">
-     <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
      <div class="rec rec-video1" id="video2" style="background-image:url('img/video-2.jpg')"></div>
                <div class="video-btm">
 <div class="video-name-favor"><span class="video-name">Steve</span></div>
@@ -510,7 +513,6 @@ web01 - ex9 / 86.html
      </div>
      </div>
      <div class="video-conts">
-     <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
      <div class="rec rec-video1" id="video3" style="background-image:url('img/video-3.jpg')"></div>
                      <div class="video-btm">
        <div class="video-name-favor"><span class="video-name">Steve</span></div>
@@ -519,7 +521,6 @@ web01 - ex9 / 86.html
      </div>
      </div>
       <div class="video2-conts">       
-      <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
      <div class="rec rec-video2" id="video4" style="background-image:url('img/video-4.jpg')"></div>
                     <div class="video-btm">
      <div class="video-name-favor"><span class="video-name">Steve</span></div>
@@ -528,7 +529,6 @@ web01 - ex9 / 86.html
      </div>
      </div>
      <div class="video2-conts">
-     <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
      <div class="rec rec-video2" id="video5" style="background-image:url('img/video-5.jpg')"></div>
                     <div class="video-btm">
      <div class="video-name-favor"><span class="video-name">Steve</span></div>
@@ -537,7 +537,6 @@ web01 - ex9 / 86.html
      </div>
      </div>
      <div class="video2-conts">
-     <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
      <div class="rec rec-video2" id="video6" style="background-image:url('img/video-6.jpg')"></div>
                     <div class="video-btm">
     <div class="video-name-favor"><span class="video-name">Steve</span></div>
@@ -550,8 +549,11 @@ web01 - ex9 / 86.html
 </div>
 </div> <!-- all-rec-list -->
 </div> <!-- object -->
-</div>
 
+
+  <div class="pop-modal modal-esc" style="position: fixed; z-index:10000; top:0;">
+  <iframe id="iframe" class="pop-modal modal-esc pulse" scrolling="yes" frameborder="0"></iframe>
+  </div>
 <div id="footer"></div>
 
 <!-- <script src="../node_modules/jquery/dist/jquery.js"></script> -->
@@ -561,6 +563,7 @@ web01 - ex9 / 86.html
 <script type="text/javascript" src="js/jquery.js"></script>
  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
 <script src="js/main.js"></script>
+<script src="js/modal.js"></script>
 <script src="../common/js/common.js"></script>
 <script src="js/bit.js"></script>
  
