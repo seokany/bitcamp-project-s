@@ -9,20 +9,21 @@ body {
 	background: #C0C0C0;
 }
 .chatbox {
-	width: 500px;
-	min-width: 380px;
-	height: 600px;
+	width: 900px;
+	min-width: 480px;
+	height: 700px;
 	background: #fff;
 	padding: 25px;
-	margin: 20px auto;
+	margin: 40px auto;
 	box-shadow: 0 3px #ccc;
 }
 .chatlogs {
 	padding: 10px;
 	width: 100%;
-	height: 450px;
+	height: 230px;
 	overflow-x: hidden;
 	overflow-y: scroll;
+  background: cornsilk;
 }
 
 .chatlogs::-webkit-scrollbar {
@@ -35,16 +36,10 @@ body {
 }
 
 .chat {
-	display: flex;
+	/*display: flex;
 	flex-flow: row wrap;
-	align-items: flex-start;
+	align-items: flex-start;*/
 	margin-bottom: 10px;
-}
-.chat .user-photo {
-	width: 60px;
-  height: 60px;
-  background: #fff;
-  border-radius: 50%;
 }
 
 .chat .chat-message {
@@ -58,28 +53,38 @@ body {
 
 .friend .chat-message {
 	background: #EBDEF0;
+	float:left;
+}
+.chat.friend {
+	overflow: hidden;
 }
 
 .self .chat-message {
   background: #FADBD8;
+  float:right;
   order: -1;
+}
+.chat.self {
+  overflow: hidden;
 }
 
 .chat-form {
-  margin-top: 20px;
-  display: flex;
-  align-items: flex-start;
+  overflow: hidden;
+  background: #5499C7;
+  height: 50px;
+  margin: 10px 0;
 }
 .chat-form textarea {
 	background: #fbfbfb;
-	width: 75%;
-	height: 50px;
+	width: 60%;
+	height: 30px;
 	border: 2px solid #eee;
-	border-radius: 3px;
+	border-radius: 300px;
 	resize: none;
-	padding:10px;
-	font-size: 15px;
+	padding:2px;
+	font-size: 12px;
 	color: #999;
+	margin: 10px 10px 10px 30px;
 }
 
 .chat-form textarea:focus {
@@ -95,18 +100,17 @@ body {
   background: rgba(0,0,0,.1);
 }
 
-
-
 .chat-form button {
   background: gray;
   padding: 5px 15px;
-  font-size: 30px;
+  font-size: 12px;
   color: #fff;
   border: none;
-  margin: 0 10px;
-  border-radius: 3px;
+  margin: 10px 22px;
+  border-radius: 300px;
   box-shadow:0 3px 0 gray;
   cursor:  pointer;
+  float: right;
   
   -webkit-transition: background .2s ease;
   -moz-transition: background .2s ease;
@@ -117,7 +121,28 @@ body {
 	background: black;
 }
 
+.chat-form .mento-photo {
+	float: left;
+  width: 40px;
+  height: 40px;
+  background: pink;
+  border-radius: 50%;
+  margin: 5px;
+  overflow: hidden;
+}
 
+.mento-photo img {
+  width: 40px;
+  height: 40px;
+}
+
+.chat-form .mento-name {
+	float: left;
+	height: 40px;
+	margin-top: 10px;
+	color: #fff;
+	font-weight: bold;
+}
 
 
 

@@ -4,37 +4,42 @@
 <meta charset="UTF-8">
 <title>심플 채팅화면 구성하기</title>
 <link rel="stylesheet" href="css/chat.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="../mystuff/css/modal.css">
 </head>
 <body>
+<div class="modal modal-esc modal-back"></div>
+<div class="modal modal-content animated zoomIn">
 
   <div class="chatbox">
   
     <div class="chatlogs">
     
       <div class="chat friend">
-        <div class="user-photo"></div>
-        <p class="chat-message">안녕하세요</p>
+        <p class="chat-message"> 제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
       </div>
       <div class="chat self">
-        <div class="user-photo"></div>
         <p class="chat-message">안녕?</p>
       </div>
       <div class="chat friend">
-        <div class="user-photo"></div>
-        <p class="chat-message">모든 국민은 헌법과 법률이 정한 법관에 의하여 법률에 의한 재판을 받을 권리를 가진다. 대한민국은 민주공화국이다. 모든 국민은 근로의 의무를 진다. 국가는 근로의 의무의 내용과 조건을 민주주의원칙에 따라 법률로 정한다. 재판의 전심절차로서 행정심판을 할 수 있다. 행정심판의 절차는 법률로 정하되, 사법절차가 준용되어야 한다.
-         대한민국은 국제평화의 유지에 노력하고 침략적 전쟁을 부인한다. 비상계엄하의 군사재판은 군인·군무원의 범죄나 군사에 관한 간첩죄의 경우와 초병·초소·유독음식물공급·포로에 관한 죄중 법률이 정한 경우에 한하여 단심으로 할 수 있다. 다만, 사형을 선고한 경우에는 그러하지 아니하다. 정당의 설립은 자유이며, 복수정당제는 보장된다.</p>
+        <p class="chat-message"> 좋은 답변이 되었습니다.</p>
       </div>
      
       
     </div>
     
     <div class="chat-form">
-      <textarea></textarea>
-      <button>전송</button>
+      <div class="mento-photo"><img alt="mento-photo" src="img/yeon.jpg"></div>
+      <div class="mento-name">Mento 천지연</div>
+      <textarea placeholder="이곳에 질문을 적어주세요. 단, 상대방을 위해 정중히 적어주세요."></textarea>
+      <button>질문하기</button>
     </div>
     
   </div>
 
+</div>
 
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../mystuff/js/modal.js"></script>
 </body>
 </html>
