@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="css/mypage.css">
+<link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="css/Daum_SemiBold.css">
 <link rel="stylesheet" type="text/css" href="cssstyles.css" />
 <link rel="stylesheet" type="text/css" href="../common/css/common.css" />
@@ -72,7 +73,7 @@ web01 - ex9 / 86.html
 <!-- <div class="toggler"> -->
   <div id="rec-job" class="job-effect ui-widget-content ui-corner-all">
   
-   <div id="job1-conts" class="job-conts" onclick="location.href='work.html'">
+   <div id="job1-conts" class="job-conts frame-modal"  frame-src="work.html">
 
      <div class="rec rec-job1" id="job1" style="background-image:url('img/program.jpg')"></div>
      <div class="job-btm">
@@ -139,7 +140,7 @@ web01 - ex9 / 86.html
                 <div class="jcarousel">
                 
                     <ul>
-                      <li> <a href="person.html"><img src="img/steve.jpg" width="420" height="230" alt=""></a></li>
+                      <li class="frame-modal" frame-src="person.html"><img src="img/steve.jpg" width="420" height="230" alt=""></li>
                       <li><img src="img/lee.jpg" width="420" height="230" alt=""></li>
                       <li><img src="img/eom.jpg" width="420" height="230" alt=""></li>
                       <li><img src="img/teacher.jpg" width="420" height="230" alt=""></li>
@@ -549,6 +550,10 @@ web01 - ex9 / 86.html
 </div> <!-- all-rec-list -->
 </div> <!-- object -->
 
+
+  <div class="pop-modal modal-esc" style="position: fixed; z-index:10000; top:0;">
+  <iframe id="iframe" class="pop-modal modal-esc pulse" scrolling="yes" frameborder="0"></iframe>
+  </div>
 <div id="footer"></div>
 
 <!-- <script src="../node_modules/jquery/dist/jquery.js"></script> -->
@@ -558,6 +563,7 @@ web01 - ex9 / 86.html
 <script type="text/javascript" src="js/jquery.js"></script>
  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
 <script src="js/main.js"></script>
+<script src="js/modal.js"></script>
 <script src="../common/js/common.js"></script>
 <script src="js/bit.js"></script>
  

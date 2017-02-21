@@ -206,6 +206,10 @@ text-decoration:none;
      color: #3c3e3e;;
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
+     
+     .title span {
+     font-size:10px;
+     }
   
   
    #list-form{
@@ -268,14 +272,14 @@ text-decoration:none;
 } 
 
 #all-rec-list .title {
-  width:75px;
+  width:150px;
       display: inline-block;
     position: relative;
   
 }
 
 #all-like-list .title {
-  width:120px;
+  width:170px;
       display: inline-block;
     position: relative;
   
@@ -631,10 +635,13 @@ margin-left: 25%;
 } 
 
  .jcarousel li {
-float: left;
+    float: left;
     width:430px;
     height:210px;
     text-align: -webkit-match-parent;
+} 
+ .jcarousel li:hover {
+cursor: pointer;
 } 
 
 
