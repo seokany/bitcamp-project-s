@@ -155,12 +155,21 @@ text-decoration:none;
 
 /* =================================아래부터 추천직업=============================================================== */
   .title-bar {
-cursor: pointer;
-    width: 100%;
+    cursor: pointer;
+    width: 111%;
     height: 50px;
+    position: relative;
+    padding-left:10px;
+    border-radius:10px;
      } 
      
+     .title-bar:hover {
+     background-color:rgba(255, 0, 0, 0.52);
      
+     }
+/*      .title-bar:hover > h4 {
+     background-color:blue;
+     } */
 /*       .title-bar:hover {
       background: radial-gradient(50% 50%, #fff, #fff);
       background-color: blue;
@@ -181,19 +190,20 @@ cursor: pointer;
     .title {
     width:200px;
     font-family: 'Daum_SemiBold';
-    background: radial-gradient(50% 50%, #fff, #fff);
+    background-color: transparent;
+/*     radial-gradient(50% 50%, #fff, #fff) */
     color: rgba(38, 38, 38, 0.5);
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
     #all-like-list .title:hover {
          /* background: radial-gradient(50% 50%, #fff, #fff); */
-     color: indianred;
+     color: #3c3e3e;;
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
      
      #all-rec-list .title:hover {
          /* background: radial-gradient(50% 50%, #fff, #fff); */
-     color: firebrick;
+     color: #3c3e3e;;
      text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
      }
   
@@ -254,7 +264,6 @@ cursor: pointer;
 .job-all, .all-rec-model, .all-rec-mento, .video-all {
   margin-left: 4%;
   width: 80%;
-  height: 40%;
   
 } 
 
@@ -344,6 +353,9 @@ cursor: pointer;
     font-size:10px;
      filter:alpha(style=2);
      color:#585858;
+    }
+     .job-detail span {
+     color:#ff8000;
     }
     
     .mento-detail p {
@@ -468,10 +480,12 @@ cursor: pointer;
    
     .all-btn { 
      width: 80px;
-    position: relative;
+    position: absolute;
     display: inline-block;
     bottom:30%;
-       margin-left: 100%;
+    top:10px;
+    right:10px;
+    height:20px;
 /*     margin-left: 710px; */
      
     }
@@ -488,9 +502,10 @@ cursor: pointer;
     width: 850px;
     height: 250px;
     background: #fff;
+    border-color:transparent;
     margin: 0 auto;
     padding-top: 10px;
-    padding-left: 60px;
+    padding-left: 50px;
         margin-bottom: 5%;
 }
 /*     border:1px solid; */
@@ -502,7 +517,17 @@ cursor: pointer;
      margin:0 auto;
      position:absolute; 
      padding: 0.4em; 
+     background-color:blue;
      }
+     
+   .all-hr {
+    margin-left: 4.3%;
+    margin-bottom: 3%;
+    border: none;
+    width: 88%;
+    border: 2px solid rgba(16, 16, 15, 0.56);
+    position: relative;
+    }
      
    /*   #title-btn-mento {
      padding-left: -50px;
