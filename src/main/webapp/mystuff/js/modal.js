@@ -6,7 +6,7 @@ $( function() {
         $( ".modal-content" ).css("animation-duration", "0.5s");
         setTimeout( function() {
         	$(".pop-modal", parent.document).css("display", "none");
-        }, 1000); 
+        }, 800); 
     });
 });
 
