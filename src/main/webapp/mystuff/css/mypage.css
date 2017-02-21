@@ -272,14 +272,14 @@ text-decoration:none;
 } 
 
 #all-rec-list .title {
-  width:150px;
+  width:75px;
       display: inline-block;
     position: relative;
   
 }
 
 #all-like-list .title {
-  width:170px;
+  width:150px;
       display: inline-block;
     position: relative;
   
