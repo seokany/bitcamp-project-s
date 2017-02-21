@@ -21,7 +21,7 @@ body {
 	width: 960px;
 	height: 775px;
 	background: #c0c0c0;
-	padding: 25px;
+	padding: 0;
 }
 
 .chatlogs {
@@ -50,12 +50,13 @@ body {
 }
 
 .chat .chat-message {
+  /*
   width: 70%;
   padding: 15px;
   margin: 5px 10px 0;
   border-radius: 10px;
   color: #fff;
-  font-size: 18px;
+  font-size: 18px;*/
 }
 
 .friend .chat-message {
@@ -157,3 +158,30 @@ body {
 
 
 
+.round{
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+
+}
+
+.tri-right.left-in:after{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: 38px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: lightyellow lightyellow transparent transparent;
+}
+.talk-bubble {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: auto;
+  background-color: lightyellow;
+}
