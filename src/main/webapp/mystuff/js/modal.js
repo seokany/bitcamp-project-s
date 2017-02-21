@@ -9,7 +9,6 @@ $( function() {
         setTimeout( function() {
         	$('.modal').remove();
         	$(".pop-modal", parent.document).css("display", "none");
-        	$("#iframe",parent.document).attr("src", function(i, val) {return val});
         }, 1000); 
     });
 });
@@ -61,8 +60,14 @@ $( ".down-btn" ).hover(
 	}
 );
 
+var frameSrc = "";
+$(function() {
+	frameSrc = ($("#pop-modal",parent.document).attr("frame-src"));
+});
+
 $(function() {
 	$(document.body).on("click", "#pop-modal", function() {
 			$(".pop-modal").css("display", "block");
+			$("#iframe").attr("src", frameSrc);
 	});
 });
