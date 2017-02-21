@@ -1,15 +1,11 @@
 $( function() { 
     $(document.body).on( "click", ".modal-esc", function() { 
-    	$( ".modal" ).removeClass("animated zoomOut");
-        $( ".modal" ).addClass("animated zoomOut");
-        $( ".modal-back" ).css("animation-duration", "0.5s");
-        $( ".modal-content" ).css({"animation-delay": "0.1s", 
-								"animation-duration": "0.8s"
-        });
+    	$( ".modal-back" ).addClass("animated fadeOut");
+        $( ".modal-content" ).addClass("animated slideOutRight");
+        $( ".modal-back" ).css("animation-duration", "0.8s");
+        $( ".modal-content" ).css("animation-duration", "0.5s");
         setTimeout( function() {
-        	$('.modal').remove();
         	$(".pop-modal", parent.document).css("display", "none");
-        	$("#iframe",parent.document).attr("src", function(i, val) {return val});
         }, 1000); 
     });
 });
@@ -62,7 +58,8 @@ $( ".down-btn" ).hover(
 );
 
 $(function() {
-	$(document.body).on("click", "#pop-modal", function() {
-			$(".pop-modal").css("display", "block");
+	$(document.body).on("click", ".frame-modal", function() {
+		$("#iframe").attr("src", $($(this)).attr("frame-src"));
+		$(".pop-modal").css("display", "block");
 	});
 });
