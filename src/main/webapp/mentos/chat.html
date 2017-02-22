@@ -29,7 +29,7 @@
 		    <div class="chatlogs">
 		     
         <div class="chat-wrap">
-					<div class="talk-bubble tri-right round border right-top">
+					<div class="talk-bubble tri-right round right-top">
 					  <div class="talktext">
 					    <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
 					  </div>
@@ -37,7 +37,7 @@
 				</div>
 				
 				<div class="chat-wrap">
-					<div class="talk-bubble tri-right round border left-in">
+					<div class="talk-bubble tri-right round left-in">
 					  <div class="talktext">
 					    <p>그게 인생이다.우하하하하핳ㅎ</p>
 					  </div>
@@ -45,7 +45,7 @@
 				</div>
 				
 				<div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -53,7 +53,7 @@
         </div>
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -61,7 +61,7 @@
         </div>
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -69,7 +69,7 @@
         </div>
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -77,7 +77,7 @@
         </div>
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -85,7 +85,7 @@
         </div>
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -94,7 +94,7 @@
         
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
+          <div class="talk-bubble tri-right round right-top">
             <div class="talktext">
               <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
             </div>
@@ -102,17 +102,17 @@
         </div>
         
         <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border right-top">
-            <div class="talktext">
-              <p>제가 가진 학벌이나 학업이 남들보다 뒤쳐집니다. 어떻게 해야 할까요?</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="chat-wrap">
-          <div class="talk-bubble tri-right round border left-in">
+          <div class="talk-bubble tri-right round left-in">
             <div class="talktext">
               <p>그게 인생이다.우하하하하핳ㅎ</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chat-wrap" class="chat" ng-app="chat" ng-controller="chatController">
+          <div class="talk-bubble tri-right round right-top">
+            <div class="talktext" ng-repeat="message in messages" class="{{message.from}}">
+              <p>{{message.text}}</p>
             </div>
           </div>
         </div>
@@ -123,9 +123,25 @@
 		    <div class="chat-form">
 		      <div class="mento-photo"><img alt="mento-photo" src="img/yeon.jpg"></div>
 		      <div class="mento-name">Mento 스티븐 연</div>
-		      <textarea placeholder="이곳에 질문을 적어주세요. 단, 상대방을 위해 정중히 적어주세요."></textarea>
-		      <button>질문하기</button>
+		      <textarea id="message-input" class="message-input" ng-model="chatText" ng-enter="triggerSubmit()" placeholder="이곳에 질문을 적어주세요. 단, 상대방을 위해 정중히 적어주세요."></textarea>
+		      <button ng-click="addMessage()" id="send-btn">질문하기</button>
 		    </div>
+		    
+		    <section class="chat" ng-app="chat" ng-controller="chatController">
+  <!--Messages-->
+  <section class="messages clearfix">
+    
+    <div ng-repeat="message in messages" class="{{message.from}}">
+      <p>{{message.text}}</p>
+    </div>
+  </section>
+  <!--Footer-->
+  <section class="footer">
+    <input type="text" id="message-input" class="message-input" ng-model="chatText" ng-enter="triggerSubmit()" />
+    <span ng-click="addMessage()">Send</span>
+  </section>
+  
+</section>
 		    
 		  </div>
 		  
@@ -146,7 +162,9 @@
 
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../mystuff/js/modal.js"></script>
+<script type="text/javascript" src="js/chat.js"></script>
 </body>
 </html>

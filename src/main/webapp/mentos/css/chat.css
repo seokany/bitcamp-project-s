@@ -138,6 +138,13 @@ body {
   position: relative;
   width: 35vmin;
   min-height: 8vmin;
+}
+
+.talk-bubble.left-in {
+  background-color: #fcd1f2;
+}
+
+.talk-bubble.right-top {
   background-color: lightyellow;
 }
 .border{
@@ -146,7 +153,7 @@ body {
 
 
 /* Right triangle placed top right flush. */
-.tri-right.border.right-top {
+.tri-right.right-top {
 	float: right;
 	display: block;
 }
@@ -197,7 +204,7 @@ body {
   top: auto;
   bottom: 0;
   border: 25px solid;
-  border-color: transparent transparent lightyellow transparent;
+  border-color: transparent transparent #fcd1f2 transparent;
 }
 
 
