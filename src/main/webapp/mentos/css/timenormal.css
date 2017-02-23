@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+@font-face {
+  font-family: 'timenormal';
+  src: url('timenormal.ttf') format('truetype');
+  font-style: normal;
+}
