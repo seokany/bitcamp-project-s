@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+@import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+
+body {
+  background-image: url("../img/forest.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+
+#wrap_header {
+  margin-top: -10px;
+}
+
+
+
+#main_title {
+	font-family: 'Nanum Brush Script', sans-serif;
+	color: #000000;
+	margin-top: 130px;
+	margin-bottom: 250px;
+	font-size: 80px;
+	text-align: center;
+}
+
+.main_seed {
+	width: 100px;
+	height: 100px;
+	background: rgba(0,0,0,0.85);
+	border-radius: 50px;
+	display: inline-block;
+	margin: 0 30px;
+}
+
+#seed_wrapper {
+	text-align:center; 
+}
+
+
+
+
+
+
+
