@@ -109,39 +109,16 @@
           </div>
         </div>
         
-        <div class="chat-wrap" class="chat" ng-app="chat" ng-controller="chatController">
-          <div class="talk-bubble tri-right round right-top">
-            <div class="talktext" ng-repeat="message in messages" class="{{message.from}}">
-              <p>{{message.text}}</p>
-            </div>
-          </div>
-        </div>
-        
 		     </div>
 		    </div>
 		    
 		    <div class="chat-form">
 		      <div class="mento-photo"><img alt="mento-photo" src="img/yeon.jpg"></div>
 		      <div class="mento-name">Mento 스티븐 연</div>
-		      <textarea id="message-input" class="message-input" ng-model="chatText" ng-enter="triggerSubmit()" placeholder="이곳에 질문을 적어주세요. 단, 상대방을 위해 정중히 적어주세요."></textarea>
-		      <button ng-click="addMessage()" id="send-btn">질문하기</button>
+		      <textarea id="message-input" placeholder="이곳에 질문을 적어주세요. 단, 상대방을 위해 정중히 적어주세요."></textarea>
+		      <button id="send-btn">질문하기</button>
 		    </div>
 		    
-		    <section class="chat" ng-app="chat" ng-controller="chatController">
-  <!--Messages-->
-  <section class="messages clearfix">
-    
-    <div ng-repeat="message in messages" class="{{message.from}}">
-      <p>{{message.text}}</p>
-    </div>
-  </section>
-  <!--Footer-->
-  <section class="footer">
-    <input type="text" id="message-input" class="message-input" ng-model="chatText" ng-enter="triggerSubmit()" />
-    <span ng-click="addMessage()">Send</span>
-  </section>
-  
-</section>
 		    
 		  </div>
 		  
@@ -166,5 +143,6 @@
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../mystuff/js/modal.js"></script>
 <script type="text/javascript" src="js/chat.js"></script>
+
 </body>
 </html>

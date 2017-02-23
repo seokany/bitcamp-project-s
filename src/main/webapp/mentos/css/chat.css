@@ -10,9 +10,12 @@ body {
 
 .whole_box {
   width: 960px;
-  height: auto;
+  max-height: 750px;
   background: #c0c0c0;
   padding: 0;
+  background: lightblue;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .planning-box {
@@ -24,26 +27,27 @@ body {
 .chatlogs {
 	padding: 10px;
 	width: 100%;
-	max-height: 80vmin;
-	overflow-x: hidden;
-	overflow-y: scroll;
+	/*max-height: 80vmin;*/
   background: lightblue;
 }
 
-.chatlogs::-webkit-scrollbar {
+.whole_box::-webkit-scrollbar {
 	width: 10px;
 }
 
-.chatlogs::-webkit-scrollbar-thumb {
+.whole_box::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: rgba(0,0,0,.1);
+  background: rgba(0,0,0,.3);
 }
 
 .chat-form {
+	width: 960px;
   overflow: hidden;
   background: cornsilk;
   height: 50px;
   margin: 0;
+  position: absolute;
+  bottom: -50px;
 }
 .chat-form textarea {
 	background: #fbfbfb;
