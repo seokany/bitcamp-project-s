@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+/* 초기화 */
+#container {
+	font-size: 21px;
+}
+
+.modal-ted-talks {
+	margin-top: 10px;
+	padding: 10px 20px;
+	background-color: #fff;
+}
+
+.talk-description {
+
+}
+
+#talk-description {
+	position: relative;
+}
+
+#talk-speaker-description {
+	width: 600px;
+  min-height: 250px;
+}
+
+#talk-speaker-description p:FIRST-CHILD {
+  font-size: 16px; 
+}
+
+#talk-speaker-description p:NTH-CHILD(2) {
+  font-weight: bold;
+}
+
+#talk-speaker-description p:NTH-CHILD(3) {
+  text-indent: 30px;
+}
+
+#talk-speaker-thumb{
+  width: 100px;
+  height: 100px;
+	border-radius: 100px;
+	cursor: pointer;
+}
+
+#talk-speaker-description img {
+  position: absolute;
+  top: 0px;
+  right: 180px;
+}
+	
+#talk-speaker-description ul {
+  position: absolute;
+  top: 15px;
+  left: 710px;
+  list-style-type: none;
+  text-indent: 0px;
+  font-size: 16px;
+}
+
+#talk-speaker-description ul li:FIRST-CHILD {
+  font-weight: bold;
+}
+
