@@ -10,34 +10,56 @@ body {
 
 .whole_box {
   width: 960px;
-  max-height: 750px;
+  height: 80vmin;
   background: #c0c0c0;
   padding: 0;
   background: lightblue;
   overflow-x: hidden;
   overflow-y: scroll;
+  position: relative;
 }
 
 .planning-box {
-  width: 100%;
-  height: 485px;
-	background: #fff;
+  width: 960px;
+  height: 75vmin;
+  background: #fff;
+}
+
+.planning,
+.planning+div {
+	padding: 10px;
+}
+
+.planning+div {
+	margin: 0 auto;
+}
+
+.planning+div hr {
+	bottom: 5px;
+}
+
+.chatbox {
+  position: absolute;
+  top: 0;
+  padding-top: 60vmin;
+  width: 960px;
+  height: 80vmin;
+  overflow-x: hidden;
+  overflow: scroll;
+}
+
+.chatbox::-webkit-scrollbar {
+  width: 0px;
+}
+
+.chatbox::-webkit-scrollbar-thumb {
+	
 }
 
 .chatlogs {
 	padding: 10px;
-	width: 100%;
-	/*max-height: 80vmin;*/
+	width: 960px;
   background: lightblue;
-}
-
-.whole_box::-webkit-scrollbar {
-	width: 10px;
-}
-
-.whole_box::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background: rgba(0,0,0,.3);
 }
 
 .chat-form {
@@ -140,12 +162,13 @@ body {
   margin: 10px 30px;
   display: inline-block;
   position: relative;
-  width: 35vmin;
-  min-height: 8vmin;
+  min-width: 200px;
+  max-width: 360px;
+  min-height: 20px;
 }
 
 .talk-bubble.left-in {
-  background-color: #fcd1f2;
+  background-color: #eee;
 }
 
 .talk-bubble.right-top {
@@ -208,7 +231,7 @@ body {
   top: auto;
   bottom: 0;
   border: 25px solid;
-  border-color: transparent transparent #fcd1f2 transparent;
+  border-color: transparent transparent #eee transparent;
 }
 
 
