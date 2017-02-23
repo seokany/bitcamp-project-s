@@ -428,14 +428,16 @@ text-decoration:none;
      font-size:11px;
      color: #585858;
     } 
+    
     .video-title p {
     margin-top:3px;
     margin-bottom:2px;
-    width:200px;
-    font-size:13px;
+    width:250px;
+    font-size:12px;
      filter:alpha(style=2);
      color:black;
     }
+    
     
     .video-date span, .video-tag span  {
      position:absolute;
@@ -445,20 +447,23 @@ text-decoration:none;
      color:black;
     }
      .video-date p, .video-tag p {
-    margin-top:2px;
-    font-size:10px;
-    margin-bottom:1px;
-    margin-left:50px;
-     color:#585858;
+    font-size: 10px;
+    margin-left: 5px;
+    color: #585858;
+    position: relative;
+    display: -webkit-inline-box;
     }
     
+    .video-tag {
+    font-size: 12px;
+    }
    
    
    .job-btm, .mento-btm, .video-btm, .model-btm {
    width:110%;
    font-family: 'Daum_SemiBold';
    margin-top:3px;
-   margin-left:10px;
+   margin-left:20px;
    }
    .job-name, .mento-name, .video-name {
    position:relative;
