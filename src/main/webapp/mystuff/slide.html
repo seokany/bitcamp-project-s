@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/slide.css">
+</head>
+<body>
+
+<iframe src="https://embed.ted.com/talks/rodrigo_y_gabriela_an_electrifying_acoustic_guitar_performance" width="960" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+<!--   <div id="bn_container" style="z-index: 99;"> -->
+<!--     <div id="bn_wrapper"> -->
+<!--       <div id="slide-text" style="; width:960px;height:270px;border:solid 1px;float:left;"> -->
+<!--         <div> -->
+<!-- <pre> -->
+<!--   <b>Steve Jobs</b> -->
+<!--   1955-2011 -->
+<!--   "계속 추구하고, 계속 시도하라!" -->
+<!-- </pre> -->
+<!--         </div> -->
+<!--         <img alt="" src="img/steve.jpg" style="border: 2px solid red; margin: 0 auto; width: 600px; height: auto;"> -->
+<!--       </div> -->
+<!--       <div style="background-color:yellow; width:960px;height:170px;border:solid 1px;float:left;">2</div> -->
+<!--       <div style="background-color:green; width:960px;height:170px;border:solid 1px;float:left;">3</div> -->
+<!--       <div style="background-color:blue; width:960px;height:170px;border:solid 1px;float:left;">4</div> -->
+<!--     </div> -->
+<!--   </div> -->
+  
+<!--   <div id="banner_navi" style="top: -50px; position: absolute; z-index: 100"> -->
+<!--     <img id="btn_l" src="img/left.png" style="width:50px;" /> -->
+<!--     <img id="btn_r" src="img/right.png" style="width:50px;" /> -->
+<!--   </div> -->
+  
+<!--   <ul> -->
+<!--     <li class="nv_btn" style="width:100px;"></li> -->
+<!--     <li class="nv_btn" style="width:100px;"></li> -->
+<!--     <li class="nv_btn" style="width:100px;"></li> -->
+<!--     <li class="nv_btn" style="width:100px;"></li> -->
+<!--   </ul> -->
+  
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/slide.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#bn_container").touchSwipe({
+        banner_wrp : $("#bn_wrapper"),
+        banner_lbt : $("#btn_l"),
+        banner_rbt : $("#btn_r"),
+        nv_btn : $(".nv_btn"),
+      });
+    });
+  </script>
+  
+</body>
+</html>

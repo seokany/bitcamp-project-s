@@ -32,9 +32,8 @@ web01 - ex9 / 86.html
 <body>
 
 
-
 <!-- 헤더 -->
-<div id="header"> </div>
+<div id="header"></div>
 
 <!-- 추천직업-->
  <div class="object">
@@ -43,8 +42,8 @@ web01 - ex9 / 86.html
    <ul>
    <!-- <a href="#" class="rec-btn">추천 목록</a> -->
    
-    <li id="rec-list" class="rec-btn hvr-float-shadow"><a href="#" class="rec-btn">추천목록</a></li>
-    <li id="like-list" class="like-btn hvr-float-shadow"><a href="#" class="like-btn">좋아요 목록</a>
+    <li id="rec-list" class="rec-btn "><a href="#" class="rec-btn">추천목록</a></li>
+    <li id="like-list" class="like-btns"><a href="#" class="like-btns">좋아요 목록</a>
 <!--     <div id="like-conts" class="popover fade"> -->
        <div class="like-add popover fade right in" role="tooltip">
           <div class="arrow" style="top: 50%;"></div>
@@ -65,7 +64,7 @@ web01 - ex9 / 86.html
     <div id="list-form">
  <div id="all-rec-list">
   <div class="job-all">
- <div class="title-bar">
+ <div class="title-bar title-bar-back">
 <h4 id="rec-job-title" class="title-btn job-more title hvr-float-shadow">추천직업</h4>
 <button id="rec-job-btn" class="all-btn job-more ui-state-default ui-corner-all">더보기</button>
  </div>
@@ -73,15 +72,16 @@ web01 - ex9 / 86.html
 <!-- <div class="toggler"> -->
   <div id="rec-job" class="job-effect ui-widget-content ui-corner-all">
   
-   <div id="job1-conts" class="job-conts frame-modal"  frame-src="work.html">
-
-     <div class="rec rec-job1" id="job1" style="background-image:url('img/program.jpg')"></div>
+  
+       <div class="job-conts frame-modal"  frame-src="work.html">
+     <div class="rec rec-job2" id="job4" style="background-image:url('img/police.jpg')"></div>
      <div class="job-btm">
-     <div class="job-name-favor"><span class="job-name">프로그래머</span></div>
-     <!-- <span class="favor-name">좋아요<input id="favor-btn1" type="img" src="img/heart.png" onclick="changeimg.call(this)"></span> -->
-     <div class="job-detail"><p>프로그래머가 갖춰야할 사항은 <span>인내심이다.</span> <br>인내를 가지고 일에 몰두해야 한다.</p></div>
+     <div class="job-name-favor"><span class="job-name">경찰관</span></div>
+     <div class="job-detail"><p>경찰관이 갖춰야할 사항은 <span>냉철함이다.</span> <br>항상 정확한 판단을 내려야한다.</p></div>
+        </div>
      </div>
-     </div>
+  
+   
      <div class="job-conts">
      <div class="rec rec-job1" id="job2" style="background-image:url('img/actor.jpg')"></div>
      <div class="job-btm">
@@ -96,12 +96,13 @@ web01 - ex9 / 86.html
     <div class="job-detail"><p>선생님이 갖춰야할 사항은 <span>리더쉽이다.</span> <br>바른 리더쉽으로 학생을 대해야 한다.</p></div>
      </div>
      </div>
-     <div class="job2-conts">
-     <div class="rec rec-job2" id="job4" style="background-image:url('img/police.jpg')"></div>
+     <div id="job2-conts" class="job2-conts frame-modal"  frame-src="work.html">
+     <div class="rec rec-job1" id="job1" style="background-image:url('img/program.jpg')"></div>
      <div class="job-btm">
-     <div class="job-name-favor"><span class="job-name">경찰관</span></div>
-     <div class="job-detail"><p>경찰관이 갖춰야할 사항은 <span>냉철함이다.</span> <br>항상 정확한 판단을 내려야한다.</p></div>
-        </div>
+     <div class="job-name-favor"><span class="job-name">프로그래머</span></div>
+     <!-- <span class="favor-name">좋아요<input id="favor-btn1" type="img" src="img/heart.png" onclick="changeimg.call(this)"></span> -->
+     <div class="job-detail"><p>프로그래머가 갖춰야할 사항은 <span>인내심이다.</span> <br>인내를 가지고 일에 몰두해야 한다.</p></div>
+     </div>
      </div>
      <div class="job2-conts">
      <div class="rec rec-job2" id="job5" style="background-image:url('img/doc.jpg')"></div>
@@ -130,23 +131,42 @@ web01 - ex9 / 86.html
   <div class="wrapper">
   
           <div class="one-model">
-            <div class="model-short">
-                 <h1>기업인</h1>
-            <p>스티븐 폴 잡스, 간단히 스티브 잡스는 미국의 기업인이었다. 애플의 전 CEO이자 공동 창립자다. 2011년 10월 5일 췌장암에 의해 사망했다. </p>
-            </div>
-           
+
             <div class="jcarousel-wrapper">
             
                 <div class="jcarousel">
+                <div class="ul">
+                 <div class="model-slide frame-modal" frame-src="person.html"><img src="img/obama.jpg" width="500" height="300" alt="">
+                   <div id="model-text1">
+                      <strong>"The Best is yet to come"</strong>
+                        <span>최고의 순간은 아직 오지 않았습니다.</span>
+                        <p class="ng">- 버락 오바마</p>
+                   </div>
+                  </div>
+                   <div class="model-slide"><img src="img/jang.jpg" width="500" height="300" alt="">
+                   <div id="model-text2">
+                      <pre>                " 인생은<br>     B(Birth)와 D(Death) 사이의
+              C(Choice)이다. "</pre>
+                        <p class="ng">- 장 폴 샤르트르</p>
+                   </div>
+                   </div>
+                      <div class="model-slide"><img src="img/rowling.jpg" width="500" height="300" alt="">
+                    <div id="model-text3">
+                      <pre>               우리에겐<br>   더 나은 세상을 상상할 수 있는
+              힘이 있습니다. "</pre>
+                             
+                        <p class="ng">- 죠앤 롤링</p>
+                   </div>
+                      </div>
+                    <div class="model-slide"><img src="img/edison.png" width="500" height="300" alt="">
+                      <div id="model-text4">
+                       <strong>"I FAILED my way to SUCCESS"</strong>
+                        <span>나는 성공하기 위해 실패했다.</span>
+                        <p class="ng">- 에디슨</p>
+                    </div>
+                   </div>
+                </div>
                 
-                    <ul>
-                      <li class="frame-modal" frame-src="person.html"><img src="img/steve.jpg" width="420" height="230" alt=""></li>
-                      <li><img src="img/lee.jpg" width="420" height="230" alt=""></li>
-                      <li><img src="img/eom.jpg" width="420" height="230" alt=""></li>
-                      <li><img src="img/teacher.jpg" width="420" height="230" alt=""></li>
-                      <li><img src="img/arc.jpg" width="420" height="230" alt=""></li>
-                      <li><img src="img/actor.jpg" width="420" height="230" alt=""></li> 
-                    </ul> 
                 </div>
                 <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
                 <a href="#" class="jcarousel-control-next">&rsaquo;</a>
@@ -158,11 +178,12 @@ web01 - ex9 / 86.html
         </div> 
 </div>
 </div>
+
  <hr class="all-hr all-rec-model">
 <!-- ========================추천멘토================== -->
   
   <div class="all-rec-mento">
-   <div class="title-bar">
+   <div class="title-bar title-bar-back">
 <h4 id="rec-mento-title" class="title-btn mento-more title hvr-float-shadow">추천멘토</h4>
 <button id="rec-mento-btn" class="all-btn mento-more ui-state-default ui-corner-all">더보기</button>
  </div>
@@ -223,37 +244,38 @@ web01 - ex9 / 86.html
 <hr class="all-hr all-rec-mento">
 <!-- ====================================추천 영상=================================== -->
  <div class="video-all">
-   <div class="title-bar">
+   <div class="title-bar title-bar-back">
 <h4 id="rec-video-title" class="title-btn video-more title hvr-float-shadow">추천영상</h4>
 <button id="rec-video-btn" class="all-btn video-more ui-state-default ui-corner-all">더보기</button>
  </div>
 
   <div id="rec-video" class="video-effect ui-widget-content ui-corner-all">
   
-  <div class="video-conts">
-     <div class="rec rec-video1" id="video1" style="background-image:url('img/video-1.jpg')"></div>
+  <div class="video-conts frame-modal" frame-src="talks.html">
+     <img class="rec rec-video1 frame-modal" frame-src="talks.html" id="video1" 
+            src='https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320'></img>
                <div class="video-btm">
-       <div class="video-name-favor"><span class="video-name">Steve</span></div>
-       <div class="video-title"><p><a href="https://www.ted.com/talks/david_autor_why_are_there_still_so_many_jobs?language=ko">프로그래머가 무엇일까요?</a></p></div>
-       <div class="video-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
+       <div class="video-name-favor"><span class="video-name">Rodrigo y Gabriela</span></div>
+       <div class="video-title"><p class="frame-modal" frame-src="talks.html">짜릿한 어쿠스틱 기타 연주</a></p></div>
+       <div class="video-tag">Tag :<p>Music,Guitar,Concert</p></div>
      </div>
      </div>
      
      
      <div class="video-conts">
-     <div class="rec rec-video1" id="video2" style="background-image:url('img/video-2.jpg')"></div>
+     <img class="rec rec-video1" id="video2" src='https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/3dc281fced0320390e74db3bd4d1e392e7d76b57_2880x1620.jpg?quality=89&w=320'></img>
                <div class="video-btm">
-       <div class="video-name-favor"><span class="video-name">David</span></div>
-       <div class="video-title"><p>직업을 선택하기 위해서는?</p></div>
-       <div class="video-tag"><span>Tag :</span><p>직업,정보</p></div>
+       <div class="video-name-favor"><span class="video-name">Sofia Jawed-Wessel</span></div>
+       <div class="video-title"><p>임신한 여성들에게 우리가 하는 거짓말</p></div>
+       <div class="video-tag">Tag :<p>Informative, Courageous</p></div>
      </div>
      </div>
      <div class="video-conts">
-     <div class="rec rec-video1" id="video3" style="background-image:url('img/video-3.jpg')"></div>
+     <img class="rec rec-video1" id="video3" src='https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/c64c1a4ded82580aa4f44cbe13ca34955e16e4a5_2880x1620.jpg?quality=89&w=320'></img>
                      <div class="video-btm">
-       <div class="video-name-favor"><span class="video-name">Liam</span></div>
-       <div class="video-title"><p>공무원이란?</p></div>
-       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
+       <div class="video-name-favor"><span class="video-name">David Autor</span></div>
+       <div class="video-title"><p>왜 아직 이렇게 많은 직업이 존재할까요?</p></div>
+       <div class="video-tag">Tag :<p>Informative, Inspiring정</p></div>
      </div>
      </div>
       <div class="video2-conts">       
@@ -261,7 +283,7 @@ web01 - ex9 / 86.html
                     <div class="video-btm">
      <div class="video-name-favor"><span class="video-name">Steve</span></div>
        <div class="video-title"><p>공무원이란?</p></div>
-       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
+       <div class="video-tag">Tag :<p>공무원,사무,안정</p></div>
      </div>
      </div>
      <div class="video2-conts">
@@ -269,7 +291,7 @@ web01 - ex9 / 86.html
                     <div class="video-btm">
      <div class="video-name-favor"><span class="video-name">Steve</span></div>
        <div class="video-title"><p>공무원이란?</p></div>
-       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
+       <div class="video-tag">Tag :<p>공무원,사무,안정</p></div>
      </div>
      </div>
      <div class="video2-conts">
@@ -277,7 +299,7 @@ web01 - ex9 / 86.html
                     <div class="video-btm">
     <div class="video-name-favor"><span class="video-name">Steve</span></div>
        <div class="video-title"><p>공무원이란?</p></div>
-       <div class="video-tag"><span>Tag :</span><p>공무원,사무,안정</p></div>
+       <div class="video-tag">Tag :<p>공무원,사무,안정</p></div>
      </div>
      </div>
   </div>
@@ -288,7 +310,7 @@ web01 - ex9 / 86.html
 <!-- ===============================좋아요 목록 =============================== -->
   <div id="all-like-list">
    <div class="job-all">
- <div class="title-bar">
+ <div class="title-bar title-bar-back">
 <h4 id="rec-job-title" class="title-btn job-more title hvr-float-shadow">좋아하는 직업</h4>
 <button id="rec-job-btn" class="all-btn job-more ui-state-default ui-corner-all">더보기</button>
  </div>
@@ -351,62 +373,53 @@ web01 - ex9 / 86.html
 <!-- =====================================좋아하는 인물 =============================== -->
  <div class="all-rec-model">
  
-<div class="title-bar">
+<div class="title-bar title-bar-back">
 <h4 id="rec-model-title" class="title-btn model-more title hvr-float-shadow">좋아하는 인물</h4>
 <button id="rec-model-btn" class="all-btn model-more ui-state-default ui-corner-all">더보기</button>
  </div>
 
   <div id="rec-model" class="model-effect ui-widget-content ui-corner-all">
-  <div class="model-conts">
-     <div class="rec rec-model" id="model1" style="background-image:url('img/mento-program.jpg')"></div>
-      <div class="model-btm">
-        <div class="model-name-favor"><span class="model-name">천지연 개발자</span></div>
-       <div class="model-detail"><p>IT-Front end</p></div>
-       <div class="model-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
-      </div>
+ <div class="model-conts">
+ 
+     <div class="rec rec-model" id="model1" style="background-image:url('img/steve.jpg')"></div>
+     <div class="model-detail"><span class="job-name">기업가</span>&nbsp; &nbsp;<p class="model-name">Steve</p></div>
+
      </div>
      
      
   <div class="model-conts">
-     <div class="rec rec-model" id="model1" style="background-image:url('img/mento-program.jpg')"></div>
+     <div class="rec rec-model" id="model1" style="background-image:url('img/lee.jpg')"></div>
+     <div class="model-detail"><span class="job-name">영화배우</span>&nbsp; &nbsp;<p class="model-name">이연희</p></div>
       <div class="model-btm">
-        <div class="model-name-favor"><span class="model-name">천지연 개발자</span></div>
-       <div class="model-detail"><p>IT-Front end</p></div>
-       <div class="model-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
+
       </div>
      </div>
    <div class="model-conts">
-   <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
-     <div class="rec rec-model" id="model1" style="background-image:url('img/mento-program.jpg')"></div>
+     <div class="rec rec-model" id="model1" style="background-image:url('img/eom.jpg')"></div>
+     <div class="model-detail"><span class="job-name">프로그래머</span>&nbsp; &nbsp;<p class="model-name">엄진영</p></div>
       <div class="model-btm">
-        <div class="model-name-favor"><span class="model-name">천지연 개발자</span></div>
-       <div class="model-detail"><p>IT-Front end</p></div>
-       <div class="model-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
+
       </div>
      </div>
        <div class="model2-conts">
-       <img class="modal-esc modal-btn" id="x-btn" alt="" src="../common/img/x_btn.png">
-     <div class="rec rec-model" id="model1" style="background-image:url('img/mento-program.jpg')"></div>
+     <div class="rec rec-model" id="model1" style="background-image:url('img/teacher.jpg')"></div>
+     <div class="model-detail"><span class="job-name">강사</span>&nbsp; &nbsp;<p class="model-name">강사</p></div>
       <div class="model-btm">
-        <div class="model-name-favor"><span class="model-name">천지연 개발자</span></div>
-       <div class="model-detail"><p>IT-Front end</p></div>
-       <div class="model-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
+
       </div>
      </div>
     <div class="model2-conts">
-     <div class="rec rec-model" id="model1" style="background-image:url('img/mento-program.jpg')"></div>
+     <div class="rec rec-model" id="model1" style="background-image:url('img/arc.jpg')"></div>
+     <div class="model-detail"><span class="job-name">영화배우</span>&nbsp; &nbsp;<p class="model-name">전지현</p></div>
       <div class="model-btm">
-        <div class="model-name-favor"><span class="model-name">천지연 개발자</span></div>
-       <div class="model-detail"><p>IT-Front end</p></div>
-       <div class="model-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
+
       </div>
      </div>
      <div class="model2-conts">
-     <div class="rec rec-model" id="model1" style="background-image:url('img/mento-program.jpg')"></div>
+     <div class="rec rec-model" id="model1" style="background-image:url('img/actor.jpg')"></div>
+     <div class="model-detail"><span class="job-name">건축가</span>&nbsp; &nbsp;<p class="model-name">이석환</p></div>
       <div class="model-btm">
-        <div class="model-name-favor"><span class="model-name">천지연 개발자</span></div>
-       <div class="model-detail"><p>IT-Front end</p></div>
-       <div class="model-tag"><span>Tag :</span><p>IT,개발자,컴퓨터,JAVA</p></div>
+
       </div>
      </div>
   </div>
@@ -415,7 +428,7 @@ web01 - ex9 / 86.html
 <!-- ========================종아하는 멘토================== -->
   
  <div class="all-rec-mento">
-   <div class="title-bar">
+   <div class="title-bar title-bar-back">
 <h4 id="rec-mento-title" class="title-btn mento-more title hvr-float-shadow">좋아하는 멘토</h4>
 <button id="rec-mento-btn" class="all-btn mento-more ui-state-default ui-corner-all">더보기</button>
  </div>
@@ -477,7 +490,7 @@ web01 - ex9 / 86.html
 <!-- ====================================종아하는 영상=================================== -->
 
   <div class="video-all">
-   <div class="title-bar">
+   <div class="title-bar title-bar-back">
 <h4 id="rec-video-title" class="title-btn video-more title hvr-float-shadow">좋아하는 영상</h4>
 <button id="rec-video-btn" class="all-btn video-more ui-state-default ui-corner-all">더보기</button>
  </div>
@@ -550,7 +563,7 @@ web01 - ex9 / 86.html
  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
 <script src="js/main.js"></script>
 <script src="js/modal.js"></script>
