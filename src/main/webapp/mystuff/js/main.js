@@ -7,8 +7,9 @@ $( function() {
   	    $(".job2-conts").hide().slideDown(1000);
 	    $(".job2-conts").css("display", "inline-block");
         $( ".job-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
+        	backgroundColor: "rgba(5, 118, 195, 0.13)",
+        	borderRadius:"10px",
+        	color: "black",
           height: "500px"
         }, 1000 );
         $(".all-rec-model, .all-rec-mento, .video-all").css("display", "none");
@@ -33,8 +34,9 @@ $( function() {
 	    $(".model2-conts").css("display", "inline-block");
 	    
         $( ".model-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
+        	backgroundColor: "rgba(5, 118, 195, 0.13)",
+        	borderRadius:"10px",
+        	color: "black",
           height: "500px"
         }, 1000 );
 
@@ -59,8 +61,9 @@ $( function() {
   	    $(".mento2-conts").hide().slideDown(1000);
 	    $(".mento2-conts").css("display", "inline-block");
         $( ".mento-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
+        	backgroundColor: "rgba(5, 118, 195, 0.13)",
+        	borderRadius:"10px",
+        	color: "black",
           height: "500px"
         }, 1000 );
 
@@ -84,8 +87,9 @@ $( function() {
   	    $(".video2-conts").hide().slideDown(1000);
 	    $(".video2-conts").css("display", "inline-block");
         $( ".video-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
+        	backgroundColor: "rgba(5, 118, 195, 0.13)",
+        	borderRadius:"10px",
+          color: "black",
           height: "500px"
         }, 1000 );
       } else {
@@ -111,7 +115,7 @@ $( function() {
        
     });
 
-    $(document.body).on( "click", ".like-btn", function() {// 좋아요 목록 눌렀을 때
+    $(document.body).on( "click", ".like-btns", function() {// 좋아요 목록 눌렀을 때
     	
     	$("#like-list").css("border-bottom", "2px solid blue");
     	$("#rec-list").css("border-bottom", "none");
@@ -234,8 +238,6 @@ $(document).ready(function(){
 		alert("오류");
 	}
 });
-	
-	
 	
 	
 	
