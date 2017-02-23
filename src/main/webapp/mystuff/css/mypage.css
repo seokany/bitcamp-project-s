@@ -409,18 +409,17 @@ position: relative;
 }
 
  .model-slide {
- border-radius:10px;
- position:relative;
-float: left;
-width: 500px;
-    height: 300px;
-    text-align: -webkit-match-parent;
-/*          margin-right: 200px; */
-/*     margin-left: 150px;  */
+	border-radius:10px;
+	position:relative;
+	float: left;
+	width: 500px;
+  height: 300px;
+  text-align: -webkit-match-parent;
+  overflow: hidden;
 } 
 
 .model-slide img {
-	border-radius: 20px;
+	
 }
 
 #model-text1 span{
