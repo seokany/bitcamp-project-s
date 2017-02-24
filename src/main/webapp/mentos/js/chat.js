@@ -18,4 +18,3 @@ $(".chatbox").on("click", function() {
 	$(".chatbox").css("padding-top", "60vmin"); 
 });
 
-

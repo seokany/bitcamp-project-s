@@ -16,21 +16,24 @@
 <script>
 window.onload = function(){
 
-	var second = 60;
-	var minute = 2;
-	  
-	setInterval(function(){
-	  document.getElementById("timer").innerHTML = minute + " " + second;
-    second--;
+	var americanDateTime = new Intl.DateTimeFormat("en-US", 02:00).format;
+	console.log(americanDateTime);
+	
+// 	var second = 60;
+// 	var minute = 02;
+	
+// 	setInterval(function(){
+// 	  document.getElementById("timer").innerHTML = minute + " " + second;
+//     second--;
     
-    if(second == 00){
-      minute--;
-      second = 60;
-    }
-    if(minute <= -1) {
-      document.getElementById("timer").innerHTML = " 00 00";
-    }
-  }, 1000);
+//     if(second == 00){
+//       minute--;
+//       second = 60;
+//     }
+//     if(minute <= -1) {
+//       document.getElementById("timer").innerHTML = " 00 00";
+//     }
+//   }, 1000);
 }
 </script>
 </body>
