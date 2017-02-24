@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.row {
+  margin: 0 auto;
+  width: 790px;
+}
+
+.mento-conts {
+	margin-bottom: 12px;
+}
+

@@ -387,7 +387,7 @@ cursor: pointer;
    
     .job-conts, .model-conts, .mento-conts, .video-conts {
   position: relative;
-    margin-right: 50px;
+    padding: 0 3%;
    display:inline-block;
     width:200px;
   height: 180px;

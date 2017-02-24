@@ -10,7 +10,7 @@ $( function() {
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
         	borderRadius:"10px",
         	color: "black",
-          height: "500px"
+          height: "620px"
         }, 1000 );
         $(".all-rec-model, .all-rec-mento, .video-all").css("display", "none");
       } else {
@@ -37,7 +37,7 @@ $( function() {
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
         	borderRadius:"10px",
         	color: "black",
-          height: "500px"
+          height: "620px"
         }, 1000 );
 
       } else {
@@ -64,7 +64,7 @@ $( function() {
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
         	borderRadius:"10px",
         	color: "black",
-          height: "500px"
+          height: "620px"
         }, 1000 );
 
       } else {
@@ -90,7 +90,7 @@ $( function() {
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
         	borderRadius:"10px",
           color: "black",
-          height: "500px"
+          height: "620px"
         }, 1000 );
       } else {
     	  $(".all-rec-model, .job-all, .all-rec-mento").hide().slideDown(1000);
