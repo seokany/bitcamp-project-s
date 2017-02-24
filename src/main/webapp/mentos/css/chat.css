@@ -72,19 +72,19 @@ body {
   bottom: -50px;
 }
 .chat-form textarea {
-	background: #fbfbfb;
-	width: 60%;
-	height: 30px;
-	border: 2px solid #eee;
-	border-radius: 300px;
-	resize: none;
-	padding:2px;
-	font-size: 12px;
-	color: #999;
-	margin: 10px 10px 10px 30px;
+   background: rgba(0,0,0,.8);
+   width: 630px;
+   height: 30px;
+   border: 2px solid #eee;
+   border-radius: 10px;
+   padding: 5px 10px;
+   resize: none;
+   font-size: 12px;
+   color: #999;
+   margin: 10px 10px 10px 30px;
 }
 
-.chat-form textarea:focus {
+.chat-form textarea:FOCUS {
 	background: #fff;
 }
 
