@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>timer</title>
-<link rel="stylesheet" href="css/timer.css">
-<link rel="stylesheet" href="css/timenormal.css">
+<link rel="stylesheet" type="text/css" href="css/timenormal.css">
+<link rel="stylesheet" type="text/css" href="css/timer.css">
+<link rel="stylesheet" type="text/css" href="../mystuff/css/Daum_SemiBold.css">
 </head>
 <body>
 
@@ -16,11 +17,10 @@
 window.onload = function(){
 
 	var second = 60;
-	var minute = 1;
+	var minute = 2;
 	  
 	setInterval(function(){
 	  document.getElementById("timer").innerHTML = minute + " " + second;
-
     second--;
     
     if(second == 00){

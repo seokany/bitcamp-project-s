@@ -1,10 +1,14 @@
 @CHARSET "UTF-8";
+/* @import "timenormal.css" */
+/* body { */
+/*   font-family:'time'; */
 
+/* } */
 #timer_div {
+	font-family:'Digital' !important;
   position: relative;
 }
 #timer {
-  font-family: 'timenormal';
   color: #fff;
   left: 5px;
   top: 15px;
