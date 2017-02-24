@@ -79,10 +79,12 @@ button {
           transform: scale(1.1);
 }
 .login_logo {
-	position: absolute;
-  top: 44px;
-  left: 72px;
-  width: 13px;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    top: 10%;
+    padding: 10% 0;
+    width: 80%;
 }
 .login_logo img {
   height: 150px;
