@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>timer</title>
+<link rel="stylesheet" href="css/timer.css">
+<link rel="stylesheet" href="css/timenormal.css">
+</head>
+<body>
+
+<div id="timer_div">
+	<div id="timer"></div>
+	<img id="timer_img" alt="timer-default" src="img/time.png">
+</div>
+<script>
+window.onload = function(){
+
+	var second = 60;
+	var minute = 1;
+	  
+	setInterval(function(){
+	  document.getElementById("timer").innerHTML = minute + " " + second;
+
+    second--;
+    
+    if(second == 00){
+      minute--;
+      second = 60;
+    }
+    if(minute <= -1) {
+      document.getElementById("timer").innerHTML = " 00 00";
+    }
+  }, 1000);
+}
+</script>
+</body>
+</html>

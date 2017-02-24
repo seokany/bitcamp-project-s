@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+#timer_div {
+  position: relative;
+}
+#timer {
+  font-family: 'timenormal';
+  color: #fff;
+  left: 5px;
+  top: 15px;
+  position: absolute;
+}
