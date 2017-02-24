@@ -16,16 +16,44 @@
 <script>
 window.onload = function(){
 
-	var americanDateTime = new Intl.DateTimeFormat("en-US", 02:00).format;
-	console.log(americanDateTime);
+	  function toHourMinSec(t) { 
+
+		    var hour;
+		    var min;
+		    var sec;
+
+		    // 정수로부터 남은 시, 분, 초 단위 계산
+		    hour = Math.floor(t / 3600);
+		    min = Math.floor( (t-(hour*3600)) / 60 );
+		    sec = t - (hour*3600) - (min*60);
+
+		    // hh:mm:ss 형태를 유지하기 위해 한자리 수일 때 0 추가
+		    if(hour < 10) hour = "0" + hour;
+		    if(min < 10) min = "0" + min;
+		    if(sec < 10) sec = "0" + sec;
+
+		    return(hour + ":" + min + ":" + sec);
+		  }
+
+
+
+		출처: http://skylit.tistory.com/51 [초코아빠*]
 	
-// 	var second = 60;
-// 	var minute = 02;
-	
+// 	var second = 12;
+// 	var minute = 1;
+	  
 // 	setInterval(function(){
-// 	  document.getElementById("timer").innerHTML = minute + " " + second;
-//     second--;
     
+//     if(minute < 10 && second > 10) {
+//     	minute = "0" + minute;
+//     	/*document.getElementById("timer").innerHTML = "0" + minute + " " + second;*/
+//     }
+//     if(minute < 10 && second < 10) {
+//         document.getElementById("timer").innerHTML = "0" + minute + " " + "0" + second;
+//     }
+//     if(minute > 10 && second < 10) {
+//         document.getElementById("timer").innerHTML = minute + " " + "0" + second;
+//     }
 //     if(second == 00){
 //       minute--;
 //       second = 60;
@@ -33,7 +61,11 @@ window.onload = function(){
 //     if(minute <= -1) {
 //       document.getElementById("timer").innerHTML = " 00 00";
 //     }
+//     document.getElementById("timer").innerHTML = minute + " " + second;
+//     second--;
+    
 //   }, 1000);
+	
 }
 </script>
 </body>
