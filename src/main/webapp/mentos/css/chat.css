@@ -5,23 +5,10 @@
 	font-family: tahoma, sans-serif;
 	box-sizing: border-box;
 }
-body {
-}
-
-.whole_box {
-  width: 960px;
-  height: 80vmin;
-  background: #c0c0c0;
-  padding: 0;
-  background: lightblue;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  position: relative;
-}
 
 .planning-box {
   width: 960px;
-  height: 75vmin;
+  height: 75vh;
   background: #fff;
 }
 
@@ -41,9 +28,9 @@ body {
 .chatbox {
   position: absolute;
   top: 0;
-  padding-top: 60vmin;
+  padding-top: 60vh;
   width: 960px;
-  height: 80vmin;
+  height: 80vh;
   overflow-x: hidden;
   overflow: scroll;
 }
@@ -145,7 +132,11 @@ body {
 
 /*bubbles*/
 
-
+@media screen and (min-heigth:900px) {
+	.chatlogs {
+	  padding-bottom: 100px; 
+	}
+}
 
 
 

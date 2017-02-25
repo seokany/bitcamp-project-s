@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>timer</title>
-<link rel="stylesheet" type="text/css" href="css/DS-DIGII.css">
-<link rel="stylesheet" type="text/css" href="css/timer.css">
-<link rel="stylesheet" type="text/css" href="../mystuff/css/Daum_SemiBold.css">
+<link rel="stylesheet" type="text/css" href="css/timeTo.css">
 </head>
 <body>
 
@@ -13,60 +11,11 @@
 	<div id="timer"></div>
 	<img id="timer_img" alt="timer-default" src="img/time.png">
 </div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="js/jquery.time-to.js"></script>
 <script>
-window.onload = function(){
-
-	  function toHourMinSec(t) { 
-
-		    var hour;
-		    var min;
-		    var sec;
-
-		    // 정수로부터 남은 시, 분, 초 단위 계산
-		    hour = Math.floor(t / 3600);
-		    min = Math.floor( (t-(hour*3600)) / 60 );
-		    sec = t - (hour*3600) - (min*60);
-
-		    // hh:mm:ss 형태를 유지하기 위해 한자리 수일 때 0 추가
-		    if(hour < 10) hour = "0" + hour;
-		    if(min < 10) min = "0" + min;
-		    if(sec < 10) sec = "0" + sec;
-
-		    return(hour + ":" + min + ":" + sec);
-		  }
-
-
-
-		출처: http://skylit.tistory.com/51 [초코아빠*]
-	
-// 	var second = 12;
-// 	var minute = 1;
-	  
-// 	setInterval(function(){
-    
-//     if(minute < 10 && second > 10) {
-//     	minute = "0" + minute;
-//     	/*document.getElementById("timer").innerHTML = "0" + minute + " " + second;*/
-//     }
-//     if(minute < 10 && second < 10) {
-//         document.getElementById("timer").innerHTML = "0" + minute + " " + "0" + second;
-//     }
-//     if(minute > 10 && second < 10) {
-//         document.getElementById("timer").innerHTML = minute + " " + "0" + second;
-//     }
-//     if(second == 00){
-//       minute--;
-//       second = 60;
-//     }
-//     if(minute <= -1) {
-//       document.getElementById("timer").innerHTML = " 00 00";
-//     }
-//     document.getElementById("timer").innerHTML = minute + " " + second;
-//     second--;
-    
-//   }, 1000);
-	
-}
+  $('#timer').timeTo(720);
 </script>
 </body>
 </html>
