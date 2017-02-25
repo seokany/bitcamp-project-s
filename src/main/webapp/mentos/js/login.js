@@ -18,7 +18,7 @@ $(document).ready(function() {
     elem.append($ripple);
   };
   
-  $(document).on("click", ".login__submit", function(e) {
+  $(document).on("click", ".login_submit", function(e) {
     if (animating) return;
     animating = true;
     var that = this;
@@ -40,7 +40,7 @@ $(document).ready(function() {
     }, submitPhase1);
   });
   
-  $(document).on("click", ".app__logout", function(e) {
+  $(document).on("click", ".app_logout", function(e) {
     if (animating) return;
     $(".ripple").remove();
     animating = true;

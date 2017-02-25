@@ -3,8 +3,8 @@ $( function() {
     var state = true;
     $(document.body).on( "click", ".job-more", function() { // 직업 더보기
       if ( state ) {
-    	  $(".all-rec-model, .all-rec-mento, .video-all").show().slideUp(1000);
-  	    $(".job2-conts").hide().slideDown(1000);
+    	  $(".all-rec-model, .all-rec-mento, .video-all").slideUp(1000);
+  	    $(".job2-conts").slideDown(1000);
 	    $(".job2-conts").css("display", "inline-block");
         $( ".job-effect" ).animate({
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
@@ -14,7 +14,7 @@ $( function() {
         }, 1000 );
         $(".all-rec-model, .all-rec-mento, .video-all").css("display", "none");
       } else {
-	  $(".job2-conts").show().slideUp(1000);
+	  $(".job2-conts").slideUp(1000);
   	    $(".job2-conts").css("display", "none");
         $( ".job-effect" ).animate({
           backgroundColor: "#fff",
@@ -29,8 +29,8 @@ $( function() {
     var state = true;
     $(document.body).on( "click", ".model-more", function() { // 추천직업 더 보기
       if ( state ) {
-    	  $(".job-all, .video-all, .all-rec-mento").show().slideUp(1000);
-  	    $(".model2-conts").hide().slideDown(1000);
+    	  $(".job-all, .video-all, .all-rec-mento").slideUp(1000);
+  	    $(".model2-conts").slideDown(1000);
 	    $(".model2-conts").css("display", "inline-block");
 	    
         $( ".model-effect" ).animate({
@@ -41,8 +41,8 @@ $( function() {
         }, 1000 );
 
       } else {
-    	  $(".all-rec-mento, .job-all, .video-all").hide().slideDown(1000);
-    	  $(".model2-conts").show().slideUp(1000);
+    	  $(".all-rec-mento, .job-all, .video-all").slideDown(1000);
+    	  $(".model2-conts").slideUp(1000);
   	    $(".model2-conts").css("display", "none");
         $( ".model-effect" ).animate({
           backgroundColor: "#fff",
@@ -57,8 +57,8 @@ $( function() {
     var state = true;
     $(document.body).on( "click", ".mento-more", function() { // 멘토 더 보기 눌렀을 때
       if ( state ) {
-    	  $(".all-rec-model, .job-all, .video-all").show().slideUp(1000);
-  	    $(".mento2-conts").hide().slideDown(1000);
+    	  $(".all-rec-model, .job-all, .video-all").slideUp(1000);
+  	    $(".mento2-conts").slideDown(1000);
 	    $(".mento2-conts").css("display", "inline-block");
         $( ".mento-effect" ).animate({
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
@@ -68,8 +68,8 @@ $( function() {
         }, 1000 );
 
       } else {
-    	  $(".all-rec-model, .job-all, .video-all").hide().slideDown(1000);
-    	  $(".mento2-conts").show().slideUp(1000);
+    	  $(".all-rec-model, .job-all, .video-all").slideDown(1000);
+    	  $(".mento2-conts").slideUp(1000);
   	    $(".mento2-conts").css("display", "none");
         $( ".mento-effect" ).animate({
           backgroundColor: "#fff",
@@ -83,8 +83,8 @@ $( function() {
     var state = true;
     $(document.body).on( "click", ".video-more", function() { // 추천 영상 더보기 눌렀을 때
       if ( state ) {
-    	  $(".all-rec-model, .job-all, .all-rec-mento").show().slideUp(1000);
-  	    $(".video2-conts").hide().slideDown(1000);
+    	  $(".all-rec-model, .job-all, .all-rec-mento").slideUp(1000);
+  	    $(".video2-conts").slideDown(1000);
 	    $(".video2-conts").css("display", "inline-block");
         $( ".video-effect" ).animate({
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
@@ -93,8 +93,8 @@ $( function() {
           height: "620px"
         }, 1000 );
       } else {
-    	  $(".all-rec-model, .job-all, .all-rec-mento").hide().slideDown(1000);
-	  $(".video2-conts").show().slideUp(1000);
+    	  $(".all-rec-model, .job-all, .all-rec-mento").slideDown(1000);
+	  $(".video2-conts").slideUp(1000);
   	    $(".video2-conts").css("display", "none");
         $( ".video-effect" ).animate({
           backgroundColor: "#fff",
