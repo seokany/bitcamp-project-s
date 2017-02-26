@@ -83,8 +83,17 @@ button {
     margin: 0 auto;
     text-align: center;
     top: 10%;
-    padding: 5% 0;
+    padding: 20% 0;
     width: 80%;
+}
+
+.register {
+    margin: 0 auto;
+    text-align: center;
+    top: 10%;
+    padding: 10% 0;
+    width: 80%;
+	
 }
 .login_logo img {
   height: 150px;
@@ -143,6 +152,30 @@ button {
   -webkit-animation: animatePath 2s 0.5s forwards;
           animation: animatePath 2s 0.5s forwards;
 }
+
+
+.check {
+
+    background-color: transparent;
+    position: relative;
+    width: 300px;
+    height: 30px;
+    top: 15%;
+    left: -10%;
+}
+
+p.correct {
+	font-size:15px;
+	color: green;
+  font-weight: 600;
+}
+
+p.incorrect {
+    font-size: 13px;
+    color: brown;
+    font-weight: 600;
+}
+
 .login_input {
   display: inline-block;
   width: 22rem;
@@ -278,13 +311,14 @@ button {
     border-color: #ffffff;
     color: #ffffff;
     z-index: 1;
-    border-left: 5px solid #ccc;
+    border-left:5px solid rgba(165, 42, 42, 0.68);
     margin: 0 auto;
     padding: 10px 0 10px 10px;
-    color: rgba(237, 37, 83, 0.73);
+    color: #fff;
     font-size: 32px;
     font-weight: 600;
     text-transform: uppercase;
+    text-shadow: 2px 2px rgba(8, 8, 8, 0.4);
 }
 
 
