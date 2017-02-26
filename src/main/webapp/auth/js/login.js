@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   
   var animating = false,
       submitPhase1 = 1100,
