@@ -77,30 +77,29 @@ $(function() {
 	  
   })
   
-
-  
-  
-  
   
 });
 
 
 $(function(){
 	  $('.passIn').keyup(function(){
-	   $('font[name=check]').text('');
-	  }); //#user_pass.keyup
+	   $('.check').html('');
+	  }); //passIn.keyup
 
 	  $('.passCheck').keyup(function(){
 	   if ($('.passIn').val() != $('.passCheck').val()){
+		   $('.check').html('');
 		   $('.check').removeClass("correct")
 		   $('.check').addClass("incorrect")
 		   $('.check').html("비밀번호가 일치하지않습니다.");
 	   } else {
+		   $('.check').html('');
 		   $('.check').removeClass("incorrect")
 		   $('.check').addClass("correct")
 		   $('.check').html(" OK!! ");
 	   }
-	  }); //#chpass.keyup
+	  }); //passCheck.keyup
+	  
 	 });
 
 
