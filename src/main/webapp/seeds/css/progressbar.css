@@ -4,15 +4,15 @@ body {
 	color: #333;
 }
 #progressbar{
-  height: 26px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 200px;
-  background: rgba(159, 159, 159, 0.5);
-  border-radius: 10px;
-  margin: -20px 0 0 -100px;
-  padding: 2px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 600px;
+	background-image: url(../../../../../../../Desktop/bar.png);
+	border-radius: 10px;
+	margin: -20px 0 0 -100px;
+	padding: 2px;
 }
 #loading{
   transition: all 500ms ease;
