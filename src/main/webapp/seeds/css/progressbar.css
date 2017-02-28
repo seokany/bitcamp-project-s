@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	color: #333;
+}
+#progressbar{
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 600px;
+	background-image: url(../../../../../../../Desktop/bar.png);
+	border-radius: 10px;
+	margin: -20px 0 0 -100px;
+	padding: 2px;
+}
+#loading{
+  transition: all 500ms ease;
+  height: 20px;
+  width: calc(100% - 10px);
+  border-radius: 8px;
+  background: #474747;
+  position: absolute;
+  margin: 3px;
+  display: inline-block;
+  animation: load 720s ease infinite;
+}
+#load{
+  font-family: Arial;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -30px;
+}
+
+@keyframes load{
+  0%{
+    width: 2%;
+  }
+  10%{
+    width: 10%;
+  }
+}

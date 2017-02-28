@@ -19,12 +19,6 @@ $( function() {
 	var mainFrameState = $("#main-frame").attr("src"); 
 	
 	/* iframe 위에서 마우스휠 이벤트 발생시키기 */
-//	$(window.frames[1]).on("mousewheel", function(e) {
-//		if(mainFrameState == "mystuff/main.html") {
-//			$("#main-frame").attr("src", "seeds/mbti.html");
-//			mainFrameState = $("#main-frame").attr("src"); 
-//		}
-//	});
 	$("html, body").on("mousewheel DOMMouseScroll", function() {
 		if (mainFrameState == "seeds/mbti.html") {
 			$("#main-frame").attr("src", "seeds/mbti.html");
@@ -56,6 +50,9 @@ $( function() {
 				"text-decoration": "none"});
 		} else if (pageState[4] == "mentos") {
 			$("#mentos").css({"border-bottom": "2px solid #86F021",
+				"text-decoration": "none"});
+		} else if (pageState[4] == "liktit") {
+			$("#likeit").css({"border-bottom": "2px solid #86F021",
 				"text-decoration": "none"});
 		} else if (pageState[4] == "seeds") {
 			$("#seeds").css({"border-bottom": "2px solid #86F021",
