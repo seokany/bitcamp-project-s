@@ -9,6 +9,20 @@ a { text-decoration: none; color: black;}
 img { border: 0;}
 body { margin: 0px;}
 
+/* main-frame  */
+.main-frame {
+  width: 90vw; 
+  margin: 0 auto; 
+  top: 90px;
+  overflow: hidden;
+}
+
+#main-frame {
+  width: 90vw; 
+  height: 90vh; 
+  margin: 0 auto; 
+}
+
 /* 헤더 영역 CSS  */
 #con_header {
 	margin-bottom: 30px;
@@ -108,10 +122,6 @@ body { margin: 0px;}
   border-bottom: 2.5px solid #86F021;
   text-decoration: none;
 }
-
-/*  #mystuff, #seeds, #mentos, #setting { */
-/* 	border-bottom: 2.5px solid #86F021; */
-/* }  */
 
 #main_lnb > ul {
   overflow: hidden;
