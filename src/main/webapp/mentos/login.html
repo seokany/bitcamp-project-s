@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>login</title>
+<title>front</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="css/login.css">
 </head>
@@ -11,37 +11,66 @@
 
 <div class="cont">
   <div class="demo">
-    <div class="login">
-      <!-- login logo 들어갈 공간 -->
-      <div class="login_logo">
+    <div class="front sign-in">
+      <!-- front logo 들어갈 공간 -->
+      <div class="front_logo">
         <div class="logo_dream">DREAM</div>
         <img src="../common/img/dreamtree.png">
         <div class="logo_tree">TREE</div>
       </div>
       
-      <div class="login_form">
-        <!-- login 사용자 이름 들어갈 공간 -->
-        <div class="login_row">
-          <svg class="login_icon name svg-icon" viewBox="0 0 20 20">
+      <div class="front_form">
+        <!-- front 사용자 이름 들어갈 공간 -->
+        <div class="front_row">
+          <svg class="front_icon name svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
           </svg>
-          <input type="text" class="login_input name" placeholder="Username"/>
+          <input type="text" class="front_input name" placeholder="Username"/>
         </div>
         
-        <!-- login 사용자 비밀번호 들어갈 공간 -->
-        <div class="login_row">
-          <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
+        <!-- front 사용자 비밀번호 들어갈 공간 -->
+        <div class="front_row">
+          <svg class="front_icon pass svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
           </svg>
-          <input type="password" class="login_input pass" placeholder="Password"/>
+          <input type="password" class="front_input pass" placeholder="Password"/>
         </div>
         
         
-        <button type="button" class="login_submit">로그인하기</button>
-        <p class="login_signup"> 아이디가 없습니까? &nbsp;<a>가입하기</a></p>
+        <button type="button" class="front_submit">로그인하기</button>
+        <p class="front_signup"> 아이디가 없습니까? &nbsp;<a class="signup">가입하기</a></p>
       </div>
       <!-- 로그인 폼 끝 -->
     </div>
+    
+        <div class="front sign-up">
+      <!-- front logo 들어갈 공간 -->
+      <div class="front_logo">
+        <div class="logo_dream">DREAM</div>
+        <img src="../common/img/dreamtree.png">
+        <div class="logo_tree">TREE</div>
+      </div>
+      
+      <div class="front_form">
+        <!-- front 사용자 이름 들어갈 공간 -->
+        <div class="front_row">
+
+          <input type="text" class="front_input name" placeholder="Username"/>
+        </div>
+        
+        <!-- front 사용자 비밀번호 들어갈 공간 -->
+        <div class="front_row">
+
+          <input type="password" class="front_input pass" placeholder="Password"/>
+        </div>
+        
+        
+        <button type="button" class="front_submit">회원가입</button>
+        <p class="front_signup"> 아이디가 없습니까? &nbsp;<a>가입하기</a></p>
+      </div>
+      <!-- 로그인 폼 끝 -->
+    </div>
+    
   </div>
 </div>
 
