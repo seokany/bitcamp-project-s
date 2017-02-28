@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>progress bar</title>
+<style>
+body {
+  width: 960px;
+  margin: 20px auto;
+}
+#progressbar{
+  height: 26px;
+  position: absolute;
+  width: 700px;
+  background-image: url("img/bar.png");
+  border-radius: 55px;
+  padding: 2px;
+}
+#loading{
+  transition: all 5ms ease;
+  height: 20px;
+  width: calc(100% - 10px);
+  border-radius: 55px;
+  background: #fff;
+  position: absolute;
+  margin: 3px;
+  display: inline-block;
+  animation: load 720s ease-in 1;
+}
+
+
+@keyframes load{
+  0%{
+    width: 2%;
+  }
+  10%{
+    width: 10%;
+  }
+}
+
+
+</style>
+</head>
+<body>
+<div id="progressbar">
+  <span id="loading"></span>
+</div>
+
+</body>
+</html>

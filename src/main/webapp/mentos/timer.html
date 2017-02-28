@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>timer</title>
-<link rel="stylesheet" type="text/css" href="css/DS-DIGII.css">
-<link rel="stylesheet" type="text/css" href="css/timer.css">
-<link rel="stylesheet" type="text/css" href="../mystuff/css/Daum_SemiBold.css">
+<link rel="stylesheet" type="text/css" href="css/timeTo.css">
 </head>
 <body>
 
@@ -13,36 +11,11 @@
 	<div id="timer"></div>
 	<img id="timer_img" alt="timer-default" src="img/time.png">
 </div>
-<script>
-window.onload = function(){
 
-	var second = 12;
-	var minute = 1;
-	  
-	setInterval(function(){
-    
-    if(minute < 10 && second > 10) {
-    	minute = "0" + minute;
-    	/*document.getElementById("timer").innerHTML = "0" + minute + " " + second;*/
-    }
-    if(minute < 10 && second < 10) {
-        document.getElementById("timer").innerHTML = "0" + minute + " " + "0" + second;
-    }
-    if(minute > 10 && second < 10) {
-        document.getElementById("timer").innerHTML = minute + " " + "0" + second;
-    }
-    if(second == 00){
-      minute--;
-      second = 60;
-    }
-    if(minute <= -1) {
-      document.getElementById("timer").innerHTML = " 00 00";
-    }
-    document.getElementById("timer").innerHTML = minute + " " + second;
-    second--;
-    
-  }, 1000);
-}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="js/timeTo.js"></script>
+<script>
+  $('#timer').timeTo(720);
 </script>
 </body>
 </html>
