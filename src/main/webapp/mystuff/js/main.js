@@ -27,7 +27,7 @@ $( function() {
     });
     
     var state = true;
-    $(document.body).on( "click", ".model-more", function() { // 추천직업 더 보기
+    $(document.body).on( "click", ".model-more", function() { // 추천인물 더 보기
       if ( state ) {
     	  $(".job-all, .video-all, .all-rec-mento").slideUp(1000);
   	    $(".model2-conts").slideDown(1000);
@@ -56,11 +56,14 @@ $( function() {
 
     var state = true;
     $(document.body).on( "click", ".mento-more", function() { // 멘토 더 보기 눌렀을 때
+    	
+    	var offset = $("mento-more").offset();
       if ( state ) {
     	  $(".all-rec-model, .job-all, .video-all").slideUp(1000);
   	    $(".mento2-conts").slideDown(1000);
 	    $(".mento2-conts").css("display", "inline-block");
         $( ".mento-effect" ).animate({
+        	scrollTop: "offset.top",
         	backgroundColor: "rgba(5, 118, 195, 0.13)",
         	borderRadius:"10px",
         	color: "black",
@@ -72,6 +75,7 @@ $( function() {
     	  $(".mento2-conts").slideUp(1000);
   	    $(".mento2-conts").css("display", "none");
         $( ".mento-effect" ).animate({
+       	scrollTop: "offset.top",        	
           backgroundColor: "#fff",
           color: "#000",
           height: "250px"
