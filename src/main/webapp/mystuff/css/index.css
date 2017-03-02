@@ -1,0 +1,204 @@
+@charset "utf-8";
+
+body { background:transparent; background-color:#c4cdd3;}
+html.ie7 body img,
+html.ie8 body img { display:none;}
+
+.IndexContent { padding-top:50px; padding-bottom:50px;}
+
+.Wrapper { background:none !important ;/*background:#efefef url("/images/index/bg_mobile.jpg") no-repeat center 50px;*/}
+
+body > svg { display:none;}
+
+/* Canvas */
+#Canvas { display:none; position:absolute; left:50%; top:0; z-index:1; width:2500px; height:750px; margin-left:-1050px;}
+
+/* GridWrap */
+.GridWrap { position:relative; z-index:2;}
+.GridWrap .ItemWrap { overflow:hidden; margin:0 0 20px;}
+.GridWrap .Item { overflow:hidden; position:relative;}
+.GridWrap .Item > a > img { width:100%;}
+.GridWrap .Item .SVGHoverTitle,
+.GridWrap .Item .ItemTitle { position:absolute; left:10px; top:15px; z-index:4; color:#333335; font-size:12px;}
+.GridWrap .Item .SVGHoverTitle { color:#fff; z-index:8;}
+.GridWrap .Item .Cover { position:absolute; left:0; top:0; z-index:5; width:100%; height:100%; opacity:0.85; filter:alpha(opacity=85);}
+.GridWrap .Item .Hover { position:absolute; z-index:5; width:100%; height:100%; opacity:0.85; filter:alpha(opacity=85); background-color:#2e89d7;}
+.GridWrap .Item .SVGHover { display:none;}
+.GridWrap .Item .BoxLink { width:100%; height:100%;}
+.GridWrap .Item .HoverText { position:absolute; left:10px; bottom:10px; z-index:5; color:#fff; font-size:12px; line-height:1.6;}
+.GridWrap .Item9 .HoverText { width:100%;}
+.GridWrap .Item9 .HoverText a { display:block; width:80%; text-overflow:ellipsis; }
+.GridWrap .Item10 .ItemTitle { color:#fff;}
+.GridWrap .Item10 .Link { position:absolute; left:10px; bottom:20%; z-index:5; padding:0 0 5px;}
+.GridWrap .Item10 .Link span { display:inline-block; padding:0 0 2px; margin:0 0 3px; color:#fff; font-size:12px; font-weight:bold; text-decoration:none; font-family:'Exo 2', 'sans-serif';}
+.GridWrap .Item10 .Link span:hover { text-decoration:none;}
+.GridWrap .Item6 .InvestWrap { position:absolute; top:35px; width:100%; font-family:'Exo 2', 'sans-serif'}
+.GridWrap .Item6 .InvestWrap > .Unit { margin:0 15px 10px; text-align:right; font-size:12px; color:#333335; font-weight:bold;}
+.GridWrap .Item6 .InvestWrap > .Value { margin:0 15px 10px 15px; padding:0 4px 5px; text-align:right; color:#c6a464; font-size:16px; font-weight:600; border-bottom:3px solid #c6a464;}
+.GridWrap .Item6 .InvestWrap > .Value span { margin-right:-4px;}
+.GridWrap .Item6 .InvestWrap > .Wrap { overflow:hidden; padding:5px 0 0;}
+.GridWrap .Item6 .InvestWrap > .Wrap .UpDown { float:left; width:45%; color:#333335; font-size:10px; font-weight:bold; text-indent:15px;}
+.GridWrap .Item6 .InvestWrap > .Wrap .UpDownValue { float:right; width:42%; margin-right:15px; color:#333335; font-size:10px; font-weight:bold; text-align:right;}
+.GridWrap .Item6 .InvestWrap > .Wrap .UpDownValue.Up {  color:#cc1311;}
+.GridWrap .Item6 .InvestWrap > .Wrap .UpDownValue.Down { color:#005696;}
+.GridWrap .ItemWrap.Divide2 .LeftArea { float:left; width:50%;}
+.GridWrap .ItemWrap.Divide2 .LeftArea .Item { margin-right:9px;}
+.GridWrap .ItemWrap.Divide2 .RightArea { float:left; width:50%;}
+.GridWrap .ItemWrap.Divide2 .RightArea .Item { margin-left:9px;}
+.GridWrap .Item > img { width:100%;}
+
+.GridWrap .Item3 h1,
+.GridWrap .Item4 h1{ font-family: 'Exo 2', 'sans-serif'; font-size:19px !important;}
+
+.GridWrap .Item1 .item .Tit { position:absolute; z-index:5;}
+.GridWrap .Item1 .item .Tit > span { display:block; padding:0 0 2px; color:#fff; font-size:42px; font-family:'Exo 2', 'sans-serif'; text-shadow:2px 2px 2px #999;}
+
+/* .GridWrap .item1 .Tit { right:20px; top:25px; text-align:right; font-size:36px;}
+.GridWrap .item2 .Tit { left:25px; top:20px; font-size:40px;} */
+.GridWrap .item .Tit { left:25px; bottom:45px; font-size:42px; text-shadow:none;}
+
+.GridWrap .Item2 h2.Tit { position:absolute; left:20px; bottom:15px; z-index:15; color:#333335; font-size:12px; font-family:'Exo 2', 'sans-serif';}
+
+/* indexSlider */
+.indexSlider1 { position:relative; height:0; padding:0 0 90% 0; z-index:1;}
+.indexSlider1 .innerFrame { width:100%; height:2500px;}
+.indexSlider1 .innerFrame .slider { width:100%; height:100%;}
+.indexSlider1 .innerFrame .slider .item { float:left; width:100%; visibility:hidden;}
+.indexSlider1 .innerFrame .slider .item:first-child { visibility:visible;}
+.indexSlider1 .innerFrame .slider .item img { width:100%; height:auto;}
+.indexSlider1indicator { position:absolute; left:0; bottom:15px; width:100%; height:15px; z-index:10; text-align:center;}
+.indexSlider1indicator button { display:inline-block; width:13px; height:13px; background:url("/images/index/rollingbtn_off.png") no-repeat left top; text-indent:-50px;}
+.indexSlider1indicator button.active { background-image:url("/images/index/rollingbtn_on.png");}
+.indexSlider1Prev { display:none; position:absolute; left:10px; top:50%; z-index:10; width:53px; height:53px; margin-top:-27px;}
+.indexSlider1Next { display:none; position:absolute; right:10px; top:50%; z-index:10; width:53px; height:53px; margin-top:-27px;}
+
+/* indexSlider */
+.indexSlider2 { position:relative; height:0; padding:0 0 43% 0; z-index:1;}
+.indexSlider2 .innerFrame { width:100%; height:2500px;}
+.indexSlider2 .innerFrame .slider { width:100%; height:100%;}
+.indexSlider2 .innerFrame .slider .item { float:left; width:100%; height:100%; visibility:hidden;}
+.indexSlider2 .innerFrame .slider .item:first-child { visibility:visible;}
+.indexSlider2 .innerFrame .slider .item img { width:100%;}
+.indexSlider2indicator { position:absolute; right:20px; bottom:15px; height:15px; z-index:10; text-align:right;}
+.indexSlider2indicator button { display:inline-block; width:13px; height:13px; background:url("/images/index/rollingbtn_off.png") no-repeat left top; text-indent:-50px;}
+.indexSlider2indicator button.active { background-image:url("/images/index/rollingbtn_on.png");}
+.indexSlider2Prev { display:none; position:absolute; left:10px; top:50%; z-index:10; width:53px; height:53px; margin-top:-27px;}
+.indexSlider2Next { display:none; position:absolute; right:10px; top:50%; z-index:10; width:53px; height:53px; margin-top:-27px;}
+
+/*
+ * Only Mobile
+ *
+ */
+@media all and (max-width: 767px) {
+
+}
+
+/*
+ * 480px Higher
+ *
+ */
+@media all and (min-width: 480px) {
+
+  .GridWrap .Item .SVGHoverTitle,
+  .GridWrap .Item .ItemTitle { left:20px; top:25px; font-size:19px;}
+  .GridWrap .Item .HoverText { font-size:16px;}
+  .GridWrap .Item10 .Link span { font-size:18px;}
+  .GridWrap .Item8 .HoverText { font-size:16px;}
+
+  .GridWrap .Item6 .InvestWrap { top:55px;}
+  .GridWrap .Item6 .InvestWrap > .Value { margin:0 20px 10px 20px; font-size:48px;}
+  .GridWrap .Item6 .InvestWrap > .Value span { margin-right:-8px;}
+  .GridWrap .Item6 .InvestWrap > .Wrap .UpDown { font-size:16px; text-indent:20px;}
+  .GridWrap .Item6 .InvestWrap > .Wrap .UpDownValue { margin-right:20px; font-size:16px;}
+
+  .GridWrap .Item .HoverText { left:20px; bottom:20px;}
+
+  .GridWrap .Item6 .InvestWrap > .Unit { margin-right:20px;}
+
+  .GridWrap .Item10 .Link { position:absolute; left:20px; right:20px; top:80px; bottom:auto; padding-bottom:10px;}
+
+}
+
+/*
+ * Only Tablet
+ *
+ */
+@media all and (min-width: 768px) and (max-width: 959px) {
+
+  .GridWrap { width:580px; margin:0 auto;}
+
+  .GridWrap .Item6 .InvestWrap > .Wrap { padding-top:10px;}
+
+}
+
+/*
+ * Desktop
+ *
+ */
+@media all and (min-width: 980px) {
+
+  .indexSlider1Prev,
+  .indexSlider1Next,
+  .indexSlider2Prev,
+  .indexSlider2Next { display:block;}
+
+  /* GridWrap */
+  .GridWrap { overflow:hidden; width:756px; margin:0 auto;}
+  .GridWrap > .LeftSect { float:left; width:498px;}
+  .GridWrap > .RightSect { float:Right; position:relative; width:240px;}
+  .GridWrap > .RightSect .LeftArea,
+  .GridWrap > .RightSect .RightArea,
+  .GridWrap > .RightSect .Item { float:none; width:100%; margin:0 !important;}
+
+  .GridWrap .Item1 { width:498px; height:458px;}
+  .GridWrap .Item2 { height:222px;}
+  .GridWrap .Item2 .indexSlider2 { height:222px;}
+  .GridWrap .Item1 .indexSlider1 { height:458px;}
+  .GridWrap .Item8 { position:absolute; left:0; top:0;}
+  .GridWrap .Item10 { position:absolute; left:0; top:239px;}
+  .GridWrap .Item6 { position:absolute; left:0; top:478px;}
+  .GridWrap .Item9 { position:absolute; left:0; top:718px;}
+  .GridWrap .Item7 { position:absolute; left:0; top:958px;}
+
+  .GridWrap .Item2 h2.Tit { bottom:45px;}
+
+  /*.GridWrap .item1 .Tit { right:40px; top:50px; text-align:right; font-size:40px;}
+  .GridWrap .item2 .Tit { left:50px; top:40px; font-size:48px;}*/
+  .GridWrap .item .Tit { left:45px; bottom:70px; text-shadow:none;}
+
+  .GridWrap .Item6 .InvestWrap > .Value span { font-size:58px;}
+  .GridWrap .Item6 .InvestWrap > .Unit { margin-bottom:-2px;}
+
+  #Canvas { display:block;}
+
+
+}
+
+/*
+ * Desktop Wide
+ *
+ */
+@media all and (min-width: 1280px) {
+
+  body { background-color:#c4cdd3;}
+
+  .Wrapper { background-color:#c4cdd3; background:url("/images/index/bg_wide.jpg") no-repeat center 134px;}
+
+  /* GridWrap */
+  .GridWrap { width:1272px; height:696px; position:relative;}
+  .GridWrap > .LeftSect,
+  .GridWrap > .RightSect { width:auto; position:static; float:none;}
+  .GridWrap .Item { position:absolute; left:auto; top:auto;}
+  .GridWrap .Item > img { width:100% !important; height:100% !important;}
+  .GridWrap .Item1 { right:0; top:0; height:458px !important;}
+  .GridWrap .Item9 { left:auto; right:258px; top:476px; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item10 { left:auto; right:0; top:476px; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item6 { left:auto; right:516px; top:0; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item7 { left:auto; right:516px; top:238px; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item8 { left:auto; right:516px; top:476px; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item2 { left:0; top:0; width:498px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item3 { left:0; top:238px; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item4 { left:258px; top:238px; width:240px !important; height:220px; margin:0 !important;}
+  .GridWrap .Item5 { left:0; bottom:0; width:498px !important; height:220px; margin:0 !important;}
+
+}

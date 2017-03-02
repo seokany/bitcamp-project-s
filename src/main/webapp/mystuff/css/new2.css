@@ -1,0 +1,189 @@
+@CHARSET "UTF-8";
+body {
+	margin: 0 auto;
+}
+
+.c-container {
+  position: relative;
+  width: 60vw;
+  height: 80vh;
+  margin: 2vh auto;
+}
+.card {
+  position: absolute;
+  top: 5vh;
+  background: #fff;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.65);
+  border-radius: 0;
+  padding: 10px;
+  width: 50vw;
+  max-width: 70vw;
+  height: 80vh;
+  -webkit-backface-visibility: hidden;
+}
+.card1 {
+  left: 5%;
+  margin-left: -13vw;
+  z-index: 9;
+  transform: rotateZ(-3deg);
+  transition: all 0.5s ease-out 0.3s;
+  background: 
+}
+
+.card2 {
+  left: 20%;
+  margin-left: -13vw;
+  z-index: 10;
+  
+}
+
+.card3 {
+  left: 35%;
+  margin-left: -13vw;
+  z-index: 8;
+  transform: rotateZ(3deg);
+  transition: all 0.5s ease-out 0.3s;
+}
+
+.card4 {
+  left: 50%;
+  margin-left: -13vw;
+  z-index: 7;
+  transform: rotateZ(4deg);
+  transition: all 0.5s ease-out 0.3s;
+}
+
+.c-container:hover .card:hover {
+  opacity: 1;
+  z-index: 11;
+  transform: scale(1);
+}
+
+
+
+/* -------------------영상 부분------------------- */
+.video-all-container {
+	border: 1px red solid;
+	width: 50vw;
+	height: 80vh;
+	margin-left: 10px;
+}
+.video-one-container {
+	border: 1px blue solid;
+	width: 15vw;
+	font-size:11px;
+	height: 25vh;
+	overflow: hidden;
+	margin: 3px;
+	display: inline-block;
+	padding-bottom: 10px;
+}
+
+.image-v {
+  width:13vw;
+  margin: 5px 12px;
+  border-radius: 25px;
+} 
+
+.video-name {
+  margin-top: 2px;
+  font-size:11px;
+  color: #585858;
+}
+
+.video-btm {
+  width:15vw;
+  font-family: 'Daum_SemiBold';
+  margin-top:3px;
+  margin-left:20px;
+  position: relative;
+}
+
+.btm-line {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  width: 15vw;
+  border: 0;
+  border-top: 2px solid rgba(169, 68, 66, 0.19);
+  position: absolute;
+  top: 17px;
+}
+.video-title {
+	position: absolute;
+	top: 21px;
+}
+.video-tag {
+	position: absolute;
+  top: 36px;
+}
+
+/* ------------------------------멘토 부분 -------------------------------------*/
+.mento-all-container {
+  border: 1px red solid;
+  width: 50vw;
+  height: 80vh;
+  margin-left: 10px;
+}
+.mento-one-container {
+  border: 1px blue solid;
+  width: 23vw;
+  font-size:11px;
+  height: 30vh;
+  overflow: hidden;
+  margin: 3px;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.image-m {
+  width: 21vw;
+  margin: 5px 12px;
+  height: 21vh;
+  border-radius: 25px;
+}
+
+
+
+.mento-btm {
+	margin-top: 2px;
+	width:15vw;
+  font-family: 'Daum_SemiBold';
+  margin-left:20px;
+  position: relative;
+}
+.mento-name {
+  
+}
+.mento-detail {
+  
+}
+.mento-tag {
+  
+}
+
+
+
+/* ------------------------------인물 부분 -------------------------------------*/
+.people-all-container {
+  border: 1px red solid;
+  width: 50vw;
+  height: 80vh;
+  margin-left: 10px;
+}
+.people-one-container {
+  border: 1px blue solid;
+  width: 47vw;
+  font-size:11px;
+  height: 25vh;
+  overflow: hidden;
+  margin: 3px;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.image-p {
+  width: 45vw;
+  margin: 5px 12px;
+  height: 24vh;
+  vertical-align: middle;
+  text-align: center;
+}
+
