@@ -98,8 +98,8 @@ color: #666;//trivial
 }
 .corner-button {
   position: absolute;
-  width: 90px;
-  height: 50px;
+  width: 134px;
+  height: 110px;
   top: 0;
   right: 0;
   background-color: #AED6F1;
@@ -107,9 +107,8 @@ color: #666;//trivial
   font-family: Verdana, Geneva, sans-serif;
   text-align: center;
   padding: 8px 5px;
-  border-radius: 5px;
   display: inline-block;
-  font-size: 11px;
+  font-size: 13px;
 }
 .corner-contents {
   width: 125%;
