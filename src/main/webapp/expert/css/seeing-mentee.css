@@ -47,6 +47,7 @@ div.student-pic {
   height: 95.9px;
   width: 95.9px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .users-list>li img {
@@ -61,4 +62,9 @@ div.student-pic {
 .planning {
 	height: 660px;
 	background-color: #fff;
+	overflow: hidden;
+}
+.planning> img {
+	height: 100%;
+	width: 100%;
 }
