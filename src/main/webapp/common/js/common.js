@@ -16,7 +16,7 @@ $( function() {
 	});
 	
 	/* header 호출 스크립트 */
-	$.get("common/header.html", function(result) {
+	$.get("../common/header.html", function(result) {
 		$("#header").html(result); 
 	});
 	

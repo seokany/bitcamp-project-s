@@ -1,0 +1,276 @@
+@charset "utf-8";
+
+/*
+ * 반응형 스타일 가이드
+ *
+ * 1) 크기는 총 4가지로 나눈다.
+ *    Mobile : 0px ~ 767px
+ *    Tablet : 768px ~ 1023px (iPad 기준)
+ *    Desktop : 1024px ~ 1279px (일반 데스크탑 화면)
+ *    Desktop Wide : 1280px 이상
+ *
+ */
+
+/*
+ * Common
+ *
+ */
+
+html,
+body { overflow-x:hidden; min-width:320px;}
+
+html.win,
+html.mac,
+html.win body,
+html.mac body { }
+
+body { position:relative; font-family:"NanumBarunGothic", dotum, arial, san-serif; background:#efefef; font-size:12px; overflow:hidden;}
+html.ie7 body,
+html.ie8 body { visibility:hidden; background:#efefef url("/images/ico/ajax-loader.gif") no-repeat center 300px;}
+a { font-family:"NanumBarunGothic", dotum, arial, san-serif;}
+
+/* Wrapper */
+.Wrapper { position:relative; z-index:1; overflow:hidden;}
+
+/* HeaderSection */
+.HeaderSection { }
+.HeaderSection .LogoArea { overflow:hidden; height:70px; background-color:#fff;}
+.HeaderSection .LogoArea .Logo { float:left;  height:70px; margin:0 0 0 15px; line-height:70px;}
+.HeaderSection .LogoArea .Logo a { display:inline-block; overflow:hidden; width:110px; height:30px; background:url("/images/common/logo_mobile.png") no-repeat left top; text-indent:-1000px;}
+.HeaderSection .LogoArea .GnbOpener { float:right; height:70px; margin:0 10px 0 0; line-height:70px;}
+.HeaderSection .LogoArea .GnbOpener button { width:35px; height:24px; line-height:1;}
+.HeaderSection .UtilsWrap .Utils { display:none;}
+.HeaderSection .UtilsWrap .Utils.Language li a { font-family: 'Exo 2', 'sans-serif';}
+.HeaderSection .Gnb { background-color:#fff;}
+.HeaderSection .Gnb .List { display:none; background-color:#fff; border-top:2px solid #efefef; }
+.HeaderSection .Gnb .List > li > a { display:block; padding:10px 15px; border-bottom:2px solid #efefef; background:url("/images/common/bg_gnb_trigger.png") no-repeat right center; color:#005696; font-size:16px; font-weight:bold;}
+.HeaderSection .Gnb .List > li > a.Current { background:#005098 url("/images/common/bg_gnb_trigger.png") no-repeat right center; color:#fff;}
+.HeaderSection .Gnb .List > li > ul { display:none;}
+.HeaderSection .Gnb .List > li > ul > li > a { display:block; padding:10px 15px 10px 30px; border-bottom:2px solid #efefef; color:#005696; font-size:14px;}
+.HeaderSection .Gnb .List > li > ul > li > ul > li > a { display:block; padding:10px 15px 10px 45px; border-bottom:2px solid #efefef; color:#888; font-size:12px;}
+.HeaderSection .Gnb .Utils { overflow:hidden;}
+.HeaderSection .Gnb .Utils > a { display:block; float:left; width:25%; text-align:center; background:none !important; padding:0 !important;}
+.HeaderSection .Gnb .Utils > a > span { display:block; padding:10px 0; border-left:2px solid #efefef; }
+.HeaderSection .Gnb .Utils > a > span.Eng { font-family: 'Exo 2', 'sans-serif' !important;}
+.HeaderSection .Gnb .Utils > a:first-child > span { border-left:0 none;}
+
+/* HeaderSection - Quick */
+.HeaderSection .UtilsWrap .Utils .Quicks li { background:url(""); height:auto !important; }
+.HeaderSection .UtilsWrap .Utils .Quicks .QuickList { background-color:#efefef; border:1px solid #CCCCCC; padding:0px; margin-top:5px; width:95px; display:none; }
+.HeaderSection .UtilsWrap .Utils .Quicks > li:hover .QuickList { display:block; }
+.HeaderSection .UtilsWrap .Utils .Quicks .QuickList li { display:block; padding:6px 10px 7px 10px !important; text-decoration:none !important; text-align:center; }
+.HeaderSection .UtilsWrap .Utils .Quicks .QuickList li:hover { background-color:#005696; color:#FFFFFF; }
+.HeaderSection .UtilsWrap .Utils .Quicks .QuickList li a { text-decoration:none !important; }
+
+/* ContentSection */
+.ContentSection { min-height:600px; padding:20px 15px 60px;}
+
+/* PathIndicator */
+.PathIndicator { position:relative; z-index:30;}
+.PathIndicator > ul { }
+.PathIndicator > ul:after { display:block; content:""; clear:both;}
+.PathIndicator > ul > li { float:left; position:relative; font-size:12px; text-align:left;}
+.PathIndicator > ul > li > a { display:block; position:relative; z-index:1; height:19px; margin-bottom:5px; text-indent:10px; padding-right:20px; line-height:19px; background:url("/images/common/bg_pathindicator.png") no-repeat right center;}
+.PathIndicator > ul > li.Home { padding-left:0;}
+.PathIndicator > ul > li.Home > a { width:35px; padding-right:15px; background-image:url("/images/common/bg_pathindicator_home.png"); text-indent:0;}
+.PathIndicator > ul > li.Depth1 > a { width:65px;}
+.PathIndicator > ul > li.Depth2 > a { width:105px; margin-right:1px;}
+.PathIndicator > ul > li.Depth3 > a { width:105px;}
+.PathIndicator > ul > li.Last > a { color:#005696;}
+.PathIndicator > ul > li > ul { display:none; position:absolute; left:0; top:25px; z-index:5; width:100%;}
+.PathIndicator > ul > li > ul > li > a { display:block; padding:9px 0 9px 10px; color:#fff; background:#005098;}
+.PathIndicator > ul > li > ul > li > a.Current,
+.PathIndicator > ul > li > ul > li > a:active,
+.PathIndicator > ul > li > ul > li > a:hover { background-color:#c0a674;}
+
+/* FooterSection */
+.FooterSection { position:relative; padding:60px 0 0; background-color:#fff; text-align:center;}
+.FooterSection .Logo { display:inline-block; width:145px; height:39px; text-align:center; background:url("/images/common/footer_logo_mobile.png") no-repeat left top; text-indent:-50000px;}
+.FooterSection .Utils { position:absolute; left:0; top:0; width:100%; padding:25px 0 0; text-align:center;}
+.FooterSection .Utils li { display:inline-block; height:12px; line-height:1; padding:0 15px; background:url("/images/common/bg_util_line.png") no-repeat left center;}
+.FooterSection .Utils li:first-child { background:none;}
+.FooterSection .Utils li a { display:block; color:#666; font-size:12px; font-weight:bold;}
+.FooterSection .Address { padding:20px 0 0; text-align:center; font-size:12px; color:#333;}
+.FooterSection .Copyright { padding:10px 0 30px; text-align:center; font-size:12px; color:#333;}
+
+/* ToTop */
+.ToTop { display:block; margin:15px 0; padding:15px 0; text-align:center; background-color:#fff;}
+
+/* Popup */
+.Popup { position:relative; z-index:100;}
+.Popup .Inner { padding:60px 15px 15px 15px;}
+.Popup .Inner .PopSlider { position:relative; height:0; padding:0 0 100% 0; z-index:1;}
+.Popup .Inner .PopSlider .innerFrame { width:100%; height:2500px;}
+.Popup .Inner .PopSlider .innerFrame .slider { width:100%; height:100%;}
+.Popup .Inner .PopSlider .innerFrame .slider .item { float:left; width:100%;}
+.Popup .Inner .PopSlider .innerFrame .slider .item img { width:100%;}
+.Popup .Inner .PopSliderIndicator { position:relative; width:100%; height:15px; margin:25px 0 0; padding:0 0 11px; z-index:10; text-align:center;}
+.Popup .Inner .PopSliderIndicator button { display:inline-block; width:13px; height:13px; margin:0 2px; background:url("/images/index/rollingbtn_off.png") no-repeat left top; text-indent:-50px;}
+.Popup .Inner .PopSliderIndicator button.active { background-image:url("/images/index/rollingbtn_on.png");}
+.Popup .Inner .Desktop { display:none;}
+.Popup .Closer { position:absolute; right:10px; top:10px; z-index:10; width:30px;}
+.Popup .Closer img { width:100%;}
+.Popup .StopShow { padding:15px 0 0 0; text-align:right; color:#fff;}
+.Popup .StopShow input { margin-left:5px;}
+
+/*
+ * Only Mobile
+ *
+ */
+@media all and (max-width: 767px) {
+
+}
+
+/*
+ * Not Mobile
+ *
+ */
+@media all and (min-width: 768px) {
+
+  /* FooterSection */
+  .FooterSection { overflow:hidden; height:60px; margin-left:15px; margin-right:15px; padding:0;}
+  .FooterSection > .InnerWrap { margin:0 auto;}
+  .FooterSection .Logo { float:left; width:272px; height:26px; margin:17px 0 0 20px; background-image:url("/images/common/footer_logo.png");}
+  .FooterSection .Utils { float:right; position:relative; left:auto; top:auto; width:auto; text-align:right; padding-right:5px;}
+  .FooterSection .Address,
+  .FooterSection .Copyright { display:none;}
+
+  .ToTop { margin-left:15px; margin-right:15px;}
+}
+
+/*
+ * Only Tablet
+ *
+ */
+@media all and (min-width: 768px) and (max-width: 959px) {
+
+  .GridWrap { width:580px; margin:0 auto;}
+
+}
+
+/*
+ * Desktop
+ *
+ */
+@media all and (min-width: 980px) {
+
+  /* HeaderSection */
+  .HeaderSection { height:143px; background:url("/images/common/bg_gnb02.png") repeat-x left top;}
+  .HeaderSection > .InnerWrap { position:relative; height:143px; margin:0 auto;}
+  .HeaderSection .LogoArea { position:relative; z-index:63; width:100%; height:94px; border-bottom:1px solid #99b9d6; background:url("/images/common/bg_gnb02.png") repeat-x left top;}
+  .HeaderSection .LogoArea .Inner { position:relative; height:91px; margin:0 auto;}
+  .HeaderSection .LogoArea .Logo { float:none; position:relative;}
+  .HeaderSection .LogoArea .Logo a { position:absolute; left:50%; top:30px; z-index:100; width:144px; height:48px; margin-left:-72px; background-image:url("/images/common/logo_wide.png");}
+  .HeaderSection .LogoArea .GnbOpener { display:none;}
+  .HeaderSection .UtilsWrap { }
+  .HeaderSection .UtilsWrap .Utils { display:block; position:absolute; z-index:66;}
+  .HeaderSection .UtilsWrap .Utils.Language { left:50%; top:39px; margin-left:-470px; text-align:left; font-family:'Exo 2', 'sans-serif'; font-size:13px;}
+  .HeaderSection .UtilsWrap .Utils.Func { left:50%; right:auto !important; top:39px; margin-left:348px; text-align:right;}
+  .HeaderSection .UtilsWrap .Utils li { display:inline-block; overflow:hidden; height:15px; padding:0 10px 0 13px; color:#999; font-size:12px; background:url("/images/common/bg_util_line.png") no-repeat left center; line-height:15px;}
+  html.ie .HeaderSection .Utils li { background-position:left 2px;}
+  .HeaderSection .UtilsWrap .Utils.Language li { background-position:left 4px; line-height:1; vertical-align:top;}
+  .HeaderSection .UtilsWrap .Utils li:first-child { background:none; padding-left:0;}
+  .HeaderSection .UtilsWrap .Utils.Func li:first-child { line-height:1.5;}
+  .HeaderSection .UtilsWrap .Utils.Func li.Last { padding-right:0; font-size:13px; font-family:'Exo 2', 'sans-serif'; line-height:1.3; background-position:left 3px;}
+
+  .HeaderSection .Gnb { display:block; position:absolute; left:0; bottom:0; z-index:30; width:100%; height:48px;}
+  .HeaderSection .Gnb .Inner { position:relative; margin:0 auto;}
+  .HeaderSection .Gnb .LineBg { position:absolute; left:0; top:0; z-index:52; width:100%; height:48px; background:url("/images/common/bg_gnb03.png") repeat-x left top;}
+  .HeaderSection .Gnb .Bg { position:absolute; left:0; top:-272px; z-index:51; width:100%; height:320px; background-color:#e5eaee; opacity:0.95; filter:alpha(opaicty=95);}
+  .HeaderSection .Gnb .List { display:block; position:relative; z-index:55; margin-left:20px; background:url("/images/common/bg_gnb03.png") repeat-x left top; border:0 none;}
+  .HeaderSection .Gnb .List:after { display:block; content:""; clear:both;}
+  .HeaderSection .Gnb .List > li { float:left; position:relative; width:16.66666%; z-index:54; z-index:55; text-align:center; height:39px; line-height:39px; background:url("/images/common/bg_gnb03.png") repeat-x left top;}
+  .HeaderSection .Gnb .List > li > a { position:absolute; left:0; top:0; width:100%; height:47px; z-index:55; display:block; background:url("/images/common/bg_gnb03.png") repeat-x left top; padding:0; font-weight:normal; border-bottom:1px solid #98bad6;}
+  .HeaderSection .Gnb .List > li > a > span { display:block; width:70%; height:45px; line-height:47px; margin:0 auto; font-size:18px; color:#005696; border-bottom:3px solid transparent; background:transparent;}
+  .HeaderSection .Gnb .List > li:hover > a > span { color:#005696; border-bottom:3px solid #005696; text-decoration:none;}
+  .HeaderSection .Gnb .List > li:hover > a:hover { text-decoration:none;}
+  .HeaderSection .Gnb .List > li > ul { display:block; overflow:hidden; position:absolute; left:0; top:-275px; z-index:2; height:259px; padding:0 0 0 32%; text-align:left; line-height:1;}
+  .HeaderSection .Gnb .List > li > ul > li:first-child { margin-top:30px;}
+  .HeaderSection .Gnb .List > li > ul > li { padding:0 0 12px;}
+  .HeaderSection .Gnb .List > li > ul > li > a { padding:0; color:#555; font-size:13px;border:0 none;}
+  .HeaderSection .Gnb .List > li > ul > li:hover > a { color:#005696;}
+  .HeaderSection .Gnb .List > li > ul > li > ul { padding:5px 0 0;}
+  .HeaderSection .Gnb .List > li > ul > li > ul > li > a { padding:6px 0 0 13px; color:#777; border-bottom:0 none;}
+  .HeaderSection .Gnb .Utils { display:none;}
+
+  /* PathIndicator */
+  .PathIndicator { position:relative; z-index:2; margin:30px auto 0;}
+  .PathIndicator:after { display:block; content:""; clear:both;}
+  .PathIndicator > ul { float:right;}
+
+  /* InnerContent */
+  .ContentSection { padding-top:36px;}
+  .ContentSection .InnerContent { position:relative; z-index:1; margin:0 auto; padding-top:0;}
+
+
+  /* FooterSection */
+  .FooterSection { margin:0 15px;}
+
+  /* Popup */
+  .Popup { }
+  .Popup .Inner { position:relative; max-width:1280px; margin:0 auto; padding:0;}
+  .Popup .Inner .PopSlider { height:0; padding:0 0 22.8%;}
+  .Popup .Inner .PopSlider .innerFrame .slider .item img { width:100%;}
+  .Popup .Inner .PopSliderIndicator { margin-top:-57px;}
+  .Popup .Inner .Mobile { display:none;}
+  .Popup .Inner .Desktop { display:block;}
+  .Popup .Closer { right:15px; top:15px;}
+  .Popup .StopShow { position:absolute; right:15px; bottom:15px; z-index:15; padding:0;}
+
+}
+
+/*
+ * Desktop Wide
+ *
+ */
+@media all and (min-width: 1280px) {
+
+  /* HeaderSection */
+  .HeaderSection .LogoArea .Inner { width:1272px;}
+  .HeaderSection .UtilsWrap { left:50%; width:1272px; margin-left:-636px;}
+  .HeaderSection .Utils.Func { right:5.8%;}
+  .HeaderSection .Gnb .Inner { width:1272px;}
+  .HeaderSection .Utils.Language { left:50%; top:39px; margin-left:-542px; text-align:left; font-family:'Exo 2', 'sans-serif'; font-size:13px;}
+  .HeaderSection .Utils.Func { margin-left:440px;}
+
+  .HeaderSection .Gnb .List > li > ul { padding-left:75px;}
+
+  /* PathIndicator */
+  .PathIndicator { width:1272px;}
+
+  /* InnerContent */
+  .ContentSection .InnerContent { width:1272px;}
+  .ContentSection .InnerContent.AllInfoWrapper { width:auto;}
+  .ContentSection .InnerContent.AllInfoWrapper .ContentTitle { width:1272px; margin-left:auto; margin-right:auto;}
+
+  /* FooterSection */
+  .FooterSection { width:1272px; margin:0 auto;}
+
+  .ToTop { width:1272px; margin:0 auto;}
+
+  /* Popup */
+  .Popup .Inner { height:250px;}
+  .Popup .Inner .PopSliderIndicator { margin-top:-27px;}
+  .Popup .Inner .PopSlider { height:250px; padding:0;}
+
+}
+
+/*
+ * Desktop Wide
+ *
+ */
+@media all and (min-width: 1400px) {
+
+  .ToTop { position:fixed; right:0; z-index:100; bottom:0; width:50px; height:50px; margin:0; padding:0; line-height:50px;}
+
+}
+
+/*
+ * 1600px
+ *
+ */
+@media all and (min-width: 1600px) {
+
+  .ContentSection .InnerContent.AllInfoWrapper { width:1600px;}
+
+}

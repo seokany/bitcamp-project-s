@@ -1,0 +1,201 @@
+@CHARSET "UTF-8";
+/*멘티 채팅창 관련 소스*/
+.chat {
+  height: 682px;
+  width: 400px;
+}
+.chat-title {
+	width: 390px;
+	position: relative;
+	height: 40px;
+  background: rgb(220, 200, 200);
+  color: #fff;
+  text-transform: uppercase;
+  text-align: left;
+}
+.mentee-name {
+	margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50px;
+  top: 9px;
+  font-size: 14px;
+}
+.chat-title .mentee-pic {
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  left: 9px;
+  border-radius: 30px;
+  width: 33px;
+  height: 33px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.24);
+}
+.chat-title .mentee-pic img {
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  border: 6px solid transparent;
+}
+
+.chatlogs::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chatlogs::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(0,0,0,.1);
+}
+.chatlogs {
+	height: 580px;
+  width: 390px;
+  background: lightblue;
+  margin-bottom: 30px;
+  font-size: 13px;
+  margin-bottom: 0;
+  overflow: scroll;
+}
+.round{
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+
+}
+
+.talk-bubble {
+  margin: 10px 30px;
+  display: inline-block;
+  position: relative;
+  min-width: 200px;
+  max-width: 360px;
+  min-height: 20px;
+}
+
+.talk-bubble.left-in {
+  background-color: #eee;
+}
+
+.talk-bubble.right-top {
+  background-color: lightyellow;
+}
+.border{
+  border: 5px solid #666;
+}
+
+
+/* Right triangle placed top right flush. */
+.tri-right.right-top {
+  float: right;
+  display: block;
+}
+.tri-right.border.right-top:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -35px;
+  top: -5px;
+  bottom: auto;
+  border: 32px solid;
+  border-color: #666 transparent transparent transparent;
+}
+.tri-right.right-top:after{
+  content: ' ';
+  position: absolute;
+  width: 2px;
+  height: 0;
+  left: auto;
+  right: -23px;
+  top: 0px;
+  bottom: auto;
+  border: 25px solid;
+  border-color: lightyellow transparent transparent transparent;
+}
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -37px;
+  right: auto;
+  top: auto;
+  bottom: -5px;
+  border: 32px solid;
+  border-color: transparent transparent #666 transparent ;
+}
+.tri-right.left-in:after{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -25px;
+  right: auto;
+  top: auto;
+  bottom: 0;
+  border: 25px solid;
+  border-color: transparent transparent #eee transparent;
+}
+.talktext{
+  padding: 2em;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  text-align: left;
+  line-height: 1.5em;
+  border-radius: 30px;
+  max-width: 235px;
+}
+.message-bottom {
+	width: 390px;
+  background: cornsilk;
+  position: relative;
+  height: 50px;
+}
+.message-bottom .message-input {
+  background: rgba(0,0,0,.8);
+  border: 2px solid #eee;
+  color: #999;
+  font-size: 11px;
+  resize: none;
+  height: 30px;
+  margin-top: 9px;
+  margin-left: 8px;
+  padding-right: 20px;
+  width: 308px;
+}
+.message-bottom .message-input:focus {
+  background: #fff;
+}
+.message-bottom .message-input::-webkit-scrollbar {
+  width: 10px;
+}
+.message-bottom .message-input::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background: rgba(0,0,0,.1);
+}
+.message-bottom .message-submit {
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  right: 10px;
+  color: #fff;
+  border: none;
+  background: #248A52;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 10px;
+  outline: none !important;
+  -webkit-transition: background .2s ease;
+  transition: background .2s ease;
+}
+.message-bottom .message-submit:hover {
+  background: #1D7745;
+}

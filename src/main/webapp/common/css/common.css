@@ -47,7 +47,7 @@ body { overflow: hidden; }
 
 #wrap_header {
   width:100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(89, 155, 179, 0.5);
   position:fixed;
   z-index:9999;
 }
@@ -61,57 +61,31 @@ body { overflow: hidden; }
   font-family: 'Pangolin', 'sans-serif';
 }
 
-#main_header #title {
+#main_header #right {
   display: inline-block;
-  position: inherit;
-  left: 350px;
+  position: relative;
+    left: 3%;
+        top: -28%;
   overflow: hidden;
+      width: 20%;
 }
 
-#main_header #title > div {
+#main_header #right > div {
   float: left;
   padding: 0px;
 }
 
-#title img {
-  display: block;
-  padding: 2px 0px;
-  height: 90px;
-  width: auto;
-}
-
-#main_header #title > a {
-  display: block;
-  padding: 2px 10px;
-  height: 90px;
-}
-
-#main_header #title div.dreamtree {
-  height: 90px;
-  line-height: 90px;
-  font-size: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
 
 #main_header > #main_gnb {
-  display: inline-block;
-  position: absolute;
-  right: 0; top: o;
-}
-
-#main_header > #main_lnb {
-  display: inline-block;
-  position: absolute;
-  left: 0; top: o;
-  
+    display: inline-block;
+    position: relative;
+    left: -5%;
+    top: -20%;
+    margin: 0 auto;
 }
 
 #main_gnb > ul {
   overflow: hidden;
-  margin: 0;
 } 
 
 #main_gnb > ul > li {
@@ -125,7 +99,7 @@ body { overflow: hidden; }
   height: 60px;
   line-height: 90px;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 20px;
 } 
 
 #main_gnb > ul a:hover, #main_lnb > ul a:hover {
@@ -161,8 +135,108 @@ body { overflow: hidden; }
 /* 풋터 영역 CSS */
 #con_footer {
 	margin-top: 60px;
-  min-top: 80vmin; 
-  height: 20vmin;
+  height:120px;
   background-color: rgba(0,0,0,0.1);
 }
 
+
+h3 {
+    position: relative;
+    margin: 0 auto;
+    margin-left: 10%;
+    width: 50%;
+    margin-top: 5px;
+}
+
+
+.user-info {
+/* 	border: 2px solid red; */
+    display: inline-block;
+    width: 40%;
+    height: 100%;
+    left: 42%;
+    overflow: hidden;
+}
+
+#user-phot img {
+/*     border: 2px solid red; */
+    position: relative;
+    display: inline-block;
+    left: 0;
+    margin-top: 1%;
+    margin-right: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+
+}
+
+#user-phot {
+/*     border: 2px solid red; */
+    position: relative;
+    display: inline-block;
+    left: 2%;
+    margin-top: 1%;
+    margin-right: 0px;
+    width: 20%;
+    height: 80%;
+    border-radius: 100%;
+
+}
+
+.user-detail {
+    display: inline-block;
+    position: absolute;
+/*     border: 2px solid red; */
+    left: 6%;
+    width: 30%;
+    height: 100%;
+        padding: 0 1%;
+}
+#name, .mylist {
+	display: block;
+/* 	border: 2px solid red; */
+	    height: 50%;
+	    text-align: center;
+}
+
+.mylist {
+    position: relative;
+    bottom: 7px;
+    padding-right: 15%;
+}
+
+
+.likes, .follows, .questions {
+	 display: inline-block;
+/* 	     border: 2px solid red; */
+    width: 20%;
+    height: 100%;
+    margin-right: 3%;
+}
+
+
+
+.menu, .myself, .message { /* 메뉴바 오른쪽 */
+	    margin: 0 5%;
+	    display: inline-block;
+    outline: none;
+    position: relative;
+    width: 30px;
+    height: 26px;
+    background: url(https://s.pinimg.com/webapp/style/images/webapp-common-above_the_fold-1x-5d23fe54.png) -212px -210px no-repeat;
+    vertical-align: baseline;
+        border-color: transparent;
+}
+
+.myself {
+	    width: 24px;
+    background: url(https://s.pinimg.com/webapp/style/images/webapp-common-above_the_fold-1x-5d23fe54.png) -163px -296px no-repeat;
+
+}
+
+.message {
+	  width: 25px;
+    background: url(https://s.pinimg.com/webapp/style/images/webapp-common-above_the_fold-1x-5d23fe54.png) -47px -296px no-repeat;
+	
+}
