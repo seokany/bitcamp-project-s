@@ -6,7 +6,6 @@ color: #666;//trivial
   box-sizing: border-box;
 }
 .fpc_box {
-  width: 500px;/*any relative or absolute*/
   position: relative;
   background-color: #FFF;
 }
@@ -52,21 +51,54 @@ color: #666;//trivial
   border-top: solid 2px #fff;
 }
 .corner-box {  /* edit these sizes for the default revealing corner size */
-  height: 20px;
+/*   height: 20px; */
   width: 20px;
   right: 0;
   top: 0;
   position: absolute;
   overflow: visible;
 }
-.fpc_box:hover .corner-box { /* edit corner size (First animation, when the whole page is rollovered) */
+.modelBox:hover .model-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
+  height: 20px;
+  width: 20px;
+}
+.modelBox div.model-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
   height: 50px;
   width: 50px;
+} 
+
+.mentoBox:hover .mento-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
+  height: 20px;
+  width: 20px;
 }
-.fpc_box div.corner-box:hover { /* edit corner size (Second animation, when the corner itself is rollovered) */
-  height: 100px;
-  width: 100px;
+.mentoBox div.mento-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
+  height: 50px;
+  width: 50px;
+} 
+
+.videoBox {
+	  border-right: 1px solid rgba(255, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.18);
 }
+
+
+.videoBox:hover .video-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
+  height: 20px;
+  width: 20px;
+}
+.videoBox div.video-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
+  height: 50px;
+  width: 50px;
+} 
+
+.jobBox:hover .job-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
+  height: 20px;
+  width: 20px;
+}
+.jobBox div.job-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
+  height: 50px;
+  width: 50px;
+} 
 .corner-box:before {
   position: absolute;
   top: 0;
@@ -97,19 +129,33 @@ color: #666;//trivial
   height: 100%;
 }
 .corner-button {
-  position: absolute;
-  width: 134px;
-  height: 110px;
-  top: 0;
-  right: 0;
-  background-color: #AED6F1;
-  color: #fff;
-  font-family: Verdana, Geneva, sans-serif;
-  text-align: center;
-  padding: 8px 5px;
-  display: inline-block;
-  font-size: 13px;
+    transform: skew(-10deg) rotate(37deg) translate(0, -50%);
+    position: absolute;
+    width: 134px;
+    height: 110px;
+    top: 14px;
+    left: -118px;
+    right: 0;
+    color: #a94442;
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+    padding: 8px 5px;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 900;
 }
+
+
+.corner-button p,
+.corner-button span{
+text-align: center;
+    width: 200px;
+    height: 50px;
+    left: 20%;
+    z-index: 2000;
+}
+
+
 .corner-contents {
   width: 125%;
   position: absolute;

@@ -18,7 +18,7 @@ body { margin: 0px;}
 
 #wrap_header {
   width:100%;
-    background-color: rgba(211, 211, 211, 0.96);
+background-color: rgba(89, 155, 179, 0.5);
   position:fixed;
   z-index:9999;
 }
