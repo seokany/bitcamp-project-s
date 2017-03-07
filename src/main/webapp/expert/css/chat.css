@@ -5,6 +5,7 @@
   width: 400px;
 }
 .chat-title {
+	width: 390px;
 	position: relative;
 	height: 40px;
   background: rgb(220, 200, 200);
@@ -37,6 +38,11 @@
   width: 100%;
   height: 100%;
 }
+
+.btn {
+  border: 6px solid transparent;
+}
+
 .chatlogs::-webkit-scrollbar {
   width: 10px;
 }
@@ -47,7 +53,7 @@
 }
 .chatlogs {
 	height: 580px;
-  width: 400px;
+  width: 390px;
   background: lightblue;
   margin-bottom: 30px;
   font-size: 13px;
@@ -146,6 +152,7 @@
   max-width: 235px;
 }
 .message-bottom {
+	width: 390px;
   background: cornsilk;
   position: relative;
   height: 50px;
@@ -157,7 +164,8 @@
   font-size: 11px;
   resize: none;
   height: 30px;
-  margin-top: 6px;
+  margin-top: 9px;
+  margin-left: 8px;
   padding-right: 20px;
   width: 308px;
 }

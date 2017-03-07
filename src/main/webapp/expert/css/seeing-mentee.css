@@ -5,6 +5,9 @@
 }
 .content {
 	padding-top: 10px;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 .col-md-4 {
   width: 406px;
@@ -40,9 +43,15 @@
   color: #999;
   font-size: 12px;
 }
+div.student-pic { 
+  height: 95.9px;
+  width: 95.9px;
+  border-radius: 50%;
+}
+
 .users-list>li img {
-	height: 95.9px;
-	width: 95.9px;
+  max-width: none;
+  border-radius: 0%;
 }
 
 
