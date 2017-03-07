@@ -3,26 +3,39 @@
 
 
 /* 초기화 */
-* { margin: 0; padding: 0; }
-li {list-style: none;}
-a { text-decoration: none; color: black;}
-img { border: 0;}
-body { margin: 0px;}
+body { overflow: hidden; }
 
 /* main-frame  */
-.main-frame {
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  position: absolute;
-  overflow: hidden;
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	left: -30vw;
 }
 
-#main-frame {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
+.frame-area {
+  width: 90vw;
+  height: 90vh;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  border: 3px solid; 
+}
+
+.frame-center {
+  padding: 0 4vw;
+}
+
+.frame-left {
+	left: -70vw;
+}
+
+.frame-right {
+	right: -70vw;
+}
+
+.frame-none {
+  display: none;
 }
 
 /* 헤더 영역 CSS  */
