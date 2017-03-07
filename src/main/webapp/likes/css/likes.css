@@ -1,0 +1,41 @@
+.dashboard {
+	width: 1265px; 
+	height: 700px;
+	margin: 110px auto 0 auto;
+	border-top: 1px solid rgba(211, 211, 211, 0.3);
+	border-right: 1px solid rgba(1, 1, 1, 0.3);
+	border-bottom: 1px solid rgba(1, 1, 1, 0.3);
+	display: flex;
+	flex-direction: row;
+}
+
+.thumb {
+	width: 300px;
+	height: 600px; 
+	border: 1px solid white;
+	margin: 20px 0;
+	left: 6px;
+	position: relative;
+}
+
+.thumb img {
+/* 	width: 100%; */
+/* 	height: 100%; */
+}
+
+.one {
+	left: 13px;
+}
+.two {
+	left: 23px;
+}
+.thr {
+	left: 33px;
+}
+.fou {
+	left: 43px;
+}
+
+.person-desc {
+/* 	display:none; */
+}
