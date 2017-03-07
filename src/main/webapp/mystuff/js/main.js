@@ -1,20 +1,22 @@
  
 $( function() { 
+	
+	
+	
+	
     var state = true;
     $(document.body).on( "click", ".job-more", function() { // 직업 더보기
       if ( state ) {
-    	  $(".all-rec-model, .all-rec-mento, .video-all").slideUp(1000);
-  	    $(".job2-conts").slideDown(1000);
+  	    $(".job2-conts").hide().slideDown();
 	    $(".job2-conts").css("display", "inline-block");
         $( ".job-effect" ).animate({
-        	backgroundColor: "rgba(5, 118, 195, 0.13)",
-        	borderRadius:"10px",
-        	color: "black",
-          height: "620px"
+          backgroundColor: "#BDBDBD",
+          color: "#fff",
+          height: "500px"
         }, 1000 );
         $(".all-rec-model, .all-rec-mento, .video-all").css("display", "none");
       } else {
-	  $(".job2-conts").slideUp(1000);
+	  $(".job2-conts").show().slideUp();
   	    $(".job2-conts").css("display", "none");
         $( ".job-effect" ).animate({
           backgroundColor: "#fff",
@@ -27,22 +29,21 @@ $( function() {
     });
     
     var state = true;
-    $(document.body).on( "click", ".model-more", function() { // 추천인물 더 보기
+    $(document.body).on( "click", ".model-more", function() { // 추천직업 더 보기
       if ( state ) {
-    	  $(".job-all, .video-all, .all-rec-mento").slideUp(1000);
-  	    $(".model2-conts").slideDown(1000);
+    	  $(".job-all, .video-all, .all-rec-mento").show().slideUp();
+  	    $(".model2-conts").hide().slideDown();
 	    $(".model2-conts").css("display", "inline-block");
 	    
         $( ".model-effect" ).animate({
-        	backgroundColor: "rgba(5, 118, 195, 0.13)",
-        	borderRadius:"10px",
-        	color: "black",
-          height: "620px"
+          backgroundColor: "#BDBDBD",
+          color: "#fff",
+          height: "500px"
         }, 1000 );
-
+        $(".all-rec-mento, .job-all, .video-all").css("display", "none");
       } else {
-    	  $(".all-rec-mento, .job-all, .video-all").slideDown(1000);
-    	  $(".model2-conts").slideUp(1000);
+    	  $(".all-rec-mento, .job-all, .video-all").hide().slideDown(1200);
+    	  $(".model2-conts").show().slideUp();
   	    $(".model2-conts").css("display", "none");
         $( ".model-effect" ).animate({
           backgroundColor: "#fff",
@@ -56,30 +57,27 @@ $( function() {
 
     var state = true;
     $(document.body).on( "click", ".mento-more", function() { // 멘토 더 보기 눌렀을 때
-    	
-    	var offset = $("mento-more").offset();
       if ( state ) {
-    	  $(".all-rec-model, .job-all, .video-all").slideUp(1000);
-  	    $(".mento2-conts").slideDown(1000);
+    	  $(".all-rec-model, .job-all, .video-all").show().slideUp();
+  	    $(".mento2-conts").hide().slideDown();
 	    $(".mento2-conts").css("display", "inline-block");
+	    
         $( ".mento-effect" ).animate({
-        	scrollTop: "offset.top",
-        	backgroundColor: "rgba(5, 118, 195, 0.13)",
-        	borderRadius:"10px",
-        	color: "black",
-          height: "620px"
+          backgroundColor: "#BDBDBD",
+          color: "#fff",
+          height: "500px"
         }, 1000 );
-
+        $(".all-rec-model, .job-all, .video-all").css("display", "none");
       } else {
-    	  $(".all-rec-model, .job-all, .video-all").slideDown(1000);
-    	  $(".mento2-conts").slideUp(1000);
+    	  $(".all-rec-model, .job-all, .video-all").hide().slideDown(1200);
+    	  $(".mento2-conts").show().slideUp();
   	    $(".mento2-conts").css("display", "none");
         $( ".mento-effect" ).animate({
-       	scrollTop: "offset.top",        	
           backgroundColor: "#fff",
           color: "#000",
           height: "250px"
         }, 1000 );
+        $(".all-rec-model, .job-all, .video-all").css("display", "inline-block");
       }
       state = !state;
     });
@@ -87,24 +85,24 @@ $( function() {
     var state = true;
     $(document.body).on( "click", ".video-more", function() { // 추천 영상 더보기 눌렀을 때
       if ( state ) {
-    	  $(".all-rec-model, .job-all, .all-rec-mento").slideUp(1000);
-  	    $(".video2-conts").slideDown(1000);
+  	    $(".video2-conts").hide().slideDown();
 	    $(".video2-conts").css("display", "inline-block");
         $( ".video-effect" ).animate({
-        	backgroundColor: "rgba(5, 118, 195, 0.13)",
-        	borderRadius:"10px",
-          color: "black",
-          height: "620px"
+          backgroundColor: "#BDBDBD",
+          color: "#fff",
+          height: "500px"
         }, 1000 );
+        $(".all-rec-model, .job-all, .all-rec-mento").css("display", "none");
       } else {
-    	  $(".all-rec-model, .job-all, .all-rec-mento").slideDown(1000);
-	  $(".video2-conts").slideUp(1000);
+    	  $(".all-rec-model, .job-all, .all-rec-mento").hide().slideDown(1500);
+	  $(".video2-conts").show().slideUp();
   	    $(".video2-conts").css("display", "none");
         $( ".video-effect" ).animate({
           backgroundColor: "#fff",
           color: "#000",
           height: "250px"
         }, 1000 );
+        $(".all-rec-model, .job-all, .all-rec-mento").css("display", "inline-block");
       }
       state = !state;
     });
@@ -113,23 +111,24 @@ $( function() {
     	 
     	$("#rec-list").css("border-bottom", "2px solid blue");
     	$("#like-list").css("border-bottom", "none");
+	    	$(".rec-btn").css("text-decoration", "none");
 	    $("#all-rec-list").css("display", "block");
         $("#all-like-list").css("display", "none");
 //        $(".all-rec-model, .job-all, .all-rec-mento, video-all").css("display", "inline-block");
        
     });
 
-    $(document.body).on( "click", ".like-btns", function() {// 좋아요 목록 눌렀을 때
+    $(document.body).on( "click", ".like-btn", function() {// 좋아요 목록 눌렀을 때
     	
     	$("#like-list").css("border-bottom", "2px solid blue");
     	$("#rec-list").css("border-bottom", "none");
+    	$(".like-btn").css("text-decoration", "none");
 	    $("#all-like-list").css("display", "block");
         $("#all-rec-list").css("display", "none");
 //        $(".all-rec-model, .job-all, .all-rec-mento, video-all").css("display", "inline-block");
    
     });
     
-
     
   /*  $(document.body).on( "click", ".favor-btn", function() {
     
@@ -144,9 +143,231 @@ $( function() {
       document.write("취소를 누르셨군요.");
     }
   });*/
+    
+    $(".hover").mouseleave(
+    	    function () {
+    	      $(this).removeClass("hover");
+    	    }
+    	  );
+    
+  //  
+   /* $(".model-div").hover(function() { // 추천인물 hover 더보기 
+    	
+    	$(this).css("cursor", "pointer");
+    	$(".model-more").css("display", "inline-block");
+    	
+    })
+        $(".model-div").mouseleave(
+    	    function () {
+    	      $(".model-more").css("display", "none");
+    	    }
+    	  );*/
+    //
+    
+    
+    //
+    $(".video").hover(function() { // 비디오 hover효과
+    	
+    	$(".video").css("background-color", "rgba(240, 128, 128, 0.27)");
+    	
+    })
+    
+    $(".video").mouseleave(
+    	    function () {
+    	      $(".video").css("background-color", "transparent");
+    	    }
+    	  );
+    //
+    
+    
+    // 추천직업 hover효과
+/*    $(".job-list").hover(function() {
+    	$(".job-list").css("background", "radial-gradient(ellipse at top left, rgba(105,155,200,1) 0%,rgba(181,197,216,1) 57%)");
+    })
+    
+    $(".job-list").mouseleave(
+    	    function () {
+    	      $(".job-list").css("background-image", "none");
+    	    }
+    	  );*/
+    
+    
+ /*   //
+    $(".modelBox").hover(function(){
+    	$(".model-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".modelBox").mouseleave(
+    	    function () {
+    	      $(".model-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    //
+    */
+    
+    
+    
+    //  추천영상 더보기 버튼.
+    
+    $(".videoBox").hover(function(){
+    	$(".video-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".videoBox").mouseleave(
+    	    function () {
+    	      $(".video-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    $(".video-box").hover(function(){
+    	$(this).css({"height":"50px", "width":"50px"});
+    })
+        $(".video-box").mouseleave(
+    	    function () {
+    	      $(this).css({"height":"20px", "width":"20px"});
+    	    }
+    	  );
+    //
+    
+    $(".jobBox").hover(function(){
+    	$(".job-box").css({"height":"20px", "width":"20px"});
+    })
+        $(".jobBox").mouseleave(
+    	    function () {
+    	      $(".job-box").css({"height":"0px", "width":"0px"});
+    	    }
+    	  );
+    
+    $(".job-box").hover(function(){
+    	$(this).css({"height":"50px", "width":"50px"});
+    })
+        $(".job-box").mouseleave(
+    	    function () {
+    	      $(this).css({"height":"20px", "width":"20px"});
+    	    }
+    	  );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // 인물 디테일 페이지.
+    var $play = $('.play'),
+    $detail  = $('.detail'),
+    $movie = $('.movie', $detail),
+    $close = $('.close');
+
+    $('.movies .movie').click(function(){
+    	console.log("dkdkdl");
+    $movie.html($(this).html());
+    $play.appendTo($movie);
+
+    $poster = $('.poster', this).addClass('active');
+
+    $('.poster', $detail).css({
+    top: $poster.position().top,
+    left: $poster.position().left,
+    width: $poster.width(),
+    height: $poster.height()
+    }).data({
+    top: $poster.position().top,
+    left: $poster.position().left,
+    width: $poster.width(),
+    height: $poster.height()
+    })
+
+    $detail.show();
+
+    $('.poster', $detail).delay(10).queue(function(next) {
+    $detail.addClass('ready');
+
+    next();
+    }).delay(100).queue(function(next){
+    $(this).css({
+      top: '-10%',
+      left: '-6%',
+      width: 366,
+      height: 400
+    });
+    next();
+    })
+    })
+
+
+    /*--------------------
+    Close
+    --------------------*/
+    function close(){
+    console.log('asd');
+    $p = $('.detail .poster');
+    console.log($p)
+    $p.css({
+    top: $p.data('top'),
+    left: $p.data('left'),
+    width: $p.data('width'),
+    height: $p.data('height'),
+    })
+    $detail.removeClass('ready').delay(500).queue(function(next){
+    $(this).hide();
+    $poster.removeClass('active');
+    next();
+    });
+    }
+
+    $close.click(close);
+    $('body').click(function(e){
+    $p = $(e.target).parents();
+    if ($p.is('.app')){
+    return false;
+    } else {
+    close();
+    }
+    })
+
+
+    /*--------------------
+    CodePen Thumbnail
+    --------------------*/
+    setTimeout(function(){
+    $('.movie:eq(0)').click();
+    }, 300);
+    setTimeout(function(){
+    close();
+    },1700);
+    
+    
+    
+    
+ // 멘토 리스트 페이지
+    
+   
+    $(".mt-btm").hover(function(){
+  	  
+  	  $(this).css("background", "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)");
+  	  $(this).children(".mt-name").css("display", "inline-block");
+  	$(this).children(".mt-photo").css("top", "-50px");
+  	  
+    })
+      
+    $(".mt-btm").mouseleave(
+    	    function () {
+    	     $(this).css("background", "transparent");
+  	  $(this).children(".mt-name").css("display", "none");
+  	$(this).children(".mt-photo").css("top", "-6px");
+    	    }
+    	  );
+    
+    
+    
+    
 });
 
-var state = true;
+/*var state = true;
 function changeimg() {// 좋아요 버튼 눌렀을 때
 	if(state) {
 		this.setAttribute( "src", "../image/fheart.png" );
@@ -162,7 +383,7 @@ function changeimg() {// 좋아요 버튼 눌렀을 때
 		$(".like-del").css("animation-delay", "1s");
 	}
 	state = !state;
-};
+};*/
 
 
 /*function ButtonDown() {  마우스로 눌렀을 때 이미지 변환  
@@ -179,9 +400,7 @@ function ButtonUp() {
 */
 
 	
-	
-	
-(function($) {
+(function($) { // 슬라이드 쇼
     $(function() {
         $('.jcarousel').jcarousel();
 
@@ -218,32 +437,61 @@ function ButtonUp() {
     });
 })(jQuery);
 
-	
-// 헤더 부분 
-$(document).ready(function(){ 
-	  //모든 웹페이지의 항목들이 로딩이 완료되었을때 처리해줄 내용
-	var pageState = document.location.href.split("/");
-	if (pageState[4] == "mystuff") {
-		$("#mystuff").css({"border-bottom": "2.5px solid #86F021"});
-	} else if (pageState[4] == "mentos") {
-		console.log(pageState);
-		$("#mentos").css({"border-bottom": "2.5px solid #86F021",
-			"text-decoration": "none"});
-	} else if (pageState[4] == "seeds") {
-		console.log(pageState);
-		$("#seeds").css({"border-bottom": "2.5px solid #86F021",
-			"text-decoration": "none"});
-	} else if (pageState[4] == "setting") {
-		console.log(pageState);
-		$("#setting").css({"border-bottom": "2.5px solid #86F021",
-			"text-decoration": "none"});
-	}
-	else {
-		alert("오류");
-	}
+
+var request = require("request");  
+var cheerio = require("cheerio");  
+var url = "https://www.ted.com/talks?language=ko";
+
+request(url, function (err, res, html) {
+    if (!err) {
+        var $ = cheerio.load(html);
+        
+        // 블로그 title 정보 가져오기
+        $(".entry-title > a").each(function () {
+        	console.log(this);
+            var post = {"title": "", "link": "", "summary": "", "category": []};
+            var data = $(this);
+            
+            post["title"] = data.text();
+            post["link"] = data.attr("href");
+        });
+        
+        // 블로그 요약 정보 가져오기
+        $(".entry-summary > p").each(function (i) {
+            // do something
+        })
+ 
+        // 블로그 카테고리 가져오기
+        $(".entry-categories").each(function (i) {
+            $(this).children('a').each(function () {
+                // do something
+            });
+        })
+    }
+//})
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });
-	
-	
-	
-	
+
+
+// 추천인물 디테일 페이지
+
+
+
+
+
+
 	
