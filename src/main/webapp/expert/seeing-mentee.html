@@ -25,7 +25,7 @@
           <div class="row">
             <div class="col-md-8">
               <div class="planning">
-<!--               멘토 설계도 -->
+                <img src="../mystuff/img/map2.jpg"/>
               </div>
             </div>
             
@@ -46,42 +46,42 @@
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
                     <li>
-                      <div class="student-pic"><img src="img/student1.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="img/student1.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">조인성</a>
                       <span class="users-list-age">15세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="img/student2.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="img/student2.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">Norman</a>
                       <span class="users-list-age">17세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="img/student1.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="img/student1.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">조인성</a>
                       <span class="users-list-age">16세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">John</a>
                       <span class="users-list-age">18세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">Alexander</a>
                       <span class="users-list-age">16세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">Sarah</a>
                       <span class="users-list-age">15세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">Nora</a>
                       <span class="users-list-age">17세</span>
                     </li>
                     <li>
-                      <div class="student-pic"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image"></div>
+                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image"></div>
                       <a class="users-list-name" href="#">Nadia</a>
                       <span class="users-list-age">19세</span>
                     </li>
@@ -114,7 +114,7 @@
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
 <script>
 // var state = true;
-	  $(".users-list-name").on("click", function(){
+	  $(".users-list-name, .student-pic").on("click", function(){
 	// 	  event.preventDefault();
 	// 	  if (state == true) {
 		  $(".col-md-4").children("div").css('display','none');
@@ -132,6 +132,11 @@
 		    console.log('새로 열린 페이지');
 		  }
 		});
+	
+$(".chat-exc").on("click", function(){
+   $(".col-md-4").children("div").css('display','none');
+   $(".col-md-4").load("chat.html");
+});
 </script>
   <script>
   history.pushState(null, null, location.href); 

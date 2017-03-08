@@ -3,11 +3,40 @@
 
 
 /* 초기화 */
-* { margin: 0; padding: 0; }
-li {list-style: none;}
-a { text-decoration: none; color: black;}
-img { border: 0;}
-body { margin: 0px;}
+body { overflow: hidden; }
+
+/* main-frame  */
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	left: -30vw;
+}
+
+.frame-area {
+  width: 90vw;
+  height: 90vh;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  border: 3px solid; 
+}
+
+.frame-center {
+  padding: 0 4vw;
+}
+
+.frame-left {
+	left: -70vw;
+}
+
+.frame-right {
+	right: -70vw;
+}
+
+.frame-none {
+  display: none;
+}
 
 /* 헤더 영역 CSS  */
 #con_header {
@@ -18,7 +47,7 @@ body { margin: 0px;}
 
 #wrap_header {
   width:100%;
-background-color: rgba(89, 155, 179, 0.5);
+  background-color: rgba(89, 155, 179, 0.5);
   position:fixed;
   z-index:9999;Out
 }

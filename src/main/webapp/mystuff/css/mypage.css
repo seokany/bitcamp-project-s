@@ -21,6 +21,7 @@ img { border: 0;}
 
  .object, .object2 {
   position: relative;
+  right: -100vw;
   width: 960px;
   margin: 2% auto;
 

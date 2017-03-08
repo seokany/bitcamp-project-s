@@ -1,0 +1,244 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 1.7;
+  color: #333;
+}
+h1 {
+  font-style: italic;
+}
+
+#container {
+  padding-top: 110px;
+}
+
+#container > #gress {
+  border-radius: 30px;
+  width: 198px;
+  height: 27px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  left: 201px;
+  background: #fff;
+}
+
+.criteria {
+  width: 960px;
+  max-width: 100%;
+  margin: 1em auto;
+  display: none;
+}
+
+.button-two {
+  display: none;
+}
+
+.on, .btn-on {
+  display: block;
+}
+
+.radios-label {
+  margin-top: 3em;
+  font-weight: bold;
+}
+.radios,
+.radio,
+.radio label{
+  position: relative;
+}
+.radios:before,
+.radios:after {
+  position: absolute;
+  top: 45px;
+  font-size: .75em;
+  font-weight: bold;
+}
+.radios:before {
+  content: "그렇다";
+  top: 10px;
+  left: 300px;
+  color: #4C9070;
+}
+.radios:after {
+  content: "그렇지 않다";
+  top: 10px;
+  right: 270px;
+  color: #94657E;
+}
+.radio {
+  display: inline-block;
+  margin: 0 .4em;
+}
+.radio input {
+  position: absolute;
+  top: -30px;
+  left: 3px;
+  opacity: 0.01;
+}
+.radio label {
+  display: inline-block;
+}
+.radio label:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #aaa;
+  border-radius: 50%;
+  transition: all .275s;
+}
+.radio label[for*="-0"]:before {
+  transform: translateY(-5px);
+}
+.radio label[for*="-1"]:before {
+  width: 25px;
+  height: 25px;
+  transform: translateY(-3px);
+}
+.radio label[for*="-2"]:before {
+  width: 32px;
+  height: 32px;
+}
+.radio label[for$="n"]:before {
+  border-color: #4C9070;
+}
+.radio label[for$="p"]:before {
+  border-color: #94657E;
+}
+
+/* checked */
+.radio :checked + label:before {
+  background: #AAA;
+}
+.radio :checked + label[for$="n"]:before {
+  background: #4C9070;
+}
+.radio :checked + label[for$="p"]:before {
+  background: #94657E;
+}
+
+.radio label span {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  white-space: nowrap;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/*Button Two*/
+.button-two {
+  border-radius: 4px;
+  background-color:#d35400;
+  border: none;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-size:24px;
+  margin: 40px auto 10px auto;
+  padding: 20px;
+  color:#fff;
+}
+
+.button-two span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-two span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-two:hover span {
+  padding-right: 25px;
+}
+
+.button-two:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* .result-btn { */
+/* 	background-color: rgba(211, 84, 0, .3); */
+/* } */
+
+/* progress bar */
+.progress {
+  width: 660px;
+  height: 30px;
+}
+
+.progress-wrap {
+  background: linear-gradient( 45deg, #94657e, #6da58b );
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 100px;
+}
+.progress-wrap .progress-bar {
+  background: rgba(220, 220, 220, .6);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+#result {
+	color: linear-gradient( 45deg, #94657e, #6da58b );
+	font-weight: bold;
+	font-size: 32px;
+	text-align: center;
+}
+
+/* chart */ 
+
+body {
+  font: normal normal 400 1rem/1.5 "Segoe UI", "Helvetica Neue", "DejaVu Sans", Helvetica, Arial, sans-serif;
+}
+aside {
+  float: left;
+  margin-right: 100px;
+}
+.chart {
+  margin-bottom:0;
+  margin-top:0;
+}
+.vert > canvas, .vert > ol {
+  display:inline-block
+}
+.horiz > li {
+  display: inline;
+  padding-right: 20px;
+}
+.legend {
+  vertical-align:top;
+  padding-left:15px;
+  list-style: none;
+  text-align: left;
+}
+.key {
+  position:relative;
+}
+.key:before {
+  content:"";
+  position:absolute;
+  top:35%;
+  left:-15px;
+  width:10px;
+  height:10px;
+}
+.e:before{background:rgb(236, 208, 120)}
+.i:before{background:rgba(217, 91, 67, 0.7)}
+.s:before{background:rgba(192, 41, 66, 0.7)}
+.n:before{background:rgba(84, 36, 55, 0.7)}
+.t:before{background:rgba(83, 119, 122, 0.7)}
+.f:before{background:rgba(119, 146, 174, 0.7)}
+.j:before{background:rgba(83, 119, 122, 0.7)}
+.p:before{background:rgba(119, 146, 174, 0.7)}

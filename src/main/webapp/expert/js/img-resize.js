@@ -1,5 +1,5 @@
 window.onload = function() {
-  var divs = document.querySelectorAll('li > div'); // 이미지를 감싸는 div
+  var divs = document.querySelectorAll('.img-div'); // 이미지를 감싸는 div
   for (var i = 0; i < divs.length; ++i) {
     var div = divs[i];
     var divAspect = div.offsetHeight / div.offsetWidth;    // div의 가로세로비는 알고 있는 값이다
