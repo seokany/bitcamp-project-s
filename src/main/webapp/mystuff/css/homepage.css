@@ -2,7 +2,6 @@
 @CHARSET "UTF-8";
 body {
 	 font-family: 'Raleway', Arial, sans-serif;
-  margin: 130px auto;
 }
 .ssize {
   width: 240px !important;
