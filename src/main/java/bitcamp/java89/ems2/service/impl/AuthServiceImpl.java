@@ -37,5 +37,6 @@ public class AuthServiceImpl implements AuthService {
     } else if (userType.equals(Member.MENTO)) {
       return teacherDao.getOneWithPhoto(member.getMemberNo());
     }
+    return member;
   }
 }

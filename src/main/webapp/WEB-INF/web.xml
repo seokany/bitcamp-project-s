@@ -18,20 +18,20 @@
   </listener>
 
 <!-- 필터 등록 -->
-  <filter>
-    <filter-name>CharacterEncodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-  </filter>
+<!--   <filter> -->
+<!--     <filter-name>CharacterEncodingFilter</filter-name> -->
+<!--     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> -->
+<!--     <init-param> -->
+<!--       <param-name>encoding</param-name> -->
+<!--       <param-value>UTF-8</param-value> -->
+<!--     </init-param> -->
+<!--   </filter> -->
 
 <!-- 필터를 어느 요청에 적용할 것인 지 설정한다. -->
-  <filter-mapping>
-    <filter-name>CharacterEncodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+<!--   <filter-mapping> -->
+<!--     <filter-name>CharacterEncodingFilter</filter-name> -->
+<!--     <url-pattern>/*</url-pattern> -->
+<!--   </filter-mapping> -->
 
 <!-- 서블릿 클래스 등록 -->
   <!-- 스프링 프론트 컨트롤러
@@ -71,12 +71,12 @@
     </servlet-mapping>
     
     <!-- URL에서 구체적으로 자원을 명시하지 않았을 때 기본으로 찾는 자원 -->
-    <welcome-file-list>
-      <welcome-file>main.html</welcome-file>
-      <welcome-file>index.html</welcome-file>
-      <welcome-file>index.htm</welcome-file>
-      <welcome-file>index.jsp</welcome-file>
-      <welcome-file>default.html</welcome-file>
-      <welcome-file>default.htm</welcome-file>
-    </welcome-file-list>
+<!--     <welcome-file-list> -->
+<!--       <welcome-file>main.html</welcome-file> -->
+<!--       <welcome-file>index.html</welcome-file> -->
+<!--       <welcome-file>index.htm</welcome-file> -->
+<!--       <welcome-file>index.jsp</welcome-file> -->
+<!--       <welcome-file>default.html</welcome-file> -->
+<!--       <welcome-file>default.htm</welcome-file> -->
+<!--     </welcome-file-list> -->
 </web-app>

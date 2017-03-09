@@ -23,6 +23,7 @@ insert into contents(type) values('video');
 insert into contents(type) values('person');
 insert into contents(type) values('plan');
 
+
 - 직업 데이터
 insert into job(cono, jbimg, jbnm, jbdsc) values(1, 'abce', '연구원', '연구한다'); 
 

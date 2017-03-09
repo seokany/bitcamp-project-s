@@ -1,74 +1,81 @@
-$(function() {
-	$(".thumb").on("click", function() {
-		console.log($(this).data("css"));
-		$(".thumb").each(function() {
-			$(this).css("display", "none");
-		});
-		$(".desc").each(function() {
-			$(this).css("display", "none");
-		});
-		$(this).css({
-			display: "block",
-			position: "relative",
-			margin: "0 20px",
-			"box-shadow": "10px 10px 5px rgba(132, 132, 132, .4)"
-		});
-		$(".sub-board").css({
-			display: "inline-block",
-			position: "relative",
-			top: "-620px",
-			left: "500px", 
-			width: "710px",
-			height: "610px",
-			overflow: "hidden",
-		});
-		if ($(this).hasClass("one")) {
-			$(".sub-board .one").css({
-				width: "710px",
-				left: "-500px",
-				display: "block",
-			});
-			$(".sub-board .one").animate({
-				left: "10px",
-			}, 1000);
-		} else if ($(this).hasClass("two")) {
-			$(this).css("left", "324px");
-			$(".sub-board .two").css({
-				width: "710px",
-				left: "-500px",
-				display: "block",
-			});
-			$(".sub-board .two").animate({
-				left: "10px",
-			}, 1000);
-		} else if ($(this).hasClass("thr")) {
-			$(this).css("left", "634px");
-			$(".sub-board .thr").css({
-				width: "710px",
-				left: "-500px",
-				display: "block",
-			});
-			$(".sub-board .thr").animate({
-				left: "10px",
-			}, 1000);
-		} else if ($(this).hasClass("fou")) {
-			$(this).css("left", "944px");
-			$(".sub-board .fou").css({
-				width: "710px",
-				left: "-500px",
-				display: "block",
-			});
-			$(".sub-board .fou").animate({
-				left: "10px",
-			}, 1000);
-		}
-		
-		$(this).animate({
-			left: "50px",
-			top: "-50px",
-			width: "360px", 
-			height: "660px",
-		}, 500);
-		
-	});
-});
+var $play = $('.play'),
+    $detail  = $('.detail'),
+    $movie = $('.movie', $detail),
+    $close = $('.close');
+
+$('.movies .movie').click(function(){
+  $movie.html($(this).html());
+  $play.appendTo($movie);
+
+  $poster = $('.poster', this).addClass('active');
+
+  $('.poster', $detail).css({
+    top: $poster.position().top,
+    left: $poster.position().left,
+    width: $poster.width(),
+    height: $poster.height()
+  }).data({
+    top: $poster.position().top,
+    left: $poster.position().left,
+    width: $poster.width(),
+    height: $poster.height()
+  })
+
+  $detail.show();
+
+  $('.poster', $detail).delay(10).queue(function(next) {
+    $detail.addClass('ready');
+
+    next();
+  }).delay(100).queue(function(next){
+    $(this).css({
+      top: '-10%',
+      left: '-6%',
+      width: 266,
+      height: 400
+    });
+    next();
+  })
+})
+
+
+/*--------------------
+Close
+--------------------*/
+function close(){
+  console.log('asd');
+  $p = $('.detail .poster');
+  console.log($p)
+  $p.css({
+    top: $p.data('top'),
+    left: $p.data('left'),
+    width: $p.data('width'),
+    height: $p.data('height'),
+  })
+  $detail.removeClass('ready').delay(500).queue(function(next){
+    $(this).hide();
+    $poster.removeClass('active');
+    next();
+  });
+}
+
+$close.click(close);
+$('body').click(function(e){
+  $p = $(e.target).parents();
+  if ($p.is('.app')){
+    return false;
+  } else {
+    close();
+  }
+})
+
+
+/*--------------------
+CodePen Thumbnail
+--------------------*/
+setTimeout(function(){
+  $('.movie:eq(0)').click();
+}, 300);
+setTimeout(function(){
+  close();
+},1700);
