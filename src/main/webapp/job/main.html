@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>직업관리-목록</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div class='container'>
+<div id='header'></div>
+
+<div id='sidebar'></div>
+
+<div id="content">
+<h1>직업 정보</h1>
+<a id='new-btn' href='#' class="btn btn-primary btn-sm">추가</a><br>
+<table id='list-table' class='table table-hover'>
+<thead>
+	<tr>
+	  <th>회원번호</th>
+	  <th>직업명</th>
+	  <th>직업설명</th>
+	  <th>직업썸네일</th>
+	</tr>
+<thead>
+<tbody></tbody>
+</table>
+<button id='prevPgBtn' type='button' class='btn btn-primary btn-xs'>이전</button>
+<span id='pageNo'>1</span>
+<button id='nextPgBtn' type='button' class='btn btn-primary btn-xs'>다음</button>
+</div>
+
+<div id='footer'></div>
+</div>
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+<tr>
+  <td>{{contentsNo}}</td>
+  <td><a class="name-link" href="#" data-no="{{contentsNo}}">{{jobName}}</a></td>
+  <td>{{jobDescription}}</td>
+  <td>{{jobImage}}</td>
+</tr>
+{{/each}}
+</script>
+
+<script src="js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<!-- <script src="js/bit.js"></script>
+<script src="js/common.js"></script> -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+    

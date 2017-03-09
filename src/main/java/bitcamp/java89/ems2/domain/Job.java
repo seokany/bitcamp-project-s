@@ -1,13 +1,11 @@
 package bitcamp.java89.ems2.domain;
 
-import java.io.Serializable;
-
-public class Job implements Serializable {
+public class Job extends ContentsHeader {
   private static final long serialVersionUID = 1L;
   
-  protected Object jobImage; // base64로 해결.
   protected String jobName;
   protected String jobDescription;
+  protected Object jobImage; // base64로 해결.
   
   
   public Object getJobImage() {
