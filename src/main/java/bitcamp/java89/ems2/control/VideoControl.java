@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import bitcamp.java89.ems2.domain.Video;
 import bitcamp.java89.ems2.service.VideoService;
@@ -20,7 +21,18 @@ public class VideoControl {
   
   
   @RequestMapping("/video/list")
-  public String list(Model model) throws Exception {
+  public String list(@RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize,Model model) throws Exception {
+    
+    
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    
+    if (pageSize < 5 || pageSize > 20) {
+      pageSize = 5;
+    }
+    
     
     
     List<Video> list = videoService.getList();

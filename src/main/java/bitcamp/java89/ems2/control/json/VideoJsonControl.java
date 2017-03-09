@@ -1,11 +1,13 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Video;
@@ -19,11 +21,26 @@ public class VideoJsonControl {
   @Autowired VideoService videoService;
   
   @RequestMapping("/video/list")
-  public AjaxResult list() throws Exception {
-
-    List<Video> list = videoService.getList();
+  public AjaxResult list(@RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="5") int pageSize) throws Exception {
     
-    return new AjaxResult(AjaxResult.SUCCESS, list);
+    if (pageNo < 1) {
+      pageNo = 1;
+    }
+    
+    if (pageSize < 5 || pageSize > 20) {
+      pageSize = 5;
+    }
+
+    List<Video> list = videoService.getList(pageNo, pageSize);
+    int totalCount = videoService.getSize();
+    
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("list", list);
+    resultMap.put("totalCount", totalCount);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
  /* @RequestMapping("/video/detail")
