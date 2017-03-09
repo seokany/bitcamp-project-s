@@ -8,9 +8,6 @@ public class ContentsHeader implements Serializable {
   protected int contentsNo;
   protected String contentsType;
   
-  
-  
-  
   public int getContentsNo() {
     return contentsNo;
   }
@@ -23,11 +20,5 @@ public class ContentsHeader implements Serializable {
   public void setContentsType(String contentsType) {
     this.contentsType = contentsType;
   }
-  
-  
-  
-
-  
-  
   
 }
