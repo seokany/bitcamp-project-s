@@ -31,14 +31,11 @@ public class AuthServiceImpl implements AuthService {
       return null;
     }
     
-    if (userType.equals(Member.STUDENT)) {
+    if (userType.equals(Member.MENTEE)) {
       return studentDao.getOne(member.getMemberNo());
       
-    } else if (userType.equals(Member.TEACHER)) {
+    } else if (userType.equals(Member.MENTO)) {
       return teacherDao.getOneWithPhoto(member.getMemberNo());
-      
-    } else /*if (userType.equals(Member.MANAGER))*/ {
-      return managerDao.getOne(member.getMemberNo());
     }
   }
 }
