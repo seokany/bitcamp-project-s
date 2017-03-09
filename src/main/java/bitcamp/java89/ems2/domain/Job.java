@@ -28,10 +28,6 @@ public class Job implements Serializable {
   public void setJobDescription(String jobDescription) {
     this.jobDescription = jobDescription;
   }
-  
-  
-  
-  
 
   
   
