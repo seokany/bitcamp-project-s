@@ -48,7 +48,7 @@ figure.snip1190 h2 {
 figure.snip1190 h2 span {
   font-weight: 800;
 }
-figure.snip1190 p {
+figure.snip1190 .fig-p {
   position: absolute;
   top: 0;
   left: 0;
@@ -107,7 +107,7 @@ figure.snip1190 .square div:after {
 figure.snip1190 a {
   left: 0;
   right: 0;
-  top: 0;
+    top: -5px;
   bottom: 0;
   position: absolute;
 }

@@ -71,9 +71,10 @@
     height: 90px;
     position: absolute;
     z-index: 2000;
-    top: -6px;
-    left: 454px;
+    top: -15px;
+    left: 448px;
     padding: 6px;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
 }
 
 
@@ -119,3 +120,81 @@ width: 530px;
 }
 
 
+
+/* 좋아요 버튼 */
+
+.buttonHolder{
+    background: transparent;
+    top: 237px;
+    width: 26px;
+    height: 38px;
+    position: absolute;
+    display: inline-block;
+    border: transparent;
+}
+
+
+    .btn{
+border-radius: 50%;
+    float: left;
+    height: 38px;
+    /* margin: 0 30px 30px 0; */
+    position: absolute;
+    /* padding: 0px; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 700;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    background-color: transparent;
+    }
+
+    .btn:after{
+    content: "";
+    display: block;
+    font-size: 23px;
+    height: 30px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    background-color: transparent;
+    width: 30px;
+    opacity: 0.7;
+    }
+
+
+    .heart:after{
+    content: "❤";
+    left:0px;
+    top: 6px;
+    background-color: transparent;
+    }
+
+
+    .btn:hover{
+    background-color: transparent;
+/*       background-image: -webkit-linear-gradient(top, #fff, #f4f1ee); */
+/*       background-image: linear-gradient(top, #fff, #f4f1ee); */
+      color:#0088cc;
+    }
+
+    .heart:hover:after{
+    background-color: transparent;
+      color:#f94e66;
+      text-shadow:0px 0px 6px #f94e66;
+    }
+
+  /*   .btn:active{
+    background-color: transparent;
+      background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+      background-image: linear-gradient(top, #efedec, #f7f4f4);
+      box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    }
+
+    .btn:active:after{
+    background-color: transparent;
+      color:#dbd2d2;
+      text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+    }
+ */
