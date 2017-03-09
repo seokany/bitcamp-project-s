@@ -16,7 +16,7 @@ public class DataSource {
   
   public Connection getConnection() throws Exception {
     if (conPool.size() == 0) {
-      return DriverManager.getConnection("jdbc:mysql://localhost:3306/java89db", 
+      return DriverManager.getConnection("jdbc:mysql://localhost:3306/dreamtree", 
           "java89", "1111");
     } else {
       return conPool.remove(0);

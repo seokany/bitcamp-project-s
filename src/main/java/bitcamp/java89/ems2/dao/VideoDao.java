@@ -3,10 +3,10 @@ package bitcamp.java89.ems2.dao;
 import java.util.ArrayList;
 import java.util.Map;
 
-import bitcamp.java89.ems2.domain.Student;
+import bitcamp.java89.ems2.domain.Video;
 
 public interface VideoDao {
-
-  ArrayList<Video> getList(Map<Video,Object> paramMap) throws Exception;
+  int countAll() throws Exception;
+  ArrayList<Video> getList() throws Exception;
   
 }
