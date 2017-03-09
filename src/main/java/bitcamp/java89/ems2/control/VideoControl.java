@@ -35,7 +35,7 @@ public class VideoControl {
     
     
     
-    List<Video> list = videoService.getList();
+    List<Video> list = videoService.getList(pageNo, pageSize);
     
     model.addAttribute("videos", list);
     model.addAttribute("title", "비디오관리-목록");

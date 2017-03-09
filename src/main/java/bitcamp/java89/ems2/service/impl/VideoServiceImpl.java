@@ -1,5 +1,6 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,17 @@ public class VideoServiceImpl implements VideoService {
   @Autowired ContentsHeaderDao contentsDao;
   @Autowired VideoDao videoDao;
   
-/* public int getSize() throws Exception {
+ public int getSize() throws Exception {
     return videoDao.countAll();
-  }*/
+  }
  
-  public List<Video> getList() throws Exception {
+  public List<Video> getList(int pageNo, int pageSize) throws Exception {
 
-    return videoDao.getList(); 
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    
+    return videoDao.getList(paramMap); 
   }
   
   /*public Video getDetail(int no) throws Exception {
