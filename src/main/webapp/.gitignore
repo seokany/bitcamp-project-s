@@ -1,1 +1,12 @@
+/bin/
+/.gradle/
+/.settings/
+/gradle/
+/.classpath
+/.project
+/build/ 
+/temp/
+/.DS_Store
+*.DS_Store
+*.log
 /node_modules/

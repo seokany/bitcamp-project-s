@@ -5,22 +5,28 @@
 	border-top: 1px solid rgba(211, 211, 211, 0.3);
 	border-right: 1px solid rgba(1, 1, 1, 0.3);
 	border-bottom: 1px solid rgba(1, 1, 1, 0.3);
-	display: flex;
 	flex-direction: row;
 }
 
-.thumb {
-	width: 300px;
-	height: 600px; 
-	border: 1px solid white;
-	margin: 20px 0;
-	left: 6px;
+.thumb, .sub-board div {
 	position: relative;
+	left: 6px;
+	width: 300px; 
 }
 
-.thumb img {
-/* 	width: 100%; */
-/* 	height: 100%; */
+
+/* 썸네일 영역 */
+
+.thumb-board {
+	display: flex;
+}
+
+.thumb {
+	height: 550px; 
+	border: 1px solid rgba(180, 180, 180, .3);
+	border-radius: 3px;
+	margin: 20px 0;
+	overflow: hidden;
 }
 
 .one {
@@ -36,6 +42,22 @@
 	left: 43px;
 }
 
-.person-desc {
-/* 	display:none; */
+
+/* 설명 영역 */
+
+.sub-board {
+	display: flex; 
+	margin-top: -20px;
+}
+
+.sub-board div {
+	padding: 0 20px;
+}
+
+.sub-board h2 {
+	text-shadow: rgba(65, 44, 40, .5) 1px 1px;
+}
+
+.sub-board p {
+	padding: 0 5px;
 }
