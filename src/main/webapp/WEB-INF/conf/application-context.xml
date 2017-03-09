@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+  <!-- 스프링 IoC 컨테이너가 클래스를 찾는 위치를 지정한다. 
+       => 지정한 패키지와 그 하위 패키지를 모두 뒤져서 
+          @Component, @Controller, @Repository, @Service 애노테이션이 붙은 
+          클래스를 찾아 인스턴스를 생성한다.
+  -->
+  <context:component-scan base-package="bitcamp.java89.ems2">
+    <context:exclude-filter type="annotation" 
+                            expression="org.springframework.stereotype.Controller"/>
+  </context:component-scan>
+
+  <!-- 프로퍼티 파일을 로딩하고 그 값을 관리하는 객체 -->
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations" value="/WEB-INF/conf/jdbc.properties"/>
+  </bean>
+
+  <!-- DB 커넥션을 관리하는 객체 -->
+  <bean id="dataSource" destroy-method="close"
+          class="org.apache.commons.dbcp.BasicDataSource">
+      <property name="driverClassName" value="${jdbc.driverClassName}"/>
+      <property name="url" value="${jdbc.url}"/>
+      <property name="username" value="${jdbc.username}"/>
+      <property name="password" value="${jdbc.password}"/>
+  </bean>
+
+  <!-- DB 커넥션의 트랜잭션을 관리하는 객체 -->
+  <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"/>
+  </bean>
+  
+  <!-- Mybatis 퍼시스턴스 프레임워크 객체 -->
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mapperLocations" value="classpath*:bitcamp/java89/ems2/dao/*Dao.xml" />
+    <property name="typeAliasesPackage" value="bitcamp.java89.ems2.domain" />
+  </bean>
+  
+  <!-- DAO 인터페이스의 Mybatis 구현체를 만들어주는 객체 -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="bitcamp.java89.ems2.dao" />
+  </bean>
+  
+  <!-- 트랜잭션을 다루는 Advice 등록 -->
+  <tx:advice id="txAdvice" transaction-manager="txManager">
+    <tx:attributes>
+      <tx:method name="get*" read-only="true"/>
+      <tx:method name="*"/>
+    </tx:attributes>
+  </tx:advice>
+  
+  <!-- 트랜잭션 Advice를 어떤 메서드에 끼워 넣을 것인지 지정한다. -->
+  <aop:config>
+    <!-- 트랜잭션 Advice를 꼽을 위치 지정 -->
+    <aop:pointcut id="serviceOperation" 
+                  expression="execution(* bitcamp.java89.ems2.service..*(..))" />
+    <!-- 위치와 Advice를 연결한다. -->
+    <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+  </aop:config>
+</beans>
