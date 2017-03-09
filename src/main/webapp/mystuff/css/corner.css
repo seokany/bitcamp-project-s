@@ -82,10 +82,10 @@ color: #666;//trivial
 }
 
 
-.videoBox:hover .video-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
+.videoBox:hover .video-box  {/* edit corner size (First animation, when the whole page is rollovered)*/
   height: 20px;
   width: 20px;
-}
+} 
 .videoBox div.video-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
   height: 50px;
   width: 50px;
@@ -153,6 +153,7 @@ text-align: center;
     height: 50px;
     left: 20%;
     z-index: 2000;
+    
 }
 
 
@@ -162,7 +163,7 @@ text-align: center;
   display: block;
   overflow: hidden;
   -webkit-mask: -webkit-linear-gradient(45deg, transparent 49%, #000 53%);
-  top: 0;
+/*   top: -5px; */
   right: 0;
   height: 125%;
 }

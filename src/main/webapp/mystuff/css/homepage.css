@@ -39,12 +39,6 @@ body {
 	
 }
 
-
-
-
-
-
-
 .video, .job-size {
 
 border-radius:10px;
@@ -62,12 +56,6 @@ border-radius:10px;
       z-index:200; */
   cursor:pointer;
   }  
-
-
-
-
-
-
 
 .job-list {
 	border-radius:10px;
@@ -174,32 +162,6 @@ border-radius:10px;
 .model-btn:hover:after {
   opacity: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* div.video:hover {
-	position:absolute;
-  width: 260px;
-  height: 250px;
-    z-index: 500;
-} */
-
-
-/*==================
-  멘토
-===================*/
-
-
 
 
 

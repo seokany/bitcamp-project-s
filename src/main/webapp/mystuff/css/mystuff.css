@@ -11,280 +11,7 @@ body {
 a { text-decoration: none; color: black;}
 img { border: 0;}
 
- 
-/*   #seed {
-  font-famliy:'Daum_SemiBold';
-    position: relative;
-    text-align: center;
-    margin: 10px auto;
-    height: 200px;
-  margin-bottom:2%;
-} */
 
-/* .seed-title {
-  font-famliy:'Daum_SemiBold';
-} */
-
- .object, .object2 {
-/*  color: #6a6f8c; */
-  position: relative;
-  width: 960px;
-  margin: 2% auto;
-
-} 
-
-.list-type {
-  display: inline-block;
-  position: relative;
-    width: 400px;
-    height: 40px;
-    margin-left: 65%;
-}
-
-
-.list-type ul {  /* 추천목록 좋아요 목록 바깥 틀 */
-    width: 220px;
-    margin: 0 auto;
-    margin-bottom:5%;
-/*     border: 1px solid; */
-}
-.list-type li {
-	padding:3%;
-display: inline-block;
-/* 	    border: 1px solid; */
-}
-
-#rec-list {
-	margin-right:10px;
-	border-bottom:2px solid blue;
-}
-
-/* #rec-list a:hover,
-#like-list a:hover {
-	text-decoration:none;
-} */
- 
-#like-list:hover, #rec-list:hover,
-.rec-btn:hover, .like-btn:hover {
-	font-size:17px;
-text-decoration:none;
-}
-
-
-/* .object .rec-list-htm, */
-/* .object .like-list-htm{ */
-/*    top:0; */
-/*   left:0; */
-/*   right:100px;  */
-/*   margin:0 auto;  border: 1px solid red;  */
-/*   margin-left: 13%; */
-/*   width:100%; */
-/*   height:100%; */
-/*   -webkit-transform:rotateY(180deg); */
-/*           transform:rotateY(180deg); */
-/*   -webkit-backface-visibility:hidden; */
-/*           backface-visibility:hidden; */
-/*   -webkit-transition:all .4s linear; */
-/*   transition:all .4s linear; */
-/* } */
-
-/* 
-#seed .circle {
-  margin:0 2%;
-  background-color: #609;
-  display:inline-block;
-  position:0px 50%;
-  width: 80px;
-  height: 100px;
-  -webkit-border-radius:50%;
-}
-
-.not-seed span {
-  font-size:250%!important;
-  margin-left: -13px;
-}
-
-
-.seed-Button {
-  -moz-box-shadow: 0px 10px 14px -7px #276873;
-  -webkit-box-shadow: 0px 10px 14px -7px #276873;
-  box-shadow: 0px 10px 14px -7px #276873;
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
-  background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
-  background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
-  background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
-  background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
-  background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
-  background-color:#599bb3;
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;
-  border-radius:8px;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:20px;
-  font-weight:bold;
-  padding:13px 15px;
-  text-decoration:none;
-  text-shadow:3px 8px 4px #3d768a;
-}
-.seed-Button:hover {
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
-  background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
-  background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
-  background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
-  background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
-  background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
-  background-color:#408c99;
-}
-.seed-Button:active {
-  position:absolute;
-  top:1px;
-}
- .seed-list {
- display:inline-block;
-    width: 100px;
-    height: 150px;
- } */
-
-
-/* =================================아래부터 추천직업=============================================================== */
-  .title-bar {
-cursor: pointer;
-    width: 100%;
-    height: 50px;
-     } 
-     
-     
-/*       .title-bar:hover {
-      background: radial-gradient(50% 50%, #fff, #fff);
-      background-color: blue;
-      } */
-  
-  /*   .title:before {
-    content: '';
-    display: block;
-    width: 600px;
-    height: 4px;
-    position:absolute;
-    background: #e5e5e5;
-    left: 95px;
-    top: 50%;
-    margin: 0 auto;
-    } */
-    
-    .title {
-    width:200px;
-    font-family: 'Daum_SemiBold';
-    background: radial-gradient(50% 50%, #fff, #fff);
-    color: rgba(38, 38, 38, 0.5);
-     text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
-     }
-    #all-like-list .title:hover {
-         /* background: radial-gradient(50% 50%, #fff, #fff); */
-     color: indianred;
-     text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
-     }
-     
-     #all-rec-list .title:hover {
-         /* background: radial-gradient(50% 50%, #fff, #fff); */
-     color: firebrick;
-     text-shadow: 1px 1px 2px #fff, 0 0 0 #000, 1px 1px 2px #fff;
-     }
-  
-  
-   #list-form{
-  color:black;
-  width: 100%;
-  height: 100%;
-  min-height:20%;
-  position:relative;
-  -webkit-perspective:1000px;
-          perspective:1000px;
-  -webkit-transform-style:preserve-3d;
-          transform-style:preserve-3d;
-                  margin-bottom: 10%;
-}
-/*   #all-like-list {
-  display: none;
-  } */
-  
- /* .all-rec-list {
-  width: 100%;
-  }
-  
-  
-  
-  .all-like-list, .all-rec-list {
-  margin:0 auto; border: 1px solid red;
-  width:100%;
-  height:100%;
-    -webkit-transform:rotateY(180deg);
-          transform:rotateY(180deg);
-  -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-  -webkit-transition:all .4s linear;
-  transition:all .4s linear;
-  } 
-  
-  .list-type .rec-list:checked + .tab{
-  color:#000000;
-  border-color:#1161ee;
-}
-.list-type .like-list:checked + .tab{
-  color:#000000;
-  border-color:#1161ee;
-}
-
- .list-type .rec-list:checked + .tab + .rec-list + .tab + .all-rec-list{
-  -webkit-transform:rotate(0);
-          transform:rotate(0);
-}
- .list-type .like-list:checked + .tab + .all-like-list{
-  -webkit-transform:rotate(0);
-          transform:rotate(0);
-}  */
-     
-     
-.job-all, .all-rec-model, .all-rec-mento, .video-all {
-  margin-left: 4%;
-  width: 80%;
-  height: 40%;
-  
-} 
-
-
-
-#all-rec-list .title {
-  width:75px;
-      display: inline-block;
-    position: relative;
-  
-}
-
-#all-like-list .title {
-  width:120px;
-      display: inline-block;
-    position: relative;
-  
-}
-
-.object .obj-line {
-  margin-top: 1%;
-  margin-left:7%;
-  width:15%;
-  color:rgba(255,255,255,.2);
-}
-
-/* .toggler { 
-   width: 100%; 
-   height: 100%; 
-   position: relative; 
-   margin-top:2%;
-} */
  .rec { /* 추천 목록들 사진 */
     width: 99.5%;
     display: inline-block;
@@ -300,26 +27,6 @@ cursor: pointer;
     height: 220px;
    
    } 
-   
-   .job2-conts, .model2-conts, .mento2-conts, .video2-conts {
-   position: relative;
-    display:none;
-    width: 250px;
-    padding-left: 3px;
-    height: 235px;
-   
-   }
-   
-/*    .job-conts:hover, .model-conts:hover, .mento-conts:hover, .video-conts:hover,
-   .job2-conts:hover, .model2-conts:hover, .mento2-conts:hover, .video2-conts:hover {
-   background-color: cornflowerblue;
-   opacity:0.7;
-   border-radius: 15px;
-   cursor:pointer;
-   z-index:100;
-   
-   } */
-    
    
     .job-name span,
     .mento-name span,
@@ -339,16 +46,14 @@ cursor: pointer;
     .mento-name-favor p {
     margin-top:3px;
     margin-bottom:2px;
-    width:200px;
     font-size:10px;
      filter:alpha(style=2);
      color:#585858;
     }
     
-
     
     .model-detail {
-position:absolute;
+      position:absolute;
     }
     
       .model-date span, .model-tag span  {
@@ -406,7 +111,7 @@ position:absolute;
     border-radius:10px;
    }
    
-   .job-btm, .video-btm, .model-btm {
+  .video-btm, .model-btm {
     width: 110%;
     font-family: 'Daum_SemiBold';
     margin-left: 5px;
@@ -414,11 +119,6 @@ position:absolute;
    }
    
 
-   
-   .job-btm {
-     height:100px;
-   }
-   
    
    .job-name, .mento-name, .video-name {
    position:relative;
@@ -445,9 +145,9 @@ position:absolute;
    }
    
       .mento-name-favor {
-    display: inline-block;
     position: absolute;
-    margin-top: 10px;  
+    margin-top: 10px;
+    right: -140px;
       }
 
    
@@ -478,60 +178,8 @@ position:absolute;
      max-width: 100%; 
      height: auto;
     } 
-    
-    .job-effect,  .model-effect, .mento-effect, .video-effect {
-    width: 850px;
-    height: 250px;
-    background: #fff;
-    margin: 0 auto;
-    padding-top: 10px;
-    padding-left: 60px;
-        margin-bottom: 5%;
-}
-/*     border:1px solid; */
-    
-    }
-    
-    h4 {
-    font-famliy:'Daum_SemiBold';
-     margin:0 auto;
-     position:absolute; 
-     padding: 0.4em; 
-     }
-     
-   /*   #title-btn-mento {
-     padding-left: -50px;
-    } */
-    
-  
-     
-     /* ========================추천인물=================== */
-     
-/*     #img-box {
-     margin-left:100px;
-    } */
-/* .all-rec-model {
-  display: inline-block;
-  max-width:800px;
-  height: 300px;
-  
-} */
-
-
-/* .mySlides {
-margin-left: 25%;
-    display: inline-block;
-    top: 5px;
-    width: 500px;
-    height: 250px;
-    background-position: center center;
-    background-size: 100% 100%;
-   background-repeat:no-repeat;
-  } */
-
 
 /*    ====================슬라이드 ========================== */
-
 
 .wrapper {
   margin-left:10%;
@@ -595,9 +243,8 @@ width: 500px;
     color: #fff;
 }
 
+
 /** Carousel **/
-
-
 
    .ul {
     width: 20000em;
@@ -607,13 +254,6 @@ width: 500px;
     padding: 0;
 }
  
-#model-text1, #model-text2 {
-position: relative;
-    display: inline-block;
-    width: 100%;
-    top: -300px;
-    height: 100%;
-}
 
  .model-slide, .mento-slide { /* 번호에 영향 */ 
  position:relative;
@@ -626,7 +266,6 @@ width: 498px;
 
  .mento-slide { /* 멘토 슬라이드 */
  border-radius:10px 10px 0px 0px; 
-/*  border-bottom:3px solid rgba(12, 24, 80, 0.75); */
 height: 368px;
 } 
 
@@ -644,8 +283,8 @@ height: 368px;
     position: relative;
     z-index: 2000;
     top: -45px;
-    left: -3px;
     padding: 3px;
+        float: right;
 }
 
 
@@ -657,163 +296,7 @@ height: 368px;
 }
 
 
-/* model 명언 */
-
-
-#model-text1 span{
-    position: absolute;
-    color: #f5f5f5;
-    font-size: 12px;
-    text-shadow: 2px 2px rgba(60, 118, 61, 0.43);
-    left: 20px;
-    top: 140px;
-    width: 40%;
-    height: 20px;
-}
-
-#model-text1 p{
-   position: absolute;
-    color: #8a6d3b;
-    font-size: 17px;
-    text-shadow: 1px 1px rgba(183, 51, 51, 0.36);
-    left: 20px;
-    top: 220px;
-    width: 40%;
-    height: 20px;
-}
-
-
-#model-text1 strong {
-    position: absolute;
-    display: inline-block;
-    color: rgba(169, 68, 66, 0.81);
-    text-shadow: 2px 2px rgba(8, 8, 8, 0.4);
-    width: 50%;
-    left: 10px;
-    top: 100px;
-    font-size: 18px;
-}
-
-/* ====================================================== */
-
-#model-text2 span{
-    position: absolute;
-    color: #f5f5f5;
-    font-size: 12px;
-    text-shadow: 2px 2px rgba(60, 118, 61, 0.43);
-    left: 20px;
-    top: 140px;
-    width: 40%;
-    height: 20px;
-}
-
-#model-text2 p{
-    position: absolute;
-    color: #8a6d3b;
-    font-size: 17px;
-    text-shadow: 1px 1px rgba(183, 51, 51, 0.36);
-    left: 350px;
-    top: 220px;
-    width: 40%;
-    height: 20px;
-}
-
-
-#model-text2 pre {
-    position: absolute;
-    display: inline-block;
-    color: rgba(169, 68, 66, 0.81);
-    text-shadow: 2px 2px rgba(51, 51, 51, 0.82);
-    width: 80%;
-    left: 210px;
-    top: 120px;
-    background-color: transparent;
-    border-color: transparent;
-    font-family: inherit;
-    font-size: 18px;
-}
-
-#model-text3 span{
-    position: absolute;
-    color: #f5f5f5;
-    font-size: 12px;
-    text-shadow: 2px 2px rgba(60, 118, 61, 0.43);
-    left: 20px;
-    top: 140px;
-    width: 40%;
-    height: 20px;
-}
-
-#model-text3 p{
-    position: absolute;
-    color: #8a6d3b;
-    font-size: 17px;
-    text-shadow: 1px 1px rgba(183, 51, 51, 0.36);
-    left: 380px;
-    top: 170px;
-    width: 40%;
-    height: 20px;
-}
-
-
-#model-text3 pre {
-    position: absolute;
-    display: inline-block;
-    color: rgba(169, 68, 66, 0.81);
-    text-shadow: 2px 2px rgba(51, 51, 51, 0.82);
-    width: 80%;
-    left: 230px;
-    top: 50px;
-    background-color: transparent;
-    border-color: transparent;
-    font-family: inherit;
-    font-size: 18px;
-}
-
-#model-text4 span{
-    position: absolute;
-    color: #f5f5f5;
-    font-size: 12px;
-    text-shadow: 2px 2px rgba(51, 51, 51, 0.82);
-    left: 130px;
-    top: 120px;
-    width: 40%;
-    height: 20px;
-}
-
-#model-text4 p{
-   position: absolute;
-    color: #8a6d3b;
-    font-size: 17px;
-    text-shadow: 1px 1px rgba(183, 51, 51, 0.36);
-    left: 20px;
-    top: 220px;
-    width: 40%;
-    height: 20px;
-}
-
-
-#model-text4 strong {
-    position: absolute;
-    display: inline-block;
-    color: rgba(169, 68, 66, 0.81);
-    text-shadow: 2px 2px rgba(8, 8, 8, 0.4);
-    width: 100%;
-    left: 20px;
-    top: 80px;
-    font-size: 18px;
-}
-
-
-.rec-model-title {
-  position:absolute;
-    width:470px;
-    height:60px;
-    margin-bottom:200px;
-} 
-
-
-/** Carousel Controls **/
+/** 슬라이드 prev next 버튼 **/
 
 .jcarousel-control-prev,
 .jcarousel-control-next {
@@ -898,131 +381,6 @@ height: 368px;
 }
 
 
-
-
-
-
-/* 좋아요 눌렀을 때 나오는 안내창. */
-.popover.right {
-    margin-left: 10px;
-}
-.fade.in {
-    opacity: 1;
-}
-.popover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1060;
-    display: none;
-    max-width: 276px;
-    padding: 1px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: left;
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    text-transform: none;
-    letter-spacing: normal;
-    word-break: normal;
-    word-spacing: normal;
-    word-wrap: normal;
-    white-space: normal;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: 6px;
-    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-    line-break: auto;
-        
-}
-
-#like-conts {
-	top: -70%;
-    left: 65%;
-    position: absolute;
-    display:none;
-    box-sizing: border-box;
-    width: 110%;
-    height:30px;
-}
-
-
-.like-add, .like-del {
-    top: -65%;
-    left: 45%;
-    display: none;
-    position: absolute;
-    box-sizing: border-box;
-    background-color: floralwhite;
-    width: 110%;
-    z-index:9999;
-}
-
-
-.popover-title {
-	    color: transparent;
-    background-color: antiquewhite;
-    border-radius: inherit;
-}
-
-.fade {
-    opacity: 0;
-    -webkit-transition: opacity .15s linear;
-    -o-transition: opacity .15s linear;
-    transition: opacity .15s linear;
-}
-
-
-.popover > .arrow {
-	border-width: 11px;
-    left: -11px;
-    margin-top: -11px;
-    border-right-color:transparent;
-/*     border-right-color: #999; */
-/*     border-right-color: rgba(0,0,0,.25); */
-    border-left-width: 0;
-}
-
-.popover>.arrow, .popover>.arrow:after {
-    position: absolute;
-    display: block;
-    width: 0;
-    height: 0;
-        border-top-color: purple;
-    border-color: transparent;
-    border-style: solid groove;
-}
-
-.popover.right > .arrow:after {
-    bottom: -10px;
-    left: 1px;
-    content: " ";
-    border-right-color:transparent;
-    border-left-width: 0;
-    border-right-width: 0;
-}
-.popover > .arrow:after {
-    content: "";
-    border-width: 10px;
-}
-
-:after, :before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-
-
-
 /* 좋아요 목록  X 버튼 */
 
 #x-btn {
@@ -1036,130 +394,72 @@ height: 368px;
     cursor: pointer;
 }
 
-    
-    
-    /* hover 그림자 생기기 */
-    
-.hvr-float-shadow {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  position: relative;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-.hvr-float-shadow:before {
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-  content: '';
-  top: 100%;
-  left: 5%;
-  height: 10px;
-  width: 90%;
-  opacity: 0;
-  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform, opacity;
-  transition-property: transform, opacity;
-}
-.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
-  -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
-}
-.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
-  opacity: 1;
-  -webkit-transform: translateY(5px);
-  transform: translateY(5px);
-}
-
-
-
-    /* hover X 삭제 허버 */
-
- .hvr-icon-grow-rotate {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px transparent;
-  position: relative;
-  padding-right: 2.2em;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-/*   z-index:1000; */
-}
-.hvr-icon-grow-rotate:before {
-  content: "\f095";
-  position: absolute;
-  right: 1em;
-  padding: 0 1px;
-  font-family: FontAwesome;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-icon-grow-rotate:hover:before, .hvr-icon-grow-rotate:focus:before, .hvr-icon-grow-rotate:active:before {
-  -webkit-transform: scale(1.5) rotate(12deg);
-  transform: scale(1.5) rotate(12deg);
-}
-
-/* slide  */
-        .jssorb01 {
-            position: absolute;
-        }
-        .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
-            position: absolute;
-            /* size of bullet elment */
-            width: 12px;
-            height: 12px;
-            filter: alpha(opacity=70);
-            opacity: .7;
-            overflow: hidden;
-            cursor: pointer;
-            border: #000 1px solid;
-        }
-        .jssorb01 div { background-color: gray; }
-        .jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
-        .jssorb01 .av { background-color: #fff; }
-        .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
-
-
-        .jssora02l, .jssora02r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 55px;
-            height: 55px;
-            cursor: pointer;
-            background: url('img/a02.png') no-repeat;
-            overflow: hidden;
-        }
-        .jssora02l { background-position: -3px -33px; }
-        .jssora02r { background-position: -63px -33px; }
-        .jssora02l:hover { background-position: -123px -33px; }
-        .jssora02r:hover { background-position: -183px -33px; }
-        .jssora02l.jssora02ldn { background-position: -3px -33px; }
-        .jssora02r.jssora02rdn { background-position: -63px -33px; }
-        .jssora02l.jssora02lds { background-position: -3px -33px; opacity: .3; pointer-events: none; }
-        .jssora02r.jssora02rds { background-position: -63px -33px; opacity: .3; pointer-events: none; }
-        
-        
-        
-        
-        .rec-job {
+  .rec-job {
     height: 92%;
     width: 99%;
-        }
+      }
+        
+        
+        
+        
+        /* 좋아요 버튼 */
+        
+        .buttonHolder{
+    background: transparent;
+    top: 237px;
+    width: 26px;
+    height: 38px;
+    position: absolute;
+    display: inline-block;
+    border: transparent;
+}
+
+
+    .btn{
+border-radius: 50%;
+    float: left;
+    height: 38px;
+    /* margin: 0 30px 30px 0; */
+    position: absolute;
+    /* padding: 0px; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 700;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    background-color: transparent;
+    }
+
+    .btn:after{
+    content: "";
+    display: block;
+    font-size: 23px;
+    height: 30px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    background-color: transparent;
+    width: 30px;
+    opacity: 0.7;
+    }
+
+
+    .heart:after{
+    content: "❤";
+    left:0px;
+    top: 6px;
+    background-color: transparent;
+    }
+
+    .btn:hover{
+    background-color: transparent;
+      color:#0088cc;
+    }
+
+    .heart:hover:after{
+    background-color: transparent;
+      color:#f94e66;
+      text-shadow:0px 0px 6px #f94e66;
+    }
         

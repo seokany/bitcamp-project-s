@@ -1,9 +1,6 @@
  
 $( function() { 
 	
-	
-	
-	
     var state = true;
     $(document.body).on( "click", ".job-more", function() { // 직업 더보기
       if ( state ) {
@@ -28,84 +25,6 @@ $( function() {
       state = !state;
     });
     
-    var state = true;
-    $(document.body).on( "click", ".model-more", function() { // 추천직업 더 보기
-      if ( state ) {
-    	  $(".job-all, .video-all, .all-rec-mento").show().slideUp();
-  	    $(".model2-conts").hide().slideDown();
-	    $(".model2-conts").css("display", "inline-block");
-	    
-        $( ".model-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
-          height: "500px"
-        }, 1000 );
-        $(".all-rec-mento, .job-all, .video-all").css("display", "none");
-      } else {
-    	  $(".all-rec-mento, .job-all, .video-all").hide().slideDown(1200);
-    	  $(".model2-conts").show().slideUp();
-  	    $(".model2-conts").css("display", "none");
-        $( ".model-effect" ).animate({
-          backgroundColor: "#fff",
-          color: "#000",
-          height: "250px"
-        }, 1000 );
-        $(".all-rec-mento, .job-all, .video-all").css("display", "inline-block");
-      }
-      state = !state;
-    });
-
-    var state = true;
-    $(document.body).on( "click", ".mento-more", function() { // 멘토 더 보기 눌렀을 때
-      if ( state ) {
-    	  $(".all-rec-model, .job-all, .video-all").show().slideUp();
-  	    $(".mento2-conts").hide().slideDown();
-	    $(".mento2-conts").css("display", "inline-block");
-	    
-        $( ".mento-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
-          height: "500px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .video-all").css("display", "none");
-      } else {
-    	  $(".all-rec-model, .job-all, .video-all").hide().slideDown(1200);
-    	  $(".mento2-conts").show().slideUp();
-  	    $(".mento2-conts").css("display", "none");
-        $( ".mento-effect" ).animate({
-          backgroundColor: "#fff",
-          color: "#000",
-          height: "250px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .video-all").css("display", "inline-block");
-      }
-      state = !state;
-    });
-
-    var state = true;
-    $(document.body).on( "click", ".video-more", function() { // 추천 영상 더보기 눌렀을 때
-      if ( state ) {
-  	    $(".video2-conts").hide().slideDown();
-	    $(".video2-conts").css("display", "inline-block");
-        $( ".video-effect" ).animate({
-          backgroundColor: "#BDBDBD",
-          color: "#fff",
-          height: "500px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .all-rec-mento").css("display", "none");
-      } else {
-    	  $(".all-rec-model, .job-all, .all-rec-mento").hide().slideDown(1500);
-	  $(".video2-conts").show().slideUp();
-  	    $(".video2-conts").css("display", "none");
-        $( ".video-effect" ).animate({
-          backgroundColor: "#fff",
-          color: "#000",
-          height: "250px"
-        }, 1000 );
-        $(".all-rec-model, .job-all, .all-rec-mento").css("display", "inline-block");
-      }
-      state = !state;
-    });
    
     $(document.body).on( "click", ".rec-btn", function() { // 추천목록 눌렀을 때
     	 
@@ -129,43 +48,13 @@ $( function() {
    
     });
     
-    
-  /*  $(document.body).on( "click", ".favor-btn", function() {
-    
-    var con_test = confirm("어떤 값이 나올까요. 확인을 눌러보세요.");
-    if(con_test == true)
-    { 
-    	function onclick() {
-        this.setAttribute( "src", "../fheart.png" );
-    }
-    }
-    else if(con_test == false) {
-      document.write("취소를 누르셨군요.");
-    }
-  });*/
-    
+
     $(".hover").mouseleave(
     	    function () {
     	      $(this).removeClass("hover");
     	    }
     	  );
     
-  //  
-   /* $(".model-div").hover(function() { // 추천인물 hover 더보기 
-    	
-    	$(this).css("cursor", "pointer");
-    	$(".model-more").css("display", "inline-block");
-    	
-    })
-        $(".model-div").mouseleave(
-    	    function () {
-    	      $(".model-more").css("display", "none");
-    	    }
-    	  );*/
-    //
-    
-    
-    //
     $(".video").hover(function() { // 비디오 hover효과
     	
     	$(".video").css("background-color", "rgba(240, 128, 128, 0.27)");
@@ -180,41 +69,15 @@ $( function() {
     //
     
     
-    // 추천직업 hover효과
-/*    $(".job-list").hover(function() {
-    	$(".job-list").css("background", "radial-gradient(ellipse at top left, rgba(105,155,200,1) 0%,rgba(181,197,216,1) 57%)");
-    })
-    
-    $(".job-list").mouseleave(
-    	    function () {
-    	      $(".job-list").css("background-image", "none");
-    	    }
-    	  );*/
-    
-    
- /*   //
-    $(".modelBox").hover(function(){
-    	$(".model-box").css({"height":"20px", "width":"20px"});
-    })
-        $(".modelBox").mouseleave(
-    	    function () {
-    	      $(".model-box").css({"height":"0px", "width":"0px"});
-    	    }
-    	  );
-    
-    //
-    */
-    
-    
     
     //  추천영상 더보기 버튼.
     
     $(".videoBox").hover(function(){
-    	$(".video-box").css({"height":"20px", "width":"20px"});
+    	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
     })
         $(".videoBox").mouseleave(
     	    function () {
-    	      $(".video-box").css({"height":"0px", "width":"0px"});
+    	    	$(this).children(".video-box").css({"height":"0px", "width":"0px"});
     	    }
     	  );
     
@@ -226,14 +89,14 @@ $( function() {
     	      $(this).css({"height":"20px", "width":"20px"});
     	    }
     	  );
-    //
+    
     
     $(".jobBox").hover(function(){
-    	$(".job-box").css({"height":"20px", "width":"20px"});
+    	$(this).children(".job-box").css({"height":"20px", "width":"20px"});
     })
         $(".jobBox").mouseleave(
     	    function () {
-    	      $(".job-box").css({"height":"0px", "width":"0px"});
+    	    	$(this).children(".job-box").css({"height":"0px", "width":"0px"});
     	    }
     	  );
     
@@ -250,12 +113,6 @@ $( function() {
     
     
     
-    
-    
-    
-    
-    
-    
     // 인물 디테일 페이지.
     var $play = $('.play'),
     $detail  = $('.detail'),
@@ -264,38 +121,37 @@ $( function() {
 
     $('.movies .movie').click(function(){
     	console.log("dkdkdl");
-    $movie.html($(this).html());
-    $play.appendTo($movie);
+      
+      $movie.html($(this).html());
+      $play.appendTo($movie);
 
-    $poster = $('.poster', this).addClass('active');
+      $poster = $('.poster', this).addClass('active');
 
     $('.poster', $detail).css({
-    top: $poster.position().top,
-    left: $poster.position().left,
-    width: $poster.width(),
-    height: $poster.height()
-    }).data({
-    top: $poster.position().top,
-    left: $poster.position().left,
-    width: $poster.width(),
-    height: $poster.height()
+    	
+	    top: $poster.position().top,
+	    left: $poster.position().left,
+	    width: $poster.width(),
+	    height: $poster.height()
+	    }).data({
+	    top: $poster.position().top,
+	    left: $poster.position().left,
+	    width: $poster.width(),
+	    height: $poster.height()
+	    
     })
 
     $detail.show();
 
     $('.poster', $detail).delay(10).queue(function(next) {
-    $detail.addClass('ready');
-
-    next();
+      $detail.addClass('ready');
+      
+      next();
     }).delay(100).queue(function(next){
-    $(this).css({
-      top: '-10%',
-      left: '-6%',
-      width: 366,
-      height: 400
-    });
+    	
+    $(this).css({ top: '-10%', left: '-6%',  width: 366, height: 400 });
     next();
-    })
+     })
     })
 
 
@@ -340,66 +196,38 @@ $( function() {
     close();
     },1700);
     
-    
-    
-    
  // 멘토 리스트 페이지
-    
    
-    $(".mt-btm").hover(function(){
+      $(".mt-list").hover(function(){
+	       $(this).css("cursor","pointer");
+	   	   $(this).children(".mt-btm").css({"background": "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)"});
+	   	   $(this).children(".mt-btm").children(".mt-name").css("display", "inline-block");
+	  	   $(this).children(".mt-btm").children(".mt-photo").css("top", "-50px");
   	  
-  	  $(this).css("background", "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)");
-  	  $(this).children(".mt-name").css("display", "inline-block");
-  	$(this).children(".mt-photo").css("top", "-50px");
-  	  
-    })
+      })
       
-    $(".mt-btm").mouseleave(
+    $(".mt-list").mouseleave(
     	    function () {
-    	     $(this).css("background", "transparent");
-  	  $(this).children(".mt-name").css("display", "none");
-  	$(this).children(".mt-photo").css("top", "-6px");
+    	     $(this).children(".mt-btm").css("background", "transparent");
+        	 $(this).children(".mt-btm").children(".mt-name").css("display", "none");
+  	         $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     	    }
     	  );
     
+    // 좋아요 버튼 눌렀을 때
     
-    
-    
+    $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 목록 눌렀을 때
+    	
+    	if($(this).children(".btn").hasClass("checked")) {
+    		$(this).children(".btn").removeClass("checked");
+    		$(this).children(".btn").css("color","black");	
+    	} else {
+    		$(this).children(".btn").addClass("checked");
+            $(this).children(".checked").css("color","#f94e66");	
+    	}
+    })
 });
 
-/*var state = true;
-function changeimg() {// 좋아요 버튼 눌렀을 때
-	if(state) {
-		this.setAttribute( "src", "../image/fheart.png" );
-	$(".like-del").css("display", "none");
-	$(".like-add").css("display", "block");
-	$(".like-add").addClass('animated fadeOut');
-	$(".like-add").css("animation-delay", "1s");
-	} else {
-		this.setAttribute( "src", "../image/heart.png" );
-		$(".like-add").css("display", "none");
-		$(".like-del").css("display", "block");
-		$('.like-del').addClass('animated fadeOut');
-		$(".like-del").css("animation-delay", "1s");
-	}
-	state = !state;
-};*/
-
-
-/*function ButtonDown() {  마우스로 눌렀을 때 이미지 변환  
- * 
- * onmousedown="ButtonDown.call( this )" onmouseup="ButtonUp.call( this )"
- * => input 태그에 삽입
- * 
-    this.setAttribute("src", "../image/fheart.png");
-}
-
-function ButtonUp() {
-    this.setAttribute( "src", "../image/heart.png" );
-}
-*/
-
-	
 (function($) { // 슬라이드 쇼
     $(function() {
         $('.jcarousel').jcarousel();
@@ -425,7 +253,6 @@ function ButtonUp() {
             .jcarouselControl({
                 target: '+=1'
             });
-
         $('.jcarousel-pagination')
             .on('jcarouselpagination:active', 'a', function() {
                 $(this).addClass('active');
@@ -433,64 +260,9 @@ function ButtonUp() {
             .on('jcarouselpagination:inactive', 'a', function() {
                 $(this).removeClass('active');
             })
-            .jcarouselPagination();
+         .jcarouselPagination();
     });
 })(jQuery);
-
-
-var request = require("request");  
-var cheerio = require("cheerio");  
-var url = "https://www.ted.com/talks?language=ko";
-
-request(url, function (err, res, html) {
-    if (!err) {
-        var $ = cheerio.load(html);
-        
-        // 블로그 title 정보 가져오기
-        $(".entry-title > a").each(function () {
-        	console.log(this);
-            var post = {"title": "", "link": "", "summary": "", "category": []};
-            var data = $(this);
-            
-            post["title"] = data.text();
-            post["link"] = data.attr("href");
-        });
-        
-        // 블로그 요약 정보 가져오기
-        $(".entry-summary > p").each(function (i) {
-            // do something
-        })
- 
-        // 블로그 카테고리 가져오기
-        $(".entry-categories").each(function (i) {
-            $(this).children('a').each(function () {
-                // do something
-            });
-        })
-    }
-//})
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-});
-
-
-// 추천인물 디테일 페이지
-
-
-
 
 
 
