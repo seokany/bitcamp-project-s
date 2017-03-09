@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bitcamp.java89.ems2.dao.ContentsDao;
+import bitcamp.java89.ems2.dao.ContentsHeaderDao;
 import bitcamp.java89.ems2.dao.VideoDao;
 import bitcamp.java89.ems2.domain.Video;
 import bitcamp.java89.ems2.service.VideoService;
 
 @Service
 public class VideoServiceImpl implements VideoService {
-  @Autowired ContentsDao contentsDao;
+  @Autowired ContentsHeaderDao contentsDao;
   @Autowired VideoDao videoDao;
   
 /* public int getSize() throws Exception {

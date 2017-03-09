@@ -1,6 +1,8 @@
 package bitcamp.java89.ems2.domain;
 
-public class Video {
+public class Video extends ContentsHeader{
+  
+  private static final long serialVersionUID = 1L;
   
   protected String koreanTitle;
   protected String englishTitle;
