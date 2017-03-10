@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java89.ems2.domain.Job;
 import bitcamp.java89.ems2.service.JobService;
 
-@RestController // 이 애노테이션을 붙이면, 스프링 설정 파일에 JSON 변환기 'MappingJackson2JsonView' 객체를 등록하지 않아도 된다.
+//@RestController // 이 애노테이션을 붙이면, 스프링 설정 파일에 JSON 변환기 'MappingJackson2JsonView' 객체를 등록하지 않아도 된다.
 public class JobJsonControl {
   @Autowired ServletContext sc;
   

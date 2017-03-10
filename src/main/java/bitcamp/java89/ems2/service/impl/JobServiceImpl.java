@@ -3,17 +3,14 @@ package bitcamp.java89.ems2.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-=======
 import bitcamp.java89.ems2.dao.ContentsHeaderDao;
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
+//github.com/luckyhguy/bitcamp-project-s.git
 import bitcamp.java89.ems2.dao.JobDao;
 import bitcamp.java89.ems2.domain.Job;
 import bitcamp.java89.ems2.service.JobService;
 
-@Service
+//@Service
 public class JobServiceImpl implements JobService {
   @Autowired ContentsHeaderDao contentsDao;
   @Autowired JobDao jobDao;
