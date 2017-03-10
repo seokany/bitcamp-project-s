@@ -13,18 +13,3 @@ public interface JobService {
 //  int getSize() throws Exception;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

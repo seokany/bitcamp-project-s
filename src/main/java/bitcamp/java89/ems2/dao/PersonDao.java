@@ -10,8 +10,8 @@ public interface PersonDao {
   ArrayList<Person> getList(Map<String,Object> paramMap) throws Exception;
   int count(String personName) throws Exception;
   int countByNo(int memberNo) throws Exception;
-  int insert(Person person) throws Exception;
-  Person getOne(int memberNo) throws Exception;
-  int update(Person person) throws Exception;
-  int delete(int memberNo) throws Exception;
+//  int insert(Person person) throws Exception;
+//  Person getOne(int memberNo) throws Exception;
+//  int update(Person person) throws Exception;
+//  int delete(int memberNo) throws Exception;
 }

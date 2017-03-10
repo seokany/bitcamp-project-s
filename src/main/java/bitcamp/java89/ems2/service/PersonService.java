@@ -12,19 +12,3 @@ public interface PersonService {
 //  int delete(int no) throws Exception;
 //  int update(Person person) throws Exception;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

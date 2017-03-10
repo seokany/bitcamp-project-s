@@ -63,11 +63,11 @@
   </tx:advice>
   
   <!-- 트랜잭션 Advice를 어떤 메서드에 끼워 넣을 것인지 지정한다. -->
-  <aop:config>
+<!--   <aop:config> -->
     <!-- 트랜잭션 Advice를 꼽을 위치 지정 -->
-    <aop:pointcut id="serviceOperation" 
-                  expression="execution(* bitcamp.java89.ems2.service..*(..))" />
+<!--     <aop:pointcut id="serviceOperation"  -->
+<!--                   expression="execution(* bitcamp.java89.ems2.service..*(..))" /> -->
     <!-- 위치와 Advice를 연결한다. -->
-    <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
-  </aop:config>
+<!--     <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/> -->
+<!--   </aop:config> -->
 </beans>

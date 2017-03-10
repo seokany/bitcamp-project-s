@@ -17,10 +17,9 @@ import bitcamp.java89.ems2.service.PersonService;
 @RestController // 이 애노테이션을 붙이면, 스프링 설정 파일에 JSON 변환기 'MappingJackson2JsonView' 객체를 등록하지 않아도 된다.
 public class PersonJsonControl {
   @Autowired ServletContext sc;
-  
   @Autowired PersonService personService;
   
-  @RequestMapping("/mystuff/json.Person")
+  @RequestMapping("/mystuff/json.Person.json")
   public AjaxResult list(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="4") int pageSize) throws Exception {
@@ -29,8 +28,8 @@ public class PersonJsonControl {
       pageNo = 1;
     }
     
-    if (pageSize < 5 || pageSize > 20) {
-      pageSize = 5;
+    if (pageSize < 4 || pageSize > 20) {
+      pageSize = 4;
     }
     
     List<Person> list = personService.getList(pageNo, pageSize);
