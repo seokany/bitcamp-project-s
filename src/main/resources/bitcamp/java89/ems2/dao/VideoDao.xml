@@ -39,7 +39,7 @@
       left outer join contents c on v.cono=c.cono
   </select>
   
-  <select id="getList" resultMap="video-map" parameterType="map">
+   <select id="getList" resultMap="video-map" parameterType="map">
     select 
       c.cono, 
       v.kotl, 
@@ -53,6 +53,7 @@
     from video v
       left outer join contents c on v.cono=c.cono
     order by c.cono
+    limit 6;
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   

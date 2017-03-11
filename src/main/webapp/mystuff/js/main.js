@@ -7,13 +7,16 @@ $( function() {
 		      if (status != "success")
 		        return;
 		      
+		  
 		      var list = ajaxResult.data.list;
 		      console.log(list);
-		      var tbody = $('#div2');
-		      var template = Handlebars.compile($('#trTemplate').html());
-		      tbody.html(template({"list": list}));
 		      
-		    /*  $('.name-link').click(function(event) {
+		      var section = $('.section');
+
+		      var template = Handlebars.compile($('#trTemplate').html());
+		      section.html(template({"list": list}));
+		      
+	/*	      $('.name-link').click(function(event) {
 		        event.preventDefault();
 		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
 		      });*/
