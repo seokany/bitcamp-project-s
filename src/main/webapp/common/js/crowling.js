@@ -76,10 +76,10 @@ request(url, function(error, response, html){
 					cono = rows[0].cono;
 		});
 		
-/*		for (i = 0; anker.length > i; i++) {
+	for (i = 0; anker.length > i; i++) {
 		  url = anker[i]; 
 		  crowl(); 
-		}*/
+		}
 });
 
 function crowl() {
