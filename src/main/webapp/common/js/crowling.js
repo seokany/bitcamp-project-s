@@ -30,8 +30,9 @@ request(url, function(error, response, html){
    
        var a = cheerio.load(html);
        a('div.media__message h4.h9').each(function(){ // 제목
-          crtitle[count++] = a(this).text().replace(/\n/g, "").replace(/\r/g, "");
+          crtitle[count++] = a(this).text().replace(/\n/g, "");
        });
+       console.log(crtitle);
        count= 0;
        a('div.media__image').each(function(){ // 영상 넘어가는 주소
           anker[count++] = "https://www.ted.com" + a(this).children("a").attr("href");
@@ -75,10 +76,10 @@ request(url, function(error, response, html){
 					cono = rows[0].cono;
 		});
 		
-		for (i = 0; anker.length > i; i++) {
+/*		for (i = 0; anker.length > i; i++) {
 		  url = anker[i]; 
 		  crowl(); 
-		}
+		}*/
 });
 
 function crowl() {
@@ -99,8 +100,8 @@ function crowl() {
 		   test();
 	   });
 	   function test() {
-		   dbConnection.query("insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg) values(?,?,?,?,?,?,?,?)", 
-				   [++cono, crtitle[count], anker[count], thumImg[count], vodsc[count], spnm[count], spdsc[count], simg[count]],
+		   dbConnection.query("insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(?,?,?,?,?,?,?,?,?)", 
+				   [++cono, crtitle[count], anker[count], thumImg[count], vodsc[count], spnm[count], spdsc[count], simg[count], posted[count]],
 				   function (err, rows, fields) {
 			   			console.log(err, rows, cono);
 			});
