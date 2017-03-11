@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+body {
+	margin: 90px auto;
+}
+.ssize {
+	width: 240px !important;
+  height: 220px;
+  border: 1px red solid;
+}
+.msize {
+  width: 495px;
+  height: 220px;
+  border: 1px blue solid;
+}
+.lsize {
+  width: 495px;
+  height: 455px;
+  border: 1px green solid;
+}
+.container {
+	position: relative;
+	background: #c0c0c0;
+	padding: 0;
+	height: 700px;
+	width: 1260px;
+}
+
+#div2 {
+	position: absolute;
+	left: 510px;
+  top: 0;
+}
+#div3 {
+  position: absolute;
+  top: 235px;
+}
+#div4 {
+  position: absolute;
+  top: 235px;
+  left: 255px;
+}
+#div5 {
+  position: absolute;
+  top: 235px;
+  left: 510px;
+}
+#div6 {
+  position: absolute;
+  top: 0px;
+  left: 765px;
+}
+#div7 {
+  position: absolute;
+  top: 470px;
+  left: 0;
+}
+#div8 {
+  position: absolute;
+  top: 470px;
+  left: 255px;
+}
+#div9 {
+  position: absolute;
+  top: 470px;
+  left: 510px;
+}
+#div10 {
+  position: absolute;
+  top: 470px;
+  left: 765px;
+}
+#div11 {
+  position: absolute;
+  top: 470px;
+  left: 1020px;
+}

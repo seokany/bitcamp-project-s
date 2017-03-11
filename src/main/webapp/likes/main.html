@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DREAMTREE Likes</title>
+<link rel="stylesheet" type="text/css" href="css/likes.css" />
+</head>
+<body>
+<<!--
+
+Follow me on
+Dribbble: https://dribbble.com/supahfunk
+Twitter: https://twitter.com/supahfunk
+Codepen: http://codepen.io/supah/
+
+-->
+
+<div class="app">
+  <section class="movies">
+    <div class="movie">
+      <img src="http://www.fashionseoul.com/wp-content/uploads/2012/09/20120907_joinus-778x1024.jpg" alt="" class="poster" />
+      <div class="title">이연희</div>
+      <div class="info">
+        <span class="length">배우</span>
+        <span class="year"></span>
+      </div>
+      <div class="desc">
+          김지환이 매우 애정하는 대한민국 여배우
+      </div>
+    </div>
+    <div class="movie">
+      <img src="http://img.gqkorea.co.kr/gq/2015/12/style_567a2bbb4bcfd-840x1024.jpg" alt="" class="poster" />
+      <div class="title">버락 오바마</div>
+      <div class="info">
+        <span class="length">미국 제 44대 대통령</span>
+        <span class="year"></span>
+      </div>
+      <div class="desc">
+        서서 찍은 사진이 없어서 슬픈 오바마.
+      </div>
+    </div>
+    <div class="movie">
+      <img src="http://cfile233.uf.daum.net/image/1806D0434ECB932D0DF3DD" alt="" class="poster" />
+      <div class="title">김연아</div>
+      <div class="info">
+        <span class="length">피겨 스케이팅 선수</span>
+        <span class="year"></span>
+      </div>
+      <div class="desc">
+        김지환이 애정하는 피겨 여왕.
+      </div>
+    </div>
+    <div class="movie">
+      <img src="http://cfile6.uf.tistory.com/image/2677473C52B83DF906F3ED" alt="" class="poster" />
+      <div class="title">미란다 커</div>
+      <div class="info">
+        <span class="length">모델</span>
+        <span class="year"></span>
+      </div>
+      <div class="desc">
+        누님은 아름답다.
+      </div>
+    </div>
+  </section>
+  <div class="detail">
+    <svg class="close">
+      <use xlink:href="#close"></use>
+    </svg>
+    <div class="movie">
+
+      <img src="http://movium.io/data/posters/eqFckcHuFCT1FrzLOAvXBb4jHwq.jpg" alt="" class="poster" />
+      <div class="title">Room</div>
+      <div class="info">
+        <span class="length">117 min</span>
+        <span class="year">2015</span>
+      </div>
+      <div class="desc">
+        Jack is a young boy of 5 years old who has lived all his life in one room. He believes everything within it are the only real things in the world. But what will happen when his Ma suddenly tells him that there are other things outside of Room?
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Icons -->
+<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+  <symbol id="close" viewBox="0 0 212.982 212.982">
+    <g>
+      <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312   c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312   l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937   c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z" fill="#525661"/>
+    </g>
+  </symbol>
+  <symbol id="ico-search">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#363a47" d="M14.769,14.769c-0.342,0.342-0.896,0.342-1.237,0l-3.756-3.756
+                                                                    c-2.399,1.793-5.801,1.623-7.981-0.557c-2.392-2.392-2.392-6.271,0-8.663s6.271-2.392,8.662,0c2.18,2.181,2.35,5.583,0.557,7.981
+                                                                    l3.756,3.756C15.11,13.873,15.11,14.427,14.769,14.769z M9.219,3.032c-1.709-1.709-4.479-1.709-6.188,0
+                                                                    c-1.708,1.708-1.708,4.479,0,6.188c1.709,1.708,4.479,1.708,6.188,0C10.927,7.51,10.927,4.74,9.219,3.032z"/>
+  </symbol>
+</svg>
+
+
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="js/likes.js"></script>
+<script>
+//   $(function() {
+// 	   /* 이미지 처리 스크립트 */
+// 		  var divs = document.querySelectorAll('.img-div'); // 이미지를 감싸는 div
+// 		    for (var i = 0; i < divs.length; ++i) {
+// 		      var div = divs[i];
+// 		      var divAspect = div.offsetHeight / div.offsetWidth;    // div의 가로세로비는 알고 있는 값이다
+// 		      div.style.overflow = 'hidden';
+		      
+// 		      var img = div.querySelector('img');              // 이미지
+// 		      var imgAspect = img.height / img.width;
+		
+// 		      if (imgAspect <= divAspect) {
+// 		        // 이미지가 div보다 납작한 경우 세로를 div에 맞추고 가로는 잘라낸다
+// 		        var imgWidthActual = div.offsetHeight / imgAspect;
+// 		        var imgWidthToBe = div.offsetHeight / divAspect;
+// 		        var marginLeft = -Math.round((imgWidthActual - imgWidthToBe) / 2)
+// 		        img.style.cssText = 'width: auto; height: 100%; margin-left: '
+// 		                        + marginLeft + 'px;'
+// 		      } else {
+// 		        // 이미지가 div보다 길쭉한 경우 가로를 div에 맞추고 세로를 잘라낸다
+// 		        img.style.cssText = 'width: 100%; height: auto; margin-left: 0;';
+// 		      }
+// 		    }
+//   });
+</script>
+</body>
+</html>

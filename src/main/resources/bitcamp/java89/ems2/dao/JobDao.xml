@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.JobDao">
+
+  <resultMap type="job" id="job-map">
+    <id     column="cono"        property="contentsNo"/>
+    <result column="jbnm"       property="jobName"/>
+    <result column="jbdsc"      property="jobDescription"/>
+    <result column="jbimg"        property="jobImage"/>
+  </resultMap>
+  
+<!--   <select id="count" parameterType="string" resultType="int">
+    select count(*)
+    from stud s 
+      left outer join memb m on s.sno=m.mno
+    where email=#{value}
+  </select>
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from stud s 
+      left outer join memb m on s.sno=m.mno
+    where s.sno=#{value}
+  </select> -->
+  
+   <select id="countAll" resultType="int">
+    select 
+      count(*)
+    from job j
+      left outer join contents c on j.cono=c.cono
+  </select>
+  
+  <select id="getList" resultMap="job-map" parameterType="map">
+    select
+      j.cono,
+      jbnm,
+      jbdsc,
+      jbimg
+    from job j
+      inner join contents cont on j.cono=cont.cono
+    <!-- select 
+      c.cono, 
+      j.jbnm, 
+      j.jbdsc, 
+      j.jbimg 
+    from job j
+      left outer join contents c on j.cono=c.cono
+    order by c.cono -->
+<!--     limit #{startRowIndex}, #{rowSize} -->
+  </select>
+  
+ <!--  <select id="getOne" parameterType="int" resultMap="student-map">
+    select
+      m.mno,
+      m.name, 
+      m.tel, 
+      m.email, 
+      s.work, 
+      s.lst_schl, 
+      s.schl_nm, 
+      s.path
+    from stud s
+      left outer join memb m on s.sno=m.mno
+    where m.mno=#{value}
+  </select>
+
+  <insert id="insert" parameterType="student">
+    insert into stud(sno,work,lst_schl,schl_nm,path) 
+    values(
+      #{memberNo},
+      #{working},
+       
+      <choose>
+        <when test="working == true">'Y'</when> 
+        <otherwise>'N'</otherwise>
+      </choose>,
+     
+      #{grade}, 
+      #{schoolName}, 
+      #{photoPath})
+  </insert>  
+  
+  <update id="update" parameterType="student">
+    update stud set
+	    work=#{working}, 
+	    lst_schl=#{grade}, 
+	    schl_nm=#{schoolName}, 
+	    path=#{photoPath}
+    where sno=#{memberNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+  <![CDATA[
+    delete from stud where sno=#{value}
+  ]]>
+  </delete> -->
+
+</mapper>
+
+
+
+
+
+
+
+

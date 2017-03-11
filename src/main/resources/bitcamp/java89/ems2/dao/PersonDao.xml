@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.PersonDao">
+
+  <resultMap type="person" id="person-map">
+    <id     column="cono"       property="contentsNo"/>
+    <result column="psnm"       property="personName"/>
+    <result column="psjob"      property="personJob"/>
+    <result column="psdsc"      property="personDescription"/>
+    <result column="psimg1"     property="personImage1"/>
+    <result column="psimg2"     property="personImage2"/>
+  </resultMap>
+  
+  <select id="count" parameterType="string" resultType="int">
+    select count(*)
+    from person 
+<!--       left outer join memb m on s.sno=m.mno -->
+    where psnm=#{value}
+  </select>
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from person
+    where cono=#{value}
+  </select>
+  
+  <select id="countAll" resultType="int">
+    select 
+      count(*)
+    from person
+  </select>
+  
+  <select id="getList" resultMap="person-map" parameterType="map">
+    select *
+    from person
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+<!--   <select id="getOne" parameterType="int" resultMap="person-map"> -->
+<!--     select -->
+<!--       m.mno, -->
+<!--       m.name,  -->
+<!--       m.tel,  -->
+<!--       m.email,  -->
+<!--       s.work,  -->
+<!--       s.lst_schl,  -->
+<!--       s.schl_nm,  -->
+<!--       s.path -->
+<!--     from stud s -->
+<!--       left outer join memb m on s.sno=m.mno -->
+<!--     where m.mno=#{value} -->
+<!--   </select> -->
+
+  <insert id="insert" parameterType="person">
+<!--     insert into stud(sno,work,lst_schl,schl_nm,path)  -->
+<!--     values( -->
+<!--       #{memberNo}, -->
+<!--       #{working}, -->
+<!--       <choose> -->
+<!--         <when test="working == true">'Y'</when>  -->
+<!--         <otherwise>'N'</otherwise> -->
+<!--       </choose>, -->
+<!--       --> -->
+<!--       #{grade},  -->
+<!--       #{schoolName},  -->
+<!--       #{photoPath}) -->
+  </insert>  
+  
+  <update id="update" parameterType="student">
+<!--     update stud set -->
+<!-- 	    work=#{working},  -->
+<!-- 	    lst_schl=#{grade},  -->
+<!-- 	    schl_nm=#{schoolName},  -->
+<!-- 	    path=#{photoPath} -->
+<!--     where sno=#{memberNo} -->
+  </update>
+  
+  <delete id="delete" parameterType="int">
+<!--   <![CDATA[ -->
+<!--     delete from stud where sno=#{value} -->
+<!--   ]]> -->
+  </delete>
+
+</mapper>
+

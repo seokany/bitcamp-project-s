@@ -1,0 +1,200 @@
+.mento-list {
+	padding:auto;
+	width:1265px;
+	
+}
+
+.app {
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+.app h2 {
+  color: #525661;
+  font-size: 17px;
+  box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px 28px 0;
+  margin: -6px 0 0 0;
+}
+
+
+
+.mt-detail-list {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 95%;
+/*     border: 1px solid blue; */
+    padding: 1%;
+    -webkit-box-align: center;
+}
+
+.mt-list {
+    display: inline-block;
+    width: 550px;
+    height: 280px;
+    border: 1px solid red;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: 54px;
+    position: relative;
+	
+}
+
+.mt-conts > img {
+	width:100%;
+	height:140%;
+}
+
+.pageBtn {
+    margin-top: 20px;
+    margin-left: 591px;
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+	
+}
+
+
+.mt-photo{ 
+    border-radius: 100%;
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    z-index: 2000;
+    top: -15px;
+    left: 448px;
+    padding: 6px;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+
+.mt-photo img {
+    border-radius: 100%;
+    width: 87px;
+    height: 77px;
+    position: relative;
+}
+
+   .mt-btm {
+/*    display:none; */
+    position: absolute;
+     background:transparent;
+/*     background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db); */
+    display: inline-block;
+    height: 445px;
+    width: 100%;
+    height: 28%;
+    font-family: 'Daum_SemiBold';
+    margin-top: 10px;
+    border-radius: 10px;
+    left: 0;
+    top: 190px;
+   }
+
+
+
+.mt-conts {
+	display: inline-block;
+width: 530px;
+    height: 184px;
+        margin: 7px 0 0 7px;
+}
+
+.mt-name {
+    left: 350px;
+    display: none;
+/*     display: inline-block; */
+    position: absolute;
+    top: 20px;
+	
+}
+
+
+
+/* 좋아요 버튼 */
+
+.buttonHolder{
+    background: transparent;
+    top: 237px;
+    width: 26px;
+    height: 38px;
+    position: absolute;
+    display: inline-block;
+    border: transparent;
+}
+
+
+    .btn{
+border-radius: 50%;
+    float: left;
+    height: 38px;
+    /* margin: 0 30px 30px 0; */
+    position: absolute;
+    /* padding: 0px; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 700;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    background-color: transparent;
+    }
+
+    .btn:after{
+    content: "";
+    display: block;
+    font-size: 23px;
+    height: 30px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    background-color: transparent;
+    width: 30px;
+    opacity: 0.7;
+    }
+
+
+    .heart:after{
+    content: "❤";
+    left:0px;
+    top: 6px;
+    background-color: transparent;
+    }
+
+
+    .btn:hover{
+    background-color: transparent;
+/*       background-image: -webkit-linear-gradient(top, #fff, #f4f1ee); */
+/*       background-image: linear-gradient(top, #fff, #f4f1ee); */
+      color:#0088cc;
+    }
+
+    .heart:hover:after{
+    background-color: transparent;
+      color:#f94e66;
+      text-shadow:0px 0px 6px #f94e66;
+    }
+
+  /*   .btn:active{
+    background-color: transparent;
+      background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
+      background-image: linear-gradient(top, #efedec, #f7f4f4);
+      box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    }
+
+    .btn:active:after{
+    background-color: transparent;
+      color:#dbd2d2;
+      text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
+    }
+ */

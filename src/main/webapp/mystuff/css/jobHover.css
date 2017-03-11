@@ -1,18 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
 @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip1190 {
-  font-family: 'Raleway', Arial, sans-serif;
-  color: #fff;
-  position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 10px 1%;
-  min-width: 220px;
-  max-width: 310px;
-  max-height: 220px;
-  width: 100%;
-  background: #000000;
-  text-align: center;
+font-family: 'Raleway', Arial, sans-serif;
+    color: #fff;
+    position: absolute;
+    overflow: hidden;
+    min-width: 220px;
+    max-width: 310px;
+    max-height: 220px;
+    background: #000000;
+    text-align: center;
+    border-radius: 10px;
 }
 figure.snip1190 * {
   -webkit-box-sizing: padding-box;
@@ -21,8 +19,10 @@ figure.snip1190 * {
   transition: all 0.3s ease-in-out;
 }
 figure.snip1190 img {
-  opacity: 0.8;
-  width: 100%;
+	border-radius:10px;
+    opacity: 0.8;
+    width: 100%;
+    height: 200px;
 }
 figure.snip1190 figcaption {
   bottom: 0;
@@ -33,6 +33,7 @@ figure.snip1190 figcaption {
   top: 0;
 }
 figure.snip1190 h2 {
+	    font-size: 23px;
   font-weight: 400;
   left: 0;
   right: 0;
@@ -47,7 +48,7 @@ figure.snip1190 h2 {
 figure.snip1190 h2 span {
   font-weight: 800;
 }
-figure.snip1190 p {
+figure.snip1190 .fig-p {
   position: absolute;
   top: 0;
   left: 0;
@@ -106,7 +107,8 @@ figure.snip1190 .square div:after {
 figure.snip1190 a {
   left: 0;
   right: 0;
-  top: 0;
+    top: -5px;
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
   bottom: 0;
   position: absolute;
 }

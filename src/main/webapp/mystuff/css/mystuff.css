@@ -1,0 +1,465 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900);
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+body {
+  font-family:'Daum_SemiBold';
+}
+
+* { margin: 0; padding: 0; }
+.model-slide {list-style: none;}
+a { text-decoration: none; color: black;}
+img { border: 0;}
+
+
+ .rec { /* 추천 목록들 사진 */
+    width: 99.5%;
+    display: inline-block;
+    height: 50%;
+    height: 160px;
+   } 
+  
+   
+    .job-conts, .model-conts, .mento-conts, .video-conts {
+  position: relative;
+   display:inline-block;
+    width: 240px;
+    height: 220px;
+   
+   } 
+   
+    .job-name span,
+    .mento-name span,
+    .model-name span,
+    .video-name span {
+    font-family: 'Daum_SemiBold';
+     color: black;
+    }
+    .job-detail p {
+    margin-top:3%;
+    width:200px;
+    font-size:10px;
+     filter:alpha(style=2);
+     color:#585858;
+    }
+    
+    .mento-name-favor p {
+    margin-top:3px;
+    margin-bottom:2px;
+    font-size:10px;
+     filter:alpha(style=2);
+     color:#585858;
+    }
+    
+    
+    .model-detail {
+      position:absolute;
+    }
+    
+      .model-date span, .model-tag span  {
+     position:absolute;
+     margin-bottom: 2px;
+     
+    font-size:13px;
+     color:black;
+    }
+     .model-date p, .model-tag p {
+    margin-top:2px;
+    font-size:10px;
+    margin-bottom:1px;
+    margin-left:50px;
+     color:#585858;
+    }
+    
+    .video-name {
+     margin-top: 2px;
+     font-size:11px;
+     color: #585858;
+    } 
+    .video-title p {
+    margin-top:3px;
+    margin-bottom:2px;
+    width:200px;
+    font-size:13px;
+     filter:alpha(style=2);
+     color:black;
+    }
+    
+    .video-date span, .video-tag span  {
+     position:absolute;
+     margin-bottom: 2px;
+     
+    font-size:13px;
+     color:black;
+    }
+     .video-date p, .video-tag p {
+    font-size: 10px;
+    margin-left: 5px;
+    color: #585858;
+    position: relative;
+    display: -webkit-inline-box;
+    }
+    
+   
+   .mento-btm {
+    background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+    display: inline-block;    height: 445px;
+    width: 205%;
+    height: 30%;
+    font-family: 'Daum_SemiBold';
+    margin-top: 10px;
+    border-radius:10px;
+   }
+   
+  .video-btm, .model-btm {
+    width: 110%;
+    font-family: 'Daum_SemiBold';
+    margin-left: 5px;
+    margin-top:-10px;
+   }
+   
+
+   
+   .job-name, .mento-name, .video-name {
+   position:relative;
+   }
+   .job-name-favor input,
+   .mento-name-favor input,
+   .model-name-favor input,
+   .video-name-favor input  {
+     width:7%;
+   }
+   
+   .favor-name {
+   margin-left:75%;
+    font-size: 10px;
+    color: lightcoral;
+   }
+   
+
+   .model-name-favor,
+   .job-name-favor,
+   .video-name-favor {
+   margin-top:5%;
+    margin-bottom:2px;
+   }
+   
+      .mento-name-favor {
+    position: absolute;
+    margin-top: 10px;
+    right: -140px;
+      }
+
+   
+   #job1, #job2, #job3, #job4, #job5, #job6,
+   #mento1, #mento2, #mento3, #mento4, #mento5, #mento6,
+   #video1, #video2, #video3, #video4, #video5, #video6
+   {
+   top:5px;
+   background-position: center center;
+   background-size: cover;
+   background-repeat:no-repeat;
+   }
+   
+   
+    .all-btn { 
+     width: 80px;
+    position: relative;
+    display: inline-block;
+    bottom:30%;
+       margin-left: 100%;
+/*     margin-left: 710px; */
+     
+    }
+    
+    .job-name img,
+    .mento-name img,
+    .model-name img {
+     max-width: 100%; 
+     height: auto;
+    } 
+
+/*    ====================슬라이드 ========================== */
+
+.wrapper {
+  margin-left:10%;
+  
+}
+
+.wrapper p {
+  font-size:12px;
+  color:#BDBDBD;
+      left: 7%;
+  
+}
+.jcarousel {
+	border-radius:10px;
+	padding: 2px;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.mt-carousel { /* 멘토 jcarousel */
+background: linear-gradient(135deg, rgba($red,1) 0%,rgba($blue,1) 100%);
+	height: 450px;
+}
+ .jcarousel-wrapper .selector {
+  width:100%;
+  height:100%;
+  margin-bottom:50%;
+} 
+
+.jcarousel-wrapper {
+	border-radius:10px;
+    position: relative;
+width: 500px;
+    height: 215px;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 0 2px #999;
+       -moz-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+}
+
+.rec-mt {
+        height: 445px;
+}
+
+
+
+.jcarousel-wrapper .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.jcarousel-wrapper .photo-credits a {
+    color: #fff;
+}
+
+
+/** Carousel **/
+
+   .ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+
+ .model-slide, .mento-slide { /* 번호에 영향 */ 
+ position:relative;
+float: left;
+width: 498px;
+    height: 210px;
+    text-align: -webkit-match-parent;
+    border-radius:10px;
+} 
+
+ .mento-slide { /* 멘토 슬라이드 */
+ border-radius:10px 10px 0px 0px; 
+height: 368px;
+} 
+
+.model-slide img,
+.map-img {
+	border-radius:10px;
+}
+
+.mt-photo{ 
+	  display: inline-block;
+/*     border: 2px solid red; */
+    border-radius: 100%;
+    width: 105px;
+    height: 95px;
+    position: relative;
+    z-index: 2000;
+    top: -45px;
+    padding: 3px;
+        float: right;
+}
+
+
+.mt-photo img {
+    border-radius: 100%;
+    width: 95px;
+    height: 85px;
+    position: relative;
+}
+
+
+/** 슬라이드 prev next 버튼 **/
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+    position: absolute;
+    top: 100px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #4E443C;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 24px/27px Arial, sans-serif;
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px #999;
+       -moz-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+}
+
+.mt-left, .mt-right {
+	top:200px;
+}
+
+
+.jcarousel-control-prev {
+    left: 4px;
+}
+
+.jcarousel-control-next {
+    right: 6px;
+}
+
+.jcarousel-control-prev:hover span,
+.jcarousel-control-next:hover span {
+    display: block;
+}
+
+.jcarousel-control-prev.inactive,
+.jcarousel-control-next.inactive {
+    opacity: .5;
+    cursor: default;
+}
+
+/** Carousel Pagination **/
+
+.jcarousel-pagination {
+    position: absolute;
+        bottom: 0;
+    left: 15px;
+}
+
+.mt-pag {
+	bottom: 80px;
+    left: 415px;
+}
+
+.jcarousel-pagination a {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 14px;
+    min-width: 14px;
+    
+    background: #fff;
+    color: #4E443C;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    
+    margin-right: 2px;
+    
+    opacity: .75;
+}
+
+.jcarousel-pagination a.active {
+    background: #4E443C;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
+}
+
+
+/* 좋아요 목록  X 버튼 */
+
+#x-btn {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    left: 205px;
+    top: 7px;
+}
+.modal-btn {
+    cursor: pointer;
+}
+
+  .rec-job {
+    height: 92%;
+    width: 99%;
+      }
+        
+        
+        
+        
+        /* 좋아요 버튼 */
+        
+        .buttonHolder{
+    background: transparent;
+    top: 237px;
+    width: 26px;
+    height: 38px;
+    position: absolute;
+    display: inline-block;
+    border: transparent;
+}
+
+
+    .btn{
+border-radius: 50%;
+    float: left;
+    height: 38px;
+    /* margin: 0 30px 30px 0; */
+    position: absolute;
+    /* padding: 0px; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 700;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+    background-color: transparent;
+    }
+
+    .btn:after{
+    content: "";
+    display: block;
+    font-size: 23px;
+    height: 30px;
+    text-decoration: none;
+    text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
+    position: absolute;
+    background-color: transparent;
+    width: 30px;
+    opacity: 0.7;
+    }
+
+
+    .heart:after{
+    content: "❤";
+    left:0px;
+    top: 6px;
+    background-color: transparent;
+    }
+
+    .btn:hover{
+    background-color: transparent;
+      color:#0088cc;
+    }
+
+    .heart:hover:after{
+    background-color: transparent;
+      color:#f94e66;
+      text-shadow:0px 0px 6px #f94e66;
+    }
+        

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.MemberDao">
+
+  <resultMap type="member" id="member-map">
+    <id     column="mno"        property="memberNo"/>
+    <result column="name"       property="name"/>
+    <result column="email"      property="email"/>
+    <result column="pwd"        property="password"/>
+    <result column="tel"        property="tel"/>
+  </resultMap>
+  
+  <select id="count" parameterType="string" resultType="int">
+    select count(*) from memb where email=#{value}
+  </select>
+  
+  <select id="getOne" parameterType="string" resultMap="member-map">
+    select 
+      mno, 
+      name, 
+      tel, 
+      email
+    from memb
+    where email=#{value}
+  </select>
+  
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
+    select 
+      mno, 
+      name, 
+      tel, 
+      email
+    from memb
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
+    insert into memb(name, email, tel, pwd)
+    values(#{name}, #{email}, #{tel}, password(#{password}))
+  </insert> 
+  
+  <update id="update" parameterType="member">
+    update memb set
+      email=#{email}, 
+      pwd=password(#{password}), 
+      name=#{name}, 
+      tel=#{tel}
+    where mno=#{memberNo}
+  </update> 
+
+  <delete id="delete" parameterType="int">
+    delete from memb where mno=#{value}
+  </delete>
+</mapper>
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>비디오관리-목록</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div class='container'>
+<div id='header'></div>
+
+<div id='sidebar'></div>
+
+<div id="content">
+<h1>비디오 정보</h1>
+<a id='new-btn' href='#' class="btn btn-primary btn-sm">추가</a><br>
+<table id='list-table' class='table table-hover'>
+<thead>
+	<tr>
+	  <th>회원번호</th>
+	  <th>한국제목</th>
+	  <th>영어제목</th>
+	  <th>비디오썸네일</th>
+	  <th>비디오설명</th>
+	  <th>스피커이름</th>
+	  <th>스피커직업</th>
+	  <th>스피커썸네일</th>
+	</tr>
+<thead>
+<tbody></tbody>
+</table>
+<button id='prevPgBtn' type='button' class='btn btn-primary btn-xs'>이전</button>
+<span id='pageNo'>1</span>
+<button id='nextPgBtn' type='button' class='btn btn-primary btn-xs'>다음</button>
+</div>
+
+<div id='footer'></div>
+</div>
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+
+<div class="video-conts fpc_box videoBox">
+     <img class="rec rec-video1" id="video1" 
+            src='{{englishTitle}}'></img>
+               <div class="video-btm">
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                          <button type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                    <a href="#" class="btn heart"></a>
+                   </button>
+     </div>
+     
+      <div class="corner-box video-box">
+          <a class="fpc_page-tip" href="#">
+          <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+        </div>
+     </div>
+
+{{/each}}
+</script>
+
+<script src="js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<!-- <script src="js/bit.js"></script>
+<script src="js/common.js"></script> -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+    

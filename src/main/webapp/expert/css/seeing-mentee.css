@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+/*전체 소스*/
+.container {
+  width: 1250px;
+}
+.content {
+	padding-top: 10px;
+	padding-bottom: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.col-md-4 {
+  width: 406px;
+  padding-left: 5px;
+  padding-right: 0;
+}
+.col-md-8 {
+	padding: 0;
+}
+
+/*멘티 프로필 소스*/
+.wrapper {
+	height: 700px;
+}
+.content-wrapper {
+  width: 1250px;
+  height: 700px;
+  background-color: #ecf0f5;
+  z-index: 800;
+  margin: 0 auto;
+}
+.box-header .box-title {
+	font-size: 14px;
+}
+.users-list>li {
+  width: 33%;
+}
+.box-body {
+	height: 580px;
+}
+
+.users-list-age {
+  color: #999;
+  font-size: 12px;
+}
+div.student-pic { 
+  height: 95.9px;
+  width: 95.9px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.users-list>li img {
+  max-width: none;
+  border-radius: 0%;
+}
+
+
+
+
+/*멘토 설계도 관련 소스*/
+.planning {
+	height: 660px;
+	background-color: #fff;
+	overflow: hidden;
+}
+.planning> img {
+	height: 100%;
+	width: 100%;
+}

@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+body {
+  font-family: '맑은 고딕', sans-serif;
+}
+
+body > .container {
+	width: 960px;
+}
+
+#header {
+	background-color:gray; 
+	height:40px;
+	position:relative;
+}
+
+#sidebar {
+  position: absolute;
+  color: white;
+  padding: 10px 5px;
+  margin: 0px;
+  background-color:Navy; 
+  width:180px; 
+  height:400px;
+  /* border: 1px solid red; */
+}
+
+#sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
+#sidebar a:hover {
+  color: navy;
+}
+
+#content {
+  margin-left: 190px;
+  min-height: 400px;
+  /* border: 1px solid red; */
+}
+
+#footer {
+  background-color:gray; 
+  height:20px; 
+}
+
+
+
+
+
+
+
+
