@@ -24,13 +24,24 @@ insert into contents(type) values('job');
 insert into contents(type) values('video');
 insert into contents(type) values('person');
 insert into contents(type) values('plan');
+insert into contents(type) values('video');
+insert into contents(type) values('video');
+insert into contents(type) values('video');
+insert into contents(type) values('video');
+insert into contents(type) values('video');
+insert into contents(type) values('video');
 
 
 - 직업 데이터
 insert into job(cono, jbimg, jbnm, jbdsc) values(1, 'abce', '연구원', '연구한다'); 
 
 - 영상 데이터
-insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg) values(2, '테스트 영상', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb'); 
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(5, '테스트 영상1', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(6, '테스트 영상2', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(7, '테스트 영상3', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(8, '테스트 영상4', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(9, '테스트 영상5', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(10, '테스트 영상6', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703); 
 
 - 인물 데이터
 insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 
