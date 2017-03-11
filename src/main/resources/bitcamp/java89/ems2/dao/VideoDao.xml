@@ -5,6 +5,7 @@
   
 <mapper namespace="bitcamp.java89.ems2.dao.VideoDao">
 
+
   <resultMap type="video" id="video-map">
     <id     column="cono"        property="contentsNo"/>
     <result column="kotl"       property="koreanTitle"/>
@@ -14,6 +15,7 @@
     <result column="spnm"       property="speakerName"/>
     <result column="sjob"   property="speakerJob"/>
     <result column="simg"    property="speakerImage"/>
+    <result column="posted"    property="posted"/>
   </resultMap>
   
 <!--   <select id="count" parameterType="string" resultType="int">
@@ -46,7 +48,8 @@
       v.vodsc, 
       v.spnm, 
       v.sjob, 
-      v.simg
+      v.simg,
+      v.posted
     from video v
       left outer join contents c on v.cono=c.cono
     order by c.cono

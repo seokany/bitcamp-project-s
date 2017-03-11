@@ -1,0 +1,162 @@
+ 
+ 
+ .ssize {
+  width: 240px !important;
+  height: 220px;
+  border-radius:10px;
+    position: absolute;
+  top: 0;
+}
+ 
+ .video-list {
+	padding:auto;
+	width:1265px;
+	
+}
+
+.app {
+    position: relative;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+.app h2 {
+  color: #525661;
+  font-size: 17px;
+  box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px 28px 0;
+  margin: -6px 0 0 0;
+}
+
+.mt-list {
+    display: inline-block;
+    width: 550px;
+    height: 280px;
+    border: 1px solid red;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: 54px;
+    position: relative;
+	
+}
+
+.mt-conts > img {
+	width:100%;
+	height:140%;
+}
+
+.pageBtn {
+    margin-top: 20px;
+    margin-left: 591px;
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+	
+}
+
+.mt-photo{ 
+    border-radius: 100%;
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    z-index: 2000;
+    top: -6px;
+    left: 454px;
+    padding: 6px;
+}
+
+
+.mt-photo img {
+    border-radius: 100%;
+    width: 87px;
+    height: 77px;
+    position: relative;
+}
+
+   .mt-btm {
+    position: absolute;
+     background:transparent;
+/*     background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db); */
+    display: inline-block;
+    height: 445px;
+    width: 100%;
+    height: 28%;
+    font-family: 'Daum_SemiBold';
+    margin-top: 10px;
+    border-radius: 10px;
+    left: 0;
+    top: 190px;
+   }
+
+
+
+.mt-conts {
+	display: inline-block;
+width: 530px;
+    height: 184px;
+        margin: 7px 0 0 7px;
+}
+
+.mt-name {
+    left: 350px;
+    display: none;
+/*     display: inline-block; */
+    position: absolute;
+    top: 20px;
+	
+}
+
+
+.btn-type {
+	    text-align: center;
+    right: 0;
+    position: absolute;
+    top: -38px;
+    display: inline-block;
+    width: 15%;
+    height: 28px;
+}
+
+.tab:hover {
+	cursor:pointer;
+}
+
+.btn-type button {
+	background-color:transparent;
+	border:transparent;
+	border-bottom:1px solid black;
+}
+
+
+
+.videoBox {
+    border-right: 1px solid rgba(255, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.18);
+}
+
+
+.video-like-list {
+    width: 100%;
+    height: 95%;
+    padding: 7px 15px;
+    padding-left: 2%;
+}
+
+.vdoConts {
+	position:relative;
+	display:inline-block;
+	
+}
+
+
+
+
+

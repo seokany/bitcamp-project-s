@@ -1,6 +1,27 @@
  
 $( function() { 
 	
+	$.getJSON(serverRoot + '/video/list.json',  
+		    function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success")
+		        return;
+		      
+		      var list = ajaxResult.data.list;
+		      console.log(list);
+		      var tbody = $('#div2');
+		      var template = Handlebars.compile($('#trTemplate').html());
+		      tbody.html(template({"list": list}));
+		      
+		    /*  $('.name-link').click(function(event) {
+		        event.preventDefault();
+		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
+		      });*/
+		      
+//		      preparePagingButton(ajaxResult.data.totalCount);
+		  });  
+	
+	
     var state = true;
     $(document.body).on( "click", ".job-more", function() { // 직업 더보기
       if ( state ) {
