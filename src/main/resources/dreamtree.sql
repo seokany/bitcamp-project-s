@@ -24,12 +24,7 @@ insert into contents(type) values('job');
 insert into contents(type) values('video');
 insert into contents(type) values('person');
 insert into contents(type) values('plan');
-insert into contents(type) values('video');
-insert into contents(type) values('video');
-insert into contents(type) values('video');
-insert into contents(type) values('video');
-insert into contents(type) values('video');
-insert into contents(type) values('video');
+
 
 
 - 직업 데이터
