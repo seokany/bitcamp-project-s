@@ -56,23 +56,7 @@
 	  
 	   <div id="div2" class="ssize video corner-container">
 	   
-        <div class="video-conts fpc_box videoBox">
-     <img class="rec rec-video1" id="video1" 
-            src='https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320'></img>
-               <div class="video-btm">
-       <div class="video-name-favor"><span class="video-name">Rodrigo y Gabriela</span></div>
-       
-       <div class="video-title"><p class="vdo-title"><a href="https://www.ted.com/talks/david_autor_why_are_there_still_so_many_jobs?language=ko">짜릿한 어쿠스틱 기타 연주</a></p></div>
-                          <button type="button" class="buttonHolder" style="top: 181px; right: 5px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>
-     </div>
-     
-      <div class="corner-box video-box">
-          <a class="fpc_page-tip" href="#">
-          <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
-        </div>
-     </div>
+        
     </div>
     
     <div id="div3" class="ssize video corner-container">
@@ -280,6 +264,41 @@
 	<div class="pop-modal modal-esc" style="position: fixed; z-index:10000; top:0;">
   <iframe id="iframe" class="pop-modal modal-esc pulse" scrolling="yes" frameborder="0"></iframe>
 </div>
+
+
+
+
+
+
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+<div class="video-conts fpc_box videoBox">
+     <img class="rec rec-video1" id="video1" 
+            src='https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320'></img>
+               <div class="video-btm">
+       <div class="video-name-favor"><span class="video-name">Rodrigo y Gabriela</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="https://www.ted.com/talks/david_autor_why_are_there_still_so_many_jobs?language=ko">짜릿한 어쿠스틱 기타 연주</a></p></div>
+                          <button type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                    <a href="#" class="btn heart"></a>
+                   </button>
+     </div>
+     
+      <div class="corner-box video-box">
+          <a class="fpc_page-tip" href="#">
+          <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+        </div>
+     </div>
+{{/each}}
+</script>
+
+
+
+
+
+
+
 
 <script src="../common/js/context.js"></script>
  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
