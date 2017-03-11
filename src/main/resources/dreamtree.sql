@@ -70,7 +70,7 @@ inner join copic cp on ctt.cono = cp.cono
 inner join topic tp on cp.tno = tp.tno
 inner join snatr snt on tp.tno = snt.tno 
 inner join result ret on snt.reno = ret.reno 
-where ret.sno = '대상 회원';
+where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천영상 select 하기
 select * from video vd
@@ -79,7 +79,7 @@ inner join copic cp on ctt.cono = cp.cono
 inner join topic tp on cp.tno = tp.tno
 inner join snatr snt on tp.tno = snt.tno 
 inner join result ret on snt.reno = ret.reno 
-where ret.sno = '대상 회원';
+where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천직업 select 하기
 select * from job
@@ -88,7 +88,7 @@ inner join copic cp on ctt.cono = cp.cono
 inner join topic tp on cp.tno = tp.tno
 inner join snatr snt on tp.tno = snt.tno 
 inner join result ret on snt.reno = ret.reno 
-where ret.sno = '대상 회원';
+where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천멘토 select 하기
 select * from plan
@@ -97,6 +97,6 @@ inner join copic cp on ctt.cono = cp.cono
 inner join topic tp on cp.tno = tp.tno
 inner join snatr snt on tp.tno = snt.tno 
 inner join result ret on snt.reno = ret.reno 
-where ret.sno = '대상 회원';
+where ret.sno = '5';
 
 
