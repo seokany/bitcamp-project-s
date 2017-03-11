@@ -72,7 +72,7 @@ insert into snatr(tno, reno) values(3, 1);
 
 
 
-<-- SELECT --> 
+<-- SELECT query --> 
 
 - mbti 검사 결과 기준 추천인물 select 하기
 select * from person ps
