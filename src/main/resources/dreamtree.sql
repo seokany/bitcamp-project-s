@@ -58,6 +58,9 @@ insert into snatr(tno, reno) values(2, 1);
 insert into snatr(tno, reno) values(3, 1); 
 
 
+
+
+
 - 주제추천 테이블에서 주제일련번호와 매칭되는 콘텐츠 일련번호를 가지고 영상 테이블에서 조회하기
 select * from video where cono = (select cono from contents where cono = (select cono from copic where tno = 1));
 
@@ -65,5 +68,41 @@ select * from video v
 inner join contents cont on v.cono=cont.cono
 inner join copic on v.cono=copic.cono
 where copic.tno='2';
+
+- mbti 검사 결과 기준 추천인물 select 하기
+select * from person ps
+inner join contents ctt on ps.cono = ctt.cono
+inner join copic cp on ctt.cono = cp.cono
+inner join topic tp on cp.tno = tp.tno
+inner join snatr snt on tp.tno = snt.tno 
+inner join result ret on snt.reno = ret.reno 
+where ret.sno = '대상 회원';
+
+- mbti 검사 결과 기준 추천영상 select 하기
+select * from video vd
+inner join contents ctt on vd.cono = ctt.cono
+inner join copic cp on ctt.cono = cp.cono
+inner join topic tp on cp.tno = tp.tno
+inner join snatr snt on tp.tno = snt.tno 
+inner join result ret on snt.reno = ret.reno 
+where ret.sno = '대상 회원';
+
+- mbti 검사 결과 기준 추천직업 select 하기
+select * from job
+inner join contents ctt on job.cono = ctt.cono
+inner join copic cp on ctt.cono = cp.cono
+inner join topic tp on cp.tno = tp.tno
+inner join snatr snt on tp.tno = snt.tno 
+inner join result ret on snt.reno = ret.reno 
+where ret.sno = '대상 회원';
+
+- mbti 검사 결과 기준 추천멘토 select 하기
+select * from plan
+inner join contents ctt on plan.cono = ctt.cono
+inner join copic cp on ctt.cono = cp.cono
+inner join topic tp on cp.tno = tp.tno
+inner join snatr snt on tp.tno = snt.tno 
+inner join result ret on snt.reno = ret.reno 
+where ret.sno = '대상 회원';
 
 
