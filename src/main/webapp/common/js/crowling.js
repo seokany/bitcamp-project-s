@@ -13,41 +13,78 @@ var dbConnection = mysql.createConnection({
 	database: 'dreamtree' 
 });
 
-var cono = 0;
-var count = 0;
-var crtitle = new Array(); 
-var anker = new Array();
-var thumImg = new Array();
-var author = new Array();
-var vodsc = new Array(); 
-var simg = new Array(); 
-var spnm = new Array(); 
-var spdsc = new Array();
-var posted = new Array();
+function Ted() {
+	this.cono = 0;
+	this.count = 0;
+	this.crtitle = new Array(); 
+	this.anker = new Array();
+	this.thumImg = new Array();
+	this.author = new Array();
+	this.vodsc = new Array(); 
+	this.simg = new Array(); 
+	this.spnm = new Array(); 
+	this.spdsc = new Array();
+	this.posted = new Array();
+}
+
+Ted.prototype.addCrTitle = function(title) {
+	this.crtitle.push(title);
+};
+Ted.prototype.addAnker = function(anker) {
+	this.anker.push(anker);
+};
+Ted.prototype.addThumImg = function(thumImg) {
+	this.thumImg.push(thumImg);
+};
+Ted.prototype.addAuthor = function(author) {
+	this.author.push(author);
+};
+Ted.prototype.addVodsc = function(vodsc) {
+	this.vodsc.push(vodsc);
+};
+Ted.prototype.addSimg = function(simg) {
+	this.simg.push(simg);
+};
+Ted.prototype.addSpnm = function(spnm) {
+	this.spnm.push(spnm);
+};
+Ted.prototype.addSpdsc = function(spdsc) {
+	this.spdsc.push(spdsc);
+};
+Ted.prototype.addPosted = function(posted) {
+	this.posted.push(posted);
+};
+
 
 request(url, function(error, response, html){
        if (error) {return conole.log(error)};
    
+       var ted = new Ted();
+       var post = Array();
+
        var a = cheerio.load(html);
        a('div.media__message h4.h9').each(function(){ // 제목
-          crtitle[count++] = a(this).text().replace(/\n/g, "");
+          ted.addCrTitle(a(this).text().replace(/\n/g, ""));
        });
-       console.log(crtitle);
-       count= 0;
-       a('div.media__image').each(function(){ // 영상 넘어가는 주소
-          anker[count++] = "https://www.ted.com" + a(this).children("a").attr("href");
+//       console.log(ted.crtitle);
+//       console.log("----------------");
+       
+       a('div.media__image > a').each(function(){ // 영상 넘어가는 주소
+    	   console.log('=>',a(this).attr("href") );
+    	   ted.addAnker("https://www.ted.com" + a(this).attr("href"));
        });
-       count= 0;
+//       console.log(ted.anker.length, ted.anker);
+//       console.log(ted.anker[0]);
+//       console.log("----------------");
+       
        a('img.thumb__image').each(function(){ // 비디오 썸네일
-          thumImg[count++] = a(this).attr("src");
+          ted.addThumImg(a(this).attr("src"));
        });
-       count= 0;
        a('div.media__message h4.h12').each(function(){ // speaker 이름
-          author[count++] = a(this).text();
+          ted.addAuthor(a(this).text());
        });
-       count= 0;
        a('div.media__message .meta__item .meta__val').each(function(){ // 날짜
-          post = a(this).text().replace(/\n/g, "").split(" ");
+           post = a(this).text().replace(/\n/g, "").split(" ");
           switch(post[0]) {
           case "Jan": post[0] = "0"+1; break;
           case "Feb": post[0] = "0"+2; break;
@@ -62,10 +99,9 @@ request(url, function(error, response, html){
           case "Nov": post[0] = 11; break;
           case "Dec": post[0] = 12; break;
           }
-          posted[count++] = post[1] + post[0];
+          ted.addPosted(post[1] + post[0]);
         });
 
-		count= 0;
 		
 		dbConnection.query(
 			  'select cono from contents ORDER BY cono desc;', 
@@ -73,37 +109,38 @@ request(url, function(error, response, html){
 				  // connection.query () 을 실행하고 결과가 나온다음 이 function을 실행해라.
 				  if (err) throw err;
 				  
-					cono = rows[0].cono;
+					ted.cono = rows[0].cono;
 		});
 		
-	for (i = 0; anker.length > i; i++) {
-		  url = anker[i]; 
-		  crowl(); 
-		}
+		for (i = 0; ted.anker.length > i; i++) {
+			  url = ted.anker[i]; 
+			  crowl(ted); 
+			}
 });
 
-function crowl() {
+function crowl(ted) {
 	request(url, function(error, response, html){  
 	   if (error) {return console.log(error)};
-	   
-	   count++
+
 	   var a = cheerio.load(html);
 	   
-	   vodsc[count] = a('p.talk-description').text().replace(/\n/g, "").replace(/\r/g, "");
-	   simg[count] = a('img.thumb__image').attr("src").replace("?", "");
-	   spnm[count] = a('a.talk-speaker__link').attr("href");
-	   spdsc[count] = a('div.talk-speaker__description').text(); // 스피커 직업
+
+	   ted.addVodsc(a('p.talk-description').text().replace(/\n/g, "").replace(/\r/g, "")); // 비디오 설명.
+	   ted.addSimg(a('img.thumb__image').attr("src").replace("?", "")); // 스피커 이미지
+	   ted.addSpnm(a('div.talk-speaker__name > a').text());// 스피커 이름
+	   ted.addSpdsc(a('div.talk-speaker__description').text()); // 스피커 직업
 	   
 	   dbConnection.query("insert into contents(type) values('video')",
 			   function(err, rows, fields) {
-		   console.log(rows);
+		   console.log("rows" + rows);
 		   test();
 	   });
 	   function test() {
-		   dbConnection.query("insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(?,?,?,?,?,?,?,?,?)", 
-				   [++cono, crtitle[count], anker[count], thumImg[count], vodsc[count], spnm[count], spdsc[count], simg[count], posted[count]],
+//		   console.log(++ted.cono,ted.crtitle[0], ted.anker[0], ted.thumImg[0], ted.vodsc[0], ted.spnm[0], ted.spdsc[0], ted.simg[0], ted.posted[0]);
+	   dbConnection.query("insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(?,?,?,?,?,?,?,?,?)", 
+				   [++ted.cono, ted.crtitle[ted.count], ted.anker[ted.count], ted.thumImg[ted.count], ted.vodsc[ted.count], ted.spnm[ted.count], ted.spdsc[ted.count], ted.simg[ted.count], ted.posted[ted.count++]],
 				   function (err, rows, fields) {
-			   			console.log(err, rows, cono);
+			   			console.log(rows);
 			});
 	   };
 	});
