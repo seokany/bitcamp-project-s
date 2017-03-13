@@ -3,19 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="bitcamp.java89.ems2.dao.VideoDao">
+<mapper namespace="bitcamp.java89.ems2.dao.LikeDao">
 
 
-  <resultMap type="video" id="video-map">
-    <id     column="cono"        property="contentsNo"/>
-    <result column="kotl"       property="koreanTitle"/>
-    <result column="entl"      property="englishTitle"/>
-    <result column="voimg"        property="videoImage"/>
-    <result column="vodsc"        property="videoDescription"/>
-    <result column="spnm"       property="speakerName"/>
-    <result column="sjob"   property="speakerJob"/>
-    <result column="simg"    property="speakerImage"/>
-    <result column="posted"    property="posted"/>
+  <resultMap type="like" id="like-map">
+    <result column="cono"        property="contentsNo"/>
+    <result column="sno"       property=""/>
+
   </resultMap>
   
 <!--   <select id="count" parameterType="string" resultType="int">
@@ -24,22 +18,31 @@
       left outer join memb m on s.sno=m.mno
     where email=#{value}
   </select>
-  
+  -->
   <select id="countByNo" parameterType="int" resultType="int">
     select count(*)
-    from stud s 
-      left outer join memb m on s.sno=m.mno
-    where s.sno=#{value}
-  </select> -->
+    from lklst lk 
+    where lk.cono=#{value}
+  </select> 
+  <insert id="likeAdd">
+    insert into lklst(cono, sno) values(#{curNo}, #{sno})
+  </insert>
   
-   <select id="countAll" resultType="int">
+    <delete id="likeDelete" parameterType="int">
+  <![CDATA[
+    delete from lklst where cono=#{value}
+  ]]>
+  </delete>
+  
+  
+   <!-- <select id="countAll" resultType="int">
     select 
       count(*)
     from video v
       left outer join contents c on v.cono=c.cono
   </select>
   
-   <select id="getList" resultMap="video-map" parameterType="map">
+   <select id="getList" resultMap="video-map,??,??" parameterType="map">
   select * from video vd
   inner join contents ctt on vd.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
@@ -47,8 +50,8 @@
   inner join snatr snt on tp.tno = snt.tno 
   inner join result ret on snt.reno = ret.reno
   where ret.sno = '5'
-<!--     limit #{startRowIndex}, #{rowSize} -->
-  </select>
+    limit #{startRowIndex}, #{rowSize}
+  </select> -->
   
  <!--  <select id="getOne" parameterType="int" resultMap="student-map">
     select

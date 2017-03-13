@@ -53,20 +53,44 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into topic(tnm) values('천문학'); 
 	insert into topic(tnm) values('바이오테크'); 
 	insert into topic(tnm) values('재무'); 
+	
+	
+	- 좋아요 데이터
+	insert into lklst(cono, sno) values(2,5);
+	insert into lklst(cono, sno) values(3,5);
+	insert into lklst(cono, sno) values(4,5);
+	insert into lklst(cono, sno) values(5,5);
+	insert into lklst(cono, sno) values(6,5);
 
 - 콘텐츠 주제 데이터
-	insert into copic(tno, cono) values(1, 1); 
-	insert into copic(tno, cono) values(2, 2); 
-	insert into copic(tno, cono) values(3, 3); 
+	insert into copic(tno, cono) values(1, 2); 
+	insert into copic(tno, cono) values(2, 3); 
 	insert into copic(tno, cono) values(3, 4); 
+	insert into copic(tno, cono) values(4, 5);
+	insert into copic(tno, cono) values(5, 6); 
+  insert into copic(tno, cono) values(6, 7);
 
 - 검사결과 데이터
-	insert into result(sno, type, rer) values(5, 'mbti', 'istp'); 
+	insert into result(sno, type, rer) values(5, 'mbti', 'istp');
 
 - 추천주제 데이터
 	insert into snatr(tno, reno) values(1, 1); 
 	insert into snatr(tno, reno) values(2, 1); 
-	insert into snatr(tno, reno) values(3, 1); 
+	insert into snatr(tno, reno) values(3, 1);
+	insert into snatr(tno, reno) values(4, 1);
+	insert into snatr(tno, reno) values(5, 1);
+	insert into snatr(tno, reno) values(6, 1);
+	
+	
+	- 좋아요 목록 불러오기
+	 select * from video vd
+  inner join contents ctt on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join lklst lk on ctt.cono = lk.cono
+  where ret.sno = '5';
 
 
 
@@ -87,7 +111,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	inner join copic cp on ctt.cono = cp.cono
 	inner join topic tp on cp.tno = tp.tno
 	inner join snatr snt on tp.tno = snt.tno 
-	inner join result ret on snt.reno = ret.reno 
+	inner join result ret on snt.reno = ret.reno
 	where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천직업 select 하기

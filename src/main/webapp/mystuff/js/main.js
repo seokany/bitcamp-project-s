@@ -1,5 +1,5 @@
- 
 $( function() { 
+
 	
 	$.getJSON(serverRoot + '/video/list.json',  
 		    function(ajaxResult) {
@@ -16,10 +16,44 @@ $( function() {
 		      var template = Handlebars.compile($('#trTemplate').html());
 		      section.html(template({"list": list}));
 		      
+		        // 좋아요 버튼 눌렀을 때
+		        
+		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+				        var sno = 5;
+				        
+		        	if($(this).children(".btn").hasClass("checked")) {
+		        		$(this).children(".btn").removeClass("checked");
+		        		$(this).children(".btn").css("color","black");
+		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("삭제했다.");
+				          }, 'json');
+		        	} else {
+		        		$(this).children(".btn").addClass("checked");
+		                $(this).children(".checked").css("color","#f94e66");
+				          
+		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("했다.");
+				          }, 'json');
+		                
+		                
+		        	}
+		        })
+		    	
+		      
 	/*	      $('.name-link').click(function(event) {
 		        event.preventDefault();
 		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-		      });*/
+		      */
 		      
 //		      preparePagingButton(ajaxResult.data.totalCount);
 		  });  
@@ -144,7 +178,7 @@ $( function() {
     $close = $('.close');
 
     $('.movies .movie').click(function(){
-    	console.log("dkdkdl");
+//    	console.log("dkdkdl");
       
       $movie.html($(this).html());
       $play.appendTo($movie);
@@ -183,9 +217,9 @@ $( function() {
     Close
     --------------------*/
     function close(){
-    console.log('asd');
+//    console.log('asd');
     $p = $('.detail .poster');
-    console.log($p)
+//    console.log($p)
     $p.css({
     top: $p.data('top'),
     left: $p.data('left'),
@@ -238,18 +272,7 @@ $( function() {
     	    }
     	  );
     
-    // 좋아요 버튼 눌렀을 때
-    
-    $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 목록 눌렀을 때
-    	
-    	if($(this).children(".btn").hasClass("checked")) {
-    		$(this).children(".btn").removeClass("checked");
-    		$(this).children(".btn").css("color","black");	
-    	} else {
-    		$(this).children(".btn").addClass("checked");
-            $(this).children(".checked").css("color","#f94e66");	
-    	}
-    })
+
 });
 
 (function($) { // 슬라이드 쇼
