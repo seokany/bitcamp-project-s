@@ -20,14 +20,15 @@ public class LikeControl {
   @Autowired LikeService likeService;
   
   
-  @RequestMapping("/like/list")
-  public String list(@RequestParam int contentsNo,
-      @RequestParam int menteeNo,Model model) throws Exception {
+  @RequestMapping("/videoLike/list")
+  public String videoList(      
+          @RequestParam(defaultValue="1") int pageNo,
+          @RequestParam(defaultValue="5") int pageSize, int sno, Model model) throws Exception {
     
-    List<Like> list = likeService.addList(contentsNo, menteeNo);
+    List<Like> list = likeService.videoList(pageNo, pageSize, sno);
     
-    model.addAttribute("likes", list);
-    model.addAttribute("title", "좋아요관리-목록");
+    model.addAttribute("videoLikes", list);
+    model.addAttribute("title", "비디오-좋아요목록");
     model.addAttribute("contentPage", "like/list.jsp");
     return "main";
   }

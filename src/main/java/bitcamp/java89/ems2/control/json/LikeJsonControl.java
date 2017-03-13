@@ -20,20 +20,50 @@ public class LikeJsonControl {
   
   @Autowired LikeService likeService;
   
-  @RequestMapping("/like/list")
-  public AjaxResult list(@RequestParam int contentsNo,
-      @RequestParam int menteeNo) throws Exception {
+  @RequestMapping("/mentoLike/list")
+  public AjaxResult mentoList(@RequestParam(defaultValue="1") int pageNo,
+          @RequestParam(defaultValue="15") int pageSize, int sno) throws Exception {
     
 
 
-    List<Like> list = likeService.addList(contentsNo, menteeNo);
+    List<Like> list = likeService.videoList(pageNo, pageSize, sno);
+    int totalCount = likeService.getSize();
     
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("list", list);
+    resultMap.put("totalCount", totalCount);
     
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
+  
+  @RequestMapping("/videoLike/list")
+  public AjaxResult videoList(
+          @RequestParam(defaultValue="1") int pageNo,
+          @RequestParam(defaultValue="15") int pageSize, @RequestParam int sno) throws Exception {
+    System.out.println("학생번호" +sno);
+      if (pageNo < 1) {
+          pageNo = 1;
+        }
+        
+        if (pageSize < 15 || pageSize > 30) {
+          pageSize = 15;
+        }
+
+      List<Like> list = likeService.videoList(pageNo, pageSize, sno);
+      System.out.println("헛" +list);
+      int totalCount = likeService.getSize();
+      
+      
+      HashMap<String,Object> resultMap = new HashMap<>();
+      resultMap.put("list", list);
+      System.out.println(resultMap.get(list));
+      resultMap.put("totalCount", totalCount);
+      
+      return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
+  
   
   @RequestMapping("/like/add")
   public AjaxResult likeAdd(int curNo, int sno) throws Exception {

@@ -6,19 +6,33 @@
 <mapper namespace="bitcamp.java89.ems2.dao.LikeDao">
 
 
-  <resultMap type="like" id="like-map">
-    <result column="cono"        property="contentsNo"/>
-    <result column="sno"       property=""/>
+  <resultMap type="video" id="like-map">
+    <id column="cono"        property="contentsNo"/>
+    <result column="kotl"       property="koreanTitle"/>
+    <result column="entl"      property="englishTitle"/>
+    <result column="voimg"        property="videoImage"/>
+    <result column="vodsc"        property="videoDescription"/>
+    <result column="spnm"       property="speakerName"/>
+    <result column="sjob"   property="speakerJob"/>
+    <result column="simg"    property="speakerImage"/>
+    <result column="posted"    property="posted"/>
 
   </resultMap>
   
-<!--   <select id="count" parameterType="string" resultType="int">
-    select count(*)
-    from stud s 
-      left outer join memb m on s.sno=m.mno
-    where email=#{value}
+  
+  <select id="countAll" resultType="int">
+   select count(*) from contents ctt
+  inner join video vd on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = #{sno};
   </select>
-  -->
+
+  
   <select id="countByNo" parameterType="int" resultType="int">
     select count(*)
     from lklst lk 
@@ -35,76 +49,25 @@
   </delete>
   
   
-   <!-- <select id="countAll" resultType="int">
-    select 
-      count(*)
-    from video v
-      left outer join contents c on v.cono=c.cono
-  </select>
   
-   <select id="getList" resultMap="video-map,??,??" parameterType="map">
-  select * from video vd
+  
+  
+  
+   <select id="videoList" resultMap="like-map" parameterType="map">
+     select * from video vd
   inner join contents ctt on vd.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno
-  where ret.sno = '5'
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = #{sno}
     limit #{startRowIndex}, #{rowSize}
-  </select> -->
+  </select> 
   
- <!--  <select id="getOne" parameterType="int" resultMap="student-map">
-    select
-      m.mno,
-      m.name, 
-      m.tel, 
-      m.email, 
-      s.work, 
-      s.lst_schl, 
-      s.schl_nm, 
-      s.path
-    from stud s
-      left outer join memb m on s.sno=m.mno
-    where m.mno=#{value}
-  </select>
-
-  <insert id="insert" parameterType="student">
-    insert into stud(sno,work,lst_schl,schl_nm,path) 
-    values(
-      #{memberNo},
-      #{working},
-       
-      <choose>
-        <when test="working == true">'Y'</when> 
-        <otherwise>'N'</otherwise>
-      </choose>,
-     
-      #{grade}, 
-      #{schoolName}, 
-      #{photoPath})
-  </insert>  
-  
-  <update id="update" parameterType="student">
-    update stud set
-	    work=#{working}, 
-	    lst_schl=#{grade}, 
-	    schl_nm=#{schoolName}, 
-	    path=#{photoPath}
-    where sno=#{memberNo}
-  </update>
-  
-  <delete id="delete" parameterType="int">
-  <![CDATA[
-    delete from stud where sno=#{value}
-  ]]>
-  </delete> -->
 
 </mapper>
-
-
-
-
-
 
 
 

@@ -17,15 +17,27 @@ public class LikeServiceImpl implements LikeService {
   @Autowired LikeDao likeDao;
   
  
-  public List<Like> addList(int contentsNo, int menteeNo) throws Exception {
+  public List<Like> videoList(int pageNo, int pageSize, int sno) throws Exception {
 
     HashMap<String,Object> paramMap = new HashMap<>();
-    paramMap.put("contentsNo", contentsNo);
-    paramMap.put("menteeNo", menteeNo);
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    paramMap.put("sno", sno);
+    System.out.println(paramMap);
     
-    return likeDao.addList(paramMap); 
+    return likeDao.videoList(paramMap); 
   }
 
+  
+  public List<Like> mentoList(int pageNo, int pageSize, int sno) throws Exception {
+
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+      paramMap.put("rowSize", pageSize);
+      paramMap.put("sno", sno);
+      
+      return likeDao.mentoList(paramMap); 
+    }
 
   @Override
   public int likeAdd(int curNo, int sno) throws Exception {
@@ -40,6 +52,12 @@ public class LikeServiceImpl implements LikeService {
     
     return count;
   }
+
+
+@Override
+public int getSize() throws Exception {
+    return likeDao.countAll();
+}
 
   
   /*public Video getDetail(int no) throws Exception {

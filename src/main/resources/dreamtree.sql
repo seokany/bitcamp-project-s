@@ -66,9 +66,9 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into copic(tno, cono) values(1, 2); 
 	insert into copic(tno, cono) values(2, 3); 
 	insert into copic(tno, cono) values(3, 4); 
-	insert into copic(tno, cono) values(4, 5);
-	insert into copic(tno, cono) values(5, 6); 
-  insert into copic(tno, cono) values(6, 7);
+	insert into copic(tno, cono) values(1, 5);
+	insert into copic(tno, cono) values(2, 6); 
+  insert into copic(tno, cono) values(3, 7);
 
 - 검사결과 데이터
 	insert into result(sno, type, rer) values(5, 'mbti', 'istp');
@@ -83,15 +83,27 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	
 	
 	- 좋아요 목록 불러오기
-	 select * from video vd
+	 select * from contents ctt
+  inner join video vd on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = '5';
+
+  
+  
+     select * from video vd
   inner join contents ctt on vd.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
   inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
   inner join lklst lk on ctt.cono = lk.cono
-  where ret.sno = '5';
-
+  where lk.sno = '5';
 
 
 <-- SELECT query --> 

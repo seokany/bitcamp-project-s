@@ -70,7 +70,7 @@ request(url, function(error, response, html){
 //       console.log("----------------");
        
        a('div.media__image > a').each(function(){ // 영상 넘어가는 주소
-    	   console.log('=>',a(this).attr("href") );
+//    	   console.log('=>',a(this).attr("href") );
     	   ted.addAnker("https://www.ted.com" + a(this).attr("href"));
        });
 //       console.log(ted.anker.length, ted.anker);
@@ -109,6 +109,7 @@ request(url, function(error, response, html){
 				  // connection.query () 을 실행하고 결과가 나온다음 이 function을 실행해라.
 				  if (err) throw err;
 				  
+				  console.log(rows[0].cono);
 					ted.cono = rows[0].cono;
 		});
 		
