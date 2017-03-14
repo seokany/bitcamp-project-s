@@ -16,6 +16,8 @@
     <result column="sjob"   property="speakerJob"/>
     <result column="simg"    property="speakerImage"/>
     <result column="posted"    property="posted"/>
+    <association property="name" column="name" 
+      javaType="Member" select="selectName"/>
   </resultMap>
   
 <!--   <select id="count" parameterType="string" resultType="int">
@@ -50,9 +52,7 @@
   inner join membs mmb on mte.sno = mmb.mno
   where ret.sno = #{sno}
   limit 6;
-<!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
-  
   
      <select id="detailList" resultMap="video-map" parameterType="map">
   select * from video vd

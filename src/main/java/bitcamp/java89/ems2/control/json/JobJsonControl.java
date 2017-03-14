@@ -6,7 +6,6 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Job;
 import bitcamp.java89.ems2.service.JobService;

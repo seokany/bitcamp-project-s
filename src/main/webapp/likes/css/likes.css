@@ -10,17 +10,15 @@ Body
 body {
   height: 100vh;
   margin: 0;
-/*   background: -webkit-radial-gradient(ellipse farthest-corner at center top, #ffee75, #ff8930); */
-/*   background: radial-gradient(ellipse farthest-corner at center top, #ffee75, #ff8930); */
   color: #8b9095;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
 }
 
 /*--------------------
-App
+Dashboard
 --------------------*/
-.app {
+.dashboard {
   position: relative;
   top: 50%;
   left: 50%;
@@ -31,7 +29,7 @@ App
   background: #fff;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
-.app h2 {
+.dashboard h2 {
   color: #525661;
   font-size: 17px;
   box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
@@ -41,37 +39,37 @@ App
 
 
 /*--------------------
-Movies
+Persons
 --------------------*/
-.movies {
+.persons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 8px 18px;
 }
-.movies .movie {
+.persons .person {
   padding: 10px;
   cursor: pointer;
 }
-.movies .movie .poster {
+.persons .person .poster {
   width: 288px;
   height: 600px;
   margin-bottom: 6px;
   border-radius: 4px;
 }
-.movies .movie .poster.active {
+.persons .person .poster.active {
   opacity: 0;
 }
-.movies .movie .title {
+.persons .person .title {
   color: #525661;
   margin-bottom: 4px;
   font-size: 16px;
 }
-.movies .movie .info {
+.persons .person .info {
   font-size: 11px;
   opacity: .8;
 }
-.movies .movie .desc {
+.persons .person .desc {
   display: none;
 }
 
@@ -85,7 +83,7 @@ Detail
   width: 100%;
   height: 100%;
   z-index: 10;
-  padding: 37px 30px 30px 255px;
+  padding: 80px 110px 30px 255px;
   display: none;
 }
 .detail::before {
