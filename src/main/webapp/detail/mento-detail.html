@@ -1,30 +1,24 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mento-like</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<link rel="stylesheet" type="text/css" href="../mystuff/css/mystuff.css">
-<link rel="stylesheet" type="text/css" href="../mystuff/css/mentoPage.css">
+<link rel="stylesheet" href="../mystuff/css/mystuff.css">
 <link rel="stylesheet" type="text/css" href="../mystuff/css/homepage.css">
-<link rel="stylesheet" type="text/css" href="../mystuff/css/mentoLike.css">
+<link rel="stylesheet" type="text/css" href="../mystuff/css/mentoPage.css">
 </head>
 <body>
   <div class="mystuff mento-list">
-  <div class="btn-type">
-  <button id="tab-1" type="button" name="tab" class="mt-list-btn" checked><label for="tab-1" class="tab">멘토&설계도</label></button>
-    <button id="tab-2" type="button" name="tab" class="video-list-btn"><label for="tab-2" class="tab">추천영상</label></button>
-    </div>
 <div class="app">
 <div class="mento-top">
- <h2>내가 좋아하는 설계도와 멘토</h2>
+ <h2>추천 멘토 및 설계도</h2>
  </div>
- <div class="mento-like-list">
+ <div class="mento-detail-list"></div>
+  
 
-   
- </div>
  <div class="pageBtn">
  <button id='prevPgBtn' type='button' class='btn-primary btn-xs'>이전</button>
 <span id='pageNo'>1</span>
@@ -35,34 +29,35 @@
 	</div>
 	
 	
-	
-	<script id="mentoLike" type="text/x-handlebars-template">
+	<script id="mentoDetail" type="text/x-handlebars-template">
 {{#each list}}
-   <div class="mt-list">
+<div class="mt-list">
      <div class="mt-conts">
 <button type="button" class="buttonHolder" data-no="{{contentsNo}}">
-  <a href="#" class="btn heart checked"></a>
+  <a href="#" class="btn heart"></a>
 </button>
+     
     <img clas="map-img" src="../mystuff/img/map1.jpg">
      </div>
      <div class="mt-btm">
     <div class="mt-photo"><img src='../mystuff/img/lee.jpg'></div>
-                     <div class="mt-name">
-                       <span class="mento-name" >천지연 개발자</span><br>
-                        <p>Front end</p></div>
+                     <div class="mt-name"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
                   </div>
+   
    </div>
 
 {{/each}}
 </script>
+	
+	
 
 <script src="../common/js/context.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
- <script type="text/javascript" src="../mystuff/js/jquery.jcarousel.min.js"></script> 
-<script src="js/mento-like.js"></script>
+ <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
+<script src="js/mento-detail.js"></script>
 <script src="../common/js/common.js"></script>
 
 </body>

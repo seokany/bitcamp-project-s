@@ -26,7 +26,7 @@ public class LikeJsonControl {
     
 
 
-    List<Like> list = likeService.videoList(pageNo, pageSize, sno);
+    List<Like> list = likeService.mentoList(pageNo, pageSize, sno);
     int totalCount = likeService.getSize();
     
     

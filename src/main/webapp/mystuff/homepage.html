@@ -64,64 +64,9 @@
     <div class="rec-mt jcarousel-wrapper fpc_box mentoBox">
             
                 <div class="mt-carousel jcarousel">
-                <div class="ul">
-                 <div class="mento-slide"><a href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
-                  <div class="mento-conts frame-modal" frame-src="../mentos/chat.html">
-                   <button type="button" class="buttonHolder" style="top: 37px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>
-<!--                    <div class="rec rec-mento1" id="mento1" style="background-image:url('img/mento-program.jpg')"></div> -->
-                   <div class="mento-btm">
-                    <div class="mt-photo"><img src='img/lee.jpg'></div>
-                     <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
-                  </div>
-               </div>
-                  </div>
-                   <div class="mento-slide"><img class="map-img" src="img/map2.jpg" width="495" height="360" alt="">
-                    <div class="mento-conts frame-modal" frame-src="../mentos/chat.html">
-                   <button type="button" class="buttonHolder" style="top: 37px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>                    
-<!--                    <div class="rec rec-mento1" id="mento1" style="background-image:url('img/mento-program.jpg')"></div> -->
-                   <div class="mento-btm">
-                    <div class="mt-photo"><img src='img/lee.jpg'></div>
-                     <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
-                  </div>
-               </div>
-                   </div>
-                      <div class="mento-slide"><img class="map-img" src="img/map3.png" width="495" height="360" alt="">
-                     <div class="mento-conts frame-modal" frame-src="../mentos/chat.html">
-                   <button type="button" class="buttonHolder" style="top: 37px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>                     
-<!--                    <div class="rec rec-mento1" id="mento1" style="background-image:url('img/mento-program.jpg')"></div> -->
-                   <div class="mento-btm">
-                   <div class="mt-photo"><img src='img/lee.jpg'></div>
-                     <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
-                  </div>
-               </div>
-                      </div>
-                      
-                    <div class="mento-slide"><img class="map-img" src="img/map4.png" width="495" height="360" alt="">
-                      <div class="mento-conts frame-modal" frame-src="../mentos/chat.html">
-                   <button type="button" class="buttonHolder" style="top: 37px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>                      
-<!--                    <div class="rec rec-mento1" id="mento1" style="background-image:url('img/mento-program.jpg')"></div> -->
-                   <div class="mento-btm">
-                   <div class="mt-photo"><img src='img/lee.jpg'></div>
-                    <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
-                  </div>
-               </div>
+                <div class="ul"></div>
+                </div>
                
-                   </div>
-                </div>
-                </div>
-                
-                <div class="corner-box mento-box">
-          <a class="fpc_page-tip" href="#">
-          <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
-        </div>
                 
                 <a href="#" class="mt-left jcarousel-control-prev">&lsaquo;</a>
                 <a href="#" class="mt-right jcarousel-control-next">&rsaquo;</a>
@@ -198,7 +143,22 @@
 {{/each}}
 </script>
 
+<script id="mentoList" type="text/x-handlebars-template">
+{{#each list}}
+<div class="mento-slide"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
+                  <div class="mento-conts">
+                   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 37px;">
+                    <a href="#" class="btn heart"></a>
+                   </button>
 
+                   <div class="mento-btm">
+                    <div class="mt-photo"><img src='img/lee.jpg'></div>
+                     <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
+                  </div>
+               </div>
+              </div>
+{{/each}}
+</script>
 
 <script src="../common/js/context.js"></script>
  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

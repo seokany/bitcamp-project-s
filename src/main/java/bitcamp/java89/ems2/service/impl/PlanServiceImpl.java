@@ -7,66 +7,67 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.ContentsHeaderDao;
-import bitcamp.java89.ems2.dao.VideoDao;
-import bitcamp.java89.ems2.domain.Video;
-import bitcamp.java89.ems2.service.VideoService;
+import bitcamp.java89.ems2.dao.PlanDao;
+import bitcamp.java89.ems2.domain.Plan;
+import bitcamp.java89.ems2.service.PlanService;
 
 @Service
-public class VideoServiceImpl implements VideoService {
+public class PlanServiceImpl implements PlanService {
   @Autowired ContentsHeaderDao contentsDao;
-  @Autowired VideoDao videoDao;
+  @Autowired PlanDao planDao;
   
  public int getSize() throws Exception {
-    return videoDao.countAll();
+    return planDao.countAll();
   }
  
-  public List<Video> getList(int pageNo, int pageSize, int sno) throws Exception {
+  public List<Plan> getList(int pageNo, int pageSize, int sno) throws Exception {
 
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
     paramMap.put("rowSize", pageSize);
     paramMap.put("sno", sno);
     
-    return videoDao.getList(paramMap); 
+    return planDao.getList(paramMap); 
   }
   
-  public List<Video> detailList(int pageNo, int pageSize, int sno) throws Exception {
+  public List<Plan> detailList(int pageNo, int pageSize, int sno) throws Exception {
 
+    System.out.println(pageNo + pageSize + sno);
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
     paramMap.put("rowSize", pageSize);
     paramMap.put("sno", sno);
     
-    return videoDao.detailList(paramMap); 
+    return planDao.detailList(paramMap); 
   }
   
-  /*public Video getDetail(int no) throws Exception {
-    return videoDao.getOne(no);
+  /*public Plan getDetail(int no) throws Exception {
+    return planDao.getOne(no);
   }
   
-  public int add(Video video) throws Exception {
+  public int add(Plan plan) throws Exception {
     
-    if (videoDao.count(video.getEmail()) > 0) {
+    if (planDao.count(plan.getEmail()) > 0) {
       throw new Exception("같은 학생의 이메일이 존재합니다. 등록을 취소합니다.");
     }
     
-    if (memberDao.count(video.getEmail()) == 0) { 
-      memberDao.insert(video);
+    if (memberDao.count(plan.getEmail()) == 0) { 
+      memberDao.insert(plan);
       
     } else {
-      Member member = memberDao.getOne(video.getEmail());
-      video.setMemberNo(member.getMemberNo());
+      Member member = memberDao.getOne(plan.getEmail());
+      plan.setMemberNo(member.getMemberNo());
     }
     
-    return videoDao.insert(video);
+    return planDao.insert(plan);
   }
   
   public int delete(int no) throws Exception {
-    if (videoDao.countByNo(no) == 0) {
+    if (planDao.countByNo(no) == 0) {
       throw new Exception("학생을 찾지 못했습니다.");
     }
     
-    int count = videoDao.delete(no);
+    int count = planDao.delete(no);
 
     if (managerDao.countByNo(no) == 0 && teacherDao.countByNo(no) == 0) {
       memberDao.delete(no);
@@ -75,12 +76,12 @@ public class VideoServiceImpl implements VideoService {
     return count;
   }
   
-  public int update(Video video) throws Exception {
-    if (videoDao.countByNo(video.getMemberNo()) == 0) {
+  public int update(Plan plan) throws Exception {
+    if (planDao.countByNo(plan.getMemberNo()) == 0) {
       throw new Exception("학생을 찾지 못했습니다.");
     }
-    memberDao.update(video);
-    return videoDao.update(video);
+    memberDao.update(plan);
+    return planDao.update(plan);
   }*/
 }
 

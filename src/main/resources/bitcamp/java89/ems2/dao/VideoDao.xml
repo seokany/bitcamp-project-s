@@ -46,8 +46,23 @@
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
   inner join result ret on snt.reno = ret.reno
-  where ret.sno = '5'
+  inner join mentee mte on ret.sno = mte.sno
+  inner join membs mmb on mte.sno = mmb.mno
+  where ret.sno = #{sno}
+  limit 6;
 <!--     limit #{startRowIndex}, #{rowSize} -->
+  </select>
+  
+  
+     <select id="detailList" resultMap="video-map" parameterType="map">
+  select * from video vd
+  inner join contents ctt on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno
+  where ret.sno = #{sno}
+  limit #{startRowIndex}, #{rowSize}
   </select>
   
  <!--  <select id="getOne" parameterType="int" resultMap="student-map">
@@ -97,9 +112,6 @@
   </delete> -->
 
 </mapper>
-
-
-
 
 
 
