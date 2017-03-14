@@ -40,9 +40,12 @@
 			  } else if (mbti[3] > 0) {
 				  mbtiResult[3] = "P"; 
 			  }
+              if ()
 			  var resultMsg = mbtiResult[0] + mbtiResult[1] + mbtiResult[2] + mbtiResult[3]
 			  $("#result").html(resultMsg);
+              <!-- $('#result').load('16char.html #col-char-ISTP'); -->
 		  }
+          var resultMsg = 
 	  });
 	  $(".radio input").on("change", function() {
 		  stepChange++;
