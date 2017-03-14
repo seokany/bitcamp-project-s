@@ -1,5 +1,5 @@
- 
 $( function() { 
+
 	
 	$.getJSON(serverRoot + '/video/list.json',  
 		    function(ajaxResult) {
@@ -16,10 +16,44 @@ $( function() {
 		      var template = Handlebars.compile($('#trTemplate').html());
 		      section.html(template({"list": list}));
 		      
+		        // 좋아요 버튼 눌렀을 때
+		        
+		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+				        var sno = 5;
+				        
+		        	if($(this).children(".btn").hasClass("checked")) {
+		        		$(this).children(".btn").removeClass("checked");
+		        		$(this).children(".btn").css("color","black");
+		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("삭제했다.");
+				          }, 'json');
+		        	} else {
+		        		$(this).children(".btn").addClass("checked");
+		                $(this).children(".checked").css("color","#f94e66");
+				          
+		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("했다.");
+				          }, 'json');
+		                
+		                
+		        	}
+		        })
+		    	
+		      
 	/*	      $('.name-link').click(function(event) {
 		        event.preventDefault();
 		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-		      });*/
+		      */
 		      
 //		      preparePagingButton(ajaxResult.data.totalCount);
 		  });  
@@ -133,6 +167,96 @@ $( function() {
     	    }
     	  );
     
+<<<<<<< HEAD
+=======
+    
+    
+    
+    
+    // 인물 디테일 페이지.
+    var $play = $('.play'),
+    $detail  = $('.detail'),
+    $movie = $('.movie', $detail),
+    $close = $('.close');
+
+    $('.movies .movie').click(function(){
+//    	console.log("dkdkdl");
+      
+      $movie.html($(this).html());
+      $play.appendTo($movie);
+
+      $poster = $('.poster', this).addClass('active');
+
+    $('.poster', $detail).css({
+    	
+	    top: $poster.position().top,
+	    left: $poster.position().left,
+	    width: $poster.width(),
+	    height: $poster.height()
+	    }).data({
+	    top: $poster.position().top,
+	    left: $poster.position().left,
+	    width: $poster.width(),
+	    height: $poster.height()
+	    
+    })
+
+    $detail.show();
+
+    $('.poster', $detail).delay(10).queue(function(next) {
+      $detail.addClass('ready');
+      
+      next();
+    }).delay(100).queue(function(next){
+    	
+    $(this).css({ top: '-10%', left: '-6%',  width: 366, height: 400 });
+    next();
+     })
+    })
+
+
+    /*--------------------
+    Close
+    --------------------*/
+    function close(){
+//    console.log('asd');
+    $p = $('.detail .poster');
+//    console.log($p)
+    $p.css({
+    top: $p.data('top'),
+    left: $p.data('left'),
+    width: $p.data('width'),
+    height: $p.data('height'),
+    })
+    $detail.removeClass('ready').delay(500).queue(function(next){
+    $(this).hide();
+    $poster.removeClass('active');
+    next();
+    });
+    }
+
+    $close.click(close);
+    $('body').click(function(e){
+    $p = $(e.target).parents();
+    if ($p.is('.app')){
+    return false;
+    } else {
+    close();
+    }
+    })
+
+
+    /*--------------------
+    CodePen Thumbnail
+    --------------------*/
+    setTimeout(function(){
+    $('.movie:eq(0)').click();
+    }, 300);
+    setTimeout(function(){
+    close();
+    },1700);
+    
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
  // 멘토 리스트 페이지
    
       $(".mt-list").hover(function(){
@@ -151,18 +275,7 @@ $( function() {
     	    }
     	  );
     
-    // 좋아요 버튼 눌렀을 때
-    
-    $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 목록 눌렀을 때
-    	
-    	if($(this).children(".btn").hasClass("checked")) {
-    		$(this).children(".btn").removeClass("checked");
-    		$(this).children(".btn").css("color","black");	
-    	} else {
-    		$(this).children(".btn").addClass("checked");
-            $(this).children(".checked").css("color","#f94e66");	
-    	}
-    })
+
 });
 
 (function($) { // 슬라이드 쇼

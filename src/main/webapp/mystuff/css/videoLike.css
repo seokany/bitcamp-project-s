@@ -152,10 +152,13 @@ width: 530px;
 
 .vdoConts {
 	position:relative;
-	display:inline-block;
+	display:inline-flex;
 	
 }
 
+.checked {
+	color:#f94e66;
+}
 
 
 

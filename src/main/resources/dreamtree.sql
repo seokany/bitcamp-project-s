@@ -53,21 +53,57 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into topic(tnm) values('천문학'); 
 	insert into topic(tnm) values('바이오테크'); 
 	insert into topic(tnm) values('재무'); 
+	
+	
+	- 좋아요 데이터
+	insert into lklst(cono, sno) values(2,5);
+	insert into lklst(cono, sno) values(3,5);
+	insert into lklst(cono, sno) values(4,5);
+	insert into lklst(cono, sno) values(5,5);
+	insert into lklst(cono, sno) values(6,5);
 
 - 콘텐츠 주제 데이터
-	insert into copic(tno, cono) values(1, 1); 
-	insert into copic(tno, cono) values(2, 2); 
-	insert into copic(tno, cono) values(3, 3); 
+	insert into copic(tno, cono) values(1, 2); 
+	insert into copic(tno, cono) values(2, 3); 
 	insert into copic(tno, cono) values(3, 4); 
+	insert into copic(tno, cono) values(1, 5);
+	insert into copic(tno, cono) values(2, 6); 
+  insert into copic(tno, cono) values(3, 7);
 
 - 검사결과 데이터
-	insert into result(sno, type, rer) values(5, 'mbti', 'istp'); 
+	insert into result(sno, type, rer) values(5, 'mbti', 'istp');
 
 - 추천주제 데이터
 	insert into snatr(tno, reno) values(1, 1); 
 	insert into snatr(tno, reno) values(2, 1); 
-	insert into snatr(tno, reno) values(3, 1); 
+	insert into snatr(tno, reno) values(3, 1);
+	insert into snatr(tno, reno) values(4, 1);
+	insert into snatr(tno, reno) values(5, 1);
+	insert into snatr(tno, reno) values(6, 1);
+	
+	
+	- 좋아요 목록 불러오기
+	 select * from contents ctt
+  inner join video vd on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = '5';
 
+  
+  
+     select * from video vd
+  inner join contents ctt on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = '5';
 
 
 <-- SELECT query --> 
@@ -87,7 +123,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	inner join copic cp on ctt.cono = cp.cono
 	inner join topic tp on cp.tno = tp.tno
 	inner join snatr snt on tp.tno = snt.tno 
-	inner join result ret on snt.reno = ret.reno 
+	inner join result ret on snt.reno = ret.reno
 	where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천직업 select 하기
@@ -109,3 +145,25 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	where ret.sno = '5';
 
 
+	
+==============================================================================================	
+	모든 테이블 삭제
+SET @tables = NULL;
+ SELECT GROUP_CONCAT(table_schema, '.', table_name) INTO @tables
+   FROM information_schema.tables 
+   WHERE table_schema = 'sdb'; -- specify DB name here.
+ SET @tables = CONCAT('DROP TABLE ', @tables);
+ PREPARE stmt FROM @tables;
+ EXECUTE stmt;
+ DEALLOCATE PREPARE stmt;
+	
+	============================================================================================
+	
+	
+	
+	
+	
+	
+	
+	
+	
