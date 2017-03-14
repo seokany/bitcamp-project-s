@@ -157,7 +157,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
   inner join result ret on snt.reno = ret.reno
-  full outer join lklst lst on ctt.cono = lst.cono
+  inner join lklst lst on ctt.cono = lst.cono
   where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천직업 select 하기

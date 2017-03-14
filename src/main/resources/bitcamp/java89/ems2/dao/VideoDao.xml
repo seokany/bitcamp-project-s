@@ -48,8 +48,6 @@
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
   inner join result ret on snt.reno = ret.reno
-  inner join mentee mte on ret.sno = mte.sno
-  inner join membs mmb on mte.sno = mmb.mno
   where ret.sno = #{sno}
   limit 6;
   </select>

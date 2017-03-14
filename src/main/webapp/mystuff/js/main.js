@@ -162,19 +162,6 @@ $( function() {
     };
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
     var state = true;
     $(document.body).on( "click", ".job-more", function() { // 직업 더보기
       if ( state ) {
@@ -283,9 +270,6 @@ $( function() {
     	    }
     	  );
     
-<<<<<<< HEAD
-=======
-    
     
     
     
@@ -372,7 +356,6 @@ $( function() {
     close();
     },1700);
     
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
  // 멘토 리스트 페이지
    
       $(".mt-list").hover(function(){
