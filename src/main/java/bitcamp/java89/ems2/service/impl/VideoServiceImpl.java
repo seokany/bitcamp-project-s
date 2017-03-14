@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.ContentsHeaderDao;
 import bitcamp.java89.ems2.dao.VideoDao;
+import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.domain.Video;
 import bitcamp.java89.ems2.service.VideoService;
 
@@ -27,6 +28,11 @@ public class VideoServiceImpl implements VideoService {
     paramMap.put("rowSize", pageSize);
     
     return videoDao.getList(paramMap); 
+  }
+
+  public List<Member> selectName() throws Exception {
+    // TODO Auto-generated method stub
+    return videoDao.selectName();
   }
   
   /*public Video getDetail(int no) throws Exception {

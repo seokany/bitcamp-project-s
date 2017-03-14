@@ -32,15 +32,15 @@ insert into job(cono, jbimg, jbnm, jbdsc) values(1, 'abce', '연구원', '연구
 insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted)
 values(5, '테스트 영상1', 'https://www.ted.com/talks/david_autor_why_are_there_still_so_many_jobs?language=ko', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703);
 
-insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(6, '테스트 영상2', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(6, '테스트 영상2', 'testVideo', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703);
 
-insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(7, '테스트 영상3', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(7, '테스트 영상3', 'testVideo', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703);
 
-insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(8, '테스트 영상4', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(8, '테스트 영상4', 'testVideo', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703);
 
-insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(9, '테스트 영상5', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703);
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(9, '테스트 영상5', 'testVideo', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703);
 
-insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(10, '테스트 영상6', 'testVideo', 'teesthumb', 'desc', 'spk', 'spkjob', 'thumb',201703); 
+insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(10, '테스트 영상6', 'testVideo', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703); 
 
 - 인물 데이터
 	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 

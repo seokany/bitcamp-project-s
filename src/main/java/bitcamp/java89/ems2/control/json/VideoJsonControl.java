@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.domain.Video;
 import bitcamp.java89.ems2.service.VideoService;
 
@@ -33,11 +34,13 @@ public class VideoJsonControl {
     }
 
     List<Video> list = videoService.getList(pageNo, pageSize);
+    List<Member> name = videoService.selectName();
     int totalCount = videoService.getSize();
     
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("list", list);
+    resultMap.put("name", name);
     resultMap.put("totalCount", totalCount);
     
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);

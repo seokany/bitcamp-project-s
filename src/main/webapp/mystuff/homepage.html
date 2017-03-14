@@ -2,57 +2,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DREAMTREE myStuff</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
 <link rel="stylesheet" href="css/mystuff.css">
 <link rel="stylesheet" type="text/css" href="css/homepage.css">
 <link rel="stylesheet" type="text/css" href="css/jobHover.css">
 <link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" type="text/css" href="../common/css/common.css" />
 <link rel="stylesheet" type="text/css" href="css/corner.css">
-
+<link rel="stylesheet" type="text/css" href="css/talks.css">
 </head>
 <body>
-
 <div id="header"></div>
   <div class="mystuff">
 	  <div id="div1" class="model-div msize corner-container">
 	  <!-- <div class="msize model-more">
 	    <button class="model-btn frame-modal" frame-src="homepage2.html" >더보기</button>
 	  </div> -->
-<div class="jcarousel-wrapper fpc_box modelBox">
-            
-                <div class="jcarousel">
-                <div class="ul">
-                 <div class="model-slide"><a href="person.html"><img src="img/obama.jpg" width="495" height="210" alt=""></a>
-                  
-                  </div>
-                   <div class="model-slide"><img src="img/jang.jpg" width="495" height="210" alt="">
-                  
-                   </div>
-                      <div class="model-slide"><img src="img/rowling.jpg" width="495" height="210" alt="">
-                    
-                      </div>
-                    <div class="model-slide"><img src="img/edison.png" width="495" height="210" alt="">
-                     
-                   </div>
-                </div>
-                </div>
-                
-                 <div class="corner-box model-box">
-          <a class="fpc_page-tip" href="#">
-          <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
-        </div>
-                
-                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-                
-                <p class="jcarousel-pagination">
-                    
-                </p>
-            </div>
+  <div class="jcarousel-wrapper fpc_box modelBox">
+    <div class="jcarousel">
+      <div class="ul">
+	      <div class="model-slide"><a href="person.html"><img src="img/obama.jpg" width="495" height="210" alt=""></a>
+	      </div>
+	      <div class="model-slide"><img src="img/jang.jpg" width="495" height="210" alt="">
+	      </div>
+	      <div class="model-slide"><img src="img/rowling.jpg" width="495" height="210" alt="">
+	      </div>
+	      <div class="model-slide"><img src="img/edison.png" width="495" height="210" alt="">
+	      </div>
+      </div>
+    </div>
+          
+           <div class="corner-box model-box">
+    <a class="fpc_page-tip" href="#">
+    <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+  </div>
+       <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+       <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+    <p class="jcarousel-pagination"></p>
+  </div>
 	  </div>
 	  
 	  
@@ -167,41 +157,35 @@
     </div>
    </div> <!-- job-list -->
 </div>
+  </div>
 	
 	<!-- 페이지 불러오기 -->
 	<div class="pop-modal modal-esc" style="position: fixed; z-index:10000; top:0;">
   <iframe id="iframe" class="pop-modal modal-esc pulse" scrolling="yes" frameborder="0"></iframe>
 </div>
 
-
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
-<div class="ssize video corner-container">
-<div class="video-conts fpc_box videoBox">
-     <img class="rec rec-video1" id="video1" 
-            src='{{videoImage}}'></img>
-               <div class="video-btm">
-       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
-       
-       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
-                          <button type="button" class="buttonHolder" style="top: 181px; right: 5px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>
-     </div>
-      <div class="corner-box video-box">
-          <a class="fpc_page-tip" href="#">
-          <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
-        </div>
-     </div>
+<div class="ssize video corner-container card-front">
+  <div class="video-conts fpc_box videoBox">
+    <img class="rec rec-video1" id="video1" src='{{videoImage}}'></img>
+    <div class="video-btm">
+      <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+      <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+        <button type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+          <a href="#" class="btn heart"></a>
+        </button>
+      </div>
+      <div class="corner-box video-box"><a class="fpc_page-tip" href="#">
+        <div class="corner-contents"><div class="corner-button"><p>더보기</p></div>
+      </div></a>
+    </div>
+  </div>
 </div>
-
 {{/each}}
 </script>
-
-
-
 <script src="../common/js/context.js"></script>
- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -210,6 +194,16 @@
 <script src="js/modal.js"></script>
 <script src="../common/js/common.js"></script>
 <!-- <script src="js/video_main.js"></script> -->
+<script>
+// $(document.body).on("click", ".video", function(e) {
+// 	if ($(e.target).hasClass('heart')) {return false;}
+//   $(this).addClass('animated flipOutY');
+//   setTimeout(function() {
+// 	  $(".detail-video").removeClass('hide');
+// 	  $('.detail-video').addClass('animated flipInY');
+//   },350);
+// });
+</script>
 
 </body>
 </html>

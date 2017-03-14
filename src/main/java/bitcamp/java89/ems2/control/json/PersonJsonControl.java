@@ -19,7 +19,7 @@ public class PersonJsonControl {
   @Autowired ServletContext sc;
   @Autowired PersonService personService;
   
-  @RequestMapping("/mystuff/json.Person.json")
+  @RequestMapping("/likes/person")
   public AjaxResult list(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="4") int pageSize) throws Exception {
