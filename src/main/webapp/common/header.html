@@ -12,11 +12,16 @@
   font-family: Menus;
   src: url(../common/font/TenaliRamakrishna-Regular.ttf);
 }
+
+/*-- background 영역 --*/
 body {
   margin: 0;
-  background: rgba(250, 245, 230, .5);
+/*   background: rgba(250, 245, 230, .5); */
+  background: linear-gradient(90deg, rgba(207, 236, 208, 0.2), rgba(255, 197, 202, 0.2));
   overflow: auto;
 }
+
+/*-- header 영역 --*/
 .header-wrap {}
 .logo-bottom, .header-menus, 
 .header-menus li, .header-thumb, .header-icons {
@@ -31,7 +36,12 @@ body {
 }
 .header-menus {
   position: absolute;
-  bottom: 5px;
+  margin: 0 15vw;
+  bottom: 13px;
+}
+.header-menus a:link, .header-menus a:visited {
+  text-decoration: none;
+  color: rgba(128, 128, 128, 0.9);
 }
 .header-menus ul {
   margin-bottom: 0px;
@@ -40,25 +50,25 @@ body {
 .header-menus li {
   margin: 0 15px;
   color: rgba(128, 128, 128, 0.9);
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 300;
   font-family: Menus;
 }
-.header-menus li:hover {
+.header-menus li:hover, .header-menus li a:hover {
   color: rgba(255, 99, 71, 0.7);
 }
 .header-icons {
   position: absolute;
   right: 30px;
-  bottom: 15px;
+  bottom: 26px;
 }
 .header-icons img{
   margin: 0 5px;
 }
-/* .header-icons img:nth-child(2){ */
-/*   margin: 0 10px 0 7px; */
-/* } */
-.
+.sign-default {
+  position: relative;
+  top: -1px;
+}
 .header-bottom, .header-top {
   background: #FFF;
 }
@@ -71,32 +81,29 @@ body {
   height: 100px;
 }
 .logo-bottom {
-    height: 60px;
-    background: linear-gradient(90deg, #cfecd0, #ffc5ca);
-    border-radius: 15px;
-    padding: 0 20px;
-    margin: 15px 50px;
-    color: #FFF;
-    font-weight: 300;
-    font-size: 40px;
-    font-family: logo;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  background: linear-gradient(90deg, #cfecd0, #ffc5ca);
+  border-radius: 15px;
+  padding: 0 20px;
+  margin: 15px 35px;
+  font-weight: 300;
+  font-size: 40px;
+  font-family: logo;
 }
-.context-bottom {
-  overflow: hidden;
-  border: tomato;
+.logo-bottom a:link, .logo-bottom a:visited {
+  text-decoration: none;
+  color: #FFF;
 }
-/* .sign-in, .sign-out { */
-/*   display: none; */
-/* } */
-/* .on { */
-/*   display: inline-block; */
-/* } */
+
+/*-- dashboard 영역 --*/
 .mystuff {
   margin: 3vw auto;
   width: 1285px;
   background: #FFF;
-  border-radius: 10px;
   border: 10px solid #FFF;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 </style>
@@ -107,37 +114,23 @@ body {
   <div class="header-top">
 	  <div class="header-wrap">
 	    <div class="logo-bottom">
-	      DREAMTREE
+	      <a rel="alternate" href="http://192.168.1.117:8080/bitcamp-project-s/index.html">DREAMTREE</a>
 	    </div>
 	    <div class="header-menus">
 	      <ul>
 	        <li> Seeds </li>
-	        <li> Mystuff </li>
-	        <li> Likes </li>
+	        <li><a rel="alternate" href="http://192.168.1.15:8080/bitcamp-project-s/mystuff/homepage.html">Mystuff</a></li>
+	        <li><a rel="alternate" href="http://192.168.1.117:8080/bitcamp-project-s/likes/person.html">Likes</a></li>
 	      </ul>
 	    </div>
 	    <div class="header-icons">
 	      <img class="sign-out" alt="" src="../common/img/power-24.png">
 	      <img class="sign-in on" alt="" src="../common/img/contacts-24.png">
 	      <img class="sign-in on" alt="" src="../common/img/message-2-24.png">
-	      <img alt="" src="../common/img/activity-feed-24.png">
+	      <img class="sign-default" alt="" src="../common/img/activity-feed-24.png">
 	    </div>
     </div>
   </div>
 </div>
-
-<div class="context-bottom">
-  <div class="user-context">
-    
-  </div>
-  <div class="message-context">
-    
-  </div>
-  <div class="info-context">
-    
-  </div>
-  
-</div>
-
 </body>
 </html>
