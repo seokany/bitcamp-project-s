@@ -92,7 +92,7 @@ $( function() {
 				          
 		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
 				        	  if (ajaxResult.status != "success") {
-				    	          alert(ajaxResult.data);
+				    	          console.log("동일한 영상이 있습니다.");
 				    	          return;
 				    	      }
 				        	  console.log("했다.");

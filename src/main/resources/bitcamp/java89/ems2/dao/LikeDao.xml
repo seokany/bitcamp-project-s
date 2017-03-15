@@ -43,7 +43,7 @@
   <select id="countByNo" parameterType="int" resultType="int">
     select count(*)
     from lklst lk 
-    where lk.cono=#{value}
+    where lk.cono=#{curNo}
   </select> 
   <insert id="likeAdd">
     insert into lklst(cono, sno) values(#{curNo}, #{sno})

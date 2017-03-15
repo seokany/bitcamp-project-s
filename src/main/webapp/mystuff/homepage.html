@@ -120,11 +120,11 @@
        
        <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
                           <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
-                    <a href="#" class="btn heart"></a>
+      <a href="#" class="btn heart"></a>
                    </button>
      </div>
       <div class="corner-box video-box">
-          <a class="fpc_page-tip" href="#">
+          <a class="fpc_page-tip" href="http://192.168.1.15:8080/bitcamp-project-s/detail/video-detail.html">
           <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
         </div>
      </div>
@@ -132,18 +132,23 @@
 {{/each}}
 </script>
 
+
 <script id="mentoList" type="text/x-handlebars-template">
 {{#each list}}
-<div class="mento-slide"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
+<div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
                   <div class="mento-conts">
                    <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 37px;">
-                    <a href="#" class="btn heart"></a>
+                    <a href="" class="btn heart"></a>
                    </button>
 
                    <div class="mento-btm">
                     <div class="mt-photo"><img src='img/lee.jpg'></div>
                      <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
                   </div>
+                   <div class="mento-box corner-box">
+                      <a class="fpc_page-tip" href="http://192.168.1.15:8080/bitcamp-project-s/detail/mento-detail.html">
+                     <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+                   </div>
                </div>
               </div>
 {{/each}}

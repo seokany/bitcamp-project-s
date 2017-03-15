@@ -1,7 +1,7 @@
+var currPageNo = 1;
+var pageSize = 5;
+var sno = 5;
 $( function() { 
-	var currPageNo = 1;
-	var pageSize = 5;
-	var sno = 5;
     
 	
 	$.getJSON(serverRoot + '/video/list.json', 
@@ -16,53 +16,94 @@ $( function() {
 		  
 		      var list = ajaxResult.data.list;
 		      console.log(list);
-		      
 		      var section = $('.section');
 
 		      var template = Handlebars.compile($('#trTemplate').html());
 		      section.html(template({"list": list}));
 		      
-		        // 좋아요 버튼 눌렀을 때
-		        
-		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
-		        	 event.preventDefault();
-		        	 var curNo = $(this).attr("data-no");
+		      /*loadList(currPageNo,pageSize,sno);
+		  	function loadList(pageNo, pageSize, sno) {
+				$.getJSON(serverRoot + '/videoLike/list.json', 
+				    {
+					  "pageNo": pageNo,
+					  "pageSize": pageSize,
+					  "sno": sno
+					}, 
+					function(ajaxResult) {
+					      var status = ajaxResult.status;
+					      if (status != "success")
+					        return;
+					      
+					    var like = ajaxResult.data.list;
+					     console.log(like);*/
+					     
+/*		  	var isLike = {};
+	  		for (var i = 0; i < like.length; i++) {
+	  			if (like[i].contentsNo == list[i].contentsNo) {
+	  				return options.fn(this);
+	  			} else {
+	  				return options.inverse(this);
+	  			}
+	  		}
+		  	Handlebars.registerHelper('isLike', isLike);
+		  	
+		  	*                {{#if isLike}}
+     <a href="#" class="btn heart checked"></a>
+    {{else}}
+      <a href="#" class="btn heart"></a>
+    {{/if}}
+		  	*/
+		  	
+		  	// 좋아요 버튼 눌렀을 때
+		  	
+		  	$(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		  		event.preventDefault();
+		  		var curNo = $(this).attr("data-no");
+		  		
+		  		
+		  		if($(this).children(".btn").hasClass("checked")) {
+		  			$(this).children(".btn").removeClass("checked");
+		  			$(this).children(".btn").css("color","black");
+		  			$.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("삭제했다.");
+		  			}, 'json');
+		  		} else {
+		  			$(this).children(".btn").addClass("checked");
+		  			$(this).children(".checked").css("color","#f94e66");
+		  			
+		  			$.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("했다.");
+		  			}, 'json');
+		  			
+		  		}	
+		  	});  
+		  	
 
-				        
-		        	if($(this).children(".btn").hasClass("checked")) {
-		        		$(this).children(".btn").removeClass("checked");
-		        		$(this).children(".btn").css("color","black");
-		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
-				        	  if (ajaxResult.status != "success") {
-				    	          alert(ajaxResult.data);
-				    	          return;
-				    	      }
-				        	  console.log("삭제했다.");
-				          }, 'json');
-		        	} else {
-		        		$(this).children(".btn").addClass("checked");
-		                $(this).children(".checked").css("color","#f94e66");
-				          
-		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
-				        	  if (ajaxResult.status != "success") {
-				    	          alert(ajaxResult.data);
-				    	          return;
-				    	      }
-				        	  console.log("했다.");
-				          }, 'json');
-		                
-		                
-		        	}
-		        })
-		    	
+					     
+					     
+/*				}); // loadList 의 function  
+*/		      
 		      
-	/*	      $('.name-link').click(function(event) {
-		        event.preventDefault();
-		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-		      */
-		      
-//		      preparePagingButton(ajaxResult.data.totalCount);
+
 		  });  
+	
+	
+
+  
+	
+	
+	
+	
+	
+	
 	
 	
 	

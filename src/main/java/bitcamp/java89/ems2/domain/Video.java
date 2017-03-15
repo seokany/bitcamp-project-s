@@ -11,6 +11,7 @@ public class Video extends ContentsHeader{
   protected String speakerName;
   protected String speakerJob;
   protected String speakerImage;
+  protected String checked;
   protected int posted;
   public String getKoreanTitle() {
     return koreanTitle;
@@ -53,6 +54,12 @@ public class Video extends ContentsHeader{
   }
   public void setSpeakerImage(String speakerImage) {
     this.speakerImage = speakerImage;
+  }
+  public String getChecked() {
+    return checked;
+  }
+  public void setChecked(String checked) {
+    this.checked = checked;
   }
   public int getPosted() {
     return posted;
