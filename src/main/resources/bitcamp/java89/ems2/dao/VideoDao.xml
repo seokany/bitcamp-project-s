@@ -4,8 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="bitcamp.java89.ems2.dao.VideoDao">
-
-
   <resultMap type="video" id="video-map">
     <id     column="cono"        property="contentsNo"/>
     <result column="type"        property="contentsType"/>
@@ -56,6 +54,7 @@
 	  select count(*)
 	  from lklst
 	  where cono = #{cono} and sno = #{sno}
+  </select>
   
   <select id="detailList" resultMap="video-map" parameterType="map">
 	  select * from video vd
@@ -68,6 +67,8 @@
 	  limit #{startRowIndex}, #{rowSize}
   </select>
   
+</mapper>
+
  <!--  <select id="getOne" parameterType="int" resultMap="student-map">
     select
       m.mno,
@@ -113,8 +114,6 @@
     delete from stud where sno=#{value}
   ]]>
   </delete> -->
-
-</mapper>
 
 
 
