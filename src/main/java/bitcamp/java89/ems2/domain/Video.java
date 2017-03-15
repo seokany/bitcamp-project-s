@@ -70,8 +70,10 @@ public class Video extends ContentsHeader{
   public void setPosted(int posted) {
     this.posted = posted;
   }
-  
-  
-  
-  
+  @Override
+  public String toString() {
+    return "Video [koreanTitle=" + koreanTitle + ", englishTitle=" + englishTitle + ", videoImage=" + videoImage
+        + ", videoDescription=" + videoDescription + ", speakerName=" + speakerName + ", speakerJob=" + speakerJob
+        + ", speakerImage=" + speakerImage + ", posted=" + posted + "]";
+  }
 }

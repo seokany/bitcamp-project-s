@@ -20,5 +20,8 @@ public class ContentsHeader implements Serializable {
   public void setContentsType(String contentsType) {
     this.contentsType = contentsType;
   }
-  
+  @Override
+  public String toString() {
+    return "ContentsHeader [contentsNo=" + contentsNo + ", contentsType=" + contentsType + "]";
+  }
 }

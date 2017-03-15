@@ -73,13 +73,8 @@ $(function() {
     	 $(".sign-in").removeClass("animated fadeOutLeft");
     	 $(".sign-in").addClass("animated fadeInLeft");
     	 $('.sign-in').css("display", "block");
-//	$('.sign-up').css("display", "none");
-	  
-  })
-  
-  
+	});
 });
-
 
 $(function(){
 	  $('.passIn').keyup(function(){

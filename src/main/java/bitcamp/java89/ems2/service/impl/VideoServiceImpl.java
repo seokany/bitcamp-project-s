@@ -30,9 +30,17 @@ public class VideoServiceImpl implements VideoService {
     
     return videoDao.getList(paramMap); 
   }
+  
+  public int isLike(int cono, int sno) throws Exception {
+    
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("cono", cono);
+    paramMap.put("sno", sno);
+    
+    return videoDao.isLike(paramMap); 
+  }
 
   public List<Member> selectName() throws Exception {
-    // TODO Auto-generated method stub
     return videoDao.selectName();
   }
   

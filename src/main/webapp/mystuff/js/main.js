@@ -11,16 +11,37 @@ $( function() {
 			  "sno": sno
 			}, function(ajaxResult) {
 		      var status = ajaxResult.status;
-		      if (status != "success")
-		        return;
+		      if (status != "success") return;
 		  
 		      var list = ajaxResult.data.list;
+<<<<<<< HEAD
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      list[k].isLike = isLike;
+		    		});
+		      });
+=======
 		      console.log(list);
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      var section = $('.section');
-
 		      var template = Handlebars.compile($('#trTemplate').html());
 		      section.html(template({"list": list}));
 		      
+<<<<<<< HEAD
+		        // 좋아요 버튼 눌렀을 때
+		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+=======
 		      /*loadList(currPageNo,pageSize,sno);
 		  	function loadList(pageNo, pageSize, sno) {
 				$.getJSON(serverRoot + '/videoLike/list.json', 
@@ -92,6 +113,7 @@ $( function() {
 		  		}	
 		  	});  
 		  	
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 
 					     
 					     
@@ -118,8 +140,6 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
-		      console.log(list);
-		      
 		      var section = $('.mt-carousel > .ul');
 
 		      var template = Handlebars.compile($('#mentoList').html());
