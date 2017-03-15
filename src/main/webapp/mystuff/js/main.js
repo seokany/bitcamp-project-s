@@ -14,7 +14,10 @@ $( function() {
 		      if (status != "success") return;
 		  
 		      var list = ajaxResult.data.list;
-<<<<<<< HEAD
+//		      console.log(list);
+		      
+		      
+			 
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
 		    		{
@@ -26,22 +29,47 @@ $( function() {
 				      
 				      var isLike = ajaxResult.data.isLike;
 				      
-				      list[k].isLike = isLike;
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+				      
+				      /*console.log(list[k].isLike);*/
+//				      list[k].isLike = true;
+//				      console.log(list);
+//				      console.log("test02" + typeof list[k].isLike === true);
+				      /*console.log(typeof list[k].isLike == "false");*/
+				      
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
+				      /*console.log(list);
+		      for (var i in list) {
+		    	  console.log(i,'번째 isLike = ',list[i].isLike)
+		    	  if (list[i].isLike) {
+		    		  $('.btn.heart').addClass('checked')
+		    	  }
+		      }*/
 		    		});
+		    	  
+		    	  
 		      });
-=======
-		      console.log(list);
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
-		      var section = $('.section');
-		      var template = Handlebars.compile($('#trTemplate').html());
-		      section.html(template({"list": list}));
 		      
-<<<<<<< HEAD
+		     /* Handlebars.registerHelper('isLike', function(options) {
+		    	  console.log("헬퍼");
+		    	  if (isLike == 1) {
+		    		  return options.fn();
+		    	  } else {
+		    		  return options.inverse();
+		    	  }
+		    	  var section = $('.section');
+		    	  var template = Handlebars.compile($('#trTemplate').html());
+		    	  section.html(template({"list": list[k]}));
+		      });*/
+		      
+			});  
 		        // 좋아요 버튼 눌렀을 때
-		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
-		        	 event.preventDefault();
-		        	 var curNo = $(this).attr("data-no");
-=======
 		      /*loadList(currPageNo,pageSize,sno);
 		  	function loadList(pageNo, pageSize, sno) {
 				$.getJSON(serverRoot + '/videoLike/list.json', 
@@ -80,6 +108,7 @@ $( function() {
       <a href="#" class="btn heart"></a>
     {{/if}}
 		  	*/
+
 		  	
 		  	// 좋아요 버튼 눌렀을 때
 		  	
@@ -113,15 +142,9 @@ $( function() {
 		  		}	
 		  	});  
 		  	
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
-
-					     
-					     
 /*				}); // loadList 의 function  
 */		      
-		      
 
-		  });  
 	
 	
 	

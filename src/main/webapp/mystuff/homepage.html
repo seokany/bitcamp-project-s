@@ -121,11 +121,11 @@
        <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
                           <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
 
-       {{#isLike}}
-      <a href="#" class="btn heart"></a>
-    {{else}}
-<a href="#" class="btn heart checked"></a>
-{{/isLike}}
+       {{#if isLike}}
+         <a href="#" class="btn heart checked"></a>
+       {{else}}
+         <a href="#" class="btn heart"></a>
+       {{/if}}
                    </button>
      </div>
       <div class="corner-box video-box">
