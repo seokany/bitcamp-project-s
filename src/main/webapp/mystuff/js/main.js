@@ -45,7 +45,13 @@ $( function() {
 	  				return options.inverse(this);
 	  			}
 	  		}
-		  	Handlebars.registerHelper('isLike', isLike);
+			Handlebars.registerHelper('isLike', function(options) {
+			  if () {
+			    return options.fn(this);
+			  } else {
+			    return options.inverse(this);
+			  }
+			});
 		  	
 		  	*                {{#if isLike}}
      <a href="#" class="btn heart checked"></a>
@@ -94,16 +100,6 @@ $( function() {
 		      
 
 		  });  
-	
-	
-
-  
-	
-	
-	
-	
-	
-	
 	
 	
 	

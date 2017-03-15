@@ -51,15 +51,24 @@
   where ret.sno = #{sno}
   limit 6; -->
   
-     select vd.cono as vcon, lk.cono as like from video vd
-		  inner join contents ctt on vd.cono = ctt.cono
-		  inner join copic cp on ctt.cono = cp.cono
-		  inner join topic tp on cp.tno = tp.tno
-		  inner join snatr snt on tp.tno = snt.tno 
-		  inner join result ret on snt.reno = ret.reno
-		  left join lklst lk on vd.cono = lk.cono
-		  where ret.sno = #{sno}
-		  limit 6
+     select
+            kotl,
+            entl,
+            voimg,
+            vodsc,
+            spnm,
+            sjob,
+            simg,
+            posted 
+			      (select count )from video vd
+					  inner join contents ctt on vd.cono = ctt.cono
+					  inner join copic cp on ctt.cono = cp.cono
+					  inner join topic tp on cp.tno = tp.tno
+					  inner join snatr snt on tp.tno = snt.tno 
+					  inner join result ret on snt.reno = ret.reno
+					  left join lklst lk on vd.cono = lk.cono
+					  where ret.sno = #{sno}
+					  limit 6
 <!-- 		  ifnull(lk.cono, false) -->
   </select>
   
