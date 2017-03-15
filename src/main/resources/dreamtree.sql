@@ -141,7 +141,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천영상 select 하기
-	select * from video vd
+	select vd.cono from video vd
 	inner join contents ctt on vd.cono = ctt.cono
 	inner join copic cp on ctt.cono = cp.cono
 	inner join topic tp on cp.tno = tp.tno
@@ -150,15 +150,23 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	where ret.sno = '5';
 	
 	- mbti 검사 결과 기준 추천영상 select 하기 (좋아요 포함)
-  select vd.cono, vd.kotl, lst.sno 
+  select vd.cono as cono, vd.kotl, lst.sno
   from video vd
-  inner join contents ctt on vd.cono = ctt.cono
-  inner join copic cp on ctt.cono = cp.cono
-  inner join topic tp on cp.tno = tp.tno
-  inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno
-  inner join lklst lst on ctt.cono = lst.cono
+	  inner join contents ctt on vd.cono = ctt.cono
+	  inner join copic cp on ctt.cono = cp.cono
+	  inner join topic tp on cp.tno = tp.tno
+	  inner join snatr snt on tp.tno = snt.tno 
+	  inner join result ret on snt.reno = ret.reno
+	  inner join lklst lst on ctt.cono = lst.cono
   where ret.sno = '5';
+  
+  select cono from lklst
+  where cono = 2 and sno = 5
+     or cono = 5 and sno = 5
+     or cono = 5 and sno = 5
+     or cono = 5 and sno = 5
+     or cono = 5 and sno = 5
+     or cono = 5 and sno = 5
 
 - mbti 검사 결과 기준 추천직업 select 하기
 	select * from job

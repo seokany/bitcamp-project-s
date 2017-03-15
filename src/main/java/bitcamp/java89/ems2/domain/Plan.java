@@ -19,7 +19,4 @@ public class Plan extends ContentsHeader{
   public void setPlanImage(String planImage) {
     this.planImage = planImage;
   }
-  
-
-  
 }
