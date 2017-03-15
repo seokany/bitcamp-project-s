@@ -58,6 +58,7 @@ color: #666;//trivial
   position: absolute;
   overflow: visible;
 }
+
 .modelBox:hover .model-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
   height: 20px;
   width: 20px;
@@ -66,7 +67,10 @@ color: #666;//trivial
   height: 50px;
   width: 50px;
 } 
-
+.mento-box {
+	    top: -361px;
+    right: -257px;
+}
 .mentoBox:hover .mento-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
   height: 20px;
   width: 20px;

@@ -31,7 +31,8 @@ public class VideoJsonControl {
       pageSize = 5;
     }
 
-    List<Video> list = videoService.getList(pageNo, pageSize, 5);
+    List<Video> list = videoService.getList(pageNo, pageSize, sno);
+    System.out.println("대체"+list);
     int totalCount = videoService.getSize();
     
     HashMap<String,Object> resultMap = new HashMap<>();

@@ -8,6 +8,7 @@
 
   <resultMap type="video" id="video-map">
     <id     column="cono"        property="contentsNo"/>
+    <result column="type"        property="contentsType"/>
     <result column="kotl"       property="koreanTitle"/>
     <result column="entl"      property="englishTitle"/>
     <result column="voimg"        property="videoImage"/>
@@ -16,8 +17,7 @@
     <result column="sjob"   property="speakerJob"/>
     <result column="simg"    property="speakerImage"/>
     <result column="posted"    property="posted"/>
-    <association property="name" column="name" 
-      javaType="Member" select="selectName"/>
+    <result column="like"    property="checked"/>
   </resultMap>
   
 <!--   <select id="count" parameterType="string" resultType="int">
@@ -56,17 +56,16 @@
 	  select count(*)
 	  from lklst
 	  where cono = #{cono} and sno = #{sno}
-  </select>
   
-     <select id="detailList" resultMap="video-map" parameterType="map">
-  select * from video vd
-  inner join contents ctt on vd.cono = ctt.cono
-  inner join copic cp on ctt.cono = cp.cono
-  inner join topic tp on cp.tno = tp.tno
-  inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno
-  where ret.sno = #{sno}
-  limit #{startRowIndex}, #{rowSize}
+  <select id="detailList" resultMap="video-map" parameterType="map">
+	  select * from video vd
+		  inner join contents ctt on vd.cono = ctt.cono
+		  inner join copic cp on ctt.cono = cp.cono
+		  inner join topic tp on cp.tno = tp.tno
+		  inner join snatr snt on tp.tno = snt.tno 
+		  inner join result ret on snt.reno = ret.reno
+	  where ret.sno = #{sno}
+	  limit #{startRowIndex}, #{rowSize}
   </select>
   
  <!--  <select id="getOne" parameterType="int" resultMap="student-map">
