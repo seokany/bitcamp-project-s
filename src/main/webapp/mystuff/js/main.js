@@ -11,19 +11,28 @@ $( function() {
 			  "sno": sno
 			}, function(ajaxResult) {
 		      var status = ajaxResult.status;
-		      if (status != "success")
-		        return;
+		      if (status != "success") return;
 		  
 		      var list = ajaxResult.data.list;
-		      console.log(list);
-		      
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      list[k].isLike = isLike;
+		    		});
+		      });
 		      var section = $('.section');
-
 		      var template = Handlebars.compile($('#trTemplate').html());
 		      section.html(template({"list": list}));
 		      
 		        // 좋아요 버튼 눌렀을 때
-		        
 		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
@@ -81,8 +90,6 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
-		      console.log(list);
-		      
 		      var section = $('.mt-carousel > .ul');
 
 		      var template = Handlebars.compile($('#mentoList').html());

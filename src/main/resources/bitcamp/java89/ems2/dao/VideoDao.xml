@@ -41,15 +41,21 @@
       left outer join contents c on v.cono=c.cono
   </select>
   
-   <select id="getList" resultMap="video-map" parameterType="map">
-  select * from video vd
-  inner join contents ctt on vd.cono = ctt.cono
-  inner join copic cp on ctt.cono = cp.cono
-  inner join topic tp on cp.tno = tp.tno
-  inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno
-  where ret.sno = #{sno}
-  limit 6;
+  <select id="getList" resultMap="video-map" parameterType="map">
+	  select * from video vd
+		  inner join contents ctt on vd.cono = ctt.cono
+		  inner join copic cp on ctt.cono = cp.cono
+		  inner join topic tp on cp.tno = tp.tno
+		  inner join snatr snt on tp.tno = snt.tno 
+		  inner join result ret on snt.reno = ret.reno
+	  where ret.sno = #{sno}
+	  limit 6;
+  </select>
+  
+  <select id="isLike" resultType="int" parameterType="map">
+	  select count(*)
+	  from lklst
+	  where cono = #{cono} and sno = #{sno}
   </select>
   
      <select id="detailList" resultMap="video-map" parameterType="map">
