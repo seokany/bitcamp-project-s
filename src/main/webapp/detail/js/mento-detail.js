@@ -63,7 +63,7 @@ function loadList(pageNo, pageSize, sno) {
 		      var template = Handlebars.compile($('#mentoDetail').html());
 		      section.html(template({"list": list}));
 		  
-		  
+		  mentoHover();
 		  preparePagingButton(ajaxResult.data.totalCount);
 	});  
 }
@@ -109,9 +109,10 @@ $( function() {
 		      */
 		      
 //		      preparePagingButton(ajaxResult.data.totalCount);
+		        
+		       
 		  });  
 	
-    
    
     $(document.body).on( "click", ".rec-btn", function() { // 추천목록 눌렀을 때
     	 
@@ -135,7 +136,28 @@ $( function() {
    
     });
     
-
+    
+    // 멘토 리스트 페이지
+    function mentoHover() {
+    	
+    $(".mt-list").hover(function(){
+    	$(this).css("cursor","pointer");
+    	$(this).children(".mt-btm").css({"background": "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)"});
+    	$(this).children(".mt-btm").children(".mt-name").css("display", "inline-block");
+    	$(this).children(".mt-btm").children(".mt-photo").css("top", "-50px");
+    	
+    });
+    
+    $(".mt-list").mouseleave(function () {
+    	$(this).children(".mt-btm").css("background", "transparent");
+    	$(this).children(".mt-btm").children(".mt-name").css("display", "none");
+    	$(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
+    });
+    
+    }
+    
+    
+    
     $(".hover").mouseleave(
     	    function () {
     	      $(this).removeClass("hover");

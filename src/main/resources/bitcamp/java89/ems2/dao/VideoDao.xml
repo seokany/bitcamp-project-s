@@ -17,7 +17,7 @@
     <result column="sjob"   property="speakerJob"/>
     <result column="simg"    property="speakerImage"/>
     <result column="posted"    property="posted"/>
-
+    <result column="like"    property="checked"/>
   </resultMap>
   
 <!--   <select id="count" parameterType="string" resultType="int">
@@ -51,7 +51,7 @@
   where ret.sno = #{sno}
   limit 6; -->
   
-     select * from video vd
+     select vd.cono as vcon, lk.cono as like from video vd
 		  inner join contents ctt on vd.cono = ctt.cono
 		  inner join copic cp on ctt.cono = cp.cono
 		  inner join topic tp on cp.tno = tp.tno
