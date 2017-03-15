@@ -7,6 +7,11 @@
 	insert into membs(name,age,email,pwd) values('이석환', 18, 'user03@test.com', password('1111'));
 	insert into membs(name,age,email,pwd) values('이연희', 15, 'user04@test.com', password('1111'));
 	insert into membs(name,age,email,pwd) values('조인성', 38, 'mento01@test.com', password('1111'));
+	insert into membs(name,age,email,pwd) values('엄진영', 45, 'mento02@test.com', password('1111'));
+	insert into membs(name,age,email,pwd) values('바이오멘토', 39, 'mento03@test.com', password('1111'));
+	insert into membs(name,age,email,pwd) values('재무멘토', 48, 'mento04@test.com', password('1111'));
+	insert into membs(name,age,email,pwd) values('천문학멘토', 35, 'mento05@test.com', password('1111'));
+	insert into membs(name,age,email,pwd) values('천문멘토', 37, 'mento06@test.com', password('1111'));
 
 - 멘티 데이터
 	insert into mentee(sno) values(1); 
@@ -16,7 +21,12 @@
 	insert into mentee(sno) values(5); 
 
 - 멘토 데이터
-	insert into mento(eno, sarea) values(6, '배우'); 
+	insert into mento(eno, sarea) values(6, '배우');
+	insert into mento(eno, sarea) values(7, 'IT개발자');
+	insert into mento(eno, sarea) values(8, '바이오');
+	insert into mento(eno, sarea) values(9, '재무');
+	insert into mento(eno, sarea) values(10, '천문학');
+	insert into mento(eno, sarea) values(11, '천문학');
 
 
 - 콘텐츠헤더 데이터
@@ -46,7 +56,11 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 
 
 - 설계도 데이터
-	insert into plan(cono, eno, plmap, plimg) values(4, 6, '설계도 내용', '설계도 썸네일'); 
+	insert into plan(cono, eno, plmap, plimg) values(37, 6, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(38, 7, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(39, 8, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(40, 9, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(41, 10, '설계도 내용', '설계도 썸네일');
 
 
 - 주제 데이터
@@ -68,7 +82,16 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into copic(tno, cono) values(3, 4); 
 	insert into copic(tno, cono) values(1, 5);
 	insert into copic(tno, cono) values(2, 6); 
-  insert into copic(tno, cono) values(3, 7);
+  insert into copic(tno, cono) values(1, 37);
+  insert into copic(tno, cono) values(1, 38);
+  insert into copic(tno, cono) values(1, 39); 
+  insert into copic(tno, cono) values(1, 40);
+  insert into copic(tno, cono) values(1, 41);
+  insert into copic(tno, cono) values(1, 12);
+  insert into copic(tno, cono) values(1, 13);
+  insert into copic(tno, cono) values(1, 14);
+  insert into copic(tno, cono) values(1, 15);
+  insert into copic(tno, cono) values(1, 16);
 
 - 검사결과 데이터
 	insert into result(sno, type, rer) values(5, 'mbti', 'istp');
@@ -80,22 +103,11 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into snatr(tno, reno) values(4, 1);
 	insert into snatr(tno, reno) values(5, 1);
 	insert into snatr(tno, reno) values(6, 1);
+	insert into snatr(tno, reno) values(3, 1);
 	
 	
-	- 좋아요 목록 불러오기
-	 select * from contents ctt
-  inner join video vd on vd.cono = ctt.cono
-  inner join copic cp on ctt.cono = cp.cono
-  inner join topic tp on cp.tno = tp.tno
-  inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno 
-  inner join mentee mte on ret.sno = mte.sno
-  inner join lklst lk on ctt.cono = lk.cono
-  where lk.sno = '5';
-
-  
-  
-     select * from video vd
+	- 좋아요 비디오 목록 불러오기
+	 select * from video vd
   inner join contents ctt on vd.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
@@ -103,7 +115,18 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
   inner join result ret on snt.reno = ret.reno 
   inner join mentee mte on ret.sno = mte.sno
   inner join lklst lk on ctt.cono = lk.cono
-  where lk.sno = '5';
+  where ret.sno = '5';
+  
+  
+     select * from plan pl
+  inner join contents ctt on pl.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where ret.sno = '5'\G
 
 
 <-- SELECT query --> 
@@ -125,6 +148,17 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	inner join snatr snt on tp.tno = snt.tno 
 	inner join result ret on snt.reno = ret.reno
 	where ret.sno = '5';
+	
+	- mbti 검사 결과 기준 추천영상 select 하기 (좋아요 포함)
+  select vd.cono, vd.kotl, lst.sno 
+  from video vd
+  inner join contents ctt on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno
+  inner join lklst lst on ctt.cono = lst.cono
+  where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천직업 select 하기
 	select * from job

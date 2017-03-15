@@ -10,17 +10,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import bitcamp.java89.ems2.domain.Video;
-import bitcamp.java89.ems2.service.VideoService;
+import bitcamp.java89.ems2.domain.Plan;
+import bitcamp.java89.ems2.service.PlanService;
 
 @Controller
-public class VideoControl {
+public class PlanControl {
   @Autowired ServletContext sc;
   
-  @Autowired VideoService videoService;
+  @Autowired PlanService planService;
   
   
-  @RequestMapping("/video/list")
+  @RequestMapping("/plan/list")
   public String list(@RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="5") int pageSize, @RequestParam int sno, Model model) throws Exception {
     
@@ -35,11 +35,11 @@ public class VideoControl {
     
     
     
-    List<Video> list = videoService.getList(pageNo, pageSize, sno);
+    List<Plan> list = planService.getList(pageNo, pageSize, sno);
     
-    model.addAttribute("videos", list);
-    model.addAttribute("title", "비디오관리-목록");
-    model.addAttribute("contentPage", "video/list.jsp");
+    model.addAttribute("plans", list);
+    model.addAttribute("title", "멘토설계도-목록");
+    model.addAttribute("contentPage", "plan/list.jsp");
     return "main";
   }
   

@@ -1,12 +1,18 @@
 $( function() { 
-
+	var currPageNo = 1;
+	var pageSize = 5;
+	var sno = 5;
+    
 	
-	$.getJSON(serverRoot + '/video/list.json',  
-		    function(ajaxResult) {
+	$.getJSON(serverRoot + '/video/list.json', 
+		    {
+			  "pageNo": currPageNo,
+			  "pageSize": pageSize,
+			  "sno": sno
+			}, function(ajaxResult) {
 		      var status = ajaxResult.status;
 		      if (status != "success")
 		        return;
-		      
 		  
 		      var list = ajaxResult.data.list;
 		      console.log(list);
@@ -21,7 +27,7 @@ $( function() {
 		        $(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
-				        var sno = 5;
+
 				        
 		        	if($(this).children(".btn").hasClass("checked")) {
 		        		$(this).children(".btn").removeClass("checked");
@@ -57,6 +63,103 @@ $( function() {
 		      
 //		      preparePagingButton(ajaxResult.data.totalCount);
 		  });  
+	
+	
+	
+//	멘토 슬라이드 
+	
+	$.getJSON(serverRoot + '/plan/list.json',
+			 {
+		  "pageNo": currPageNo,
+		  "pageSize": pageSize,
+		  "sno": sno
+		},
+		    function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success")
+		        return;
+		      
+		  
+		      var list = ajaxResult.data.list;
+		      console.log(list);
+		      
+		      var section = $('.mt-carousel > .ul');
+
+		      var template = Handlebars.compile($('#mentoList').html());
+		      section.html(template({"list": list}));
+		      
+		        // 좋아요 버튼 눌렀을 때
+		        
+		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+				        var sno = 5;
+				        
+		        	if($(this).children(".btn").hasClass("checked")) {
+		        		$(this).children(".btn").removeClass("checked");
+		        		$(this).children(".btn").css("color","black");
+		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("삭제했다.");
+				          }, 'json');
+		        	} else {
+		        		$(this).children(".btn").addClass("checked");
+		                $(this).children(".checked").css("color","#f94e66");
+				          
+		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("했다.");
+				          }, 'json');
+		                
+		                
+		        	}
+		        })
+		    	
+		      jcarousel();
+
+		  });  
+	
+	
+	
+    function jcarousel() {
+        $('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+         .jcarouselPagination();
+    };
 	
 	
     var state = true;
@@ -167,9 +270,6 @@ $( function() {
     	    }
     	  );
     
-<<<<<<< HEAD
-=======
-    
     
     
     
@@ -256,7 +356,6 @@ $( function() {
     close();
     },1700);
     
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
  // 멘토 리스트 페이지
    
       $(".mt-list").hover(function(){
@@ -279,39 +378,7 @@ $( function() {
 });
 
 (function($) { // 슬라이드 쇼
-    $(function() {
-        $('.jcarousel').jcarousel();
 
-        $('.jcarousel-control-prev')
-            .on('jcarouselcontrol:active', function() {
-                $(this).removeClass('inactive');
-            })
-            .on('jcarouselcontrol:inactive', function() {
-                $(this).addClass('inactive');
-            })
-            .jcarouselControl({
-                target: '-=1'
-            });
-
-        $('.jcarousel-control-next')
-            .on('jcarouselcontrol:active', function() {
-                $(this).removeClass('inactive');
-            })
-            .on('jcarouselcontrol:inactive', function() {
-                $(this).addClass('inactive');
-            })
-            .jcarouselControl({
-                target: '+=1'
-            });
-        $('.jcarousel-pagination')
-            .on('jcarouselpagination:active', 'a', function() {
-                $(this).addClass('active');
-            })
-            .on('jcarouselpagination:inactive', 'a', function() {
-                $(this).removeClass('active');
-            })
-         .jcarouselPagination();
-    });
 })(jQuery);
 
 

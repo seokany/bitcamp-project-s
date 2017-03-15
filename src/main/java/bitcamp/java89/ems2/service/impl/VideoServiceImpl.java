@@ -21,11 +21,12 @@ public class VideoServiceImpl implements VideoService {
     return videoDao.countAll();
   }
  
-  public List<Video> getList(int pageNo, int pageSize) throws Exception {
+  public List<Video> getList(int pageNo, int pageSize, int sno) throws Exception {
 
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
     paramMap.put("rowSize", pageSize);
+    paramMap.put("sno", sno);
     
     return videoDao.getList(paramMap); 
   }
@@ -33,6 +34,16 @@ public class VideoServiceImpl implements VideoService {
   public List<Member> selectName() throws Exception {
     // TODO Auto-generated method stub
     return videoDao.selectName();
+  }
+  
+  public List<Video> detailList(int pageNo, int pageSize, int sno) throws Exception {
+
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    paramMap.put("sno", sno);
+    
+    return videoDao.detailList(paramMap); 
   }
   
   /*public Video getDetail(int no) throws Exception {

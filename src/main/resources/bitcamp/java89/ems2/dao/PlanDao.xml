@@ -3,24 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="bitcamp.java89.ems2.dao.StudentDao">
+<mapper namespace="bitcamp.java89.ems2.dao.PlanDao">
 
-  <resultMap type="student" id="student-map">
-    <id     column="mno"        property="memberNo"/>
-<!--     <result column="name"       property="name"/> -->
-    <result column="email"      property="email"/>
-    <result column="pwd"        property="password"/>
-    <result column="tel"        property="tel"/>
-    <result column="work"       property="working"/>
-    <result column="lst_schl"   property="grade"/>
-    <result column="schl_nm"    property="schoolName"/>
-    <result column="pst_no"     property="postNo"/>
-    <result column="bas_adr"    property="basicAddress"/>
-    <result column="det_adr"    property="detailAddress"/>
-    <result column="path"       property="photoPath"/>
+
+  <resultMap type="plan" id="plan-map">
+    <id     column="cono"        property="contentsNo"/>
+    <result column="plmap"       property="planMap"/>
+    <result column="plimg"      property="planImage"/>
   </resultMap>
   
-  <select id="count" parameterType="string" resultType="int">
+<!--   <select id="count" parameterType="string" resultType="int">
     select count(*)
     from stud s 
       left outer join memb m on s.sno=m.mno
@@ -32,32 +24,40 @@
     from stud s 
       left outer join memb m on s.sno=m.mno
     where s.sno=#{value}
-  </select>
+  </select> -->
   
-  <select id="countAll" resultType="int">
+   <select id="countAll" resultType="int">
     select 
       count(*)
-    from stud s
-      left outer join memb m on s.sno=m.mno
+    from video v
+      left outer join contents c on v.cono=c.cono
   </select>
   
-  <select id="getList" resultMap="student-map" parameterType="map">
-    select 
-      m.mno, 
-      m.name, 
-      m.tel, 
-      m.email, 
-      s.work, 
-      s.lst_schl, 
-      s.schl_nm, 
-      s.path
-    from stud s
-      left outer join memb m on s.sno=m.mno
-    order by m.name
-    limit #{startRowIndex}, #{rowSize}
+   <select id="getList" resultMap="plan-map" parameterType="map">
+  select * from plan
+  inner join contents ctt on plan.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  where ret.sno = '5'
+  limit 4;
+<!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   
-  <select id="getOne" parameterType="int" resultMap="student-map">
+  
+     <select id="detailList" resultMap="plan-map" parameterType="map">
+  select * from plan
+  inner join contents ctt on plan.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  where ret.sno = #{sno}
+  limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+ <!--  <select id="getOne" parameterType="int" resultMap="student-map">
     select
       m.mno,
       m.name, 
@@ -77,12 +77,12 @@
     values(
       #{memberNo},
       #{working},
-      <!--  
+       
       <choose>
         <when test="working == true">'Y'</when> 
         <otherwise>'N'</otherwise>
       </choose>,
-      -->
+     
       #{grade}, 
       #{schoolName}, 
       #{photoPath})
@@ -101,12 +101,9 @@
   <![CDATA[
     delete from stud where sno=#{value}
   ]]>
-  </delete>
+  </delete> -->
 
 </mapper>
-
-
-
 
 
 
