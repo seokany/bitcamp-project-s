@@ -143,7 +143,11 @@
 <div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
                   <div class="mento-conts">
                    <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 37px;">
-                    <a href="" class="btn heart"></a>
+                    {{#if isLike}}
+         <a href="#" class="btn heart checked"></a>
+       {{else}}
+         <a href="#" class="btn heart"></a>
+       {{/if}}
                    </button>
 
                    <div class="mento-btm">

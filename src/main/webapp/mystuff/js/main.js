@@ -163,11 +163,35 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
-		      var section = $('.mt-carousel > .ul');
-
-		      var template = Handlebars.compile($('#mentoList').html());
-		      section.html(template({"list": list}));
 		      
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+
+				      
+				      var section = $('.mt-carousel > .ul');
+				      var template = Handlebars.compile($('#mentoList').html());
+				      section.html(template({"list": list}));
+
+				      jcarousel();
+		    		});
+		    	  
+		      });
+
+		  });  
 		        // 좋아요 버튼 눌렀을 때
 		        
 		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
@@ -201,9 +225,9 @@ $( function() {
 		        	}
 		        })
 		    	
-		      jcarousel();
 
-		  });  
+
+
 	
 	
 	
