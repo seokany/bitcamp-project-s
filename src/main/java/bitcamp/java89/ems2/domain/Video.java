@@ -59,8 +59,9 @@ public class Video extends ContentsHeader{
     return checked;
   }
   public void setChecked(String checked) {
-    if (checked != null) 
+    if (checked != null) {
       this.checked = true;
+    }
     this.checked = false;
   }
   public int getPosted() {

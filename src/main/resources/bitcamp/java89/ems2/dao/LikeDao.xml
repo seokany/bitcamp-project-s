@@ -27,9 +27,21 @@
   </resultMap>
   
   
-  <select id="countAll" resultType="int">
+  <select id="videoCountAll" resultType="int">
    select count(*) from contents ctt
   inner join video vd on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = #{sno};
+  </select>
+  
+    <select id="mentoCountAll" resultType="int">
+   select count(*) from contents ctt
+  inner join plan pl on pl.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
@@ -58,7 +70,7 @@
   
   
    <select id="videoList" resultMap="video-like" parameterType="map">
-     select * from video vd
+     select DISTINCT ctt.cono,vd.kotl,vd.entl,vd.voimg,vd.vodsc,vd.spnm,vd.sjob,vd.simg,vd.posted from video vd
   inner join contents ctt on vd.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
@@ -71,7 +83,7 @@
   </select> 
   
      <select id="mentoList" resultMap="mento-like" parameterType="map">
-     select * from plan pl
+     select DISTINCT * from plan pl
   inner join contents ctt on pl.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno

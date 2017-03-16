@@ -81,6 +81,9 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into copic(tno, cono) values(2, 3); 
 	insert into copic(tno, cono) values(3, 4); 
 	insert into copic(tno, cono) values(1, 5);
+	insert into copic(tno, cono) values(1, 16);
+	insert into copic(tno, cono) values(1, 17);
+	insert into copic(tno, cono) values(1, 18);
 	insert into copic(tno, cono) values(2, 6); 
   insert into copic(tno, cono) values(1, 37);
   insert into copic(tno, cono) values(1, 38);
@@ -141,7 +144,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	where ret.sno = '5';
 
 - mbti 검사 결과 기준 추천영상 select 하기
-	select vd.cono from video vd
+	select DISTINCT vd.cono from video vd
 	inner join contents ctt on vd.cono = ctt.cono
 	inner join copic cp on ctt.cono = cp.cono
 	inner join topic tp on cp.tno = tp.tno
@@ -183,7 +186,8 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	inner join copic cp on ctt.cono = cp.cono
 	inner join topic tp on cp.tno = tp.tno
 	inner join snatr snt on tp.tno = snt.tno 
-	inner join result ret on snt.reno = ret.reno 
+	inner join result ret on snt.reno = ret.reno
+	inner join membs mb on mb.mno = plan.eno
 	where ret.sno = '5';
 
 

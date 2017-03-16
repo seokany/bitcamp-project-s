@@ -25,13 +25,56 @@ $( function() {
 				      
 				      var isLike = ajaxResult.data.isLike;
 				      
-				      list[k].isLike = isLike;
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+				      
+				      /*console.log(list[k].isLike);*/
+//				      list[k].isLike = true;
+//				      console.log(list);
+//				      console.log("test02" + typeof list[k].isLike === true);
+				      /*console.log(typeof list[k].isLike == "false");*/
+				      
+				      /*console.log(list);
+		      for (var i in list) {
+		    	  console.log(i,'번째 isLike = ',list[i].isLike)
+		    	  if (list[i].isLike) {
+		    		  $('.btn.heart').addClass('checked')
+		    	  }
+		      }*/
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
 		    		});
+		    	  
+		    	  
 		      });
+<<<<<<< HEAD
 		      var section = $('.section');
 		      var template = Handlebars.compile($('#trTemplate').html());
 		      section.html(template({"list": list}));
+=======
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      
+<<<<<<< HEAD
+=======
+		     /* Handlebars.registerHelper('isLike', function(options) {
+		    	  console.log("헬퍼");
+		    	  if (isLike == 1) {
+		    		  return options.fn();
+		    	  } else {
+		    		  return options.inverse();
+		    	  }
+		    	  var section = $('.section');
+		    	  var template = Handlebars.compile($('#trTemplate').html());
+		    	  section.html(template({"list": list[k]}));
+		      });*/
+		      
+			});  
+		        // 좋아요 버튼 눌렀을 때
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      /*loadList(currPageNo,pageSize,sno);
 		  	function loadList(pageNo, pageSize, sno) {
 				$.getJSON(serverRoot + '/videoLike/list.json', 
@@ -56,7 +99,13 @@ $( function() {
 	  				return options.inverse(this);
 	  			}
 	  		}
-		  	Handlebars.registerHelper('isLike', isLike);
+			Handlebars.registerHelper('isLike', function(options) {
+			  if () {
+			    return options.fn(this);
+			  } else {
+			    return options.inverse(this);
+			  }
+			});
 		  	
 		  	*                {{#if isLike}}
      <a href="#" class="btn heart checked"></a>
@@ -64,6 +113,7 @@ $( function() {
       <a href="#" class="btn heart"></a>
     {{/if}}
 		  	*/
+
 		  	
 		  	// 좋아요 버튼 눌렀을 때
 		  	
@@ -95,8 +145,13 @@ $( function() {
 		  			}, 'json');
 		  		}	
 		  	});  
+<<<<<<< HEAD
+=======
+		  	
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 /*				}); // loadList 의 function  
 */		      
+<<<<<<< HEAD
 });  
 	
 	
@@ -108,6 +163,9 @@ $( function() {
 	
 	
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 	
 	
 	
@@ -126,11 +184,40 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
-		      var section = $('.mt-carousel > .ul');
-
-		      var template = Handlebars.compile($('#mentoList').html());
-		      section.html(template({"list": list}));
+		      console.log(list);
+		      countLike();
 		      
+		      function countLike() {
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+
+				      
+				      var section = $('.mt-carousel > .ul');
+				      var template = Handlebars.compile($('#mentoList').html());
+				      section.html(template({"list": list}));
+				      console.log(list);
+				      jcarousel();
+		    		});
+		    	  
+		    	  
+		      });
+		      }
+
+		  });  
 		        // 좋아요 버튼 눌렀을 때
 		        
 		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
@@ -164,9 +251,9 @@ $( function() {
 		        	}
 		        })
 		    	
-		      jcarousel();
 
-		  });  
+
+
 	
 	
 	
@@ -416,13 +503,23 @@ $( function() {
   	         $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     	    }
     	  );
-    
+      
+      
+      $("body").tooltip({   
+    	    selector: "[data-toggle='tooltip']",
+    	    container: "body"
+    	  })
+    	    //Popover, activated by clicking
+    	    .popover({
+    	    selector: "[data-toggle='popover']",
+    	    container: "body",
+    	    html: true
+    	  });
+    	  //They can be chained like the example above (when using the same selector).
+    	  
 
 });
 
-(function($) { // 슬라이드 쇼
-
-})(jQuery);
 
 
 
