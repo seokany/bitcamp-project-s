@@ -55,8 +55,12 @@ public class LikeServiceImpl implements LikeService {
 
 
 @Override
-public int getSize() throws Exception {
-    return likeDao.countAll();
+public int videoGetSize(int sno) throws Exception {
+    return likeDao.videoCountAll(sno);
+}
+@Override
+public int mentoGetSize(int sno) throws Exception {
+    return likeDao.mentoCountAll(sno);
 }
 
   

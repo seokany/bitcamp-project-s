@@ -16,8 +16,6 @@ $( function() {
 		      var list = ajaxResult.data.list;
 //		      console.log(list);
 		      
-		      
-			 
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
 		    		{
@@ -41,9 +39,6 @@ $( function() {
 //				      console.log("test02" + typeof list[k].isLike === true);
 				      /*console.log(typeof list[k].isLike == "false");*/
 				      
-				      var section = $('.section');
-				      var template = Handlebars.compile($('#trTemplate').html());
-				      section.html(template({"list": list}));
 				      /*console.log(list);
 		      for (var i in list) {
 		    	  console.log(i,'번째 isLike = ',list[i].isLike)
@@ -51,6 +46,9 @@ $( function() {
 		    		  $('.btn.heart').addClass('checked')
 		    	  }
 		      }*/
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
 		    		});
 		    	  
 		    	  
@@ -163,7 +161,10 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
+		      console.log(list);
+		      countLike();
 		      
+		      function countLike() {
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
 		    		{
@@ -185,11 +186,13 @@ $( function() {
 				      var section = $('.mt-carousel > .ul');
 				      var template = Handlebars.compile($('#mentoList').html());
 				      section.html(template({"list": list}));
-
+				      console.log(list);
 				      jcarousel();
 		    		});
 		    	  
+		    	  
 		      });
+		      }
 
 		  });  
 		        // 좋아요 버튼 눌렀을 때
@@ -477,13 +480,23 @@ $( function() {
   	         $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     	    }
     	  );
-    
+      
+      
+      $("body").tooltip({   
+    	    selector: "[data-toggle='tooltip']",
+    	    container: "body"
+    	  })
+    	    //Popover, activated by clicking
+    	    .popover({
+    	    selector: "[data-toggle='popover']",
+    	    container: "body",
+    	    html: true
+    	  });
+    	  //They can be chained like the example above (when using the same selector).
+    	  
 
 });
 
-(function($) { // 슬라이드 쇼
-
-})(jQuery);
 
 
 

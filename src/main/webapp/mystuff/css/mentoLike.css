@@ -15,13 +15,13 @@
     height: 100%;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+/*     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2); */
 }
 
 .app h2 {
   color: #525661;
   font-size: 17px;
-  box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1);
+/*   box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1); */
   padding: 20px 28px 0;
   margin: -6px 0 0 0;
 }
@@ -108,13 +108,14 @@ width: 530px;
 
 
 .btn-type {
-	    text-align: center;
-    right: 0;
+	  text-align: center;
+    right: -27px;
     position: absolute;
     top: -38px;
     display: inline-block;
     width: 175px;
     height: 28px;
+    
 }
 
 .tab:hover {

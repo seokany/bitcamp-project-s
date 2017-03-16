@@ -1,9 +1,9 @@
 
 var currPageNo = 1;
-var pageSize = 5;
+var pageSize = 4;
 var sno = 5;
 
-loadList(currPageNo, 15, sno);
+loadList(currPageNo, pageSize, sno);
 
 $('#new-btn').click(function(event) {
 	event.preventDefault(); 
@@ -12,12 +12,12 @@ $('#new-btn').click(function(event) {
 
 $('#prevPgBtn').click(function() {
   if (currPageNo > 1) {
-    loadList(--currPageNo, 5);
+    loadList(--currPageNo, 4, sno);
   }
 });
   
 $('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 5);
+  loadList(++currPageNo, 4, sno);
 });
   
 function preparePagingButton(totalCount) {
@@ -58,13 +58,37 @@ function loadList(pageNo, pageSize, sno) {
 		      var list = ajaxResult.data.list;
 		      console.log(list);
 		      
-		      var section = $('.mento-detail-list');
+		      
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
 
-		      var template = Handlebars.compile($('#mentoDetail').html());
-		      section.html(template({"list": list}));
-		  
-		  mentoHover();
-		  preparePagingButton(ajaxResult.data.totalCount);
+				      var section = $('.mento-detail-list');
+				      
+				      var template = Handlebars.compile($('#mentoDetail').html());
+				      section.html(template({"list": list}));
+				      mentoHover();
+		    		});
+		    	  preparePagingButton(ajaxResult.data.totalCount);
+		    	  console.log("mento");
+		    	  console.log(ajaxResult.data.totalCount);
+		    	  
+		    	  
+		      });
+		      
 	});  
 }
 

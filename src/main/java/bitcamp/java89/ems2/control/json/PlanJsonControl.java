@@ -22,14 +22,14 @@ public class PlanJsonControl {
   
   @RequestMapping("/plan/list")
   public AjaxResult list(@RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="15") int pageSize, @RequestParam int sno) throws Exception {
+      @RequestParam(defaultValue="4") int pageSize, @RequestParam int sno) throws Exception {
     
     if (pageNo < 1) {
       pageNo = 1;
     }
     
-    if (pageSize < 15 || pageSize > 30) {
-      pageSize = 15;
+    if (pageSize < 4 || pageSize > 30) {
+      pageSize = 4;
     }
 
     List<Plan> list = planService.getList(pageNo, pageSize, sno);

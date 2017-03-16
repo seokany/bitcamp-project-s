@@ -22,12 +22,13 @@ public class LikeJsonControl {
   
   @RequestMapping("/mentoLike/list")
   public AjaxResult mentoList(@RequestParam(defaultValue="1") int pageNo,
-          @RequestParam(defaultValue="15") int pageSize, int sno) throws Exception {
+          @RequestParam(defaultValue="4") int pageSize, int sno) throws Exception {
     
 
 
     List<Like> list = likeService.mentoList(pageNo, pageSize, sno);
-    int totalCount = likeService.getSize();
+    int totalCount = likeService.mentoGetSize(sno);
+    System.out.println("mentoCount"+totalCount);
     
     
     HashMap<String,Object> resultMap = new HashMap<>();
@@ -41,7 +42,6 @@ public class LikeJsonControl {
   public AjaxResult videoList(
           @RequestParam(defaultValue="1") int pageNo,
           @RequestParam(defaultValue="15") int pageSize, @RequestParam int sno) throws Exception {
-    System.out.println("학생번호" +sno);
       if (pageNo < 1) {
           pageNo = 1;
         }
@@ -51,13 +51,12 @@ public class LikeJsonControl {
         }
 
       List<Like> list = likeService.videoList(pageNo, pageSize, sno);
-      System.out.println("헛" +list);
-      int totalCount = likeService.getSize();
+      int totalCount = likeService.videoGetSize(sno);
       
       
       HashMap<String,Object> resultMap = new HashMap<>();
       resultMap.put("list", list);
-      System.out.println(resultMap.get(list));
+      System.out.println("아아"+ list);
       resultMap.put("totalCount", totalCount);
       
       return new AjaxResult(AjaxResult.SUCCESS, resultMap);

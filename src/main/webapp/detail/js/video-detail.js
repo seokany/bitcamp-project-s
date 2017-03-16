@@ -1,9 +1,9 @@
 
 var currPageNo = 1;
-var pageSize = 5;
+var pageSize = 15;
 var sno = 5;
 
-loadList(currPageNo, 15, sno);
+loadList(currPageNo, pageSize, sno);
 
 $('#new-btn').click(function(event) {
 	event.preventDefault(); 
@@ -12,12 +12,12 @@ $('#new-btn').click(function(event) {
 
 $('#prevPgBtn').click(function() {
   if (currPageNo > 1) {
-    loadList(--currPageNo, 5);
+    loadList(--currPageNo, 15, sno);
   }
 });
   
 $('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 5);
+  loadList(++currPageNo, 15, sno);
 });
   
 function preparePagingButton(totalCount) {
@@ -56,15 +56,37 @@ function loadList(pageNo, pageSize, sno) {
 		        return;
 		      
 		      var list = ajaxResult.data.list;
+		      
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+
+				      var section = $('.video-detail-list');
+				      var template = Handlebars.compile($('#videoDetail').html());
+				      section.html(template({"list": list}));
+		    		});
+		    	  preparePagingButton(ajaxResult.data.totalCount);
+		    	  console.log("video");
+		    	  console.log(ajaxResult.data.totalCount);
+		    	  
+		    	  
+		      });
 		      console.log(list);
 		      
-		      var section = $('.video-detail-list');
-
-		      var template = Handlebars.compile($('#videoDetail').html());
-		      section.html(template({"list": list}));
 		  
-		  
-		  preparePagingButton(ajaxResult.data.totalCount);
 	});  
 }
 
