@@ -1,4 +1,4 @@
-package bitcamp.java89.ems2.util;
+/*package bitcamp.java89.ems2.util;
 
 import java.io.File;
 import java.util.HashMap;
@@ -58,3 +58,4 @@ public class MultipartUtil {
 
 
 
+*/

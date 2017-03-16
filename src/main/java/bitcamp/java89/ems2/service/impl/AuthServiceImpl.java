@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.MemberDao;
-import bitcamp.java89.ems2.dao.MenteeDao;
 import bitcamp.java89.ems2.dao.MentoDao;
 import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.service.AuthService;
@@ -15,7 +14,6 @@ import bitcamp.java89.ems2.service.AuthService;
 public class AuthServiceImpl implements AuthService {
   
   @Autowired MemberDao memberDao;
-  @Autowired MenteeDao menteeDao;
   @Autowired MentoDao mentoDao;
   
   public Member getMemberInfo(String email, String password, String userType) throws Exception {
@@ -30,7 +28,6 @@ public class AuthServiceImpl implements AuthService {
     }
     
     if (userType.equals(Member.MENTEE)) {
-      return menteeDao.getOneByEmailPassword(paramMap);
       
     } else if (userType.equals(Member.MENTO)) {
       return mentoDao.getOneByEmailPassword(paramMap);
