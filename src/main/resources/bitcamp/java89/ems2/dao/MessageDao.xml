@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="bitcamp.java89.ems2.dao.MessageDao">
-  
   <resultMap type="message" id="message-map">
     <id     column="msno"       property="messageNo"/>
     <result column="msge"       property="message"/>
@@ -17,10 +16,10 @@
     where cono = #{contentsNo} and sno = #{memberNo}
   </select>
   
-  <select id="messageList" resultType="message-map" parameterType="message">
+  <select id="messageList" resultMap="message-map" parameterType="map">
     select msge, mswr 
     from messg
-    where cono = #{contentsNo} and sno = #{memberNo}
+    where cono = #{cono} and sno = #{sno}
   </select>
 
   <insert id="menteeSendQnA" parameterType="message">

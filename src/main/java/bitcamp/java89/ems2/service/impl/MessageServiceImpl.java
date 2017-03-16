@@ -1,5 +1,6 @@
 package bitcamp.java89.ems2.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,12 @@ public class MessageServiceImpl implements MessageService {
     return messageDao.hasQnA(message);
   }
   
-  public List<Message> messageList(Message message) throws Exception {
-    return messageDao.messageList(message);
+  public List<Message> messageList(int cono, int sno) throws Exception {
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("cono", cono);
+    paramMap.put("sno", sno);
+    
+    return messageDao.messageList(paramMap);
   }
 }
 
