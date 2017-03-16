@@ -11,10 +11,11 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "bootstrap": "^3.3.7",
+    "cheerio": "^0.22.0",
     "handlebars": "^4.0.6",
     "jquery": "^1.12.4",
     "cheerio": "^0.22.0",
-     "mysql": "*",
+    "mysql": "*",
     "request": "^2.79.0",
     "require": "^2.4.20"
   }
