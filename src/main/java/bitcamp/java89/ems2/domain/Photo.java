@@ -5,38 +5,47 @@ import java.io.Serializable;
 public class Photo implements Serializable {
   private static final long serialVersionUID = 1L;
   
-  protected int no;
-  protected String filePath;
+  protected int photoNo;
   protected int ownerNo;
+  protected String photoPath;
   
-  public Photo() {}
-  
-  public Photo(String filePath) {
-    this.filePath = filePath;
+  public Photo() {
+    super();
   }
   
-  public int getNo() {
-    return no;
+  public Photo(String photoPath) {
+    super();
+    this.photoPath = photoPath;
   }
-  public Photo setNo(int no) {
-    this.no = no;
-    return this;
+  
+  public Photo(int photoNo, int ownerNo, String photoPath) {
+    super();
+    this.photoNo = photoNo;
+    this.ownerNo = ownerNo;
+    this.photoPath = photoPath;
   }
-  public String getFilePath() {
-    return filePath;
+  
+  public int getPhotoNo() {
+    return photoNo;
   }
-  public Photo setFilePath(String filePath) {
-    this.filePath = filePath;
-    return this;
+  public void setPhotoNo(int photoNo) {
+    this.photoNo = photoNo;
   }
   public int getOwnerNo() {
     return ownerNo;
   }
-  public Photo setOwnerNo(int ownerNo) {
+  public void setOwnerNo(int ownerNo) {
     this.ownerNo = ownerNo;
-    return this;
+  }
+  public String getPhotoPath() {
+    return photoPath;
+  }
+  public void setPhotoPath(String photoPath) {
+    this.photoPath = photoPath;
   }
   
-  
-  
+  @Override
+  public String toString() {
+    return "Photo [photoNo=" + photoNo + ", ownerNo=" + ownerNo + ", photoPath=" + photoPath + "]";
+  }
 }

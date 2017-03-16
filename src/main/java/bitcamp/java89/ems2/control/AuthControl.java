@@ -1,5 +1,7 @@
 package bitcamp.java89.ems2.control;
 
+import java.util.HashMap;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,12 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import bitcamp.java89.ems2.dao.MemberDao;
 import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.service.AuthService;
 
 @Controller
 public class AuthControl {
-  
+  @Autowired MemberDao memberDao;
   @Autowired AuthService authService;
   
   @RequestMapping("/auth/login")
@@ -32,18 +35,25 @@ public class AuthControl {
       cookie.setMaxAge(0);
       response.addCookie(cookie);
     }
+    // 추가부분
+    HashMap<String,String> paramMap = new HashMap<>();
+    paramMap.put("email", email);
+    paramMap.put("password", password);
     
-    Member member = authService.getMemberInfo(email, password, userType);
-        
-    if (member == null) {
-      response.setHeader("Refresh", "2;url=loginform.do");
-      model.addAttribute("title", "로그인");
-      model.addAttribute("contentPage", "auth/loginfail.jsp");
-      return "main";
+    Member member = memberDao.getOneByEmailPassword(paramMap);
+    
+    //Member member = authService.getMemberInfo(email, password, userType);
+    
+    if (member != null) {
+      session.setAttribute("member", member); // HttpSession에 저장한다.
+      return "redirect:../member/list.do";
     }
+      
+    response.setHeader("Refresh", "2;url=loginform.do");
+    model.addAttribute("title", "로그인");
+    model.addAttribute("contentPage", "auth/loginfail.jsp");
+    return "main";
     
-    session.setAttribute("member", member); // HttpSession에 저장한다.
-    return "redirect:../student/list.do";
   }
   
   @RequestMapping("/auth/loginform")

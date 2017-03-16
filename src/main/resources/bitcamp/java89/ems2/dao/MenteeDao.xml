@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="bitcamp.java89.ems2.dao.MemberDao">
+<mapper namespace="bitcamp.java89.ems2.dao.MemteeDao">
 
-  <resultMap type="member" id="member-map">
+  <resultMap type="mentee" id="mentee-map">
     <id     column="mno"        property="memberNo"/>
     <result column="email"      property="email"/>
     <result column="name"       property="name"/>
@@ -23,6 +23,63 @@
     from memb
   </select>
   
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
+    select 
+      mno, 
+      name, 
+      age, 
+      email
+    from memb
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+  
+  <select id="getOneByNo" parameterType="int" resultMap="member-map">
+    select 
+      mno,
+      email, 
+      name, 
+      age,
+      path
+   from memb
+   where mno=#{value}
+  </select>
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from mentee s
+      left outer join memb m on s.sno=m.mno
+    where s.uno=#{value}
+  </select>
+  
+  <select id="countByEmail" parameterType="String" resultType="int">
+    select count(*)
+    from mentee s
+      left outer join memb m on s.sno=m.mno
+    where m.email=#{value}
+  </select>
+  
+  <insert id="insert" parameterType="mentee">
+    insert into mentee(email, name, age, pwd, path)
+    values(#{email}, #{name}, #{age}, password(#{password}),"default.jpg")
+  </insert> 
+  
+  <update id="update" parameterType="mentee">
+    update memb set
+      email=#{email}, 
+      name=#{name}, 
+      pwd=password(#{password}), 
+      age=#{age}
+    where mno=#{memberNo}
+  </update> 
+  
+  
+  
+  
+  
+  
+  
+  
   <select id="count" parameterType="string" resultType="int">
     select count(*) 
     from memb 
@@ -36,11 +93,6 @@
       and pwd=password(#{password})
   </select>
   
-  <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
-    insert into memb(email, name, age, pwd, path)
-    values(#{email}, #{name}, #{age}, password(#{password}),"default.jpg")
-  </insert> 
   
   <select id="getOne" parameterType="string" resultMap="member-map">
     select 
@@ -51,41 +103,16 @@
     where email=#{value}
   </select>
   
-   <update id="update" parameterType="member">
-    update memb set
-      email=#{email}, 
-      name=#{name}, 
-      pwd=password(#{password}), 
-      age=#{age}
-    where mno=#{memberNo}
-  </update> 
+
   
   <delete id="delete" parameterType="int">
     delete from memb where mno=#{value}
   </delete>
   
-  <select id="getOneByNo" parameterType="int" resultMap="member-map">
-    select 
-      mno,
-      email, 
-      name, 
-      age,
-      path
-   from memb
-   where mno=#{value}
-  </select>
   
   
-  <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
-    select 
-      mno, 
-      name, 
-      age, 
-      email
-    from memb
-    where email=#{email} 
-      and pwd=password(#{password})
-  </select>
+  
+ 
 
   <update id="updateImg" parameterType="map">
     update MEMB
