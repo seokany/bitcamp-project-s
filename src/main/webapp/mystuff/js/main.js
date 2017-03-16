@@ -51,30 +51,8 @@ $( function() {
 		    	  
 		    	  
 		      });
-<<<<<<< HEAD
-		      var section = $('.section');
-		      var template = Handlebars.compile($('#trTemplate').html());
-		      section.html(template({"list": list}));
-=======
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
-		      
-<<<<<<< HEAD
-=======
-		     /* Handlebars.registerHelper('isLike', function(options) {
-		    	  console.log("헬퍼");
-		    	  if (isLike == 1) {
-		    		  return options.fn();
-		    	  } else {
-		    		  return options.inverse();
-		    	  }
-		    	  var section = $('.section');
-		    	  var template = Handlebars.compile($('#trTemplate').html());
-		    	  section.html(template({"list": list[k]}));
-		      });*/
-		      
-			});  
-		        // 좋아요 버튼 눌렀을 때
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
+
+
 		      /*loadList(currPageNo,pageSize,sno);
 		  	function loadList(pageNo, pageSize, sno) {
 				$.getJSON(serverRoot + '/videoLike/list.json', 
@@ -145,28 +123,7 @@ $( function() {
 		  			}, 'json');
 		  		}	
 		  	});  
-<<<<<<< HEAD
-=======
-		  	
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
-/*				}); // loadList 의 function  
-*/		      
-<<<<<<< HEAD
-});  
-	
-	
 
-  
-	
-	
-	
-	
-	
-	
-=======
-
->>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
-	
 	
 	
 //	멘토 슬라이드 
@@ -250,7 +207,7 @@ $( function() {
 		                
 		        	}
 		        })
-		    	
+			})
 
 
 

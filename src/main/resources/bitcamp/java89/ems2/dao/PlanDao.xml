@@ -60,7 +60,7 @@
   
   
      <select id="detailList" resultMap="plan-map" parameterType="map">
-  select * from plan
+  select plan.cono,name,plmap,plimg, sarea from plan
   inner join contents ctt on plan.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
