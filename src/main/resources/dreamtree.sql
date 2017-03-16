@@ -56,11 +56,11 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 
 
 - 설계도 데이터
-	insert into plan(cono, eno, plmap, plimg) values(37, 6, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(38, 7, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(39, 8, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(40, 9, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(41, 10, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(38, 6, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(39, 7, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(40, 8, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(41, 9, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(42, 10, '설계도 내용', '설계도 썸네일');
 
 
 - 주제 데이터
@@ -94,7 +94,6 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
   insert into copic(tno, cono) values(1, 13);
   insert into copic(tno, cono) values(1, 14);
   insert into copic(tno, cono) values(1, 15);
-  insert into copic(tno, cono) values(1, 16);
 
 - 검사결과 데이터
 	insert into result(sno, type, rer) values(5, 'mbti', 'istp');
@@ -103,11 +102,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into snatr(tno, reno) values(1, 1); 
 	insert into snatr(tno, reno) values(2, 1); 
 	insert into snatr(tno, reno) values(3, 1);
-	insert into snatr(tno, reno) values(4, 1);
-	insert into snatr(tno, reno) values(5, 1);
-	insert into snatr(tno, reno) values(6, 1);
-	insert into snatr(tno, reno) values(3, 1);
-	
+
 	
 	- 좋아요 비디오 목록 불러오기
 	 select * from video vd
