@@ -1,5 +1,6 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -19,13 +20,12 @@ public class MessegeJsonControl {
   
   @RequestMapping("/message/list")
   public AjaxResult list(@RequestParam int cono, @RequestParam int sno) throws Exception {
-    Message message = new Message(); 
-    message.setContentsNo(cono);
-    message.setMemberNo(sno);
+    List<Message> list = messageService.messageList(cono, sno);
     
-    List<Message> list = messageService.messageList(message);
+    HashMap<String,Object> resultMap = new HashMap<>(); 
+    resultMap.put("list", list);
     
-    return new AjaxResult(AjaxResult.SUCCESS, "success"); 
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap); 
   }
   
   @RequestMapping("/message/mentee-send")

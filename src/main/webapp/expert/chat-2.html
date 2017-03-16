@@ -356,7 +356,7 @@ $(function() {
   var cono = 4;
   var sno = 5;
   var eno = 7;
-	$getJSON(serverRoot + '/message/list.json', 
+	$.getJSON(serverRoot + '/message/list.json', 
 			{
 		    "cono": cono, 
 		    "sno" : sno
@@ -366,10 +366,10 @@ $(function() {
 				
 				var list = ajaxResult.data.list;
 				$.each(list, function(k, v) {
-					var text   = list[k].msge;
-					var writer = list[k].mswr;
+					var text   = list[k].message;
+					var writer = list[k].writerNo;
 					
-					if (mswr == sno) {
+					if (writer == sno) {
 						$('.chatwindow').append('<div class="right">' + text + '</div>');
 					} else {
 						$('.chatwindow').append('<div class="left bye">' + text + '</div>');

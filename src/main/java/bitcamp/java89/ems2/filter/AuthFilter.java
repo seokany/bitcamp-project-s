@@ -34,25 +34,25 @@ public class AuthFilter implements Filter {
     
     // 세션에 사용자 정보가 저장된 경우(로그인한 경우) 멤버 정보에서 사진 정보를 뽑아서
     // ServletRequest 보관소에 저장한다.
-    Member member = (Member)request.getSession().getAttribute("member");
+    /*Member member = (Member)request.getSession().getAttribute("member");
     if (member != null) {
       request.setAttribute("photoPath", this.getPhotoPath(member));
     }
-    
+    */
     chain.doFilter(request, response);
   }
 
   @Override
   public void destroy() {}
   
-  private String getPhotoPath(Member member) {
+  /*private String getPhotoPath(Member member) {
     if (member instanceof Student) {
       return ((Student)member).getPhotoPath();
       
     } else if (member instanceof Manager) {
       return ((Manager)member).getPhotoPath();
       
-    } else /*if (member instanceof Teacher)*/ {
+    } else if (member instanceof Teacher) {
       List<Photo> photoList = ((Teacher)member).getPhotoList();
       if (photoList.size() > 0) {
         return photoList.get(0).getFilePath();
@@ -60,7 +60,7 @@ public class AuthFilter implements Filter {
         return null;
       }
     }
-  }
+  }*/
 }
 
 

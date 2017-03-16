@@ -5,10 +5,9 @@ import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bitcamp.java89.ems2.dao.ManagerDao;
 import bitcamp.java89.ems2.dao.MemberDao;
-import bitcamp.java89.ems2.dao.StudentDao;
-import bitcamp.java89.ems2.dao.TeacherDao;
+import bitcamp.java89.ems2.dao.MenteeDao;
+import bitcamp.java89.ems2.dao.MentoDao;
 import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.service.AuthService;
 
@@ -16,9 +15,8 @@ import bitcamp.java89.ems2.service.AuthService;
 public class AuthServiceImpl implements AuthService {
   
   @Autowired MemberDao memberDao;
-  @Autowired StudentDao studentDao;
-  @Autowired ManagerDao managerDao;
-  @Autowired TeacherDao teacherDao;
+  @Autowired MenteeDao menteeDao;
+  @Autowired MentoDao mentoDao;
   
   public Member getMemberInfo(String email, String password, String userType) throws Exception {
     HashMap<String,String> paramMap = new HashMap<>();
@@ -32,10 +30,10 @@ public class AuthServiceImpl implements AuthService {
     }
     
     if (userType.equals(Member.MENTEE)) {
-      return studentDao.getOne(member.getMemberNo());
+      return menteeDao.getOneByEmailPassword(paramMap);
       
     } else if (userType.equals(Member.MENTO)) {
-      return teacherDao.getOneWithPhoto(member.getMemberNo());
+      return mentoDao.getOneByEmailPassword(paramMap);
     }
     return member;
   }

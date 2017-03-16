@@ -8,7 +8,7 @@ public interface MessageService {
   int menteeSendQnA(Message message) throws Exception; 
   int menteeSendMesg(Message message) throws Exception; 
   int hasQnA(Message message) throws Exception; 
-  List<Message> messageList(Message message) throws Exception; 
+  List<Message> messageList(int cono, int sno) throws Exception; 
 }
 
 
