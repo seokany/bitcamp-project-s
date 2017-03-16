@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import bitcamp.java89.ems2.domain.Member;
 
-//@WebFilter("*.do")
 public class LoginCheckFilter implements Filter {
 
   @Override
@@ -30,7 +29,8 @@ public class LoginCheckFilter implements Filter {
     String servletPath = request.getServletPath();
     
     // 로그인, 로그아웃을 요청한 경우 로그인 여부를 검사하지 않는다.
-    if (!servletPath.startsWith("/auth/")) { 
+    if (!servletPath.startsWith("/auth/") ||
+        !servletPath.startsWith("/main")) { 
       HttpSession session = request.getSession();
       Member member = (Member)session.getAttribute("member");
       
