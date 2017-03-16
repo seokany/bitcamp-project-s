@@ -14,8 +14,6 @@ $( function() {
 		      if (status != "success") return;
 		  
 		      var list = ajaxResult.data.list;
-//		      console.log(list);
-		      
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
 		    		{
@@ -53,7 +51,15 @@ $( function() {
 		    	  
 		    	  
 		      });
+<<<<<<< HEAD
+		      var section = $('.section');
+		      var template = Handlebars.compile($('#trTemplate').html());
+		      section.html(template({"list": list}));
+=======
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      
+<<<<<<< HEAD
+=======
 		     /* Handlebars.registerHelper('isLike', function(options) {
 		    	  console.log("헬퍼");
 		    	  if (isLike == 1) {
@@ -68,6 +74,7 @@ $( function() {
 		      
 			});  
 		        // 좋아요 버튼 눌렀을 때
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      /*loadList(currPageNo,pageSize,sno);
 		  	function loadList(pageNo, pageSize, sno) {
 				$.getJSON(serverRoot + '/videoLike/list.json', 
@@ -136,13 +143,29 @@ $( function() {
 		  				}
 		  				console.log("했다.");
 		  			}, 'json');
-		  			
 		  		}	
 		  	});  
+<<<<<<< HEAD
+=======
 		  	
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 /*				}); // loadList 의 function  
 */		      
+<<<<<<< HEAD
+});  
+	
+	
 
+  
+	
+	
+	
+	
+	
+	
+=======
+
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 	
 	
 	
