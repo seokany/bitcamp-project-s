@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="header"></div>
-  <div class="mystuff">
+  <div class="dashboard mystuff">
 	  <div id="div1" class="model-div msize corner-container">
 	  <!-- <div class="msize model-more">
 	    <button class="model-btn frame-modal" frame-src="homepage2.html" >더보기</button>
@@ -127,6 +127,14 @@
          <a href="#" class="btn heart"></a>
        {{/if}}
                    </button>
+
+<div class="tool fade right in" role="tooltip" style="top: 314.219px; left: 800px; display: block;">
+  <div class="arrow" style="top: 50%;"></div>
+   <h3 class="popover-title">RIGHT POPOVER</h3>
+   <div class="popover-content"></div>
+</div>
+
+
      </div>
       <div class="corner-box video-box">
           <a class="fpc_page-tip" href="http://192.168.1.15:8080/bitcamp-project-s/detail/video-detail.html">
@@ -142,18 +150,17 @@
 {{#each list}}
 <div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
                   <div class="mento-conts">
-                   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 37px;">
-                    {{#if isLike}}
-         <a href="#" class="btn heart checked"></a>
-       {{else}}
-         <a href="#" class="btn heart"></a>
-       {{/if}}
+                   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 50px;">
+          {{#if isLike}}
+            <a href="#" class="btn heart checked"></a>
+          {{else}}
+            <a href="#" class="btn heart"></a>
+          {{/if}}
                    </button>
-
-                   <div class="mento-btm">
-                    <div class="mt-photo"><img src='img/lee.jpg'></div>
-                     <div class="mento-name-favor"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
-                  </div>
+              <div class="mento-btm">
+                 <div class="mt-photo"><img src='img/lee.jpg'></div>
+                 <div class="mento-name-favor"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
+              </div>
                    <div class="mento-box corner-box">
                       <a class="fpc_page-tip" href="http://192.168.1.15:8080/bitcamp-project-s/detail/mento-detail.html">
                      <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>

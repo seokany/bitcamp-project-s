@@ -6,12 +6,23 @@
 <mapper namespace="bitcamp.java89.ems2.dao.PlanDao">
 
 
-  <resultMap type="plan" id="plan-map">
+  <resultMap type="bitcamp.java89.ems2.domain.Plan" id="plan-map" extends="memb-map">
     <id     column="cono"        property="contentsNo"/>
     <result column="plmap"       property="planMap"/>
     <result column="plimg"      property="planImage"/>
   </resultMap>
   
+  
+      <resultMap type="bitcamp.java89.ems2.domain.Member" id="memb-map">
+    <id     column="mno"        property="memberNo"/>
+    <result column="name"       property="name"/>
+    <result column="age"       property="age"/>
+    <result column="email"       property="email"/>
+    <result column="pwd"       property="password"/>
+    <result column="mimg"       property="image"/>
+    <result column="sarea"       property="specialArea"/>
+  </resultMap>
+
 <!--   <select id="count" parameterType="string" resultType="int">
     select count(*)
     from stud s 
@@ -29,18 +40,20 @@
    <select id="countAll" resultType="int">
     select 
       count(*)
-    from video v
-      left outer join contents c on v.cono=c.cono
+    from plan pl
+      left outer join contents c on pl.cono=c.cono
   </select>
   
    <select id="getList" resultMap="plan-map" parameterType="map">
-  select * from plan
+  select plan.cono,name,plmap,plimg, sarea from plan
   inner join contents ctt on plan.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno 
-  where ret.sno = '5'
+  inner join result ret on snt.reno = ret.reno
+  inner join membs mb on mb.mno = plan.eno
+  inner join mento mto on mto.eno = mb.mno
+  where ret.sno = 5 and mb.mno = plan.eno 
   limit 4;
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
@@ -106,6 +119,7 @@
 </mapper>
 
 
+  
 
 
 

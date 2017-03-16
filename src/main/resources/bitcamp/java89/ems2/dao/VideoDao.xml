@@ -57,7 +57,7 @@
   </select>
   
   <select id="detailList" resultMap="video-map" parameterType="map">
-	  select * from video vd
+	  select DISTINCT ctt.cono,vd.kotl,vd.entl,vd.voimg,vd.vodsc,vd.spnm,vd.sjob,vd.simg,vd.posted from video vd
 		  inner join contents ctt on vd.cono = ctt.cono
 		  inner join copic cp on ctt.cono = cp.cono
 		  inner join topic tp on cp.tno = tp.tno

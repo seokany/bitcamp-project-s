@@ -29,8 +29,7 @@ body {
     position: relative;
     margin: 5% auto;
     padding: 0;
-    height: 700px;
-    width: 1265px;
+/*     width: 1265px; */
 }
 
 .model-more, .video-more {
@@ -166,9 +165,26 @@ border-radius:10px;
   opacity: 1;
 }
 
-
+/* 좋아요 체크 표시 색깔 */
 .checked {
 color: #f94e66;
 }
+
+/* 페이지 버튼 */
+.tool {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 

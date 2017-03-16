@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>추천영상</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -12,11 +12,11 @@
 </head>
 <body>
 <div id="header"></div>
-  <div class="mystuff video-list">
+  <div class="dashboard mystuff video-list">
 
 <div class="app">
 <div class="mento-top">
- <h2>좋아하는 영상</h2>
+ <h2>추천 영상</h2>
  </div>
  <div class="video-detail-list"></div>
  
@@ -40,10 +40,14 @@
        <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
        
        <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
-                          <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
-                    <a href="#" class="btn heart"></a>
-                   </button>
-     </div>
+                 <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                   {{#if isLike}}
+                     <a href="#" class="btn heart checked"></a>
+                   {{else}}
+                     <a href="#" class="btn heart"></a>
+                   {{/if}}
+                 </button>
+        </div>
 
      </div>
 </div>

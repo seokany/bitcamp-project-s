@@ -87,7 +87,6 @@
 - 설계도 데이터
 	insert into plan(cono, eno, plmap, plimg) values(4, 6, '설계도 내용', '설계도 썸네일'); 
 
-
 - 주제 데이터
 	insert into topic(tnm) values('천문학'); 
 	insert into topic(tnm) values('바이오테크'); 

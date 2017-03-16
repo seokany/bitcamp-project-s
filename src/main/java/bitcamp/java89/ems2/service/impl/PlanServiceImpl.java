@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.ContentsHeaderDao;
+import bitcamp.java89.ems2.dao.MemberDao;
 import bitcamp.java89.ems2.dao.PlanDao;
 import bitcamp.java89.ems2.domain.Plan;
 import bitcamp.java89.ems2.service.PlanService;
@@ -15,6 +16,7 @@ import bitcamp.java89.ems2.service.PlanService;
 public class PlanServiceImpl implements PlanService {
   @Autowired ContentsHeaderDao contentsDao;
   @Autowired PlanDao planDao;
+  @Autowired MemberDao memberDao;
   
  public int getSize() throws Exception {
     return planDao.countAll();

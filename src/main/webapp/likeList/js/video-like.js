@@ -1,6 +1,6 @@
 
 var currPageNo = 1;
-var pageSize = 5;
+var pageSize = 15;
 var sno = 5;
 
 loadList(currPageNo, 15, sno);
@@ -12,12 +12,12 @@ $('#new-btn').click(function(event) {
 
 $('#prevPgBtn').click(function() {
   if (currPageNo > 1) {
-    loadList(--currPageNo, 5);
+    loadList(--currPageNo, 15, sno);
   }
 });
   
 $('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 5);
+  loadList(++currPageNo, 15, sno);
 });
   
 function preparePagingButton(totalCount) {
@@ -62,11 +62,19 @@ function loadList(pageNo, pageSize, sno) {
 
 		      var template = Handlebars.compile($('#videoLike').html());
 		      section.html(template({"list": list}));
-		  
-		  
+		      
+		  console.log("like");
+		      console.log(ajaxResult.data.totalCount);
 		  preparePagingButton(ajaxResult.data.totalCount);
 	});  
 }
+
+$('.tooltip-viewport-bottom').tooltip({
+	placement: 'bottom',
+	viewport: {selector: '.container-viewport', padding: 2}
+});
+
+
 
 $( function() { 
 

@@ -14,10 +14,6 @@ $( function() {
 		      if (status != "success") return;
 		  
 		      var list = ajaxResult.data.list;
-//		      console.log(list);
-		      
-		      
-			 
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
 		    		{
@@ -41,9 +37,6 @@ $( function() {
 //				      console.log("test02" + typeof list[k].isLike === true);
 				      /*console.log(typeof list[k].isLike == "false");*/
 				      
-				      var section = $('.section');
-				      var template = Handlebars.compile($('#trTemplate').html());
-				      section.html(template({"list": list}));
 				      /*console.log(list);
 		      for (var i in list) {
 		    	  console.log(i,'번째 isLike = ',list[i].isLike)
@@ -51,11 +44,22 @@ $( function() {
 		    		  $('.btn.heart').addClass('checked')
 		    	  }
 		      }*/
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
 		    		});
 		    	  
 		    	  
 		      });
+<<<<<<< HEAD
+		      var section = $('.section');
+		      var template = Handlebars.compile($('#trTemplate').html());
+		      section.html(template({"list": list}));
+=======
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      
+<<<<<<< HEAD
+=======
 		     /* Handlebars.registerHelper('isLike', function(options) {
 		    	  console.log("헬퍼");
 		    	  if (isLike == 1) {
@@ -70,6 +74,7 @@ $( function() {
 		      
 			});  
 		        // 좋아요 버튼 눌렀을 때
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 		      /*loadList(currPageNo,pageSize,sno);
 		  	function loadList(pageNo, pageSize, sno) {
 				$.getJSON(serverRoot + '/videoLike/list.json', 
@@ -138,13 +143,29 @@ $( function() {
 		  				}
 		  				console.log("했다.");
 		  			}, 'json');
-		  			
 		  		}	
 		  	});  
+<<<<<<< HEAD
+=======
 		  	
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 /*				}); // loadList 의 function  
 */		      
+<<<<<<< HEAD
+});  
+	
+	
 
+  
+	
+	
+	
+	
+	
+	
+=======
+
+>>>>>>> branch 'master' of https://github.com/luckyhguy/bitcamp-project-s.git
 	
 	
 	
@@ -163,7 +184,10 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
+		      console.log(list);
+		      countLike();
 		      
+		      function countLike() {
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
 		    		{
@@ -185,11 +209,13 @@ $( function() {
 				      var section = $('.mt-carousel > .ul');
 				      var template = Handlebars.compile($('#mentoList').html());
 				      section.html(template({"list": list}));
-
+				      console.log(list);
 				      jcarousel();
 		    		});
 		    	  
+		    	  
 		      });
+		      }
 
 		  });  
 		        // 좋아요 버튼 눌렀을 때
@@ -477,13 +503,23 @@ $( function() {
   	         $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     	    }
     	  );
-    
+      
+      
+      $("body").tooltip({   
+    	    selector: "[data-toggle='tooltip']",
+    	    container: "body"
+    	  })
+    	    //Popover, activated by clicking
+    	    .popover({
+    	    selector: "[data-toggle='popover']",
+    	    container: "body",
+    	    html: true
+    	  });
+    	  //They can be chained like the example above (when using the same selector).
+    	  
 
 });
 
-(function($) { // 슬라이드 쇼
-
-})(jQuery);
 
 
 

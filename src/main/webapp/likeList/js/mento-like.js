@@ -1,9 +1,9 @@
 
 var currPageNo = 1;
-var pageSize = 5;
+var pageSize = 4;
 var sno = 5;
 
-loadList(currPageNo, 15, sno);
+loadList(currPageNo, pageSize, sno);
 
 $('#new-btn').click(function(event) {
 	event.preventDefault(); 
@@ -12,12 +12,12 @@ $('#new-btn').click(function(event) {
 
 $('#prevPgBtn').click(function() {
   if (currPageNo > 1) {
-    loadList(--currPageNo, 5);
+    loadList(--currPageNo, 4, sno);
   }
 });
   
 $('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 5);
+  loadList(++currPageNo, 4, sno);
 });
   
 function preparePagingButton(totalCount) {
@@ -65,6 +65,7 @@ function loadList(pageNo, pageSize, sno) {
 		  
 		      mtHover();
 		  preparePagingButton(ajaxResult.data.totalCount);
+		  console.log(ajaxResult.data.totalCount);
 	});  
 }
 
