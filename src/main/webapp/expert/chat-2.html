@@ -370,9 +370,13 @@ $(function() {
 					var writer = list[k].writerNo;
 					
 					if (writer == sno) {
-						$('.chatwindow').append('<div class="right">' + text + '</div>');
+						setTimeout(function() {
+							  $('.chatwindow').append('<div class="right">' + text + '</div>');
+						},500);
 					} else {
-						$('.chatwindow').append('<div class="left bye">' + text + '</div>');
+						setTimeout(function() {
+							$('.chatwindow').append('<div class="left bye">' + text + '</div>');
+						},500);
 					}
 				});
 			});
