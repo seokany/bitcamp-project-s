@@ -43,14 +43,16 @@
 	height:140%;
 }
 
+
 .pageBtn {
     margin-top: 20px;
     margin-left: 591px;
     display: inline-block;
     width: 90px;
     height: 30px;
-	
+  
 }
+
 
 .mt-photo{ 
     border-radius: 100%;
@@ -123,6 +125,11 @@ width: 530px;
 	background-color:transparent;
 	border:transparent;
 	border-bottom:1px solid black;
+}
+
+
+.checked {
+    color: #f94e66;
 }
 
 

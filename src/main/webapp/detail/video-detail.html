@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../mystuff/css/mystuff.css">
+<link rel="stylesheet" type="text/css" href="../mystuff/css/homepage.css">
+<link rel="stylesheet" type="text/css" href="../mystuff/css/video.css">
+</head>
+<body>
+<div id="header"></div>
+  <div class="mystuff video-list">
+
+<div class="app">
+<div class="mento-top">
+ <h2>좋아하는 영상</h2>
+ </div>
+ <div class="video-detail-list"></div>
+ 
+ </div>
+ <div class="videoBtn pageBtn">
+ <button id='prevPgBtn' type='button' class='btn-primary btn-xs'>이전</button>
+<span id='pageNo'>1</span>
+<button id='nextPgBtn' type='button' class='btn-primary btn-xs'>다음</button>
+</div>
+
+</div>
+
+
+<script id="videoDetail" type="text/x-handlebars-template">
+{{#each list}}
+<div class="ssize vdoConts">
+<div class="video-conts">
+     <img class="rec rec-video1" id="video1" 
+            src='{{videoImage}}'></img>
+               <div class="video-btm">
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                          <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                    <a href="#" class="btn heart"></a>
+                   </button>
+     </div>
+
+     </div>
+</div>
+
+{{/each}}
+</script>
+
+    
+
+
+<script src="../common/js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+ <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
+<script src="js/video-detail.js"></script>
+<script src="../common/js/common.js"></script>
+
+</body>
+</html>

@@ -1,7 +1,161 @@
- 
+var currPageNo = 1;
+var pageSize = 5;
+var sno = 5;
 $( function() { 
+    
 	
-	$.getJSON(serverRoot + '/video/list.json',  
+	$.getJSON(serverRoot + '/video/list.json', 
+		    {
+			  "pageNo": currPageNo,
+			  "pageSize": pageSize,
+			  "sno": sno
+			}, function(ajaxResult) {
+		      var status = ajaxResult.status;
+		      if (status != "success") return;
+		  
+		      var list = ajaxResult.data.list;
+//		      console.log(list);
+		      
+		      
+			 
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
+				      
+				      /*console.log(list[k].isLike);*/
+//				      list[k].isLike = true;
+//				      console.log(list);
+//				      console.log("test02" + typeof list[k].isLike === true);
+				      /*console.log(typeof list[k].isLike == "false");*/
+				      
+				      var section = $('.section');
+				      var template = Handlebars.compile($('#trTemplate').html());
+				      section.html(template({"list": list}));
+				      /*console.log(list);
+		      for (var i in list) {
+		    	  console.log(i,'번째 isLike = ',list[i].isLike)
+		    	  if (list[i].isLike) {
+		    		  $('.btn.heart').addClass('checked')
+		    	  }
+		      }*/
+		    		});
+		    	  
+		    	  
+		      });
+		      
+		     /* Handlebars.registerHelper('isLike', function(options) {
+		    	  console.log("헬퍼");
+		    	  if (isLike == 1) {
+		    		  return options.fn();
+		    	  } else {
+		    		  return options.inverse();
+		    	  }
+		    	  var section = $('.section');
+		    	  var template = Handlebars.compile($('#trTemplate').html());
+		    	  section.html(template({"list": list[k]}));
+		      });*/
+		      
+			});  
+		        // 좋아요 버튼 눌렀을 때
+		      /*loadList(currPageNo,pageSize,sno);
+		  	function loadList(pageNo, pageSize, sno) {
+				$.getJSON(serverRoot + '/videoLike/list.json', 
+				    {
+					  "pageNo": pageNo,
+					  "pageSize": pageSize,
+					  "sno": sno
+					}, 
+					function(ajaxResult) {
+					      var status = ajaxResult.status;
+					      if (status != "success")
+					        return;
+					      
+					    var like = ajaxResult.data.list;
+					     console.log(like);*/
+					     
+/*		  	var isLike = {};
+	  		for (var i = 0; i < like.length; i++) {
+	  			if (like[i].contentsNo == list[i].contentsNo) {
+	  				return options.fn(this);
+	  			} else {
+	  				return options.inverse(this);
+	  			}
+	  		}
+			Handlebars.registerHelper('isLike', function(options) {
+			  if () {
+			    return options.fn(this);
+			  } else {
+			    return options.inverse(this);
+			  }
+			});
+		  	
+		  	*                {{#if isLike}}
+     <a href="#" class="btn heart checked"></a>
+    {{else}}
+      <a href="#" class="btn heart"></a>
+    {{/if}}
+		  	*/
+
+		  	
+		  	// 좋아요 버튼 눌렀을 때
+		  	
+		  	$(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		  		event.preventDefault();
+		  		var curNo = $(this).attr("data-no");
+		  		
+		  		
+		  		if($(this).children(".btn").hasClass("checked")) {
+		  			$(this).children(".btn").removeClass("checked");
+		  			$(this).children(".btn").css("color","black");
+		  			$.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("삭제했다.");
+		  			}, 'json');
+		  		} else {
+		  			$(this).children(".btn").addClass("checked");
+		  			$(this).children(".checked").css("color","#f94e66");
+		  			
+		  			$.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+		  				if (ajaxResult.status != "success") {
+		  					alert(ajaxResult.data);
+		  					return;
+		  				}
+		  				console.log("했다.");
+		  			}, 'json');
+		  			
+		  		}	
+		  	});  
+		  	
+/*				}); // loadList 의 function  
+*/		      
+
+	
+	
+	
+//	멘토 슬라이드 
+	
+	$.getJSON(serverRoot + '/plan/list.json',
+			 {
+		  "pageNo": currPageNo,
+		  "pageSize": pageSize,
+		  "sno": sno
+		},
 		    function(ajaxResult) {
 		      var status = ajaxResult.status;
 		      if (status != "success")
@@ -9,20 +163,107 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
-		      console.log(list);
 		      
-		      var section = $('.section');
+		      $.each(list, function(k, v) {
+		    	  $.getJSON(serverRoot + '/video/isLike.json', 
+		    		{
+		    		  "cono": v.contentsNo,
+		    		  "sno": sno
+		    		}, function(ajaxResult) {
+		  		      var status = ajaxResult.status;
+				      if (status != "success") return;
+				      
+				      var isLike = ajaxResult.data.isLike;
+				      
+				      if (isLike == 1) {
+				    	  list[k].isLike = true;
+				      } else {
+				    	  list[k].isLike = false;
+				      }
 
-		      var template = Handlebars.compile($('#trTemplate').html());
-		      section.html(template({"list": list}));
-		      
-	/*	      $('.name-link').click(function(event) {
-		        event.preventDefault();
-		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-		      });*/
-		      
-//		      preparePagingButton(ajaxResult.data.totalCount);
+				      
+				      var section = $('.mt-carousel > .ul');
+				      var template = Handlebars.compile($('#mentoList').html());
+				      section.html(template({"list": list}));
+
+				      jcarousel();
+		    		});
+		    	  
+		      });
+
 		  });  
+		        // 좋아요 버튼 눌렀을 때
+		        
+		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        	 event.preventDefault();
+		        	 var curNo = $(this).attr("data-no");
+				        var sno = 5;
+				        
+		        	if($(this).children(".btn").hasClass("checked")) {
+		        		$(this).children(".btn").removeClass("checked");
+		        		$(this).children(".btn").css("color","black");
+		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("삭제했다.");
+				          }, 'json');
+		        	} else {
+		        		$(this).children(".btn").addClass("checked");
+		                $(this).children(".checked").css("color","#f94e66");
+				          
+		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
+				        	  if (ajaxResult.status != "success") {
+				    	          alert(ajaxResult.data);
+				    	          return;
+				    	      }
+				        	  console.log("했다.");
+				          }, 'json');
+		                
+		                
+		        	}
+		        })
+		    	
+
+
+
+	
+	
+	
+    function jcarousel() {
+        $('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+         .jcarouselPagination();
+    };
 	
 	
     var state = true;
@@ -136,7 +377,6 @@ $( function() {
     
     
     
-    
     // 인물 디테일 페이지.
     var $play = $('.play'),
     $detail  = $('.detail'),
@@ -144,7 +384,7 @@ $( function() {
     $close = $('.close');
 
     $('.movies .movie').click(function(){
-    	console.log("dkdkdl");
+//    	console.log("dkdkdl");
       
       $movie.html($(this).html());
       $play.appendTo($movie);
@@ -183,9 +423,9 @@ $( function() {
     Close
     --------------------*/
     function close(){
-    console.log('asd');
+//    console.log('asd');
     $p = $('.detail .poster');
-    console.log($p)
+//    console.log($p)
     $p.css({
     top: $p.data('top'),
     left: $p.data('left'),
@@ -238,54 +478,11 @@ $( function() {
     	    }
     	  );
     
-    // 좋아요 버튼 눌렀을 때
-    
-    $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 목록 눌렀을 때
-    	
-    	if($(this).children(".btn").hasClass("checked")) {
-    		$(this).children(".btn").removeClass("checked");
-    		$(this).children(".btn").css("color","black");	
-    	} else {
-    		$(this).children(".btn").addClass("checked");
-            $(this).children(".checked").css("color","#f94e66");	
-    	}
-    })
+
 });
 
 (function($) { // 슬라이드 쇼
-    $(function() {
-        $('.jcarousel').jcarousel();
 
-        $('.jcarousel-control-prev')
-            .on('jcarouselcontrol:active', function() {
-                $(this).removeClass('inactive');
-            })
-            .on('jcarouselcontrol:inactive', function() {
-                $(this).addClass('inactive');
-            })
-            .jcarouselControl({
-                target: '-=1'
-            });
-
-        $('.jcarousel-control-next')
-            .on('jcarouselcontrol:active', function() {
-                $(this).removeClass('inactive');
-            })
-            .on('jcarouselcontrol:inactive', function() {
-                $(this).addClass('inactive');
-            })
-            .jcarouselControl({
-                target: '+=1'
-            });
-        $('.jcarousel-pagination')
-            .on('jcarouselpagination:active', 'a', function() {
-                $(this).addClass('active');
-            })
-            .on('jcarouselpagination:inactive', 'a', function() {
-                $(this).removeClass('active');
-            })
-         .jcarouselPagination();
-    });
 })(jQuery);
 
 

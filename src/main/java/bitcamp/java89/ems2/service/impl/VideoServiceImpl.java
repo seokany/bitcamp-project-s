@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.ContentsHeaderDao;
 import bitcamp.java89.ems2.dao.VideoDao;
+import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.domain.Video;
 import bitcamp.java89.ems2.service.VideoService;
 
@@ -20,13 +21,37 @@ public class VideoServiceImpl implements VideoService {
     return videoDao.countAll();
   }
  
-  public List<Video> getList(int pageNo, int pageSize) throws Exception {
+  public List<Video> getList(int pageNo, int pageSize, int sno) throws Exception {
 
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
     paramMap.put("rowSize", pageSize);
+    paramMap.put("sno", sno);
     
     return videoDao.getList(paramMap); 
+  }
+  
+  public int isLike(int cono, int sno) throws Exception {
+    
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("cono", cono);
+    paramMap.put("sno", sno);
+    
+    return videoDao.isLike(paramMap); 
+  }
+
+  public List<Member> selectName() throws Exception {
+    return videoDao.selectName();
+  }
+  
+  public List<Video> detailList(int pageNo, int pageSize, int sno) throws Exception {
+
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+    paramMap.put("rowSize", pageSize);
+    paramMap.put("sno", sno);
+    
+    return videoDao.detailList(paramMap); 
   }
   
   /*public Video getDetail(int no) throws Exception {

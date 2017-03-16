@@ -59,10 +59,10 @@ function loadList(pageNo, pageSize) {
 	      var template = Handlebars.compile($('#trTemplate').html());
 	      tbody.html(template({"list": list}));
 	      
-	    /*  $('.name-link').click(function(event) {
+	      $('.name-link').click(function(event) {
 	        event.preventDefault();
 	        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-	      });*/
+	      });
 	      
 	      preparePagingButton(ajaxResult.data.totalCount);
 	  });  

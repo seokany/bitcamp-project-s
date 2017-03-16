@@ -11,6 +11,7 @@ public class Video extends ContentsHeader{
   protected String speakerName;
   protected String speakerJob;
   protected String speakerImage;
+  protected boolean checked;
   protected int posted;
   public String getKoreanTitle() {
     return koreanTitle;
@@ -54,14 +55,25 @@ public class Video extends ContentsHeader{
   public void setSpeakerImage(String speakerImage) {
     this.speakerImage = speakerImage;
   }
+  public boolean getChecked() {
+    return checked;
+  }
+  public void setChecked(String checked) {
+    if (checked != null) {
+      this.checked = true;
+    }
+    this.checked = false;
+  }
   public int getPosted() {
     return posted;
   }
   public void setPosted(int posted) {
     this.posted = posted;
   }
-  
-  
-  
-  
+  @Override
+  public String toString() {
+    return "Video [koreanTitle=" + koreanTitle + ", englishTitle=" + englishTitle + ", videoImage=" + videoImage
+        + ", videoDescription=" + videoDescription + ", speakerName=" + speakerName + ", speakerJob=" + speakerJob
+        + ", speakerImage=" + speakerImage + ", posted=" + posted + "]";
+  }
 }

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.LikeDao">
+
+
+  <resultMap type="video" id="video-like">
+    <id column="cono"        property="contentsNo"/>
+    <result column="kotl"       property="koreanTitle"/>
+    <result column="entl"      property="englishTitle"/>
+    <result column="voimg"        property="videoImage"/>
+    <result column="vodsc"        property="videoDescription"/>
+    <result column="spnm"       property="speakerName"/>
+    <result column="sjob"   property="speakerJob"/>
+    <result column="simg"    property="speakerImage"/>
+    <result column="posted"    property="posted"/>
+
+  </resultMap>
+  
+    <resultMap type="plan" id="mento-like">
+    <id column="cono"        property="contentsNo"/>
+    <result column="plmap"       property="planMap"/>
+    <result column="plimg"      property="planImage"/>
+
+  </resultMap>
+  
+  
+  <select id="countAll" resultType="int">
+   select count(*) from contents ctt
+  inner join video vd on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = #{sno};
+  </select>
+
+  
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from lklst lk 
+    where lk.cono=#{curNo}
+  </select> 
+  <insert id="likeAdd">
+    insert into lklst(cono, sno) values(#{curNo}, #{sno})
+  </insert>
+  
+    <delete id="likeDelete" parameterType="int">
+  <![CDATA[
+    delete from lklst where cono=#{value}
+  ]]>
+  </delete>
+  
+  
+  
+   <select id="videoList" resultMap="video-like" parameterType="map">
+     select * from video vd
+  inner join contents ctt on vd.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where lk.sno = #{sno}
+    limit #{startRowIndex}, #{rowSize}
+  </select> 
+  
+     <select id="mentoList" resultMap="mento-like" parameterType="map">
+     select * from plan pl
+  inner join contents ctt on pl.cono = ctt.cono
+  inner join copic cp on ctt.cono = cp.cono
+  inner join topic tp on cp.tno = tp.tno
+  inner join snatr snt on tp.tno = snt.tno 
+  inner join result ret on snt.reno = ret.reno 
+  inner join mentee mte on ret.sno = mte.sno
+  inner join lklst lk on ctt.cono = lk.cono
+  where ret.sno = #{sno}
+    limit #{startRowIndex}, #{rowSize}
+  </select>
+  
+  
+
+</mapper>
+
+

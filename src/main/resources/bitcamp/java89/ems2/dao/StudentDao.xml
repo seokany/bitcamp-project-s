@@ -7,7 +7,7 @@
 
   <resultMap type="student" id="student-map">
     <id     column="mno"        property="memberNo"/>
-    <result column="name"       property="name"/>
+<!--     <result column="name"       property="name"/> -->
     <result column="email"      property="email"/>
     <result column="pwd"        property="password"/>
     <result column="tel"        property="tel"/>

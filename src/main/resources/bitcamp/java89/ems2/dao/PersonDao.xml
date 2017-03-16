@@ -34,9 +34,15 @@
   </select>
   
   <select id="getList" resultMap="person-map" parameterType="map">
-    select *
-    from person
-    limit #{startRowIndex}, #{rowSize}
+		select * 
+		from person ps
+			inner join contents ctt on ps.cono = ctt.cono
+			inner join copic cp on ctt.cono = cp.cono
+			inner join topic tp on cp.tno = tp.tno
+			inner join snatr snt on tp.tno = snt.tno 
+			inner join result ret on snt.reno = ret.reno 
+		where ret.sno = '5';
+<!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   
 <!--   <select id="getOne" parameterType="int" resultMap="person-map"> -->

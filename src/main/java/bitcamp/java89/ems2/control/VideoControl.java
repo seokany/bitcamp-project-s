@@ -22,7 +22,7 @@ public class VideoControl {
   
   @RequestMapping("/video/list")
   public String list(@RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="5") int pageSize,Model model) throws Exception {
+      @RequestParam(defaultValue="5") int pageSize, @RequestParam int sno, Model model) throws Exception {
     
     
     if (pageNo < 1) {
@@ -35,7 +35,7 @@ public class VideoControl {
     
     
     
-    List<Video> list = videoService.getList(pageNo, pageSize);
+    List<Video> list = videoService.getList(pageNo, pageSize, sno);
     
     model.addAttribute("videos", list);
     model.addAttribute("title", "비디오관리-목록");
