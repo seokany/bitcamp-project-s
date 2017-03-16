@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.MessageDao">
+  
+  <resultMap type="message" id="message-map">
+    <id     column="msno"       property="messageNo"/>
+    <result column="msge"       property="message"/>
+    <result column="mswr"       property="writerNo"/>
+  </resultMap>
+
+  <select id="hasQnA" resultType="int" parameterType="message">
+    select count(*)
+    from qna
+    where cono = #{contentsNo} and sno = #{memberNo}
+  </select>
+  
+  <select id="messageList" resultType="message-map" parameterType="message">
+    select msge, mswr 
+    from messg
+    where cono = #{contentsNo} and sno = #{memberNo}
+  </select>
+
+  <insert id="menteeSendQnA" parameterType="message">
+    insert into QNA(cono, sno, sdat) 
+    values(
+      #{contentsNo},
+      #{memberNo},
+      NOW());
+  </insert>
+
+  <insert id="menteeSendMesg" parameterType="message">
+    insert into MESSG(cono, sno, msge, mswr, msdat)
+    values(
+      #{contentsNo},
+      #{memberNo},
+      #{message},
+      #{writerNo},
+      NOW());
+  </insert>
+
+</mapper>

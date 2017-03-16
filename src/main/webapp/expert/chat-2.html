@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>멘티들</title>
-<!--   Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="https://almsaeedstudio.com/themes/AdminLTE/bootstrap/css/bootstrap.min.css">
-<!--   Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<!--   프로필 모양 잡아주는 데 쓰인다 -->
-  <link rel="stylesheet" href="https://almsaeedstudio.com/themes/AdminLTE/dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="css/chat.css">
-  <link rel="stylesheet" href="css/seeing-mentee.css">
-<!--   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
 body #wrapper #message {
   font-family: "Muli", sans-serif;
@@ -339,148 +329,81 @@ body #wrapper .window .chatwindow .left:before {
   left: 17.5px;
   border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
 }
+
 </style>
 </head>
-<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body>
-<div class="wrapper">
-<!--   Full Width Column -->
-  <div class="content-wrapper">
-    <div class="container">
+<div id="wrapper">
+<div class="window">
+  <div class="windowrap">
+    <div class="bot">
 
-<!--       Main content -->
-      <section class="content">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="planning">
-                <img src="../mystuff/img/map2.jpg"/>
-              </div>
-            </div>
-            
-            
-            <div class="col-md-4">
-<!--               USERS LIST -->
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <div class="box-title">멘티와의 대화</div>
+      <h3>Harambe</h3>
 
-                  <div class="box-tools pull-right">
-                    <span class="label label-danger">8명 학생이 있습니다</span>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-<!--                 /.box-header -->
-                <div class="box-body no-padding">
-                  <ul class="users-list clearfix">
-                    <li>
-                      <div class="student-pic img-div"><img src="img/student1.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">조인성</a>
-                      <span class="users-list-age">15세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="img/student2.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">Norman</a>
-                      <span class="users-list-age">17세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="img/student1.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">조인성</a>
-                      <span class="users-list-age">16세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user6-128x128.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">John</a>
-                      <span class="users-list-age">18세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">Alexander</a>
-                      <span class="users-list-age">16세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user5-128x128.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">Sarah</a>
-                      <span class="users-list-age">15세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user4-128x128.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">Nora</a>
-                      <span class="users-list-age">17세</span>
-                    </li>
-                    <li>
-                      <div class="student-pic img-div"><img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User Image"></div>
-                      <a class="users-list-name" href="#">Nadia</a>
-                      <span class="users-list-age">19세</span>
-                    </li>
-                  </ul>
-<!--                   /.users-list -->
-                </div>
-<!--                 /.box-body -->
-                <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">모든 멘티 보기</a>
-                </div>
-<!--                 /.box-footer -->
-              </div>
-<!--               /.box -->
-            </div>
-            
-            
-<!--             /.col -->
-          </div>
-<!--           /.row -->
-      </section>
-<!--       /.content -->
-    </div>
-<!--     /.container -->
+      </div>
+  <div class="chatwindow"></div>
+  <form id="messenger" action="" method="get" name="messenger">
+    <input type="text" name="enter" class="enter" value="" placeholder="say something..." id="message"/>
+    <div class="send"><input type="submit" value="" id="btn" tabindex="-1"/></div>
+  </form>
   </div>
-<!--   /.content-wrapper -->
-
 </div>
-<!-- ./wrapper -->
-
-<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+</div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../common/js/context.js"></script>
 <script>
-// var state = true;
-	  $(".users-list-name, .student-pic").on("click", function(){
-	// 	  event.preventDefault();
-	// 	  if (state == true) {
-		  $(".col-md-4").children("div").css('display','none');
-		  $(".col-md-4").load("chat-2.html");
-			  
-	// 	  } else {
-			  
-	// 	  }
-	  });
-	$(window).bind("pageshow", function (event) {
-		  if (event.originalEvent.persisted) {
-		    console.log('BFCahe로부터 복원됨');
-		  }
-		  else {
-		    console.log('새로 열린 페이지');
-		  }
-		});
+$(function() {
+  var cono = 4;
+  var sno = 5;
+  var eno = 7;
+	$getJSON(serverRoot + '/message/list.json', 
+			{
+		    "cono": cono, 
+		    "sno" : sno
+			}, function(ajaxResult) {
+				var status = ajaxResult.status; 
+				if (status != "success") return; 
+				
+				var list = ajaxResult.data.list;
+				$.each(list, function(k, v) {
+					var text   = list[k].msge;
+					var writer = list[k].mswr;
+					
+					if (mswr == sno) {
+						$('.chatwindow').append('<div class="right">' + text + '</div>');
+					} else {
+						$('.chatwindow').append('<div class="left bye">' + text + '</div>');
+					}
+				});
+			});
+
+$('#messenger').submit(function () {
+	 return false;
+	});
+	$("#message").attr("autocomplete", "off");
 	
-$(".chat-exc").on("click", function(){
-   $(".col-md-4").children("div").css('display','none');
-   $(".col-md-4").load("chat-2.html");
+	  <!---- message send service---->
+	$('#btn').click(function() {
+	   var text = $('#message').val();
+	   $.getJSON(serverRoot + '/message/mentee-send.json', 
+		        {
+		        "msge": text,
+		        "cono": cono,
+		        "sno": sno
+		      }, function(ajaxResult) {
+		          var status = ajaxResult.status;
+		          if (status != "success") return;
+      });
+	   
+	   $('.chatwindow').append('<div class="right">' + text + '</div>');
+	   $('#message').val('');
+	  setTimeout(function () { 
+	    var myArray = ['💩', '🐎', '🍕', '💅🏼', '🍑', '🙏', '🙈', '🙉', '🙊', '🍌']; 
+	var rand = myArray[Math.floor(Math.random() * myArray.length)];
+	    $('.chatwindow').append('<div class="left"><div class="bye"><span>.</span><span>.</span><span>.</span></div><p>' + rand + '</p></div>');
+	}, 1500);  
+	});
 });
 </script>
-  <script>
-  history.pushState(null, null, location.href); 
-  window.onpopstate = function(event) { 
-  history.go(1); 
-  }
-  </script>
-<script type="text/javascript" src="js/img-resize.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
