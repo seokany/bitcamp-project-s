@@ -81,19 +81,24 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into copic(tno, cono) values(2, 3); 
 	insert into copic(tno, cono) values(3, 4); 
 	insert into copic(tno, cono) values(1, 5);
+	insert into copic(tno, cono) values(2, 6);
+	insert into copic(tno, cono) values(2, 7);
+	insert into copic(tno, cono) values(2, 8);
+	insert into copic(tno, cono) values(2, 9);
+	insert into copic(tno, cono) values(2, 10);
+	insert into copic(tno, cono) values(2, 11);
+  insert into copic(tno, cono) values(1, 12);
+  insert into copic(tno, cono) values(1, 13);
+  insert into copic(tno, cono) values(1, 14);
+  insert into copic(tno, cono) values(1, 15);
 	insert into copic(tno, cono) values(1, 16);
 	insert into copic(tno, cono) values(1, 17);
 	insert into copic(tno, cono) values(1, 18);
-	insert into copic(tno, cono) values(2, 6); 
   insert into copic(tno, cono) values(1, 37);
   insert into copic(tno, cono) values(1, 38);
   insert into copic(tno, cono) values(1, 39); 
   insert into copic(tno, cono) values(1, 40);
   insert into copic(tno, cono) values(1, 41);
-  insert into copic(tno, cono) values(1, 12);
-  insert into copic(tno, cono) values(1, 13);
-  insert into copic(tno, cono) values(1, 14);
-  insert into copic(tno, cono) values(1, 15);
 
 - 검사결과 데이터
 	insert into result(sno, type, rer) values(5, 'mbti', 'istp');

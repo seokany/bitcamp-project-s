@@ -1,6 +1,6 @@
 package bitcamp.java89.ems2.domain;
 
-public class ContentsHeader extends Mento {
+public class ContentsHeader extends Member {
   private static final long serialVersionUID = 1L;
   
   protected int contentsNo;

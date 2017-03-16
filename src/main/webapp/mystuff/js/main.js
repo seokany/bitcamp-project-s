@@ -47,6 +47,7 @@ $( function() {
 				      var section = $('.section');
 				      var template = Handlebars.compile($('#trTemplate').html());
 				      section.html(template({"list": list}));
+				      console.log(list);
 		    		});
 		    	  
 		    	  
@@ -141,6 +142,7 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
+		      console.log("멘토");
 		      console.log(list);
 		      countLike();
 		      
