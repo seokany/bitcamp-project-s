@@ -4,6 +4,7 @@ var sno = 5;
 $( function() { 
     
 	
+	
 	$.getJSON(serverRoot + '/video/list.json', 
 		    {
 			  "pageNo": currPageNo,
@@ -169,7 +170,7 @@ $( function() {
 				      var template = Handlebars.compile($('#mentoList').html());
 				      section.html(template({"list": list}));
 				      console.log(list);
-				      jcarousel();
+				      jcarousels();
 		    		});
 		    	  
 		    	  
@@ -216,8 +217,8 @@ $( function() {
 	
 	
 	
-    function jcarousel() {
-        $('.jcarousel').jcarousel();
+    function jcarousels() {
+		$('.jcarousel').jcarousel();
 
         $('.jcarousel-control-prev')
             .on('jcarouselcontrol:active', function() {
