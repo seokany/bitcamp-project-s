@@ -107,6 +107,182 @@ body {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
 
+
+/*--토글 영역--*/
+.user-menu {
+  width: 300px;
+  background: #f9f9f9;
+  position: absolute;
+  left: -306px;
+  top: 91px;
+  border: 1px solid #f2f2f2;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  z-index: 3;
+}
+.user-menu::after {
+  display: block;
+  right: 0;
+  content: " ";
+  height: 0;
+  top: -10px;
+  width: 0;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f9f9f9;
+}
+.user-menu::before {
+  display: block;
+  right: -1px;
+  content: " ";
+  height: 0;
+  top: -11px;
+  width: 0;
+  position: absolute;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid #f2f2f2;
+}
+.user-menu .user-info {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0px 10px;
+  position: relative;
+}
+
+.user-menu .user-info .profile-img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 4px 0px;
+}
+.user-menu .user-info h3 {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  color: #8e9299;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 15px;
+  padding-left: 20px;
+}
+.user-menu .user-info .btn {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+.ui.btn.normal {
+  padding: 3% 3%;
+  background: #7dcfc6;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: #f2f2f2;
+  font-size: 11px;
+  cursor: pointer;
+}
+.ui.btn.normal:hover, .ui.btn.normal:focus {
+  outline: none;
+  background: #006e63;
+}
+
+.user-menu .invites-info {
+    border: 1px solid #f2f2f2;
+    padding: 2px 10px;
+    height: 89px;
+    display: block;
+}
+.user-menu .invites-info .next-invite-bar {
+  height: 20px;
+  background: #ddd;
+  border: 1px solid #fff;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+.user-menu .invites-info .next-invite-bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -moz-border-radius: 20px 0px 0px 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px 0px 0px 20px;
+  background: #7dcfc6;
+  height: 100%;
+}
+.user-menu .invites-info span {
+  margin-left: 10px;
+  padding: 5px 0;
+  color: #ddd;
+  font-size: 11px;
+  line-height: normal !important;
+  display: block;
+}
+.user-menu .invites-info p {
+  font-size: 11px;
+  line-height: normal;
+  color: #8e9299;
+  float: left;
+  margin: 14px 10px;
+}
+.user-menu .invites-info .btn {
+  float: right;
+  font-size: 11px;
+  margin: 2px 0;
+}
+.user-menu .menu-nav {
+  list-style-type: none;
+}
+.user-menu .menu-nav li {
+  padding: 7px 10px;
+  line-height: normal;
+  color: #8e9299;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+  font-size: 11.5px;
+}
+.user-menu .menu-nav li span {
+  width: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+.user-menu .menu-nav li:hover {
+  background: #f2f2f2;
+  color: #7dcfc6;
+}
+
+
+.header-menu-number {
+  color: #fff;
+  position: absolute;
+  line-height: 19px;
+  padding: 0 6px;
+  font-weight: 700;
+  background: #e64c65;
+  border-radius: 50%;
+  top: 144px;
+  right: 165px;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+  text-decoration: none;
+}
+
+
 </style>
 </head>
 <body>
@@ -126,7 +302,38 @@ body {
 	    </div>
 	    <div class="header-icons">
 	      <img class="sign-out" alt="" src="../common/img/power-24.png">
-	      <img class="sign-in on" alt="" src="../common/img/contacts-24.png">
+	      
+	      <div class="user-menu-toggle">
+	         <img class="sign-in on" alt="" src="../common/img/contacts-24.png">
+	      </div>
+	      
+	      <div class="user-menu" style="display: none;">
+
+		      <div class="user-info">
+		        <div class="profile-img"  style="background-image:url(../common/img/jo.jpg)"></div>
+		        <h3 class="name">조정석</h3>
+		        <div class="ui btn normal">사진변경</div>
+		      </div>
+		
+		      <div class="invites-info">
+		        <span>다음 검사일이 <i>40일</i> 남았습니다</span>
+		        <div class="next-invite-bar">
+		          <div class="progress" style="width:75%"></div>
+		        </div>
+		        
+		        <p>75% 검사를 완료하였습니다</p>
+		        <div class="ui btn normal">검사하러가기</div>
+		      </div>
+		
+		      <div class="menu-nav">
+		        <li><span class="fa fa-comments-o"></span>메시지 확인<a class="header-menu-number" href="#">5</a></li>
+		        <li><span class="fa fa-cogs"></span>환경설정</li>
+		      </div>
+		      
+      </div>
+	      
+	      
+	      
 	      <img class="sign-in on" alt="" src="../common/img/message-2-24.png">
 	      <img class="sign-default" alt="" src="../common/img/activity-feed-24.png">
 	    </div>
@@ -134,5 +341,7 @@ body {
   </div>
 </div>
 
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="js/header.js"></script>
 </body>
 </html>
