@@ -162,6 +162,7 @@ CREATE TABLE PLAN (
   cono  INTEGER         NOT NULL COMMENT '설계도일련번호', -- 설계도일련번호
   eno   INTEGER         NOT NULL COMMENT '멘토일련번호', -- 멘토일련번호
   plmap BLOB            NOT NULL COMMENT '설계도', -- 설계도
+  plnm  VARCHAR(50)     NOT NULL COMMENT '설계도 이름', -- 설계도 이름
   plimg VARBINARY(1000) NOT NULL COMMENT '설계도 썸네일' -- 설계도 썸네일
 )
 COMMENT '설계도';
@@ -483,3 +484,4 @@ ALTER TABLE SNATR
     REFERENCES TOPIC ( -- 주제
       tno -- 주제번호
     );
+    
