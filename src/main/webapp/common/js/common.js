@@ -35,10 +35,32 @@ $( function() {
 					return;
 				}
 				console.log("로그인되었네");
-				// 로그인 되었으면, 로그오프 상태 출력 창을 감춘다. 
+				console.log(ajaxResult.data.name);
+				// 로그인 되었으면
+				
+				var isopen_usermenu = false;
+				  /**
+				   * Open and close usermenu event
+				   */
+				  $(".user-menu-toggle").on("click", function () {
+				    if(!isopen_usermenu) {
+						console.log("헤더클릭요");
+				      // Show menu
+				      $(".user-menu").css("display", "block");
+
+				      isopen_usermenu = true;
+				    } else {
+						console.log("헤더클릭안요");
+				      // Close menu
+						$(".user-menu").css("display", "none");
+
+				      isopen_usermenu = false;
+				    }
+				  });
+				  
 				$('.sign-out').css('display', 'none');
 				$('#logon-div img').attr('src', clientRoot + '/upload/' + ajaxResult.data.photoPath);
-				$('#logon-div span').text(ajaxResult.data.name);
+				$('.user-info h3').text(ajaxResult.data.name);
 				
 				// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
 				$('#logout-btn').click(function(event) {

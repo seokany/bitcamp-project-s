@@ -8,7 +8,7 @@ $(function () {
   /* Open and close usermenu event*/
   $(".user-menu-toggle").on("click", function () {
     if(!isopen_usermenu) {
-
+      
       // Show menu
       $(".message-menu").hide();
       $(".user-menu").show();
@@ -16,9 +16,9 @@ $(function () {
       isopen_usermenu = true;
       isopen_messagemenu = false;
     } else {
-
+      
       // Close menu
-      $(".user-menu").hide();
+		$(".user-menu").hide();
 
       isopen_usermenu = false;
     } 
