@@ -21,6 +21,16 @@
     from messg
     where cono = #{cono} and sno = #{sno}
   </select>
+  
+  <insert id="menteeVisit" parameterType="message">
+    update QNA set sdat = NOW()
+    where cono = #{contentsNo} and sno = #{memberNo};
+  </insert>
+  
+  <insert id="mentoVisit" parameterType="message">
+    update QNA set mdat = NOW()
+    where cono = #{contentsNo} and sno = #{memberNo};
+  </insert>
 
   <insert id="menteeSendQnA" parameterType="message">
     insert into QNA(cono, sno, sdat) 
@@ -31,6 +41,16 @@
   </insert>
 
   <insert id="menteeSendMesg" parameterType="message">
+    insert into MESSG(cono, sno, msge, mswr, msdat)
+    values(
+      #{contentsNo},
+      #{memberNo},
+      #{message},
+      #{writerNo},
+      NOW());
+  </insert>
+
+  <insert id="mentoSendMesg" parameterType="message">
     insert into MESSG(cono, sno, msge, mswr, msdat)
     values(
       #{contentsNo},

@@ -19,8 +19,17 @@ public class MessegeJsonControl {
   @Autowired MessageService messageService;
   
   @RequestMapping("/message/list")
-  public AjaxResult list(@RequestParam int cono, @RequestParam int sno) throws Exception {
+  public AjaxResult list(@RequestParam int cono, @RequestParam int sno, @RequestParam int mno) throws Exception {
     List<Message> list = messageService.messageList(cono, sno);
+    
+    Message message = new Message(); 
+    message.setContentsNo(cono);
+    message.setMemberNo(sno);
+    
+    if (sno == mno)
+      messageService.menteeVisit(message);
+    if (sno != mno)
+      messageService.mentoVisit(message);
     
     HashMap<String,Object> resultMap = new HashMap<>(); 
     resultMap.put("list", list);
@@ -41,6 +50,18 @@ public class MessegeJsonControl {
     if (hasQna == 0) 
       messageService.menteeSendQnA(message);
     messageService.menteeSendMesg(message);
+    return new AjaxResult(AjaxResult.SUCCESS, "success");
+  }
+  
+  @RequestMapping("/message/mento-send")
+  public AjaxResult send(@RequestParam String msge, @RequestParam int cono, @RequestParam int sno, int eno) throws Exception {
+    Message message = new Message(); 
+    message.setContentsNo(cono);
+    message.setMemberNo(sno);
+    message.setMessage(msge);
+    message.setWriterNo(eno);
+    
+    messageService.mentoSendMesg(message);
     return new AjaxResult(AjaxResult.SUCCESS, "success");
   }
 }

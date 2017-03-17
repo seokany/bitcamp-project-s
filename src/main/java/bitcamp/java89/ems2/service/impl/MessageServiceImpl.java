@@ -22,8 +22,20 @@ public class MessageServiceImpl implements MessageService {
     return messageDao.menteeSendMesg(message);
   }
   
+  public int mentoSendMesg(Message message) throws Exception {
+    return messageDao.mentoSendMesg(message);
+  }
+  
   public int hasQnA(Message message) throws Exception {
     return messageDao.hasQnA(message);
+  }
+  
+  public int menteeVisit(Message message) throws Exception {
+    return messageDao.menteeVisit(message);
+  }
+  
+  public int mentoVisit(Message message) throws Exception {
+    return messageDao.mentoVisit(message);
   }
   
   public List<Message> messageList(int cono, int sno) throws Exception {

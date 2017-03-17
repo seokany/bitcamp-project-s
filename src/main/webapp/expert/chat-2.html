@@ -356,10 +356,12 @@ $(function() {
   var cono = 4;
   var sno = 5;
   var eno = 7;
+  var mno = 7;
 	$.getJSON(serverRoot + '/message/list.json', 
 			{
 		    "cono": cono, 
-		    "sno" : sno
+		    "sno" : sno,
+		    "mno" : mno
 			}, function(ajaxResult) {
 				var status = ajaxResult.status; 
 				if (status != "success") return; 
@@ -370,13 +372,9 @@ $(function() {
 					var writer = list[k].writerNo;
 					
 					if (writer == sno) {
-						setTimeout(function() {
-							  $('.chatwindow').append('<div class="right">' + text + '</div>');
-						},500);
+						  $('.chatwindow').append('<div class="right">' + text + '</div>');
 					} else {
-						setTimeout(function() {
-							$('.chatwindow').append('<div class="left bye">' + text + '</div>');
-						},500);
+						  $('.chatwindow').append('<div class="left bye">' + text + '</div>');
 					}
 				});
 			});
@@ -386,26 +384,37 @@ $('#messenger').submit(function () {
 	});
 	$("#message").attr("autocomplete", "off");
 	
-	  <!---- message send service---->
+	  <!---- mentee message send service---->
 	$('#btn').click(function() {
 	   var text = $('#message').val();
-	   $.getJSON(serverRoot + '/message/mentee-send.json', 
-		        {
-		        "msge": text,
-		        "cono": cono,
-		        "sno": sno
-		      }, function(ajaxResult) {
-		          var status = ajaxResult.status;
-		          if (status != "success") return;
-      });
 	   
-	   $('.chatwindow').append('<div class="right">' + text + '</div>');
-	   $('#message').val('');
-	  setTimeout(function () { 
-	    var myArray = ['💩', '🐎', '🍕', '💅🏼', '🍑', '🙏', '🙈', '🙉', '🙊', '🍌']; 
-	var rand = myArray[Math.floor(Math.random() * myArray.length)];
-	    $('.chatwindow').append('<div class="left"><div class="bye"><span>.</span><span>.</span><span>.</span></div><p>' + rand + '</p></div>');
-	}, 1500);  
+// 	   if (ex.getSession.memberType == mento) {
+		   $.getJSON(serverRoot + '/message/mento-send.json',
+				   {
+			       "msge": text, 
+			       "cono": cono,
+			       "sno" : sno, 
+			       "eno" : eno
+				   }, function(ajaxResult) {
+					   var status = ajaxResult.status;
+					   if (status != "success") return;
+		   });
+	     $('.chatwindow').append('<div class="left">' + text + '</div>');
+	     $('#message').val('');
+// 	   }
+// 	   if (ex.getSession.memberType == mentee) {
+// 		   $.getJSON(serverRoot + '/message/mentee-send.json', 
+// 			        {
+// 			        "msge": text,
+// 			        "cono": cono,
+// 			        "sno" : sno
+// 			        }, function(ajaxResult) {
+// 			          var status = ajaxResult.status;
+// 			          if (status != "success") return;
+// 	      });
+//       $('.chatwindow').append('<div class="right">' + text + '</div>');
+//       $('#message').val('');
+// 	   }
 	});
 });
 </script>
