@@ -24,7 +24,7 @@
         <!-- login 사용자 이름 들어갈 공간 -->
         <div class="login_row">
           <img class="animated swing" alt="" src="../common/img/contacts-24.png"/>
-          <input type="email" class="login_input email" placeholder="UserEmail"/>
+          <input id='email' type='text' class="login_input email" placeholder="UserEmail"/>
         </div>
         
         <!-- login 사용자 비밀번호 들어갈 공간 -->
@@ -32,11 +32,11 @@
           <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
           </svg>
-          <input type="password" class="login_input pass" placeholder="Password"/>
+          <input id='password' type="password" class="login_input pass" placeholder="Password"/>
         </div>
         
         
-        <button type="button" class="login_submit" onclick="location.href='../mystuff/main.html' ">로그인하기</button>
+        <button type="button" class="login_submit">로그인하기</button>
         <p class="login_signup"> 아이디가 없습니까? &nbsp;<a class="new-sign">가입하기</a></p>
       </div>
       <!-- 로그인 폼 끝 -->
@@ -100,7 +100,10 @@
   </div>
 </div>
 
+<script src="../common/js/context.js"></script>
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../common/js/bit.js"></script>
 <script src="js/login.js"></script>
 </body>
 </html>

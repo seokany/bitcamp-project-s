@@ -14,21 +14,16 @@ public class AuthServiceImpl implements AuthService {
   
   @Autowired MemberDao memberDao;
   
-  public Member getMemberInfo(String email, String password, String userType) throws Exception {
+  public Member getMemberInfo(String email, String password) throws Exception {
     HashMap<String,String> paramMap = new HashMap<>();
     paramMap.put("email", email);
     paramMap.put("password", password);
+    System.out.println(paramMap);
     
     Member member = memberDao.getOneByEmailPassword(paramMap);
     
     if (member == null) {
       return null;
-    }
-    
-    if (userType.equals(Member.MENTEE)) {
-      
-    } else if (userType.equals(Member.MENTO)) {
-      
     }
     return member;
   }

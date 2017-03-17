@@ -30,6 +30,7 @@ function preparePagingButton(totalCount) {
   
   var maxPageNo = parseInt(totalCount / pageSize);
   if ((totalCount % pageSize) > 0) {
+	  
     maxPageNo++;
   }
   
@@ -56,6 +57,7 @@ function loadList(pageNo, pageSize, sno) {
 		        return;
 		      
 		      var list = ajaxResult.data.list;
+		      console.log("멘통");
 		      console.log(list);
 		      
 		      

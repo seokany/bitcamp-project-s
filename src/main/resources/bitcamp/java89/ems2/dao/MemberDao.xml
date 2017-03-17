@@ -14,7 +14,7 @@
     <result column="mimg"       property="photoPath"/>
   </resultMap>
   
-  <select id="getList" resultMap="member-map">
+<!--   <select id="getList" resultMap="member-map">
     select 
       mno, 
       email, 
@@ -73,7 +73,7 @@
       path
    from memb
    where mno=#{value}
-  </select>
+  </select> -->
   
   
   <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
@@ -82,17 +82,17 @@
       name, 
       age, 
       email
-    from memb
+    from membs
     where email=#{email} 
       and pwd=password(#{password})
   </select>
 
-  <update id="updateImg" parameterType="map">
+<!--   <update id="updateImg" parameterType="map">
     update MEMB
     set
       PATH=#{photoPath}
     where MNO=#{memberNo}
-  </update>
+  </update> -->
   
 </mapper>
 

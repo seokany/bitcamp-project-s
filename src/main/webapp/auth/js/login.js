@@ -19,6 +19,27 @@ $(function() {
   };
   
   $(document).on("click", ".login_submit", function(e) {
+	  
+	  if ($('#save-email').is(':checked')) {
+			setCookie('email', $('#email').val(), 30);
+		} else {
+			setCookie('email', '', 0);
+		}
+	  
+		var param = {
+				email: $('#email').val(),
+				password: $('#password').val()
+			};
+	  
+		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
+			if (ajaxResult.status == "success") {
+				location.href = "../mystuff/homepage.html";	
+				return;
+			}
+			alert(ajaxResult.data);
+		}, 'json');
+		
+	  
     if (animating) return;
     animating = true;
     var that = this;
@@ -74,7 +95,7 @@ $(function() {
     	 $(".sign-in").addClass("animated fadeInLeft");
     	 $('.sign-in').css("display", "block");
 	});
-});
+}); // click()
 
 $(function(){
 	  $('.passIn').keyup(function(){
