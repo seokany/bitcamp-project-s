@@ -6,14 +6,14 @@
 <mapper namespace="bitcamp.java89.ems2.dao.PlanDao">
 
 
-  <resultMap type="bitcamp.java89.ems2.domain.Plan" id="plan-map" extends="member-map">
+  <resultMap type="bitcamp.java89.ems2.domain.Plan" id="plan-map" extends="mento-map">
     <id     column="cono"        property="contentsNo"/>
     <result column="plmap"       property="planMap"/>
     <result column="plimg"      property="planImage"/>
   </resultMap>
   
   
-      <resultMap type="bitcamp.java89.ems2.domain.Member" id="member-map">
+      <resultMap type="bitcamp.java89.ems2.domain.Mento" id="mento-map">
     <id     column="mno"        property="memberNo"/>
     <result column="name"       property="name"/>
     <result column="age"       property="age"/>
@@ -54,19 +54,21 @@
   inner join membs mb on mb.mno = plan.eno
   inner join mento mto on mto.eno = mb.mno
   where ret.sno = 5 and mb.mno = plan.eno 
-  limit 4;
+  limit 4
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   
   
      <select id="detailList" resultMap="plan-map" parameterType="map">
-  select plan.cono,name,plmap,plimg, sarea from plan
-  inner join contents ctt on plan.cono = ctt.cono
+  select plan.cono,name,plmap,plimg, sarea from contents ctt
+  inner join plan on plan.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno
   inner join snatr snt on tp.tno = snt.tno 
-  inner join result ret on snt.reno = ret.reno 
-  where ret.sno = #{sno}
+  inner join result ret on snt.reno = ret.reno
+  inner join membs mb on mb.mno = plan.eno
+  inner join mento mto on mto.eno = mb.mno
+  where ret.sno = #{sno} and mb.mno = plan.eno
   limit #{startRowIndex}, #{rowSize}
   </select>
   

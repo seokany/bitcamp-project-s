@@ -94,11 +94,17 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into copic(tno, cono) values(1, 16);
 	insert into copic(tno, cono) values(1, 17);
 	insert into copic(tno, cono) values(1, 18);
+	insert into copic(tno, cono) values(1, 19);
+	insert into copic(tno, cono) values(1, 20);
+	insert into copic(tno, cono) values(1, 21);
+	insert into copic(tno, cono) values(1, 22);
+	- 아래부터 설계도 리스트
   insert into copic(tno, cono) values(1, 37);
   insert into copic(tno, cono) values(1, 38);
   insert into copic(tno, cono) values(1, 39); 
   insert into copic(tno, cono) values(1, 40);
   insert into copic(tno, cono) values(1, 41);
+  insert into copic(tno, cono) values(1, 42);
 
 - 검사결과 데이터
 	insert into result(sno, type, rer) values(5, 'mbti', 'istp');
