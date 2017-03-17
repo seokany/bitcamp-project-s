@@ -40,6 +40,7 @@ public class AuthJsonControl {
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {
     Member member = (Member)session.getAttribute("member");
+    System.out.println("member세션"+member);
 
     if (member == null) { // 로그인이 되지 않은 상태
       return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
