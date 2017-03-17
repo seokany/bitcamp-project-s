@@ -16,8 +16,38 @@ $( function() {
 	});
 	
 	/* header 호출 스크립트 */
-	$.get("../common/header.html", function(result) {
-		$("#header").html(result); 
+	$.get(clientRoot +"/common/header.html", function(result) {
+		
+		  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+				$('#header').html(result);
+
+				if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
+					// 로그온 상태 출력 창을 감춘다.
+					$('.sign-in').css('display', 'none');
+					$('.sign-default').css('display', 'none');
+					
+					// 로그인 버튼의 클릭 이벤트 핸들러 등록하기
+					$('.sign-out').click(function(event) {
+						event.preventDefault()
+						location.href = clientRoot + '/auth/login.html'
+						location.href = '/bitcamp-project-s/auth/login.html'
+					});
+					return;
+				}
+				console.log("로그인되었네");
+				// 로그인 되었으면, 로그오프 상태 출력 창을 감춘다. 
+				$('.sign-out').css('display', 'none');
+				$('#logon-div img').attr('src', clientRoot + '/upload/' + ajaxResult.data.photoPath);
+				$('#logon-div span').text(ajaxResult.data.name);
+				
+				// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
+				$('#logout-btn').click(function(event) {
+					event.preventDefault()
+					$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+						location.href = clientRoot + '/auth/main.html'
+					});
+				});
+			  });
 	});
 	
 	/* footer 호출 스크립트 */
