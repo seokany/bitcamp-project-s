@@ -72,11 +72,11 @@ $( function() {
 			  });
 	});
 	
-	/* footer 호출 스크립트 */
-	$.get("common/footer.html", function(result) {
-		$("#footer").html(result); 
-	});
-	
+//	/* footer 호출 스크립트 */
+//	$.get("common/footer.html", function(result) {
+//		$("#footer").html(result); 
+//	});
+//	
 	var wheelState;
 	var wheelType;
 	
