@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DREAMTREE</title>
+</head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../common/css/header.css">
+<style>
+body { 
+  margin: 0;
+  overflow-x: hidden;
+ }
+.container {
+  position: relative;
+}
+.contents {
+  display: table; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+.frame-area {
+  display: inline-block;
+  position: absolute;
+  width: 100vw;
+}
+.frame-area-center {
+  left: 0; 
+}
+.frame-area-left {
+  left: -110vw; 
+}
+.frame-area-right {
+  left: 110vw; 
+}
+.board > div, .editor > div, .across > div {
+  position: relative;
+  width: 1250px;
+  height: 700px;
+  margin: 0 auto;
+}
+.board > div {
+  background: gold;
+}
+.editor > div {
+  background: coral;
+}
+.across > div {
+  background: aqua;
+}
+</style>
+<body>
+<div id="header"></div>
+<div class="container">
+	<div class="contents">
+	  <div class="frame-area frame-area-center board">
+	    <div class="board">
+	    </div>
+    </div>
+	  <div class="frame-area frame-area-left   editor">
+	    <div class="editor">
+	    </div>
+	  </div>
+	  <div class="frame-area frame-area-right  across">
+	    <div class="across">
+	    </div>
+    </div>
+	</div>
+</div>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="../common/js/context.js"></script>
+<script>
+$(function() {
+	  $.get("../common/header.html", function(result) {
+		  $('#header').html(result);
+	  });
+	  
+	  $(document.body).on("click", "#editor-btn", function() {
+		  if($(".frame-area-center").hasClass("board")) {
+        $(".editor").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+        $(".board").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+      } else if($(".frame-area-center").hasClass("across")) {
+        $(".across").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+        $(".board").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+        $(".editor").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      }
+	  });
+	  $(document.body).on("click", "#board-btn", function() {
+		  if($(".frame-area-center").hasClass("editor")) {
+        $(".editor").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+        $(".board").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+      } else if($(".frame-area-center").hasClass("across")) {
+        $(".across").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+        $(".board").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      }
+	  });
+	  
+	  var wheelState;
+	  var wheelType;
+	  
+	  $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+	    wheelState = true; 
+	    wheelType = event.originalEvent.wheelDelta;
+	  });
+	    
+	  function hasScrolled() {
+		  if($(".frame-area-center").hasClass("board")) {
+			  if (wheelType < 0) {
+				  $(".board").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+				  $(".across").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+			  } else {
+					  $(".board").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+					  $(".editor").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+			  }
+		  } else if($(".frame-area-center").hasClass("editor")) {
+	       if (wheelType < 0) {
+		       $(".editor").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+		       $(".board").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	       } else {
+	           $(".editor").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	           $(".board").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+	           setTimeout(function() {
+	             $(".across").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	           }, 350);
+	       }
+		  } else if($(".frame-area-center").hasClass("across")) {
+         if (wheelType < 0) {
+           $(".across").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+           $(".board").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+           setTimeout(function() {
+	           $(".editor").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+           }, 350);
+	       } else {
+	           $(".across").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	           $(".board").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	       }
+		  }
+	  };
+	    
+	  setInterval(function() {
+	    if (wheelState) {
+	      hasScrolled(); 
+	      wheelState = false; 
+	    }
+	  }, 250);
+});
+</script>
+</body>
+</html>

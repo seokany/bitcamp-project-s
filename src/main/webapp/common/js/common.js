@@ -1,6 +1,4 @@
 $( function() {
-	console.log("dasdsadsada");
-//	var name = $(sessionScope.name);
 	/* window 사이즈 구하기 */
 	$(window).ready(function() {
 		var windowWidth = $(window).width();
@@ -40,7 +38,6 @@ $( function() {
 				}
 				
 				console.log("로그인되었네");
-//				console.log(ajaxResult.data);
 				console.log(ajaxResult.data.memberNo);
 				console.log(ajaxResult.data.photoPath);
 				
