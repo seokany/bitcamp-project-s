@@ -67,10 +67,9 @@ public class VideoJsonControl {
     if (pageSize < 15 || pageSize > 30) {
       pageSize = 15;
     }
-
+    
     List<Video> list = videoService.detailList(pageNo, pageSize, sno);
     int totalCount = videoService.getSize();
-    
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("list", list);
