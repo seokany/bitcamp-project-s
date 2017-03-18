@@ -1,6 +1,7 @@
 package bitcamp.java89.ems2.control.json;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,14 +34,15 @@ public class MemberJsonControl {
   }*/
   
   @RequestMapping("/mentee/update")
-  public AjaxResult update(Member member) throws Exception {
+  public AjaxResult update(Member member, HttpSession session) throws Exception {
 
     int count = memberService.update(member);
     Member list = memberService.getOne(member.getMemberNo());
+    
     if (count == 0) {
       return new AjaxResult(AjaxResult.FAIL, "해당 번호의 학생이 없습니다.");
     }
-    
+    session.setAttribute("member", list); // HttpSession에 저장한다.
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
 }

@@ -5,7 +5,7 @@
 <title>DREAMTREE navigation</title>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/header.css">
+
 </head>
 <body>
 
@@ -34,10 +34,11 @@
 	      <div class="user-menu toggle" style="display: none;">
 
 		      <div class="user-info toggle">
-		        <div class="profile-img"  style="background-image:url(../common/img/jo.jpg)"></div>
-		        <h3 class="name">조정석</h3>
-		        <div class="ui btn normal">사진변경</div>
+		        <img class="profile-img" src=""></img>
+		        <h3 class="name"></h3>
+		        <div class="ui btns normal">사진변경</div>
 		      </div>
+           <input id='photo' type='file' name='files' multiple>
 		
 		      <div class="invites-info">
 		        <span>다음 검사일이 <i>40일</i> 남았습니다</span>
@@ -46,7 +47,7 @@
 		        </div>
 		        
 		        <p>75% 검사를 완료하였습니다</p>
-		        <div class="ui btn normal">검사하러가기</div>
+		        <div class="ui btns normal">검사하러가기</div>
 		      </div>
 		
 		      <div class="menu-nav">
@@ -87,7 +88,5 @@
   </div>
 </div>
 
-<script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="js/header.js"></script>
 </body>
 </html>
