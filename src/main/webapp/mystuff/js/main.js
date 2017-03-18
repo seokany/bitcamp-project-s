@@ -1,9 +1,12 @@
+
+
+
+
 var currPageNo = 1;
 var pageSize = 5;
 var sno = 5;
 $( function() { 
     
-	
 	
 	$.getJSON(serverRoot + '/video/list.json', 
 		    {
@@ -48,7 +51,7 @@ $( function() {
 				      var section = $('.section');
 				      var template = Handlebars.compile($('#trTemplate').html());
 				      section.html(template({"list": list}));
-				      console.log(list);
+//				      console.log(list);
 		    		});
 		    	  
 		    	  
@@ -94,6 +97,13 @@ $( function() {
     {{/if}}
 		  	*/
 
+		      
+		  	
+		      
+		      
+		      
+		      
+		      
 		  	
 		  	// 좋아요 버튼 눌렀을 때
 		  	
@@ -143,8 +153,8 @@ $( function() {
 		      
 		  
 		      var list = ajaxResult.data.list;
-		      console.log("멘토");
-		      console.log(list);
+//		      console.log("멘토");
+//		      console.log(list);
 		      countLike();
 		      
 		      function countLike() {
@@ -169,7 +179,7 @@ $( function() {
 				      var section = $('.mt-carousel > .ul');
 				      var template = Handlebars.compile($('#mentoList').html());
 				      section.html(template({"list": list}));
-				      console.log(list);
+//				      console.log(list);
 				      jcarousels();
 		    		});
 		    	  
@@ -178,6 +188,19 @@ $( function() {
 		      }
 
 		  });  
+	
+	
+	// mystuff 파일 업로드
+
+	
+
+	
+	
+	
+	
+	
+	
+	
 		        // 좋아요 버튼 눌렀을 때
 		        
 		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때

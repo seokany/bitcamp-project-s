@@ -36,6 +36,7 @@ $(function() {
 				location.href = "../mystuff/homepage.html";	
 				return;
 			}
+			console.log(ajaxResult.data);
 			alert(ajaxResult.data);
 		}, 'json');
 		

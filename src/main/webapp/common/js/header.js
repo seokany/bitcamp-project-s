@@ -1,27 +1,50 @@
 /*토글메뉴*/
 
-$(function () {
-
-	console.log("헤더요");
+$(function() {
+  
   var isopen_usermenu = false;
-  /**
-   * Open and close usermenu event
-   */
-  $(".user-menu-toggle").on("click", function () {
-    if(!isopen_usermenu) {
-		console.log("헤더클릭요");
-      // Show menu
-      $(".user-menu").css("display", "block");
-
-      isopen_usermenu = true;
+  var isopen_messagemenu = false;
+  
+  $(document.body).on("click", function(e) {
+    var target = $(e.target); 
+    console.log(e.target.classList[0]);
+    if (!target.parent().hasClass("toggle")) {
+      $(".user-menu").hide();
+      $(".message-menu").hide();
     } else {
-		console.log("헤더클릭안요");
-      // Close menu
-		$(".user-menu").css("display", "none");
-
-      isopen_usermenu = false;
+      if (e.target.classList[0] == "menu-btn") {
+        
+        if (!isopen_usermenu) {
+        $(".message-menu").hide();
+        $(".user-menu").show();
+        isopen_usermenu = true;
+        isopen_messagemenu = false;
+        
+      } else {
+            $(".user-menu").hide();
+            isopen_usermenu = false;
+          }
+      }
+    
+      if (e.target.classList[0] == "message-btn") {
+        
+        if (!isopen_messagemenu) {
+        $(".user-menu").hide();
+        $(".message-menu").show();
+        isopen_messagemenu = true;
+        isopen_usermenu = false;
+        
+        } else {
+            $(".message-menu").hide();
+            isopen_messagemenu = false;
+        }
+      }
+      
     }
   });
+  
 });
+
+
 
 
