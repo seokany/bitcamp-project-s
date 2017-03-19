@@ -57,9 +57,9 @@ $( function() {
 				
 	
 				
-				// 로그아웃.
-				$('.fa-sign-out').click(function(event) {
-					console.log("dddd");
+
+				// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
+				$('.menu-nav').click(function(event) {
 					event.preventDefault()
 					$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
 						location.href = clientRoot + '/auth/login.html'

@@ -320,7 +320,7 @@ ALTER TABLE MESSG
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     )
-    REFERENCES NEW_SCHEMA.QNA ( -- 질의응답
+    REFERENCES QNA ( -- 질의응답
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     );
