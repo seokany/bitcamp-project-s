@@ -74,10 +74,10 @@ $( function() {
 	
 				
 				// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
-				$('#logout-btn').click(function(event) {
+				$('.menu-nav').click(function(event) {
 					event.preventDefault()
 					$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-						location.href = clientRoot + '/auth/main.html'
+						location.href = clientRoot + '/auth/login.html'
 					});
 				});
 				
