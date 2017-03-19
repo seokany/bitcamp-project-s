@@ -190,17 +190,6 @@ $( function() {
 		  });  
 	
 	
-	// mystuff 파일 업로드
-
-	
-
-	
-	
-	
-	
-	
-	
-	
 		        // 좋아요 버튼 눌렀을 때
 		        
 		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때

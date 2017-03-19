@@ -197,7 +197,7 @@ input[type="file"] {
     top: 14px;
     right: 15px;
     width: 54.1px;
-    display: block;
+    display: none;
     z-index: 1;
     opacity: 0;
     position: absolute;
@@ -331,7 +331,7 @@ input[type="file"] {
   cursor: pointer;
 }
 .ui.btns.color2 {
-  background: #F9E79F;
+  background: rgba(232, 207, 104, 0.86);
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px;
@@ -353,7 +353,7 @@ input[type="file"] {
 }
 .ui.btns.color2:hover, .ui.btns.color2:focus {
   outline: none;
-  background: #F4D03F;
+    background: rgb(247, 200, 9);
 }
 .ui.btns.color3:hover, .ui.btns.color3:focus {
   outline: none;
@@ -549,7 +549,28 @@ span.message-context {
 }
 
 
-
+.photoChange {
+	    top: 10px;
+    right: 30px;
+    position: absolute;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    출처: http:// webdir.tistory.com/435 [WEBDIR];
+    display: inline-block;
+    padding: .5em .75em;
+    color: #f5f5f5;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: rgba(125, 207, 198, 0.86);
+    cursor: pointer;
+    border-bottom-color: #e2e2e2;
+    font-weight: 600;
+    border-radius: 2em;
+    font-size: 13px;
+}
 
 
 

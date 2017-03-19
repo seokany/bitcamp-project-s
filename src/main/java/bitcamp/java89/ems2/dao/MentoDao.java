@@ -1,6 +1,9 @@
 package bitcamp.java89.ems2.dao;
 
+import java.util.Map;
+
 import bitcamp.java89.ems2.domain.Member;
+import bitcamp.java89.ems2.domain.Mento;
 
 public interface MentoDao {
   
@@ -14,5 +17,6 @@ public interface MentoDao {
   Member getOne(String email) throws Exception;*/
   int insert(Member member) throws Exception;
   int count(String email) throws Exception;
+  Mento getOneByEmailPassword(Map<String,String> paramMap) throws Exception;
   
 }

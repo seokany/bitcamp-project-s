@@ -45,9 +45,16 @@ $(function() {
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
 				console.log("로그인 유저 정보");
-				console.log(ajaxResult.data);
-				location.href = "../mystuff/homepage.html";	
-				return;
+				console.log(ajaxResult.data.specialArea);
+				if (ajaxResult.data.specialArea == null) {
+						
+					console.log("sarea 확인.");
+					location.href = "../mystuff/homepage.html";
+					return;
+				} else {
+					location.href = "../expert/driver.html";
+					return;
+				}
 			}
 			console.log(ajaxResult.data);
 			alert(ajaxResult.data);

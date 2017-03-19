@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Member;
+import bitcamp.java89.ems2.domain.Mento;
 import bitcamp.java89.ems2.service.AuthService;
 
 @RestController
@@ -21,14 +22,21 @@ public class AuthJsonControl {
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
     
     Member member = authService.getMemberInfo(email, password);
+    Mento mento = authService.getMentoInfo(email, password);
+
     System.out.println(member);
         
     if (member == null) {
       return new AjaxResult(AjaxResult.FAIL, "이메일 또는 암호가 틀리거나, 가입된 회원이 아닙니다.");
     }
+     if (mento != null) {
+       session.setAttribute("mento", mento); // HttpSession에 저장한다.
+       return new AjaxResult(AjaxResult.SUCCESS, mento);
+    }
+    
     
     session.setAttribute("member", member); // HttpSession에 저장한다.
-    return new AjaxResult(AjaxResult.SUCCESS, "로그인 성공!");
+    return new AjaxResult(AjaxResult.SUCCESS, member);
   }
   
   @RequestMapping("/auth/logout")
