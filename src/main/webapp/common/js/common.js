@@ -122,11 +122,6 @@ $( function() {
 
 						    	console.log(date.getTime())
 						    	console.log(location.href); 
-						    	var oEmployeesTable = $('.user-info').dataTable();
-						    	var oEmployeesTable = $('.user-info').dataTable({
-						            "bServerSide": true,
-						            "sAjaxSource": "DataContent.aspx"
-						      });
 						    	
 						    	refresh();			    		
 						    	function refresh() {
