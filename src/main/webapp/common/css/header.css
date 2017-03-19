@@ -177,6 +177,7 @@ body {
   line-height: normal;
   font-size: 15px;
   padding-left: 20px;
+  width: 100px;
 }
 .user-menu .user-info .btns {
   display: inline-block;
@@ -320,7 +321,7 @@ input[type="file"] {
   float: left;
   font-size: 11px;
   margin: 2px 4px;
-  padding: 8px 13px;
+  padding: 5px 13px;
 }
 .user-menu .recommand-info {
   border: 1px solid #f2f2f2;
@@ -397,7 +398,6 @@ input[type="file"] {
 	margin-left: 11px;
 }
 .ui.btns.color4 {
-  padding: 3% 3%;
   background: #7dcfc6;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -405,6 +405,7 @@ input[type="file"] {
   color: #f2f2f2;
   font-size: 11px;
   cursor: pointer;
+  padding: 5px 12px;
 }
 
 
@@ -522,6 +523,10 @@ input[type="file"] {
 h3.name {
   display: inline-block;
   padding-left: 6px;
+  font-size: 12px;
+  margin: 0;
+  padding:0;
+  width: 37px;
 }
 .message-menu .message-info li:hover {
     background: #f2f2f2;
@@ -536,8 +541,8 @@ h3.name {
   font-weight: 700;
   background: #e64c65;
   border-radius: 50%;
-  top: 13px;
-  right: -28px;
+  top: -2px;
+  right: -2px;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
   text-decoration: none;
@@ -550,8 +555,9 @@ span.job-sort {
 }
 span.message-context {
   position: absolute;
-  top: 16px;
-  padding-left: 8px;
+  top: 29px;
+  padding-left: 13px;
+  width: 136px;
 }
 
 
