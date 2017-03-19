@@ -193,7 +193,6 @@ body {
 }
 
 
-
 input[type="file"] {
     top: 14px;
     right: 15px;
@@ -205,17 +204,6 @@ input[type="file"] {
     height: 17.1px;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
 .ui.btns.normal {
   padding: 3% 3%;
   background: #7dcfc6;

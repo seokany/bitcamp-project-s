@@ -35,7 +35,7 @@ public class MemberJsonControl {
   
   @RequestMapping("/mentee/update")
   public AjaxResult update(Member member, HttpSession session) throws Exception {
-
+    System.out.println("update 메서드");
     int count = memberService.update(member);
     Member list = memberService.getOne(member.getMemberNo());
     
