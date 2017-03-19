@@ -31,12 +31,12 @@ public class AuthJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "로그인 성공!");
   }
   
-  /*@RequestMapping("/auth/logout")
+  @RequestMapping("/auth/logout")
   public AjaxResult logout(HttpSession session) throws Exception {
     session.invalidate(); // 기존 세션을 무효화시킨다.
     return new AjaxResult(AjaxResult.SUCCESS, "로그아웃 성공입니다.");
   }
-  */
+
   
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {

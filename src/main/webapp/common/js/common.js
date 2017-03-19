@@ -1,4 +1,5 @@
 $( function() {
+
 	/* window 사이즈 구하기 */
 	$(window).ready(function() {
 		var windowWidth = $(window).width();
@@ -48,23 +49,6 @@ $( function() {
 				  /**
 				   * Open and close usermenu event
 				   */
-				  $(".user-menu-toggle").on("click", function () {
-				    if(!isopen_usermenu) {
-						console.log("헤더클릭요");
-				      // Show menu
-				      $(".user-menu").css("display", "block");
-
-				      isopen_usermenu = true;
-				    } else {
-						console.log("헤더클릭안요");
-				      // Close menu
-						$(".user-menu").css("display", "none");
-
-				      isopen_usermenu = false;
-				    }
-				    
-				    
-				  }); // 토글
 				  
 				$('.sign-out').css('display', 'none');
 				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + ajaxResult.data.photoPath);
@@ -73,11 +57,12 @@ $( function() {
 				
 	
 				
-				// 로그아웃 버튼의 클릭 이벤트 핸들러 등록하기
-				$('#logout-btn').click(function(event) {
+				// 로그아웃.
+				$('.fa-sign-out').click(function(event) {
+					console.log("dddd");
 					event.preventDefault()
 					$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
-						location.href = clientRoot + '/auth/main.html'
+						location.href = clientRoot + '/auth/login.html'
 					});
 				});
 				
@@ -127,7 +112,7 @@ $( function() {
 						    	function refresh() {
 						  		  $.ajax({
 						                type: 'POST',
-						                url: 'http://localhost:8080/bitcamp-project-s/mystuff/homepage.html', 
+						                url: 'http://192.168.1.15:8080/bitcamp-project-s/mystuff/homepage.html', 
 						                success: function(msg) {
 						                	$('.profile-img').removeAttr('src').attr('src', clientRoot + '/mystuff/img/' + photoPath);
 						                }
@@ -148,6 +133,10 @@ $( function() {
 		  
 		  
 	});
+	
+
+	
+	
 	
 
 	

@@ -51,28 +51,44 @@
       </div>
       
       <div class="login_form sign-up-form">
-        <!-- login 사용자 이름 들어갈 공간 -->
+        <!-- 회원가입 정보 들어갈 곳. -->
         
+       <div class="signUp_row">
+         <label class='radio-inline'>
+          <input id='user-type1' type='radio' name='user-type' value='mentee' checked>멘티
+         </label>
+         <label class='radio-inline'>
+          <input id='user-type2' type='radio' name='user-type' value='mento'>멘토
+         </label>
+        </div>
         
        <div class="login_row">
           <svg class="login_icon name svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
           </svg>
-          <input type="text" class="login_input name" placeholder="Username"/>
+          <input type="text" class="signUp_input name" placeholder="Username"/>
         </div>
         
        <div class="login_row">
           <svg class="login_icon age svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
           </svg>
-          <input type="number" class="login_input age" placeholder="Age"/>
+          <input type="number" class="signUp_input age" placeholder="Age"/>
         </div>
+        
+       <div class="login_row sareaDiv">
+          <svg class="login_icon age svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input type="text" class="signUp_input sarea" placeholder="전문분야"/>
+        </div>
+        
         
         <div class="login_row">
           <svg class="login_icon email svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
           </svg>
-          <input type="email" class="login_input email" placeholder="UserEmail"/>
+          <input type="email" class="signUp_input email" placeholder="UserEmail"/>
         </div>
         
         <!-- login 사용자 비밀번호 들어갈 공간 -->
@@ -80,19 +96,19 @@
           <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
           </svg>
-          <input type="password" class="login_input passIn" placeholder="Password"/>
+          <input type="password" class="signUp_input passIn" placeholder="Password"/>
         </div>
         
         <div class="login_row">
           <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
           </svg>
-          <input type="password" class="login_input passCheck" placeholder="Check-Password"/>
+          <input type="password" class="signUp_input passCheck" placeholder="Check-Password"/>
          <p class="check"></p> 
         </div>
         
         
-        <button type="button" class="login_submit" onclick="location.href='../mystuff/main.html' ">회원가입</button>
+        <button type="button" class="signUp_submit">회원가입</button>
       </div>
       <!-- 로그인 폼 끝 -->
     </div>

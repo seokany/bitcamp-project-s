@@ -5,13 +5,19 @@ import org.springframework.stereotype.Service;
 
 import bitcamp.java89.ems2.dao.ContentsHeaderDao;
 import bitcamp.java89.ems2.dao.MemberDao;
+import bitcamp.java89.ems2.dao.MenteeDao;
+import bitcamp.java89.ems2.dao.MentoDao;
 import bitcamp.java89.ems2.domain.Member;
+import bitcamp.java89.ems2.domain.Mentee;
+import bitcamp.java89.ems2.domain.Mento;
 import bitcamp.java89.ems2.service.MemberService;
 
 @Service
 public class MemberServiceImpl implements MemberService {
   @Autowired ContentsHeaderDao contentsDao;
   @Autowired MemberDao memberDao;
+  @Autowired MenteeDao menteeDao;
+  @Autowired MentoDao mentoDao;
   
  
   
@@ -51,8 +57,6 @@ public class MemberServiceImpl implements MemberService {
   }
   */
   public Member getOne(int memberNo) throws Exception {
-
- 
     return memberDao.getOne(memberNo);
     
   }
@@ -68,6 +72,39 @@ public class MemberServiceImpl implements MemberService {
   }
 
 
+  @Override
+  public int addMentee(Mentee mentee) throws Exception {
+    if (menteeDao.count(mentee.getEmail()) > 0) {
+      throw new Exception("같은 학생의 이메일이 존재합니다. 등록을 취소합니다.");
+    } 
+    if (memberDao.count(mentee.getEmail()) == 0) { 
+      memberDao.insert(mentee);
+      
+    } else {
+      Member member = memberDao.getOneByEmail(mentee.getEmail());
+      mentee.setMemberNo(member.getMemberNo());
+    }
+    
+    return menteeDao.insert(mentee);
+  }
+  
+  @Override
+  public int addMento(Mento mento) throws Exception {
+    
+    if (mentoDao.count(mento.getEmail()) > 0) {
+      throw new Exception("같은 학생의 이메일이 존재합니다. 등록을 취소합니다.");
+    } 
+    if (memberDao.count(mento.getEmail()) == 0) { 
+      memberDao.insert(mento);
+      
+    } else {
+      Member member = memberDao.getOneByEmail(mento.getEmail());
+      mento.setMemberNo(member.getMemberNo());
+    }
+    
+    return mentoDao.insert(mento);
+  
+ }
 }
 
 

@@ -1,10 +1,8 @@
 package bitcamp.java89.ems2.dao;
 
-import java.util.Map;
-
 import bitcamp.java89.ems2.domain.Member;
 
-public interface MemberDao {
+public interface MentoDao {
   
 /*  ArrayList<Member> getList() throws Exception;
   int count(String email) throws Exception;
@@ -16,11 +14,5 @@ public interface MemberDao {
   Member getOne(String email) throws Exception;*/
   int insert(Member member) throws Exception;
   int count(String email) throws Exception;
-  int add(Member member) throws Exception;
-  Member getOneByEmailPassword(Map<String,String> paramMap) throws Exception;
- Member getOne(int memberNo) throws Exception;
- Member getOneByEmail(String email) throws Exception;
-  int countByNo(int memberNo) throws Exception;
-  int update(Member member) throws Exception;
   
 }
