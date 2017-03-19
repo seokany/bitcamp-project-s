@@ -44,7 +44,7 @@ $(function() {
 	};
 		
 	setInterval(function() {
-		if (wheelState && ajaxResult.status == "success") {
+		if (wheelState) {
 			hasScrolled(); 
 			wheelState = false; 
 		}
