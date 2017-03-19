@@ -63,7 +63,7 @@ body {
 .header-icons {
   position: absolute;
   right: 30px;
-  line-height: 105px;
+  top: 35px;
 }
 .header-icons img{
   margin: 0 5px;
@@ -117,16 +117,16 @@ body {
 
 /*--토글 영역(사용자메뉴)--*/
 .user-menu {
-  width: 300px;
-  background: #f9f9f9;
-  position: absolute;
-  left: -232px;
-  top: 44px;
-  border: 1px solid #f2f2f2;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  z-index: 3;
+    width: 300px;
+    background: #f9f9f9;
+    position: absolute;
+    left: -269px;
+    top: 43px;
+    border: 1px solid #f2f2f2;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    z-index: 3;
 }
 .user-menu::after {
   display: block;
@@ -190,6 +190,7 @@ body {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
 .ui.btns.normal {
   padding: 3% 3%;
   background: #7dcfc6;
@@ -277,7 +278,7 @@ body {
   font-weight: 700;
   background: #e64c65;
   border-radius: 50%;
-  top: 149px;
+  top: 168px;
   right: 165px;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
@@ -293,16 +294,16 @@ body {
 
 
 .message-menu {
-  width: 228px;
-  background: #f9f9f9;
-  position: absolute;
-  left: -123px;
-  top: 44px;
-  border: 1px solid #f2f2f2;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  z-index: 3;
+    width: 228px;
+    background: #f9f9f9;
+    position: absolute;
+    left: -158px;
+    top: 44px;
+    border: 1px solid #f2f2f2;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    z-index: 3;
 }
 .message-menu::after {
   display: block;
