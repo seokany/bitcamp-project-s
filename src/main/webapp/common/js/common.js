@@ -112,7 +112,7 @@ $( function() {
 						    	function refresh() {
 						  		  $.ajax({
 						                type: 'POST',
-						                url: 'http://192.168.1.15:8080/bitcamp-project-s/mystuff/homepage.html', 
+						                url: 'http://localhost:8080/bitcamp-project-s/mystuff/homepage.html', 
 						                success: function(msg) {
 						                	$('.profile-img').removeAttr('src').attr('src', clientRoot + '/mystuff/img/' + photoPath);
 						                }

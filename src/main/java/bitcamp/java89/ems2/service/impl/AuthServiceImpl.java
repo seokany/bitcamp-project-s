@@ -1,6 +1,7 @@
 package bitcamp.java89.ems2.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,4 +46,18 @@ public class AuthServiceImpl implements AuthService {
     }
     return mento;
   }
+
+@Override
+public int getOne(int memberNo) throws Exception {
+   return mentoDao.getOne(memberNo);
+    
+}
+
+@Override
+public List<Mento> getList(int memberNo) throws Exception {
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("memberNo",memberNo);
+    
+    return mentoDao.getList(paramMap);
+}
 }
