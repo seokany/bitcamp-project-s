@@ -18,8 +18,7 @@ body {
 }
 .contents {
   display: table; 
-  margin-left: auto; 
-  margin-right: auto;
+  margin: 30px auto;
 }
 .frame-area {
   display: inline-block;
@@ -50,6 +49,18 @@ body {
 .across > div {
   background: aqua;
 }
+.logo-bottom, .header-bottom {
+  background: linear-gradient(90deg, rgba(121, 85, 72, 0.56), rgba(96, 125, 139, 0.65));
+}
+body {
+  background: linear-gradient(90deg, rgba(121, 85, 72, 0.15), rgba(96, 125, 139, 0.25));
+}
+.header-menus li:hover, .header-menus li a:hover {
+  color: #795548;
+}
+.header-menus li {
+  color: #607D8B;
+}
 </style>
 <body>
 <div id="header"></div>
@@ -74,10 +85,22 @@ body {
 <script type="text/javascript" src="../common/js/context.js"></script>
 <script>
 $(function() {
+	  <!-- header load -->
 	  $.get("../common/header.html", function(result) {
 		  $('#header').html(result);
 	  });
+	  <!-- /header load -->
 	  
+	  <!-- expert service load -->
+// 	  $(function() {
+// 	    $(".board").load("main.html .board"); 
+// 	    setTimeout(function() {
+// 	      $(".editor").load("editor.html #container"); 
+// 	    }, 250);
+// 	  });
+	  <!-- /expert service load -->
+	  
+	  <!-- wheel & click 슬라이딩 이벤트 --> 
 	  $(document.body).on("click", "#editor-btn", function() {
 		  if($(".frame-area-center").hasClass("board")) {
         $(".editor").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
@@ -146,6 +169,7 @@ $(function() {
 	      wheelState = false; 
 	    }
 	  }, 250);
+	  <!-- /wheel & click 슬라이딩 이벤트 -->
 });
 </script>
 </body>

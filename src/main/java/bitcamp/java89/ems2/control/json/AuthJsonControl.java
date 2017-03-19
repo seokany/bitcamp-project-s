@@ -37,6 +37,7 @@ public class AuthJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "로그아웃 성공입니다.");
   }
   */
+  
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {
     Member member = (Member)session.getAttribute("member");

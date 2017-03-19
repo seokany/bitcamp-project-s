@@ -178,7 +178,7 @@ body {
   font-size: 15px;
   padding-left: 20px;
 }
-.user-menu .user-info .btn {
+.user-menu .user-info .btns {
   display: inline-block;
   vertical-align: middle;
   font-size: 12px;
@@ -190,7 +190,7 @@ body {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.ui.btn.normal {
+.ui.btns.normal {
   padding: 3% 3%;
   background: #7dcfc6;
   -moz-border-radius: 20px;
@@ -200,7 +200,7 @@ body {
   font-size: 11px;
   cursor: pointer;
 }
-.ui.btn.normal:hover, .ui.btn.normal:focus {
+.ui.btns.normal:hover, .ui.btns.normal:focus {
   outline: none;
   background: #006e63;
 }
@@ -244,7 +244,7 @@ body {
   float: left;
   margin: 14px 10px;
 }
-.user-menu .invites-info .btn {
+.user-menu .invites-info .btns {
   float: right;
   font-size: 11px;
   margin: 2px 0;
