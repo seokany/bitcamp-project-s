@@ -32,11 +32,10 @@ public class AuthJsonControl {
      if (mento != null) {
        session.setAttribute("mento", mento); // HttpSession에 저장한다.
        return new AjaxResult(AjaxResult.SUCCESS, mento);
-    }
-    
-    
+    } else {
     session.setAttribute("member", member); // HttpSession에 저장한다.
     return new AjaxResult(AjaxResult.SUCCESS, member);
+    }
   }
   
   @RequestMapping("/auth/logout")

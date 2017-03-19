@@ -75,12 +75,16 @@
   
   <select id="getOneByEmailPassword" parameterType="map" resultMap="mento-map">
     select 
-      mno, 
+      eno,
       name, 
       age, 
       email,
-      mimg
-    from membs
+      mimg,
+      sarea,
+      darea,
+      carr
+    from mento
+    inner join membs m on m.mno = mento.eno
     where email=#{email} 
       and pwd=password(#{password})
   </select>
