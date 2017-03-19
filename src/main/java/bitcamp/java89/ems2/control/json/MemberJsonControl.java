@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java89.ems2.domain.Member;
+import bitcamp.java89.ems2.domain.Mentee;
+import bitcamp.java89.ems2.domain.Mento;
 import bitcamp.java89.ems2.service.MemberService;
 
 //@Controller
@@ -17,13 +19,22 @@ public class MemberJsonControl {
   
   @Autowired MemberService memberService;
 
-/*  
-  @RequestMapping("/member/add")
-  public AjaxResult add(Member member) throws Exception {
-    memberService.add(member);
+
+  @RequestMapping("/mentee/add")
+  public AjaxResult add(Mentee mentee) throws Exception {
+    memberService.addMentee(mentee);
     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
   }
-
+  
+  @RequestMapping("/mento/add")
+  public AjaxResult add(Mento mento) throws Exception {
+    memberService.addMento(mento);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
+  
+  
+  /*  
   @RequestMapping("/member/delete")
   public AjaxResult delete(int memberNo, HttpServletRequest request) throws Exception {
     int count = memberService.delete(memberNo);

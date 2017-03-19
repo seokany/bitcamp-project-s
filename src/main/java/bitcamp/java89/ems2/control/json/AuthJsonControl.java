@@ -36,7 +36,7 @@ public class AuthJsonControl {
     session.invalidate(); // 기존 세션을 무효화시킨다.
     return new AjaxResult(AjaxResult.SUCCESS, "로그아웃 성공입니다.");
   }
-  
+
   
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {

@@ -3,15 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="bitcamp.java89.ems2.dao.MemberDao">
+<mapper namespace="bitcamp.java89.ems2.dao.MenteeDao">
 
-  <resultMap type="member" id="member-map">
+  <resultMap type="mentee" id="mentee-map">
     <id     column="mno"        property="memberNo"/>
-    <result column="email"      property="email"/>
-    <result column="name"       property="name"/>
-    <result column="pwd"        property="password"/>
-    <result column="age"        property="age"/>
-    <result column="mimg"       property="photoPath"/>
   </resultMap>
   
   <select id="count" parameterType="string" resultType="int">
@@ -21,10 +16,10 @@
   </select>
   
   
-  <insert id="insert" parameterType="member" 
+  <insert id="insert" parameterType="mentee" 
           useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
-    insert into membs(email, name, age, pwd)
-    values(#{email}, #{name}, #{age}, password(#{password}))
+    insert into mentee(sno)
+    values(#{memberNo})
   </insert> 
 <!--   <select id="getList" resultMap="member-map">
     select 
@@ -61,7 +56,7 @@
    where mno=#{value}
   </select> -->
   
-  <select id="getOne" parameterType="int" resultMap="member-map">
+  <select id="getOne" parameterType="int" resultMap="mentee-map">
     select 
       mno, 
       name, 
@@ -71,13 +66,13 @@
     where mno=#{memberNo}
   </select>
   
-   <update id="update" parameterType="member">
+   <update id="update" parameterType="mentee">
     update membs set
       mimg=#{photoPath} 
     where mno=#{memberNo}
   </update> 
   
-  <select id="getOneByEmailPassword" parameterType="map" resultMap="member-map">
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="mentee-map">
     select 
       mno, 
       name, 
@@ -87,16 +82,6 @@
     from membs
     where email=#{email} 
       and pwd=password(#{password})
-  </select>
-  
-    <select id="getOneByEmail" parameterType="string" resultMap="member-map">
-    select 
-      mno, 
-      name, 
-      tel, 
-      email
-    from membs
-    where email=#{value}
   </select>
 
   <select id="countByNo" parameterType="int" resultType="int">
