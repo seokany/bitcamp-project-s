@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>MBTI-RESULT</title>
-<style>
 .button {
   background-color: #4CAF50;
   border: none;
@@ -16,11 +10,10 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-</style>
-</head>
-<body>
+a.button:visited {
+	text-decoration: none;
+}
 
-<a href="main.html" class="button">확인</a>
-
-</body>
-</html>
+span.result {
+  font-size: 20px;
+}

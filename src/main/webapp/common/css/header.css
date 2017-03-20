@@ -98,6 +98,8 @@ body {
   font-weight: 300;
   font-size: 40px;
   font-family: logo;
+  left: 0;
+  position: absolute;
 }
 .logo-bottom a:link, .logo-bottom a:visited {
   text-decoration: none;

@@ -42,11 +42,16 @@ $(function() {
           mbtiResult[3] = "P"; 
         }
         var resultMsg = mbtiResult[0] + mbtiResult[1] + mbtiResult[2] + mbtiResult[3]
-        $("#result").html(resultMsg);
+        $(".wrapper").addClass("dashboard");
+        $(".wrapper").load("mbti-result-istp.html .test-result", function() {
+          console.log($('.test-result').children("span").hasClass("result"));
+          if ($('.test-result').children("span").hasClass("result")){
+            $(".result").html(resultMsg);
+          }
+        });
       }
     });
     $(document.body).on("change", ".radio input", function() {
-      console.log("???????");
       stepChange++;
       if (stepChange == 20) {
         $(".result-btn").removeAttr("disabled");
