@@ -1,11 +1,12 @@
 $(function() {
+  console.log("??시작");
     var stepCount = 0; 
     var stepChange = 0;
     var mbti = [0, 0, 0, 0]; 
     var mbtiResult = {};
     
     if (stepCount != 0) $(".progress-bar").css("border-radius", "0 100px 100px 0");
-    $(".button-two").on("click", function() {
+    $(document.body).on("click", ".button-two", function() {
       stepCount++;
       var nextDiv = $(".on").next("div");
       $(".on").removeClass("on");
@@ -41,10 +42,16 @@ $(function() {
           mbtiResult[3] = "P"; 
         }
         var resultMsg = mbtiResult[0] + mbtiResult[1] + mbtiResult[2] + mbtiResult[3]
-        $("#result").html(resultMsg);
+        $(".wrapper").addClass("dashboard");
+        $(".wrapper").load("mbti-result-istp.html .test-result", function() {
+          console.log($('.test-result').children("span").hasClass("result"));
+          if ($('.test-result').children("span").hasClass("result")){
+            $(".result").html(resultMsg);
+          }
+        });
       }
     });
-    $(".radio input").on("change", function() {
+    $(document.body).on("change", ".radio input", function() {
       stepChange++;
       if (stepChange == 20) {
         $(".result-btn").removeAttr("disabled");

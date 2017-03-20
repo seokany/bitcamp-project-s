@@ -6,7 +6,9 @@
 
 
 .Message {
-  position: relative;
+  position: fixed;
+  top: 80px;
+  left: 39vw;
   margin: 33px auto 0;
   width: 478px;
   height: 81px;
@@ -93,3 +95,12 @@ a:visited {
 .Message-close:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+
+
+
+
+
+
+
