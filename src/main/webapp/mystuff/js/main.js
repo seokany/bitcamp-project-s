@@ -147,7 +147,7 @@ $( function() {
 	
 		        // 좋아요 버튼 눌렀을 때
 		        
-		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
 				        var sno = 5;
@@ -181,31 +181,36 @@ $( function() {
 
 // 영상 더보기 
 			
-	$(document.body).on( "click", ".video", function() {
-		var hasClass = false; 
-		var count = 0; 
-		$('.mystuff-modal').load('talks.html #contents');
-		
-		var videoAddr = $(this).children('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
-		
-		var interval = setInterval(function() {
-			console.log($(".mystuff-modal").children("#contents").children(".modal-content").hasClass("modal-content"));
-			if ($(".mystuff-modal").children("#contents").children(".modal-content").hasClass("modal-content")) {
-				$('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
-				$('#iframe iframe').attr('src',videoAddr);
-				clearInterval(interval);
-			}
-		});
-		
-//		.replace('www.ted.com','embed.ted.com');
+				$(document.body).on( "click", ".rec-video1", function() {
+		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
+		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
+		var list = new Array();
+		$.getJSON(serverRoot + '/videoDetail/getOne.json', 
+				{
+			"cono": cono
+				}, 
+				function(ajaxResult) {
+					var status = ajaxResult.status;
+					if (status != "success")
+						return;
+					
+					 list = ajaxResult.data.list;
+					 console.log(list);
+					 
 
+					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
+						 
+						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+						 $('#iframe iframe').attr('src',videoAddr);
+						 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
+						 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
+						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
+						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
+						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
+					 });
+				});
+		
 	})
-	//	https://embed.ted.com/talks/anjali_tripathi_why_earth_may_someday_look_like_mars?language=ko
-			
-//			<iframe src=''style=width: 960px; height: 360px; background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-			
-			
-			
 			
 			
 

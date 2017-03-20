@@ -10,6 +10,7 @@ public interface VideoService {
   List<Video> getList(int pageNo, int pageSize, int sno) throws Exception;
   int isLike(int cono, int sno) throws Exception;
   List<Video> detailList(int pageNo, int pageSize, int sno) throws Exception;
+  List<Video> getOne(int cono) throws Exception;
   List<Member> selectName() throws Exception;
   /*Student getDetail(int no) throws Exception;
   int add(Student student) throws Exception;

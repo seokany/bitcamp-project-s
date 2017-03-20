@@ -117,6 +117,55 @@ $( function() {
 		      */
 		      
 //		      preparePagingButton(ajaxResult.data.totalCount);
+		        
+		        
+		        
+		        // 영상 더보기 
+			
+	$(document.body).on( "click", ".rec-video1", function() {
+		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
+		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
+		var list = new Array();
+		$.getJSON(serverRoot + '/videoDetail/getOne.json', 
+				{
+			"cono": cono
+				}, 
+				function(ajaxResult) {
+					var status = ajaxResult.status;
+					if (status != "success")
+						return;
+					
+					 list = ajaxResult.data.list;
+					 console.log(list);
+					 
+
+					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
+						 
+						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+						 $('#iframe iframe').attr('src',videoAddr);
+						 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
+						 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
+						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
+						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
+						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
+					 });
+				});
+		
+	})
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
 		  });  
 	
     
