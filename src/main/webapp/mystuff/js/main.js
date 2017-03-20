@@ -16,6 +16,8 @@ $( function() {
 			}, function(ajaxResult) {
 		      var status = ajaxResult.status;
 		      if (status != "success") return;
+		      console.log("video 객체");
+		      console.log(ajaxResult);
 		  
 		      var list = ajaxResult.data.list;
 		      $.each(list, function(k, v) {
@@ -57,56 +59,9 @@ $( function() {
 		    	  
 		      });
 
-
-		      /*loadList(currPageNo,pageSize,sno);
-		  	function loadList(pageNo, pageSize, sno) {
-				$.getJSON(serverRoot + '/videoLike/list.json', 
-				    {
-					  "pageNo": pageNo,
-					  "pageSize": pageSize,
-					  "sno": sno
-					}, 
-					function(ajaxResult) {
-					      var status = ajaxResult.status;
-					      if (status != "success")
-					        return;
-					      
-					    var like = ajaxResult.data.list;
-					     console.log(like);*/
-					     
-/*		  	var isLike = {};
-	  		for (var i = 0; i < like.length; i++) {
-	  			if (like[i].contentsNo == list[i].contentsNo) {
-	  				return options.fn(this);
-	  			} else {
-	  				return options.inverse(this);
-	  			}
-	  		}
-			Handlebars.registerHelper('isLike', function(options) {
-			  if () {
-			    return options.fn(this);
-			  } else {
-			    return options.inverse(this);
-			  }
-			});
-		  	
-		  	*                {{#if isLike}}
-     <a href="#" class="btn heart checked"></a>
-    {{else}}
-      <a href="#" class="btn heart"></a>
-    {{/if}}
-		  	*/
-
-		      
-		  	
-		      
-		      
-		      
-		      
-		      
 		  	
 		  	// 좋아요 버튼 눌렀을 때
-		  	
+/*		  	
 		  	$(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		  		event.preventDefault();
 		  		var curNo = $(this).attr("data-no");
@@ -135,7 +90,7 @@ $( function() {
 		  			}, 'json');
 		  		}	
 		  	});  
-
+*/
 	
 	
 //	멘토 슬라이드 
@@ -224,7 +179,35 @@ $( function() {
 		        })
 			})
 
+// 영상 더보기 
+			
+	$(document.body).on( "click", ".video", function() {
+		var hasClass = false; 
+		var count = 0; 
+		$('.mystuff-modal').load('talks.html #contents');
+		
+		var videoAddr = $(this).children('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
+		
+		var interval = setInterval(function() {
+			console.log($(".mystuff-modal").children("#contents").children(".modal-content").hasClass("modal-content"));
+			if ($(".mystuff-modal").children("#contents").children(".modal-content").hasClass("modal-content")) {
+				$('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+				$('#iframe iframe').attr('src',videoAddr);
+				clearInterval(interval);
+			}
+		});
+		
+//		.replace('www.ted.com','embed.ted.com');
 
+	})
+	//	https://embed.ted.com/talks/anjali_tripathi_why_earth_may_someday_look_like_mars?language=ko
+			
+//			<iframe src=''style=width: 960px; height: 360px; background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+			
+			
+			
+			
+			
 
 	
 	

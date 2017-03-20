@@ -127,7 +127,12 @@ function crowl(ted) {
 	   
 
 	   ted.addVodsc(a('p.talk-description').text().replace(/\n/g, "").replace(/\r/g, "")); // 비디오 설명.
-	   ted.addSimg(a('img.thumb__image').attr("src").replace("?", "")); // 스피커 이미지
+	   try {
+		   ted.addSimg(a('img.thumb__image').attr("src").replace("?", "")); // 스피커 이미지
+	   } catch(err) {
+		   console.log("에러");
+		   ted.addSimg(a('img.thumb__image').attr("src")); // 스피커 이미지
+	   }
 	   ted.addSpnm(a('div.talk-speaker__name > a').text());// 스피커 이름
 	   ted.addSpdsc(a('div.talk-speaker__description').text()); // 스피커 직업
 	   

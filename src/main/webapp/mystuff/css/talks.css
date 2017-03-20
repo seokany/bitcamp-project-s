@@ -6,13 +6,19 @@
 }
 
 .modal-ted-talks {
-	margin-top: 10px;
-	padding: 10px 20px;
-	background-color: #fff;
+    position: relative;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    height: 28%;
 }
 
-.talk-description {
-
+.mystuff-modal {
+    position: absolute;
+    width: 960px;
+    margin-left: 13%;
+    height: 100%;
+    top: -20px;
 }
 
 #talk-description {
@@ -20,8 +26,9 @@
 }
 
 #talk-speaker-description {
-	width: 600px;
-  min-height: 250px;
+    width: 630px;
+    min-height: 250px;
+    display: inline-block;
 }
 
 #talk-speaker-description p:FIRST-CHILD {
@@ -42,15 +49,23 @@
 	border-radius: 100px;
 	cursor: pointer;
 }
-
+.talkSpeaker {
+    width: 30%;
+    height: 47%;
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    text-align: right;
+    top: 0px;
+}
 #talk-speaker-description img {
-  position: absolute;
+  display:inline-block;
   top: 0px;
   right: 180px;
 }
 	
 #talk-speaker-description ul {
-  position: absolute;
+	display:inline-block;
   top: 15px;
   left: 710px;
   list-style-type: none;

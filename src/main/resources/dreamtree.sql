@@ -56,11 +56,11 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 
 
 - 설계도 데이터
-	insert into plan(cono, eno, plmap, plimg) values(38, 6, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(39, 7, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(40, 8, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(41, 9, '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plmap, plimg) values(42, 10, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(51, 6, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(52, 7, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(53, 8, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(54, 9, '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plmap, plimg) values(55, 10, '설계도 내용', '설계도 썸네일');
 
 
 - 주제 데이터

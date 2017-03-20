@@ -382,14 +382,6 @@ height: 368px;
 
 
 /* 좋아요 목록  X 버튼 */
-
-#x-btn {
-    position: absolute;
-    top: -40px;
-    right: 10px;
-    left: 205px;
-    top: 7px;
-}
 .modal-btn {
     cursor: pointer;
 }

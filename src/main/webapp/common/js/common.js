@@ -25,6 +25,7 @@ $( function() {
 				$('#header').html(result);
 
 				if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
+					
 					// 로그온 상태 출력 창을 감춘다.
 					$('.sign-in').css('display', 'none');
 					$('.sign-default').css('display', 'none');
@@ -50,6 +51,7 @@ $( function() {
 				   * Open and close usermenu event
 				   */
 				  
+				$('.Message').css("display","none");
 				$('.sign-out').css('display', 'none');
 				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + ajaxResult.data.photoPath);
 				$('.user-info h3').text(ajaxResult.data.name);
@@ -112,7 +114,7 @@ $( function() {
 						    	function refresh() {
 						  		  $.ajax({
 						                type: 'POST',
-						                url: 'http://localhost:8080/bitcamp-project-s/mystuff/homepage.html', 
+						                url: 'http://192.168.1.15:8080/bitcamp-project-s/mystuff/homepage.html', 
 						                success: function(msg) {
 						                	$('.profile-img').removeAttr('src').attr('src', clientRoot + '/mystuff/img/' + photoPath);
 						                }
@@ -135,11 +137,6 @@ $( function() {
 	});
 	
 
-	
-	
-	
-
-	
 	
 	
 	

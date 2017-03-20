@@ -124,6 +124,33 @@ $( function() {
 		        	}
 		        })
 		    	
+		        
+	$(document.body).on( "click", ".vdoConts", function() {
+		var videoAddr = $(this).children('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
+		var spkImg = $(this).children('.video-conts').children('.video-btm').attr('spkImg')
+		var spkJob = $(this).children('.video-conts').children('.video-btm').attr('spkName')
+		var spkName = $(this).children('.video-conts').children('.video-btm').attr('spkJob')
+		var vdoDsc = $(this).children('.video-conts').children('.video-btm').attr('vdoDsc')
+		
+		$('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
+			$('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+			$('#iframe iframe').attr('src',videoAddr);
+			$('#talk-speaker-description.speakerName').text(spkName);
+			$('#talk-speaker-description.videoDsc').text(vdoDsc);
+			$('.talkSpeaker.speakerName').text(spkName);
+			$('.talkSpeaker.speakerJob').text(spkJob);
+			$('.talkSpeaker').children('#talk-speaker-thumb').attr('src',spkImg);
+		});
+	})
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
+		        
 		      
 	/*	      $('.name-link').click(function(event) {
 		        event.preventDefault();
