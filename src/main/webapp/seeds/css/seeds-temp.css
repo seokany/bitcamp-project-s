@@ -1,0 +1,103 @@
+.seeds {
+  height: 700px;
+  width: 1150px;
+  margin: 67px auto;
+  padding-top: 133px;
+}
+
+#test1, #test2, #test3, #test4 {
+  background-color: #ff8040;
+  border-radius: 75px;
+  width: 95px;
+  height: 95px;
+  color: #FFF;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 37px;
+  font-size: 18px;
+  transition: height 250ms linear, width 250ms linear, padding-top 250ms linear, border-radius 250ms linear, margin 250ms linear, opacity 250ms linear;
+  cursor: pointer;
+  opacity: 0.8;
+  float: left;
+  margin: 76px -37px;
+}
+
+#test1:hover,#test2:hover, #test3:hover, #test4:hover {
+  width: 95px;
+  height: 95px;
+  padding-top: 38px;
+  border-radius: 82px;
+/*   margin-left: -2px;
+  margin-top: -2px; */
+  opacity: 1;
+}
+
+#test1 {
+  margin-left: 131px;
+  background-color: #DFCEE2;
+}
+#test2 {
+  margin-left: 181px;
+  background-color: #537FEA;
+}
+#test3 {
+  margin-left: 181px;
+  background-color: #91C8E5;
+}
+#test4 {
+  margin-left: 181px;
+  background-color: #919EE5;
+}
+
+@keyframes pulse1 {
+  from {
+    box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(223, 206, 226, 1);
+  }
+  to {
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 1), 0px 0px 0px 18px rgba(223, 206, 226, 0);
+  }
+}
+
+@keyframes pulse2 {
+  from {
+    box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(83, 127, 234, 1);
+  }
+  to {
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 1), 0px 0px 0px 18px rgba(83, 127, 234, 0);
+  }
+}
+
+@keyframes pulse3 {
+  from {
+    box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 200, 229, 1);
+  }
+  to {
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 1), 0px 0px 0px 18px rgba(145, 158, 229, 0);
+  }
+}
+
+@keyframes pulse4 {
+  from {
+    box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 158, 229, 1);
+  }
+  to {
+    box-shadow: 0px 0px 0px 15px rgba(255, 255, 255, 1), 0px 0px 0px 18px rgba(145, 158, 229, 0);
+  }
+}
+
+.pulsate1 {
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(223, 206, 226, 1);
+  animation: pulse1 1.5s ease-out 1s infinite forwards;
+}
+.pulsate2 {
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(83, 127, 234, 1);
+  animation: pulse2 1.5s ease-out 1s infinite forwards;
+}
+.pulsate3 {
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 158, 229, 1);
+  animation: pulse3 1.5s ease-out 1s infinite forwards;
+}
+.pulsate4 {
+  box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 158, 229, 1);
+  animation: pulse4 1.5s ease-out 1s infinite forwards;
+}
