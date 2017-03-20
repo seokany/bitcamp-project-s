@@ -54,6 +54,15 @@ public class VideoServiceImpl implements VideoService {
     return videoDao.detailList(paramMap); 
   }
   
+  
+  public List<Video> getOne(int cono) throws Exception {
+
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("cono", cono);
+    
+    return videoDao.getOne(paramMap);
+  }
+  
   /*public Video getDetail(int no) throws Exception {
     return videoDao.getOne(no);
   }
