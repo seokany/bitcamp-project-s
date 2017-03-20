@@ -14,11 +14,12 @@
 <link rel="stylesheet" type="text/css" href="../common/css/header.css" />
 <link rel="stylesheet" type="text/css" href="css/corner.css">
 <link rel="stylesheet" type="text/css" href="css/talks.css">
-<link rel="stylesheet" href="../common/css/header.css">
 </head>
 <body>
 <div id="header"></div>
   <div class="dashboard mystuff">
+  
+  <div class="mystuff-modal"></div>
 	  <div id="div1" class="model-div msize corner-container">
 	  <!-- <div class="msize model-more">
 	    <button class="model-btn frame-modal" frame-src="homepage2.html" >더보기</button>
@@ -37,9 +38,12 @@
       </div>
     </div>
           
-           <div class="corner-box model-box">
+  <div class="corner-box model-box">
     <a class="fpc_page-tip" href="http://192.168.1.117:8080/bitcamp-project-s/likes/person.html">
-    <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+    <div class="corner-contents">
+      <div class="corner-button"><p>더보기</p></div>
+       </div>
+    </a>
   </div>
        <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
        <a href="#" class="jcarousel-control-next">&rsaquo;</a>
@@ -48,9 +52,7 @@
 	  </div>
 	  
 	  
-		<div class="section">
-		 
-		</div>
+		<div class="section"></div>
     
     <div id="div8" class="lsize corner-container"> <!-- 멘토 -->
     <div class="rec-mt jcarousel-wrapper fpc_box mentoBox">
@@ -104,12 +106,9 @@
     </div>
    </div> <!-- job-list -->
 </div>
-  </div>
-	
+
+
 	<!-- 페이지 불러오기 -->
-	<div class="pop-modal modal-esc" style="position: fixed; z-index:10000; top:0;">
-  <iframe id="iframe" class="pop-modal modal-esc pulse" scrolling="yes" frameborder="0"></iframe>
-</div>
 
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
@@ -117,7 +116,7 @@
 <div class="video-conts fpc_box videoBox">
      <img class="rec rec-video1" id="video1" 
             src='{{videoImage}}'></img>
-               <div class="video-btm">
+               <div class="video-btm" iframe-addr={{englishTitle}} spkImg={{speakerImage}} spkName={{speakerName}} spkJob={{speakerJob}} vdoDsc={{videoDescription}}>
        <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
        
        <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
@@ -170,7 +169,6 @@
 <script src="../common/js/context.js"></script>
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript"  src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script> 
@@ -188,6 +186,7 @@
 <script src="js/main.js"></script>
 <script src="../common/js/common.js"></script>
 <script src="js/modal.js"></script>
+
 <!-- <script src="js/video_main.js"></script> -->
 <script>
 // $(document.body).on("click", ".video", function(e) {
