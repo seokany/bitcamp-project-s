@@ -2,75 +2,98 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DREAMTREE navigation</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/newheader.css">
 </head>
 <body>
 
-<header id='header'>
-  <div class='wrapper'>
-  
-    <div class="user-menu-toggle">
-      <span class="simple-arrow fa fa-chevron-up"></span>
-    </div>
-    
-    <div class="user-menu" style="display: none;">
-
-      <div class="user-info">
-        <div class="profile-img"  style="background-image:url(../common/img/jo.jpg)"></div>
-        <h3 class="name">조정석</h3>
-        <div class="ui btn normal">사진변경</div>
+<div class="header-bottom">
+  <div class="header-top">
+    <div class="header-wrap">
+      <div class="logo-bottom">
+        <a rel="alternate" href="http://192.168.1.117:8080/bitcamp-project-s/index.html">DREAMTREE</a>
       </div>
-
-      <div class="invites-info">
-        <span>다음 검사일이 <i>40일</i> 남았습니다</span>
-        <div class="next-invite-bar">
-          <div class="progress" style="width:75%"></div>
+      <div class="header-menus">
+        <ul class="mentee-service">
+          <li><a href="http://localhost:8080/bitcamp-project-s/seeds/seeds-temp.html">Seeds</a></li>
+          <li><a rel="alternate" href="http://localhost:8080/bitcamp-project-s/mystuff/mystuff.html">Mystuff</a></li>
+          <li><a rel="alternate" href="http://localhost:8080/bitcamp-project-s/likes/mento-like.html">Likes</a></li>
+        </ul>
+        <ul class="mento-service hide">
+          <li id="editor-btn"> Editor </li>
+          <li id="board-btn"> Board </li>
+        </ul>
+      </div>
+      <div class="header-icons">
+        <div class="sign-out-icon">
+           <img class="sign-out" alt="" src="http://localhost:8080/bitcamp-project-s/common/img/power-24.png">
         </div>
         
-        <p>75% 검사를 완료하였습니다</p>
-        <div class="ui btn normal">검사하러가기</div>
-      </div>
+        <div class="user-menu-toggle toggle">
+           <img class="menu-btn sign-in on" alt="" src="http://localhost:8080/bitcamp-project-s/common/img/power-24.png">
+        </div>
+        
+             <!-- 가입권유메세지 -->
+    
+        
+        
+        <div class="user-menu toggle" style="display: none;">
 
-      <div class="menu-nav">
-        <li><span class="fa fa-comments-o"></span>메시지 확인<a class="header-menu-number" href="#">5</a></li>
-        <li><span class="fa fa-cogs"></span>환경설정</li>
-        <!-- <li><span class="fa fa-question"></span>도우미</li> -->
+          <div class="user-info toggle">
+            <img class="profile-img" src=""></img>
+            <h3 class="name"></h3>
+            <label class="photoChange" for="photo">사진변경</label>
+        <input id='photo' type='file' name='files'multiple>
+           
+          </div>
+    
+          <div class="invites-info">
+            <span>다음 검사일이 <i>40일</i> 남았습니다</span>
+            <div class="next-invite-bar">
+              <div class="progress" style="width:75%"></div>
+            </div>
+            <p>75% 검사를 완료하였습니다</p>
+            <div class="ui btns normal">검사하러가기</div>
+          </div>
+          
+          <div class="recommand-info">
+            <p>추천분야</p>
+            <div class="ui btns color1">천문학</div>
+            <div class="ui btns color2">연구원</div>
+            <div class="ui btns color3">재무</div>
+          </div>
+          
+          <div class="result-info">
+            <p>검사결과</p>
+            <span class="test-name">mbti</span>
+            <div class="ui btns color4">ISTP</div>
+          </div>
+          
+          <div class="need-info">
+            <p>필요한 검사</p>
+             <span>검사이름1</span>
+             <span>검사이름2</span>
+             <span>검사이름3</span>
+          </div>
+    
+          <div class="menu-nav">
+            <li><span class="fa fa-sign-out"></span>로그아웃</li>
+          </div>
+          
       </div>
-<!--     </div> -->
-    
-    <div class="sign-out-icon">
-        <span class="fa fa-power-off"></span>
+        
+        <div class="message-menu-toggle toggle">
+           <img class="message-btn sign-in on" alt="" src="http://localhost:8080/bitcamp-project-s/common/img/message-2-24.png">
+        </div>
+        
+        
+      </div>
+      
+      
+      
     </div>
-    
-    
-    
-    <div class="front-ui">
-      <div class="front-img"  style="background-image:url(../common/img/jo.jpg)"></div>
-      <div class="user-type">학생</div>
-      <div class="user-name">조정석</div>
-    </div>
-    
-    <nav>
-      <ul id='menu'>
-        <!-- 중간 메뉴들 -->
-        <li>
-          <a class='active' href='#'>SEEDS</a>
-        </li>
-        <li>
-          <a href='#'>LIKEIT</a>
-        </li>
-        <li>
-          <a href='#'>MENTOS</a>
-        </li>
-      </ul>
-    </nav>
-    <a class='menu-link' href='#menu'>Menu</a>
   </div>
-</header>
+</div>
 
-<script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="js/newheader.js"></script>
 </body>
 </html>

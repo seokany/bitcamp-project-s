@@ -43,6 +43,7 @@ Ted.prototype.addVodsc = function(vodsc) {
 	this.vodsc.push(vodsc);
 };
 Ted.prototype.addSimg = function(simg) {
+	console.log(simg);
 	this.simg.push(simg);
 };
 Ted.prototype.addSpnm = function(spnm) {
@@ -113,7 +114,7 @@ request(url, function(error, response, html){
 				  console.log(rows[0].cono);
 					ted.cono = rows[0].cono;
 		});
-		for (i = 0; ted.anker.length > i; i++) {
+		for (i = 0; i < ted.anker.length; i++) {
 			console.log(ted.anker[i]);
 			url = ted.anker[i];
 			crowl(ted);
@@ -129,10 +130,9 @@ function crowl(ted) {
 	   if (error) {return console.log(error)};
 //          console.log("url="+url);
 	   var a = cheerio.load(html);
-	   
 
 	   ted.addVodsc(a('p.talk-description').text().replace(/\n/g, "").replace(/\r/g, "")); // 비디오 설명.
-	   ted.addSimg(a('.talk-speaker__image').children('.thumb').children('.thumb__sizer').children('.thumb__tugger').children('.thumb__image').attr("src")); // 스피커 이미지
+	   ted.addSimg(a('a.talk-speaker__image img').attr("src")); // 스피커 이미지
 	   ted.addSpnm(a('div.talk-speaker__name > a').text());// 스피커 이름
 	   ted.addSpdsc(a('div.talk-speaker__description').text()); // 스피커 직업
 	   

@@ -35,32 +35,6 @@
 </div>
 
 
-<script id="videoDetail" type="text/x-handlebars-template">
-{{#each list}}
-<div class="ssize vdoConts">
-<div class="video-conts">
-     <img class="rec rec-video1" id="video1" 
-            src='{{videoImage}}'></img>
-               <div class="video-btm" iframe-addr={{englishTitle}}>
-       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
-       
-       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
-                 <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
-                   {{#if isLike}}
-                     <a href="#" class="btn heart checked"></a>
-                   {{else}}
-                     <a href="#" class="btn heart"></a>
-                   {{/if}}
-                 </button>
-        </div>
-
-     </div>
-</div>
-
-{{/each}}
-</script>
-
-
 
 <script src="../../common/js/context.js"></script>
 <script src="../../node_modules/handlebars/dist/handlebars.js"></script>

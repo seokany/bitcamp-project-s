@@ -29,30 +29,27 @@ $(function() {
     elem.append($ripple);
   };
   
-  $(document).on("click", ".login_submit", function(e) {
-	  
-	  if ($('#save-email').is(':checked')) {
-			setCookie('email', $('#email').val(), 30);
-		} else {
-			setCookie('email', '', 0);
-		}
-	  
+  $(document.body).on("click", ".login_submit", function(e) {
 		var param = {
 				email: $('#email').val(),
 				password: $('#password').val()
 			};
 	  
+		/*   로그인 버튼 이벤트   */ 
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
 				console.log("로그인 유저 정보");
 				console.log(ajaxResult.data.specialArea);
 				if (ajaxResult.data.specialArea == null) {
-						
-					console.log("sarea 확인.");
-					location.href = "../mystuff/mystuff.html";
+					$('.demo').removeClass("animated fadeInRight");
+			    	$('.demo').addClass("animated fadeOutRight");
+			    	setTimeout(function() {
+			    		$('.auth-login-form').css("display", "none");
+			    		$('.demo').removeClass("animated fadeOutRight");
+			    	}, 600);
 					return;
 				} else {
-					location.href = "../expert/driver.html";
+					location.href = "expert/driver.html";
 					return;
 				}
 			}

@@ -1,22 +1,45 @@
-$( function() {
 
-	/* window 사이즈 구하기 */
-	$(window).ready(function() {
-		var windowWidth = $(window).width();
-		var windowHeigth = $(window).height();
-		
-		$(window).resize(function() {
-			windowWidth = $(window).width();
-			windowHeigth = $(window).height();
-			
-//			$(".main-frame").css("height", windowHeigth + "px");
-		});
-			
-//		$(".main-frame").css("height", windowHeigth + "px");
-	});
-	
-	/* header 호출 스크립트 및 로그인 유저 로그인 상태 확인.*/
-	
+$('#new-btn').click(function(event) {
+	event.preventDefault(); 
+	location.href = 'view.html';
+});
+
+$('#prevPgBtn').click(function() {
+  if (currPageNo > 1) {
+    loadList(--currPageNo, 15, sno);
+  }
+});
+  
+$('#nextPgBtn').click(function() {
+  loadList(++currPageNo, 15, sno);
+});
+  
+function preparePagingButton(totalCount) {
+  // 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
+  if (currPageNo <= 1) {
+    $('#prevPgBtn').attr('disabled', true);
+  } else {
+    $('#prevPgBtn').attr('disabled', false);
+  }
+  
+  var maxPageNo = parseInt(totalCount / pageSize);
+  if ((totalCount % pageSize) > 0) {
+    maxPageNo++;
+  }
+  
+  if (currPageNo >= maxPageNo) {
+    $('#nextPgBtn').attr('disabled', true); 
+  } else {
+    $('#nextPgBtn').attr('disabled', false);
+  }
+  
+  // 현재 페이지 번호를 출력한다.
+  $('#pageNo').text(currPageNo);
+}
+
+
+$( function() {
+	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
 	var memberNo = 0;
 	var date = new Date();
 	var photoPath;
@@ -27,14 +50,15 @@ $( function() {
 				if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
 					
 					// 로그온 상태 출력 창을 감춘다.
-					$('.sign-in').css('display', 'none');
-					$('.sign-default').css('display', 'none');
+//					$('.sign-in').css('display', 'none');
+//					$('.sign-default').css('display', 'none');
 					
 					// 로그인 버튼의 클릭 이벤트 핸들러 등록하기
 					$('.sign-out').click(function(event) {
-						event.preventDefault()
-						location.href = clientRoot + '/auth/login.html'
-						location.href = '/bitcamp-project-s/auth/login.html'
+						$('.auth-login-form').load(clientRoot + "/auth/login.html .cont", function() {
+							$('.auth-login-form').css("display", "block");
+							$('.demo').addClass("animated fadeInRight");
+						});
 					});
 					return;
 				}
@@ -51,7 +75,7 @@ $( function() {
 				   * Open and close usermenu event
 				   */
 				  
-				$('.Message').css("display","none");
+//				$('.Message').css("display","none");
 				$('.sign-out').css('display', 'none');
 				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + ajaxResult.data.photoPath);
 				$('.user-info h3').text(ajaxResult.data.name);
@@ -132,49 +156,50 @@ $( function() {
 				
 				
 			  }); // loginUser
-		  
-		  
 	});
+	/*   /header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
 	
+	/*   Cookie 관리 스크립트   */
+	function getCookie(cname) {
+	    var name = cname + "=";
+	    var decodedCookie = decodeURIComponent(document.cookie);
+	    var ca = decodedCookie.split(';');
+	    for(var i = 0; i <ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0) == ' ') {
+	            c = c.substring(1);
+	        }
+	        if (c.indexOf(name) == 0) {
+	            return c.substring(name.length, c.length);
+	        }
+	    }
+	    return "";
+	}
 
-	
-	
-	
-	/* footer 호출 스크립트 */
-	$.get("common/footer.html", function(result) {
-		$("#footer").html(result); 
-	});
-	
-	var wheelState;
-	var wheelType;
-	
-	$("html, body").on("mousewheel DOMMouseScroll", function(event) {
-		wheelState = true; 
-		wheelType = event.originalEvent.wheelDelta;
-	});
-		
-	function hasScrolled() {
-		if (wheelType < 0) {
-			$(".frame-left").addClass("old-left");
-			$(".frame-center").switchClass("frame-center", "frame-left", 2000, "easeInOutBack");
-			$(".frame-right").switchClass("frame-right", "frame-center", 2000, "easeInOutBack");
-			$(".frame-none").switchClass("frame-none", "frame-right", 0, "easeInOutBack");
-			$(".old-left").switchClass("frame-left", "frame-none", 2000, "easeInOutBack");
-			$(".old-left").removeClass("old-left");
-		} else {
-			$(".frame-right").addClass("old-right");
-			$(".frame-center").switchClass("frame-center", "frame-right", 1000, "easeInOutBack");
-			$(".frame-right").switchClass("frame-right", "frame-none", 1000, "easeInOutBack");
-			$(".frame-none").switchClass("frame-none", "frame-left", 0, "easeInOutBack");
-			$(".old-right").switchClass("frame-right", "frame-none", 1000, "easeInOutBack");
-			$(".old-right").removeClass("old-right");
+	function setCookie(cname, cvalue, exdays, path) {
+		if (path == undefined) {
+			path = "/";
 		}
-	};
+	    var d = new Date();
+	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	    var expires = "expires="+ d.toUTCString();
+	    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=" + path;
+	}
+	/*   /Cookie 관리 스크립트   */
+	
+	/*   window 사이즈 구하기   */
+	$(window).ready(function() {
+		var windowWidth = $(window).width();
+		var windowHeigth = $(window).height();
 		
-	setInterval(function() {
-		if (wheelState) {
-			hasScrolled(); 
-			wheelState = false; 
-		}
-	}, 250);
+		$(window).resize(function() {
+			windowWidth = $(window).width();
+			windowHeigth = $(window).height();
+			
+			/*$(".main-frame").css("height", windowHeigth + "px");*/
+		});
+			
+		/*$(".main-frame").css("height", windowHeigth + "px");*/
+	});
+	/*   /window 사이즈 구하기   */
 });
