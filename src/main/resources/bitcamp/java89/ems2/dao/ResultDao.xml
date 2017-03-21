@@ -29,6 +29,14 @@
     where sno = #{memberNo} and type = #{type}
   </select>
   
+  <insert id="insert" parameterType="result">
+    insert into result(sno,type,rer) 
+    values(
+      #{memberNo},
+      #{type}, 
+      #{resultResult})
+  </insert>  
+  
 </mapper>
 
 

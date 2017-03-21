@@ -6,8 +6,8 @@ public interface ResultDao {
   /*int countAll() throws Exception;
   ArrayList<Student> getList(Map<String,Object> paramMap) throws Exception;
   int count(String email) throws Exception;
-  int countByNo(int memberNo) throws Exception;
-  int insert(Student student) throws Exception;*/
+  int countByNo(int memberNo) throws Exception;*/
+  int insert(Result result) throws Exception;
   Result getOne(int resultNo) throws Exception;
  /* int update(Student student) throws Exception;
   int delete(int memberNo) throws Exception;*/

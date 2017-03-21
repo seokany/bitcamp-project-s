@@ -22,7 +22,19 @@ public class ResultServiceImpl implements ResultService {
   public Result getList(Result result) throws Exception {
     return resultDao.getList(result);
   }
+
+  @Override
+  public int add(Result result) throws Exception {
+    
+    //student.setMemberNo(member.getMemberNo());
+    result.setMenteeNo(menteeNo);
+    
+    return resultDao.insert(result);
+  }
   
+  
+  
+
 }
 
 
