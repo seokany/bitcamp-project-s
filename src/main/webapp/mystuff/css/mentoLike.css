@@ -107,7 +107,7 @@ width: 530px;
 }
 
 
-.btn-type {
+/* .btn-type {
 	  text-align: center;
     right: -27px;
     position: absolute;
@@ -116,7 +116,7 @@ width: 530px;
     width: 175px;
     height: 28px;
     
-}
+} */
 
 .tab:hover {
 	cursor:pointer;
