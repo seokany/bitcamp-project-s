@@ -14,8 +14,12 @@ public interface MemberDao {
   int delete(int memberNo) throws Exception;
   Member getOneByNo(int memberNo) throws Exception;
   Member getOne(String email) throws Exception;*/
+  int insert(Member member) throws Exception;
+  int count(String email) throws Exception;
+  int add(Member member) throws Exception;
   Member getOneByEmailPassword(Map<String,String> paramMap) throws Exception;
  Member getOne(int memberNo) throws Exception;
+ Member getOneByEmail(String email) throws Exception;
   int countByNo(int memberNo) throws Exception;
   int update(Member member) throws Exception;
   

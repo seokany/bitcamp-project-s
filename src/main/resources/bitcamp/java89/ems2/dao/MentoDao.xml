@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.MentoDao">
+
+  <resultMap type="mento" id="mento-map">
+    <id     column="mno"        property="memberNo"/>
+    <result column="email"      property="email"/>
+    <result column="name"       property="name"/>
+    <result column="pwd"        property="password"/>
+    <result column="age"        property="age"/>
+    <result column="mimg"       property="photoPath"/>
+    <result column="sarea"       property="specialArea"/>
+    <result column="darea"       property="defaultArea"/>
+    <result column="carr"       property="career"/>
+  </resultMap>
+  
+  <select id="count" parameterType="string" resultType="int">
+    select count(*) 
+    from membs
+    where email=#{value}
+  </select>
+  
+  
+  <insert id="insert" parameterType="mento" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
+    insert into mento(eno, sarea)
+    values(#{memberNo},#{specialArea})
+  </insert> 
+<!--   <select id="getList" resultMap="member-map">
+    select 
+      mno, 
+      email, 
+      name, 
+      age
+    from memb
+  </select>
+  
+  
+  <select id="countByEmailPassword" parameterType="map" resultType="int">
+    select count(*) 
+    from memb 
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+  
+  
+  
+  
+  <delete id="delete" parameterType="int">
+    delete from memb where mno=#{value}
+  </delete>
+  
+ -->
+  
+  <select id="getOne" parameterType="int" resultType="int">
+    select count(*)
+    from mento
+    where eno=#{memberNo}
+  </select>
+  
+   <update id="update" parameterType="mento">
+    update membs set
+      mimg=#{photoPath} 
+    where mno=#{memberNo}
+  </update> 
+  
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="mento-map">
+    select 
+      mno,
+      name, 
+      age, 
+      email,
+      mimg,
+      sarea,
+      darea,
+      carr
+    from mento
+    inner join membs m on m.mno = mento.eno
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from membs mb 
+    where mb.mno=#{value}
+  </select>
+  
+  
+    <select id="getList" resultMap="mento-map" parameterType="map">
+    select 
+      mno,
+      name, 
+      age, 
+      email,
+      mimg,
+      sarea,
+      darea,
+      carr
+    from mento
+    inner join membs m on m.mno = mento.eno
+    where eno =#{memberNo} 
+  </select>
+  
+
+
+<!--   <update id="updateImg" parameterType="map">
+    update MEMB
+    set
+      PATH=#{photoPath}
+    where MNO=#{memberNo}
+  </update> -->
+  
+</mapper>
+
+
+
+
+
+
+
+

@@ -1,5 +1,16 @@
 $(function() {
-  
+	
+	if ($('input[name=user-type]:checked').val() =="mentee") {
+		$('.sareaDiv').css("display", "none");
+	}
+	
+	$(document).on("click", "#user-type1", function(e) {
+		$('.sareaDiv').css("display", "none");
+	})
+	$(document).on("click", "#user-type2", function(e) {
+		$('.sareaDiv').css("display", "block");
+	})
+	
   var animating = false,
       submitPhase1 = 1100,
       submitPhase2 = 400,
@@ -33,8 +44,17 @@ $(function() {
 	  
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
-				location.href = "../mystuff/homepage.html";	
-				return;
+				console.log("로그인 유저 정보");
+				console.log(ajaxResult.data.specialArea);
+				if (ajaxResult.data.specialArea == null) {
+						
+					console.log("sarea 확인.");
+					location.href = "../mystuff/homepage.html";
+					return;
+				} else {
+					location.href = "../expert/driver.html";
+					return;
+				}
 			}
 			console.log(ajaxResult.data);
 			alert(ajaxResult.data);
@@ -61,6 +81,84 @@ $(function() {
       }, submitPhase2);
     }, submitPhase1);
   });
+  
+  
+  // 회원가입 클릭시 
+  
+  $(document).on("click", ".signUp_submit", function(e) {
+	  if ($('.signUp_input.passIn').val() != $('.signUp_input.passCheck').val()) {
+		  alert("패스워드가 일치하지 않습니다.");
+		  location.href = "/bitcamp-project-s/auth/login.html";
+	  }
+	  else{
+		  if($('input[name=user-type]:checked').val() =="mentee") {
+		  
+		  var param = {
+				  name: $('.signUp_input.name').val(),
+				  age: $('.signUp_input.age').val(),
+				  email: $('.signUp_input.email').val(),
+				  password: $('.signUp_input.passIn').val()
+		  };
+		  
+		  $.post(serverRoot + '/mentee/add.json', param, function(ajaxResult) {
+			  if (ajaxResult.status == "success") {
+				  location.href = "/bitcamp-project-s/auth/login.html";	
+				  return;
+			  }
+			  console.log(ajaxResult.data);
+			  alert(ajaxResult.data);
+		  }, 'json');
+	   } // if 멘티로 체크되어있다면 
+		  else {
+		   
+		   var param = {
+					  name: $('.signUp_input.name').val(),
+					  age: $('.signUp_input.age').val(),
+					  specialArea: $('.signUp_input.sarea').val(),
+					  email: $('.signUp_input.email').val(),
+					  password: $('.signUp_input.passIn').val()
+			  };
+			  
+			  $.post(serverRoot + '/mento/add.json', param, function(ajaxResult) {
+				  if (ajaxResult.status == "success") {
+					  location.href = "/bitcamp-project-s/auth/login.html";	
+					  return;
+				  }
+				  console.log(ajaxResult.data);
+				  alert(ajaxResult.data);
+			  }, 'json');
+		   
+		   
+		   
+	   } // 멘토로 체크 되어있다면~ 
+	  }  
+		
+	  
+    if (animating) return;
+    animating = true;
+    var that = this;
+    ripple($(that), e);
+    $(that).addClass("processing");
+    setTimeout(function() {
+      $(that).addClass("success");
+      setTimeout(function() {
+        $app.show();
+        $app.css("top");
+        $app.addClass("active");
+      }, submitPhase2 - 70);
+      setTimeout(function() {
+        $login.hide();
+        $login.addClass("inactive");
+        animating = false;
+        $(that).removeClass("success processing");
+      }, submitPhase2);
+    }, submitPhase1);
+  });
+  
+  
+  
+  
+  
   
   $(document).on("click", ".app_logout", function(e) {
     if (animating) return;

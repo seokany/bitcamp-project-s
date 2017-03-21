@@ -117,7 +117,7 @@ button {
 .sign-up-form {
 	top:20%;
 }
-.login_row {
+.login_row, .signUp_row {
   height: 5rem;
   padding-top: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -176,7 +176,7 @@ p.incorrect {
     font-weight: 600;
 }
 
-.login_input {
+.login_input, .signUp_input {
   display: inline-block;
   width: 22rem;
   height: 100%;
@@ -186,7 +186,7 @@ p.incorrect {
   color: #FDFCFD;
 }
 
-.login_submit {
+.login_submit, .signUp_submit {
   position: relative;
   width: 100%;
   height: 4rem;
@@ -200,7 +200,7 @@ p.incorrect {
   -webkit-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
   transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
 }
-.login_submit:after {
+.login_submit:after, .signUp_submit:after {
   content: "";
   position: absolute;
   top: 50%;

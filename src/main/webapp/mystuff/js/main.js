@@ -16,6 +16,8 @@ $( function() {
 			}, function(ajaxResult) {
 		      var status = ajaxResult.status;
 		      if (status != "success") return;
+		      console.log("video 객체");
+		      console.log(ajaxResult);
 		  
 		      var list = ajaxResult.data.list;
 		      $.each(list, function(k, v) {
@@ -57,56 +59,9 @@ $( function() {
 		    	  
 		      });
 
-
-		      /*loadList(currPageNo,pageSize,sno);
-		  	function loadList(pageNo, pageSize, sno) {
-				$.getJSON(serverRoot + '/videoLike/list.json', 
-				    {
-					  "pageNo": pageNo,
-					  "pageSize": pageSize,
-					  "sno": sno
-					}, 
-					function(ajaxResult) {
-					      var status = ajaxResult.status;
-					      if (status != "success")
-					        return;
-					      
-					    var like = ajaxResult.data.list;
-					     console.log(like);*/
-					     
-/*		  	var isLike = {};
-	  		for (var i = 0; i < like.length; i++) {
-	  			if (like[i].contentsNo == list[i].contentsNo) {
-	  				return options.fn(this);
-	  			} else {
-	  				return options.inverse(this);
-	  			}
-	  		}
-			Handlebars.registerHelper('isLike', function(options) {
-			  if () {
-			    return options.fn(this);
-			  } else {
-			    return options.inverse(this);
-			  }
-			});
-		  	
-		  	*                {{#if isLike}}
-     <a href="#" class="btn heart checked"></a>
-    {{else}}
-      <a href="#" class="btn heart"></a>
-    {{/if}}
-		  	*/
-
-		      
-		  	
-		      
-		      
-		      
-		      
-		      
 		  	
 		  	// 좋아요 버튼 눌렀을 때
-		  	
+/*		  	
 		  	$(document.body).on( "click", ".section .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		  		event.preventDefault();
 		  		var curNo = $(this).attr("data-no");
@@ -135,7 +90,7 @@ $( function() {
 		  			}, 'json');
 		  		}	
 		  	});  
-
+*/
 	
 	
 //	멘토 슬라이드 
@@ -190,20 +145,9 @@ $( function() {
 		  });  
 	
 	
-	// mystuff 파일 업로드
-
-	
-
-	
-	
-	
-	
-	
-	
-	
 		        // 좋아요 버튼 눌렀을 때
 		        
-		        $(document.body).on( "click", ".ul .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+		        $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
 				        var sno = 5;
@@ -235,7 +179,40 @@ $( function() {
 		        })
 			})
 
+// 영상 더보기 
+			
+				$(document.body).on( "click", ".rec-video1", function() {
+		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
+		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
+		var list = new Array();
+		$.getJSON(serverRoot + '/videoDetail/getOne.json', 
+				{
+			"cono": cono
+				}, 
+				function(ajaxResult) {
+					var status = ajaxResult.status;
+					if (status != "success")
+						return;
+					
+					 list = ajaxResult.data.list;
+					 console.log(list);
+					 
 
+					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
+						 
+						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+						 $('#iframe iframe').attr('src',videoAddr);
+						 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
+						 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
+						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
+						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
+						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
+					 });
+				});
+		
+	})
+			
+			
 
 	
 	

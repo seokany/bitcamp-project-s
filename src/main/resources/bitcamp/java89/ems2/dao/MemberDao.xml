@@ -14,6 +14,18 @@
     <result column="mimg"       property="photoPath"/>
   </resultMap>
   
+  <select id="count" parameterType="string" resultType="int">
+    select count(*) 
+    from membs
+    where email=#{value}
+  </select>
+  
+  
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
+    insert into membs(email, name, age, pwd)
+    values(#{email}, #{name}, #{age}, password(#{password}))
+  </insert> 
 <!--   <select id="getList" resultMap="member-map">
     select 
       mno, 
@@ -23,11 +35,6 @@
     from memb
   </select>
   
-  <select id="count" parameterType="string" resultType="int">
-    select count(*) 
-    from memb 
-    where email=#{value}
-  </select>
   
   <select id="countByEmailPassword" parameterType="map" resultType="int">
     select count(*) 
@@ -36,11 +43,6 @@
       and pwd=password(#{password})
   </select>
   
-  <insert id="insert" parameterType="member" 
-          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
-    insert into memb(email, name, age, pwd, path)
-    values(#{email}, #{name}, #{age}, password(#{password}),"default.jpg")
-  </insert> 
   
   
   
@@ -85,6 +87,16 @@
     from membs
     where email=#{email} 
       and pwd=password(#{password})
+  </select>
+  
+    <select id="getOneByEmail" parameterType="string" resultMap="member-map">
+    select 
+      mno, 
+      name, 
+      tel, 
+      email
+    from membs
+    where email=#{value}
   </select>
 
   <select id="countByNo" parameterType="int" resultType="int">

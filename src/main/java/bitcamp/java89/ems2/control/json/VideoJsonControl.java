@@ -79,6 +79,18 @@ public class VideoJsonControl {
   }
   
   
+  @RequestMapping("/videoDetail/getOne")
+  public AjaxResult getOne(@RequestParam int cono) throws Exception {
+    
+    
+    List<Video> list = videoService.getOne(cono);
+    
+    HashMap<String,Object> resultMap = new HashMap<>();
+    resultMap.put("list", list);
+    
+    return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+  }
+  
   
   
   

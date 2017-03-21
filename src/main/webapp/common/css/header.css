@@ -98,6 +98,8 @@ body {
   font-weight: 300;
   font-size: 40px;
   font-family: logo;
+  left: 0;
+  position: absolute;
 }
 .logo-bottom a:link, .logo-bottom a:visited {
   text-decoration: none;
@@ -177,6 +179,7 @@ body {
   line-height: normal;
   font-size: 15px;
   padding-left: 20px;
+  width: 100px;
 }
 .user-menu .user-info .btns {
   display: inline-block;
@@ -191,6 +194,18 @@ body {
   transform: translateY(-50%);
 }
 
+
+input[type="file"] {
+    top: 14px;
+    right: 15px;
+    width: 54.1px;
+    display: none;
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
+    height: 17.1px;
+    cursor: pointer;
+}
 .ui.btns.normal {
   padding: 3% 3%;
   background: #7dcfc6;
@@ -201,6 +216,7 @@ body {
   font-size: 11px;
   cursor: pointer;
 }
+
 .ui.btns.normal:hover, .ui.btns.normal:focus {
   outline: none;
   background: #006e63;
@@ -209,7 +225,7 @@ body {
     border: 1px solid #f2f2f2;
     padding: 2px 10px;
     height: 89px;
-    display: block;
+/*     display: block; */
 }
 .user-menu .invites-info .next-invite-bar {
   height: 20px;
@@ -284,6 +300,133 @@ body {
   transition: all .3s linear;
   text-decoration: none;
 }
+
+
+
+
+
+
+/*--추천분야--*/
+.user-menu .recommand-info .btns {
+  float: left;
+  font-size: 11px;
+  margin: 2px 4px;
+  padding: 5px 13px;
+}
+.user-menu .recommand-info {
+  border: 1px solid #f2f2f2;
+  padding: 2px 10px;
+  height: 61px;
+}
+.user-menu .recommand-info p {
+  font-size: 12px;
+  line-height: normal;
+  color: #8e9299;
+  margin: 2px 10px;
+}
+.ui.btns.color1 {
+  background: #F5B7B1;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+.ui.btns.color2 {
+  background: rgba(232, 207, 104, 0.86);
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+.ui.btns.color3 {
+  background: #D7BDE2;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+
+.ui.btns.color1:hover, .ui.btns.color1:focus {
+  outline: none;
+  background: #F1948A;
+}
+.ui.btns.color2:hover, .ui.btns.color2:focus {
+  outline: none;
+    background: rgb(247, 200, 9);
+}
+.ui.btns.color3:hover, .ui.btns.color3:focus {
+  outline: none;
+  background: #C39BD3;
+}
+
+
+/*--검사결과--*/
+.user-menu .result-info .btns {
+  float: left;
+  font-size: 11px;
+  margin: 2px 4px;
+  padding: 8px 26px;
+}
+.user-menu .result-info {
+  border: 1px solid #f2f2f2;
+  padding: 2px 10px;
+  height: 61px;
+}
+.user-menu .result-info p {
+  font-size: 12px;
+  line-height: normal;
+  color: #8e9299;
+  margin: 2px 10px;
+}
+.test-name {
+	font-size: 11px;
+	color: #8e9299;
+	float: left;
+	margin-left: 11px;
+}
+.ui.btns.color4 {
+  background: #7dcfc6;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: #f2f2f2;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 5px 12px;
+}
+
+
+
+
+/*--필요한 검사--*/
+.user-menu .need-info .btns {
+  float: left;
+  font-size: 11px;
+  margin: 2px 4px;
+  padding: 8px 26px;
+}
+.user-menu .need-info {
+  border: 1px solid #f2f2f2;
+  padding: 2px 10px;
+  height: 48px;
+}
+.user-menu .need-info p {
+  font-size: 12px;
+  line-height: normal;
+  color: #8e9299;
+  margin: 2px 10px;
+}
+.user-menu .need-info span {
+  font-size: 12px;
+  line-height: normal;
+  color: #8e9299;
+  margin: 2px 10px;
+}
+
+
 
 /*--토글 영역(채팅메뉴)--*/
 
@@ -370,6 +513,10 @@ body {
 h3.name {
   display: inline-block;
   padding-left: 6px;
+  font-size: 12px;
+  margin: 0;
+  padding:0;
+  width: 39px;
 }
 .message-menu .message-info li:hover {
     background: #f2f2f2;
@@ -384,8 +531,8 @@ h3.name {
   font-weight: 700;
   background: #e64c65;
   border-radius: 50%;
-  top: 13px;
-  right: -28px;
+  top: -2px;
+  right: -2px;
   -webkit-transition: all .3s linear;
   transition: all .3s linear;
   text-decoration: none;
@@ -398,9 +545,40 @@ span.job-sort {
 }
 span.message-context {
   position: absolute;
-  top: 16px;
-  padding-left: 8px;
+  top: 29px;
+  padding-left: 13px;
+  width: 136px;
 }
+
+
+.photoChange {
+	    top: 10px;
+    right: 30px;
+    position: absolute;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    출처: http:// webdir.tistory.com/435 [WEBDIR];
+    display: inline-block;
+    padding: .5em .75em;
+    color: #f5f5f5;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: rgba(125, 207, 198, 0.86);
+    cursor: pointer;
+    border-bottom-color: #e2e2e2;
+    font-weight: 600;
+    border-radius: 2em;
+    font-size: 13px;
+}
+
+
+
+
+
+
 
 
 

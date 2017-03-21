@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.MenteeDao">
+
+  <resultMap type="mentee" id="mentee-map">
+    <id     column="mno"        property="memberNo"/>
+  </resultMap>
+  
+  <select id="count" parameterType="string" resultType="int">
+    select count(*) 
+    from membs
+    where email=#{value}
+  </select>
+  
+  
+  <insert id="insert" parameterType="mentee" 
+          useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
+    insert into mentee(sno)
+    values(#{memberNo})
+  </insert> 
+<!--   <select id="getList" resultMap="member-map">
+    select 
+      mno, 
+      email, 
+      name, 
+      age
+    from memb
+  </select>
+  
+  
+  <select id="countByEmailPassword" parameterType="map" resultType="int">
+    select count(*) 
+    from memb 
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+  
+  
+  
+  
+  <delete id="delete" parameterType="int">
+    delete from memb where mno=#{value}
+  </delete>
+  
+  <select id="getOneByNo" parameterType="int" resultMap="member-map">
+    select 
+      mno,
+      email, 
+      name, 
+      age,
+      path
+   from memb
+   where mno=#{value}
+  </select> -->
+  
+  <select id="getOne" parameterType="int" resultMap="mentee-map">
+    select 
+      mno, 
+      name, 
+      age,
+      mimg
+    from membs
+    where mno=#{memberNo}
+  </select>
+  
+   <update id="update" parameterType="mentee">
+    update membs set
+      mimg=#{photoPath} 
+    where mno=#{memberNo}
+  </update> 
+  
+  <select id="getOneByEmailPassword" parameterType="map" resultMap="mentee-map">
+    select 
+      mno, 
+      name, 
+      age, 
+      email,
+      mimg
+    from membs
+    where email=#{email} 
+      and pwd=password(#{password})
+  </select>
+
+  <select id="countByNo" parameterType="int" resultType="int">
+    select count(*)
+    from membs mb 
+    where mb.mno=#{value}
+  </select>
+
+
+<!--   <update id="updateImg" parameterType="map">
+    update MEMB
+    set
+      PATH=#{photoPath}
+    where MNO=#{memberNo}
+  </update> -->
+  
+</mapper>
+
+
+
+
+
+
+
+
