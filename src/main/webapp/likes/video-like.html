@@ -69,6 +69,64 @@
 <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
  <script type="text/javascript" src="../mystuff/js/jquery.jcarousel.min.js"></script>
     <script src="../node_modules/blueimp-load-image/js/load-image.js"></script>
+<link rel="stylesheet" href="../mystuff/css/modal.css">
+</head>
+<body>
+<div id="header"></div>
+  <div class="dashboard mystuff video-list">
+    <div class="mystuff-modal"></div>
+    <div class="btn-type">
+ <a href="http://localhost:8080/bitcamp-project-s/likeList/mento-like.html"><button id="tab-1" type="button" name="tab" class="mt-list-btn" checked><label for="tab-1" class="tab">멘토&설계도</label></button></a>
+    <a href="http://localhost:8080/bitcamp-project-s/likeList/video-like.html"><button id="tab-2" type="button" name="tab" class="video-list-btn"><label for="tab-2" class="tab">추천영상</label></button></a>
+    </div>
+<div class="app">
+<div class="mento-top">
+ <h2>내가 좋아하는 영상</h2>
+ </div>
+ <div class="video-like-list"></div>
+ 
+ </div>
+ <div class="videoBtn pageBtn">
+ <button id='prevPgBtn' type='button' class='btn-primary btn-xs'>이전</button>
+<span id='pageNo'>1</span>
+<button id='nextPgBtn' type='button' class='btn-primary btn-xs'>다음</button>
+</div>
+
+</div>
+
+
+<script id="videoLike" type="text/x-handlebars-template">
+{{#each list}}
+<div class="ssize vdoConts">
+<div class="video-conts videoBox">
+     <img class="rec rec-video1" id="video1" 
+            src='{{videoImage}}'></img>
+               <div class="video-btm" iframe-addr={{englishTitle}}>
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                          <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                    <a href="#" class="btn heart checked"></a>
+                   </button>
+     </div>
+        </div>
+     </div>
+</div>
+
+{{/each}}
+</script>
+
+
+
+
+
+<script src="../common/js/context.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../mystuff/js/jquery.jcarousel.min.js"></script>
+<script src="../node_modules/blueimp-load-image/js/load-image.js"></script>
 <script src="../node_modules/blueimp-load-image/js/load-image-meta.js"></script>
 <script src="../node_modules/blueimp-load-image/js/load-image-exif.js"></script>
 <script src="../node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>

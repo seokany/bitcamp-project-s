@@ -22,6 +22,20 @@ public class PlanServiceImpl implements PlanService {
     return planDao.countAll();
   }
  
+ public int boardSize(int eno) throws Exception {
+   return planDao.boardSize(eno);
+ }
+ 
+ public List<Plan> boardList(int pageNo, int pageSize, int eno) throws Exception {
+   HashMap<String,Object> paramMap = new HashMap<>();
+   paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
+   paramMap.put("rowSize", pageSize);
+   paramMap.put("eno", eno);
+   
+   return planDao.boardList(paramMap); 
+ }
+ 
+ 
   public List<Plan> getList(int pageNo, int pageSize, int sno) throws Exception {
 
     HashMap<String,Object> paramMap = new HashMap<>();
