@@ -15,13 +15,19 @@
 <link rel="stylesheet" type="text/css" href="seeds/css/seeds-temp.css" />
 <link rel="stylesheet" type="text/css" href="seeds/css/json.mbti.css" />
 <link rel="stylesheet" type="text/css" href="seeds/css/mbti-result-istp.css" />
+<link rel="stylesheet" type="text/css" href="mystuff/css/mystuff.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/homepage.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/jobHover.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/modal.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/corner.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/talks.css">
 <style>
 /*   driver   */
 body {
   margin: 0;
   overflow: hidden;
  }
-.container {
+.all-container {
   position: relative;
 }
 .contents {
@@ -73,7 +79,7 @@ body {
 </style>
 <body>
 <div id="header"></div>
-<div class="container">
+<div class="all-container">
 	<div class="contents">
 	  <div class="frame-area frame-area-center seeds">
 	  </div>
@@ -109,6 +115,32 @@ body {
 <script type="text/javascript" src="seeds/js/alert.js"></script>
 <script type="text/javascript" src="seeds/js/seeds-temp.js"></script>
 <script type="text/javascript" src="seeds/js/json.mbti.js"></script>
+<script id="mentoList" type="text/x-handlebars-template">
+{{#each list}}
+<div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
+                  <div class="mento-conts">
+                   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 50px;">
+          {{#if isLike}}
+            <a href="#" class="btn heart checked"></a>
+          {{else}}
+            <a href="#" class="btn heart"></a>
+          {{/if}}
+                   </button>
+              <div class="mento-btm">
+                 <div class="mt-photo"><img src='img/lee.jpg'></div>
+                 <div class="mento-name-favor"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
+              </div>
+                   <div class="mento-box corner-box">
+                      <a class="fpc_page-tip" href="http://localhost:8080/bitcamp-project-s/mystuff/detail/mento-detail.html">
+                     <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+                   </div>
+               </div>
+              </div>
+{{/each}}
+</script>
+<script type="text/javascript" src="mystuff/js/main.js"></script>
+<script type="text/javascript" src="mystuff/js/modal.js"></script>
+<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script> 
 <script>
 $(function() {
 	  <!-- header load -->
