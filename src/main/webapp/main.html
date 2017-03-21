@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DREAMTREE</title>
+</head>
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css">
+<link rel="stylesheet" type="text/css" href="common/css/header.css">
+<link rel="stylesheet" type="text/css" href="common/css/common.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/expert.css"> -->
+<link rel="stylesheet" type="text/css" href="seeds/css/alert.css" />
+<link rel="stylesheet" type="text/css" href="seeds/css/seeds-temp.css" />
+<link rel="stylesheet" type="text/css" href="seeds/css/json.mbti.css" />
+<link rel="stylesheet" type="text/css" href="seeds/css/mbti-result-istp.css" />
+<style>
+/*   driver   */
+body {
+  margin: 0;
+  overflow: hidden;
+ }
+.container {
+  position: relative;
+}
+.contents {
+  display: table; 
+  margin: 30px auto;
+}
+.frame-area {
+  display: inline-block;
+  position: absolute;
+  width: 100vw;
+}
+.frame-area-center {
+  left: 0; 
+}
+.frame-area-left {
+  left: -110vw; 
+}
+.frame-area-right {
+  left: 110vw; 
+}
+/*   /driver   */
+.fa-plus {
+    top: 49%;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    color: rgba(158, 158, 158, 0.47);
+    text-shadow: 1px 1px rgba(96, 125, 139, 0.58);
+}
+.dashboard {
+    position: relative;
+    margin: 1vw auto;
+}
+.mystuff-explain,
+.likes-explain {
+    left: 50%;
+    top: 50%;
+    margin-left: -224px;
+    margin-top: -50px;
+    position: absolute;
+    color: #9E9E9E;
+    font-size: 24px;
+    text-shadow: 1px 1px 1px rgba(96, 125, 139, 0.45);
+    cursor: default;
+}
+.likes-explain {
+    margin-left: -170px;
+}
+</style>
+<body>
+<div id="header"></div>
+<div class="container">
+	<div class="contents">
+	  <div class="frame-area frame-area-center seeds">
+	  </div>
+	  <div class="frame-area frame-area-right   mystuff">
+      <div class="mystuff dashboard">
+        <div class="mystuff-explain">로그인하셔야 추천 정보를 드릴 수 있어요.</div>
+      </div>
+	  </div>
+	  <div class="frame-area frame-area-right  likes">
+      <div class="likes dashboard">
+        <div class="likes-explain choose">아직 '좋아요'한 컨텐츠가 없어요.</div>
+      </div>
+    </div>
+	</div>
+</div>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
+<script type="text/javascript" src="common/js/context.js"></script>
+<script type="text/javascript" src="common/js/header.js"></script>
+<script type="text/javascript" src="common/js/common.js"></script>
+<script type="text/javascript" src="seeds/js/alert.js"></script>
+<script type="text/javascript" src="seeds/js/seeds-temp.js"></script>
+<script type="text/javascript" src="seeds/js/json.mbti.js"></script>
+<script>
+$(function() {
+	  <!-- header load -->
+	  $.get("common/header.html", function(result) {
+		  $('#header').html(result);
+	  });
+	  <!-- /header load -->
+	  
+   <!-- mentee service loader -->
+    $(function() {
+      $(".seeds").load("seeds/seeds-temp.html .dashboard");
+      $(".mystuff").load("mystuff/mystuff.html .dashboard");
+    });
+    <!-- /mentee service load -->
+    
+    <!-- wheel & click 슬라이딩 이벤트 --> 
+    $(document.body).on("click", "#seeds-btn", function() {
+      if($(".frame-area-center").hasClass("mystuff")) {
+        $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+      } else if($(".frame-area-center").hasClass("likes")) {
+        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+        $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      }
+    });
+    $(document.body).on("click", "#mystuff-btn", function() {
+      if($(".frame-area-center").hasClass("seeds")) {
+        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+      } else if($(".frame-area-center").hasClass("likes")) {
+        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      }
+    });
+    $(document.body).on("click", "#likes-btn", function() {
+      if($(".frame-area-center").hasClass("seeds")) {
+        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+      } else if($(".frame-area-center").hasClass("mystuff")) {
+        $(".mystuff").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+      }
+    });
+    
+    var wheelState;
+    var wheelType;
+    
+    $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+      wheelState = true; 
+      wheelType = event.originalEvent.wheelDelta;
+    });
+      
+    function hasScrolled() {
+      if($(".frame-area-center").hasClass("mystuff")) {
+        if (wheelType < 0) {
+          $(".mystuff").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+          $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+        } else {
+            $(".mystuff").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+            $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+        }
+      } else if($(".frame-area-center").hasClass("seeds")) {
+         if (wheelType < 0) {
+           $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+           $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+         } else {
+             $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+             $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+             setTimeout(function() {
+               $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+             }, 350);
+         }
+      } else if($(".frame-area-center").hasClass("likes")) {
+         if (wheelType < 0) {
+           $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+           $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+           setTimeout(function() {
+             $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+           }, 350);
+         } else {
+             $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+             $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+         }
+      }
+    };
+      
+    setInterval(function() {
+      if (wheelState) {
+        hasScrolled(); 
+        wheelState = false; 
+      }
+    }, 250);
+    <!-- /wheel & click 슬라이딩 이벤트 -->
+});
+</script>
+</body>
+</html>
