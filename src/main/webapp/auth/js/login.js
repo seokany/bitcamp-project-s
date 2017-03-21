@@ -49,7 +49,7 @@ $(function() {
 				if (ajaxResult.data.specialArea == null) {
 						
 					console.log("sarea 확인.");
-					location.href = "../mystuff/homepage.html";
+					location.href = "../mystuff/mystuff.html";
 					return;
 				} else {
 					location.href = "../expert/driver.html";
