@@ -43,7 +43,7 @@ $(function() {
         var resultMsg = mbtiResult[0] + mbtiResult[1] + mbtiResult[2] + mbtiResult[3]
 
         $(".wrapper").addClass("dashboard");
-        $(".wrapper").load("mbti-result-istp.html .test-result", function() {
+        $(".wrapper").load("seeds/mbti-result-istp.html .test-result", function() {
           console.log($('.test-result').children("span").hasClass("result"));
           if ($('.test-result').children("span").hasClass("result")){
             $(".result").html(resultMsg);
@@ -52,24 +52,32 @@ $(function() {
             var sno;
             $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
               sno = ajaxResult.data.memberNo
+              if (ajaxResult.status !="success") {
+            	  alert(ajaxResult.data);
+            	  return;
+              }
+              
+              console.log("sno:" + sno);
+              
+              var param = {
+            		  "memberNo": sno,
+            		  "type": "mbti",
+            		  "resultResult": resultMsg
+              };
+              console.log("param.memberNo:" + param.memberNo);
+              
+              $.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
+            	  if (ajaxResult.status != "success") {
+            		  alert(ajaxResult.data);
+            		  return;
+            	  }
+            	  console.log(ajaxResult.data);
+            	  //location.href = 'seeds-temp.html';
+              }, 'json'); // post();
+              
             });
             
-            console.log("sno:" + sno);
-            
-            var param = {
-                "memberNo": sno,
-                "type": "mbti",
-                "resultResult": resultMsg
-              };
-            console.log("param:" + param);
-            
-            $.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
-              if (ajaxResult.status != "success") {
-                alert(ajaxResult.data);
-                return;
-              }
-              location.href = 'seeds-temp.html';
-          }, 'json'); // post();
+        
             
           }
         });

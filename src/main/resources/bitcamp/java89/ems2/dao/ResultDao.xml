@@ -7,6 +7,7 @@
 
   <resultMap type="result" id="result-map">
     <id     column="reno"        property="resultNo"/>
+    <result column="sno"        property="memberNo"/>
     <result column="type"      property="type"/>
     <result column="rer"       property="resultResult"/>
   </resultMap>
@@ -21,6 +22,17 @@
     from result r
     left outer join mentee m on m.sno = r.sno
     where reno=#{resultNo}
+  </select>
+  
+  <select id="getOneByMemberNo" parameterType="int" resultMap="result-map">
+    select
+      reno,
+      r.sno,
+      type,
+      rer
+    from result r
+    left outer join mentee m on m.sno = r.sno
+    where r.sno=#{memberNo}
   </select>
   
   <select id="getList" parameterType="result" resultMap="result-map">
