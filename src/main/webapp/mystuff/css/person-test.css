@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+
+.person-detail {
+    position: absolute;
+    border: 1px solid red;
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+    margin-left: 12%;
+    margin-top: 8%;
+}
+
+
+.person-detail > img {
+position: absolute;
+    border: 1px solid blue;
+    width: 260px;
+    height: 400px;
+    top: -145px;
+    left: -115px;
+}
+
+.name-job {
+    display: inline-block;
+    width: 35%;
+    /* right: 0px; */
+    /* position: absolute; */
+    text-align: left;
+    position: relative;
+    left: 160px;
+     margin-top: 10px;
+}
+
+.name-job > h3 {
+    right: 0px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    /* margin: 0 auto; */
+    margin-left: 0px;
+}
+
+
+.name-job > span {
+    position: relative;
+    display: block;
+}
+
+.detail-desc {
+    display: inline-block;
+    width: 790px;
+    border: 1px solid black;
+    height: 330px;
+    margin-left: 157px;
+    margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

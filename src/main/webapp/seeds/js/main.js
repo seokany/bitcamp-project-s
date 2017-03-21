@@ -138,23 +138,6 @@ $( function() {
   });*/
 });
 
-var state = true;
-function changeimg() {// 좋아요 버튼 눌렀을 때
-	if(state) {
-		this.setAttribute( "src", "../image/fheart.png" );
-	$(".like-del").css("display", "none");
-	$(".like-add").css("display", "block");
-	$(".like-add").addClass('animated fadeOut');
-	$(".like-add").css("animation-delay", "1s");
-	} else {
-		this.setAttribute( "src", "../image/heart.png" );
-		$(".like-add").css("display", "none");
-		$(".like-del").css("display", "block");
-		$('.like-del').addClass('animated fadeOut');
-		$(".like-del").css("animation-delay", "1s");
-	}
-	state = !state;
-};
 
 
 /*function ButtonDown() {  마우스로 눌렀을 때 이미지 변환  
