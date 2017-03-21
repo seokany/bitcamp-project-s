@@ -6,6 +6,14 @@ $(function() {
   
   $(document.body).on("click", function(e) {
     var target = $(e.target); 
+    if (target.hasClass('cont')) {
+    	$('.demo').removeClass("animated fadeInRight");
+    	$('.demo').addClass("animated fadeOutRight");
+    	setTimeout(function() {
+    		$('.auth-login-form').css("display", "none");
+    		$('.demo').removeClass("animated fadeOutRight");
+    	}, 600);
+    }
     if (!target.parent().hasClass("toggle")) {
       $(".user-menu").hide();
       $(".message-menu").hide();
