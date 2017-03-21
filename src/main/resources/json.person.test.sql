@@ -86,6 +86,12 @@
 
 - 설계도 데이터
 	insert into plan(cono, eno, plmap, plimg) values(4, 6, '설계도 내용', '설계도 썸네일'); 
+	insert into plan(cono, eno, plnm, plimg2) values(5, 6, '연봉 수직선상을 꿈꾸다', 'http://cfile25.uf.tistory.com/image/23506637556925C1021DCE'); 
+	insert into plan(cono, eno, plnm, plimg2) values(6, 7, '사람을 위한, 사람에 의한 건축', 'http://www.issuemaker.kr/PEG/14469592276738.jpg'); 
+	insert into plan(cono, eno, plnm, plimg2) values(7, 8, '번역의 즐거움', 'http://cfile232.uf.daum.net/image/120CF7284CE4E98A3CB10D'); 
+	insert into plan(cono, eno, plnm, plimg2) values(8, 9, '대학로 연극 시크릿, 울어본 사람이 웃을 수 있다.', 'http://cfile10.uf.tistory.com/image/242BE538541FE62C26E41D'); 
+	insert into plan(cono, eno, plnm, plimg2) values(9, 10, '재무전략, 재무설계', 'http://cfile27.uf.tistory.com/image/173223334E0AA10C1F33CA'); 
+	insert into plan(cono, eno, plnm, plimg2) values(10, 11, '하늘을 보는 눈', 'https://i.ytimg.com/vi/8JW5PAcRmJo/maxresdefault.jpg'); 
 
 - 주제 데이터
 	insert into topic(tnm) values('천문학'); 

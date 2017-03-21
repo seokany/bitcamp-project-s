@@ -9,11 +9,12 @@
   <resultMap type="bitcamp.java89.ems2.domain.Plan" id="plan-map" extends="mento-map">
     <id     column="cono"        property="contentsNo"/>
     <result column="plmap"       property="planMap"/>
+    <result column="plnm"      property="planName"/>
     <result column="plimg"      property="planImage"/>
+    <result column="plimg2"      property="planImage2"/>
   </resultMap>
   
-  
-      <resultMap type="bitcamp.java89.ems2.domain.Mento" id="mento-map">
+  <resultMap type="bitcamp.java89.ems2.domain.Mento" id="mento-map">
     <id     column="mno"        property="memberNo"/>
     <result column="name"       property="name"/>
     <result column="age"       property="age"/>
@@ -118,10 +119,19 @@
   ]]>
   </delete> -->
 
-</mapper>
-
-
+  <select id="boardSize" parameterType="int" resultType="int">
+    select count(*)
+    from plan
+    where eno = #{mno}
+  </select>
   
-
-
-
+  <select id="boardList" resultMap="plan-map" parameterType="map">
+    select cono, plnm, plimg2
+    from plan 
+    where cono != 4
+    <!--  where eno = eno -->
+    limit 6
+    <!--  limit #{startRowIndex}, #{rowSize} -->
+  </select>
+  
+</mapper>
