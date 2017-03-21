@@ -33,19 +33,19 @@
 }
 
 #test1 {
-  margin-left: 131px;
+  margin-left:  -32px;
   background-color: #DFCEE2;
 }
 #test2 {
-  margin-left: 181px;
+  margin-left: -39px;
   background-color: #537FEA;
 }
 #test3 {
-  margin-left: 181px;
+  margin-left: -30px;
   background-color: #91C8E5;
 }
 #test4 {
-  margin-left: 181px;
+  margin-left: -42px;
   background-color: #919EE5;
 }
 
@@ -100,4 +100,133 @@
 .pulsate4 {
   box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 158, 229, 1);
   animation: pulse4 1.5s ease-out 1s infinite forwards;
+}
+
+
+
+
+
+
+
+/* 새로 정한 카드 디자인 */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-size: 62.5%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.seeds {
+	height: 740px;
+  margin: 2.5vw auto;
+  width: 1285px;
+}
+    
+
+
+
+body {
+  color: #686e74;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+section {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 46px;;
+  font-weight: 900;
+  padding-top: 10vh;
+  color: #686e74;
+}
+
+.cards {
+  padding-top: 6rem;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.card {
+  width: 200px;
+  height: 22.5rem;
+  background-color: #f9fbfb;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #5a6c7a;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .05rem;
+  box-shadow: 0 2rem 4rem #aac1c7;
+  margin: 10px;
+}
+.card__svg-container {
+  height: 50%;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: end;
+}
+.card__svg-wrapper {
+  width: 8rem;
+}
+.card__count-container {
+  flex-grow: 1;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.card__count-text {
+  
+}
+.card__count-text--big {
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 300;
+}
+.card__stuff-container {
+  margin: 0 auto;
+  width: 90%;
+  height: 15%;
+  border-top: 2px solid #e7edef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card__stuff-icon, .card__stuff-text {
+  display: inline-block;
+}
+
+.card__stuff-text {
+  text-transform: uppercase;
+  margin-left: .4rem;
+  -webkit-transform: translate(0, -0.2rem);
+          transform: translate(0, -0.2rem);
+}
+.card:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  height: 5.625rem;
+  -webkit-transform: translate(1.5rem, 22.5rem);
+          transform: translate(1.5rem, 22.5rem);
 }
