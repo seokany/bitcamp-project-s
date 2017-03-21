@@ -1,0 +1,159 @@
+/*  driver 영역  */
+body {
+  margin: 0;
+  overflow: hidden;
+ }
+.container {
+  position: relative;
+}
+.contents {
+  display: table; 
+  margin: 30px auto;
+}
+.frame-area {
+  display: inline-block;
+  position: absolute;
+  width: 100vw;
+}
+.frame-area-center {
+  left: 0; 
+}
+.frame-area-left {
+  left: -110vw; 
+}
+.frame-area-right {
+  left: 110vw; 
+}
+.logo-bottom, .header-bottom {
+  background: linear-gradient(90deg, rgba(121, 85, 72, 0.56), rgba(96, 125, 139, 0.65));
+}
+body {
+  background: linear-gradient(90deg, rgba(121, 85, 72, 0.15), rgba(96, 125, 139, 0.25));
+}
+.header-menus li:hover, .header-menus li a:hover {
+  color: #795548;
+}
+.header-menus li {
+  color: #607D8B;
+}
+/*  /driver 영역  */
+
+/*  board-contents 영역  */
+.nodes {
+  display: inline-block; 
+  color: #676565;
+  width: calc(1160px / 3);
+  max-height: 350px;
+  padding: 8px; 
+  padding-bottom: 30px;
+  margin: 15px 8px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  vertical-align: top;
+  background-color: white;
+  position: relative;
+}
+.node-img {
+  position: inherit;
+  height: 240px;
+  width: 100%; 
+}
+#node-badge {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 10px;
+  background-color: rgba(230, 34, 30, 0.8);
+  animation-delay: 1s;
+}
+#node-modify,
+#node-delete {
+  position: absolute;
+  display: none;
+  border-radius: 3px;
+  padding: 3px 6px;
+  bottom: 3px;
+  font-weight: bold;
+  font-size: 11px;
+  color: #f1f1f1;
+}
+#node-modify {
+  right: 45px;
+  background-color: rgba(66, 103, 178, 0.8);
+}
+#node-delete {
+  right: 5px;
+  background-color: rgba(103, 101, 101, 0.8);
+}
+#title {
+  padding: 5px;
+}
+.nodes:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+.nodes:hover #node-modify, 
+.nodes:hover #node-delete {
+  display: block;
+}
+#node-modify:hover {
+  background-color: rgba(66, 103, 178, 1);
+}
+#node-delete:hover {
+  background-color: rgba(230, 34, 30, 1);
+}
+
+@media only screen and (max-width:1100px){
+  html{
+   font-size: 12px;
+  }
+/*   .nodes { */
+/*    width: calc(100% /4); */
+/*   } */
+}
+@media only screen and (max-width:860px){
+  html{
+    font-size: 11px;
+  }
+/*   .nodes { */
+/*     width: calc(100% /3); */
+/*   } */
+}
+/*  /board-contents 영역  */
+
+/*  explain 영역  */
+.faT {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 24px;
+}
+.editor-explain,
+.across-explain {
+    left: 50%;
+    position: absolute;
+    color: #9E9E9E;
+    font-size: 24px;
+    text-shadow: 1px 1px 1px rgba(96, 125, 139, 0.45);
+}
+.editor-explain {
+    top: 42%;
+    margin-left: -185px;
+    cursor: pointer;
+}
+.across-explain {
+    top: 44%;
+    margin-left: -204px;
+    cursor: default;
+}
+/*  /explain 영역  */
+
