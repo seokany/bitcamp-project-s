@@ -7,6 +7,7 @@
 
   <resultMap type="result" id="result-map">
     <id     column="reno"        property="resultNo"/>
+    <result column="sno"        property="memberNo"/>
     <result column="type"      property="type"/>
     <result column="rer"       property="resultResult"/>
   </resultMap>

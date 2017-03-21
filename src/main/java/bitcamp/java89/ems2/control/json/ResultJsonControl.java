@@ -1,7 +1,5 @@
 package bitcamp.java89.ems2.control.json;
 
-import java.util.List;
-
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +47,22 @@ public class ResultJsonControl {
   
   
   @RequestMapping("/seeds/add")
-  public AjaxResult add(Result result) throws Exception {
-    resultService.add(result);
-    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  public AjaxResult add(int memberNo, String type, String resultResult) throws Exception {
+    Result result = new Result();
+    result.setMemberNo(memberNo);
+    result.setType(type);
+    result.setResultResult(resultResult);
+    
+    
+   int count = resultService.add(result);
+   
+   if (count == 0) {
+     return new AjaxResult(AjaxResult.SUCCESS, "등록 실패");
+   }  
+   else{
+     
+     return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+   }
   }
   
 }

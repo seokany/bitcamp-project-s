@@ -49,27 +49,35 @@ $(function() {
             $(".result").html(resultMsg);
             
             // 로그인한 사용자의 정보를 가져온다.
-            var sno;
+            var sno = 0;
             $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
               sno = ajaxResult.data.memberNo
+              if (ajaxResult.status !="success") {
+            	  alert(ajaxResult.data);
+            	  return;
+              }
+              
+              console.log("sno:" + sno);
+              
+              var param = {
+            		  "memberNo": sno,
+            		  "type": "mbti",
+            		  "resultResult": resultMsg
+              };
+              console.log("param:" + param.memberNo);
+              
+              $.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
+            	  if (ajaxResult.status != "success") {
+            		  alert(ajaxResult.data);
+            		  return;
+            	  }
+            	  console.log(ajaxResult.data);
+            	  location.href = 'seeds-temp.html';
+              }, 'json'); // post();
+              
             });
             
-            console.log("sno:" + sno);
-            
-            var param = {
-                "memberNo": sno,
-                "type": "mbti",
-                "resultResult": resultMsg
-              };
-            console.log("param:" + param);
-            
-            $.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
-              if (ajaxResult.status != "success") {
-                alert(ajaxResult.data);
-                return;
-              }
-              location.href = 'seeds-temp.html';
-          }, 'json'); // post();
+        
             
           }
         });
