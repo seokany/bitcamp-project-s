@@ -13,8 +13,8 @@ public class ResultServiceImpl implements ResultService {
   @Autowired ResultDao resultDao;
 
   @Override
-  public Result getDetail(int no) throws Exception {
-    return resultDao.getOne(no);
+  public Result getDetail(int memberNo) throws Exception {
+    return resultDao.getOneByMemberNo(memberNo);
   }
 
   @Override
@@ -24,10 +24,6 @@ public class ResultServiceImpl implements ResultService {
 
   @Override
   public int add(Result result) throws Exception {
-    
-    //student.setMemberNo(member.getMemberNo());
-//    result.setMenteeNo(menteeNo);
-    
     return resultDao.insert(result);
   }
   

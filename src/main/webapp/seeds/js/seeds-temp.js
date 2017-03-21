@@ -2,28 +2,55 @@ $( function() {
   
   // 서버에서 로그인 사용자 정보를 가져온다.
   $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-    $('#test1').on('click', function() {
+	  
+	  var memberNo = ajaxResult.data.memberNo;
+	  
+    $(document.body).on('click', '#test1', function() {
       console.log(ajaxResult.data.memberNo);
       console.log("status " + ajaxResult.status);
     if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
       console.log("로그인되지 않은 사용자다"); 
     // 검사지 페이지로 이동한다.
       $(".wrapper").removeClass("dashboard");
-      $(".wrapper").load("json.mbti.html #container");
+      $(".wrapper").load("seeds/json.mbti.html #container");
     
-    } else { // 로그인이 되었으면, ===> 검사 유무를 조사한다.????????여기 모르겠음!!!!!!!!
+    } else { // 로그인이 되었으면, ===> 검사 유무를 조사한다.
       console.log("로그인한 사용자다");
       $.getJSON(serverRoot + '/seeds/list.json',
+    		  
           {
             "menteeNo" : ajaxResult.data.memberNo,
             "type" : 'mbti'
           }, function(ajaxResult) {
       
-            console.log("넘어오니 " + ajaxResult.status );
-        if(ajaxResult.status == "success") { // 검사했으면? 검사결과 페이지로 이동
-          $(".wrapper").load("mbti-result-istp.html .test-result");
+            console.log("검사상태 " + ajaxResult.status );
+        if(ajaxResult.status == "success") { // 검사했으면? 검사결과 페이지로 이동하고 데이터를 가져온다.
+          $(".wrapper").load("seeds/mbti-result-istp.html .test-result",function(){
+        	  
+        	  //학생의 검사정보 가져오기
+        	  $.getJSON(serverRoot + '/seeds/detail.json?memberNo=' + memberNo, function(ajaxResult) {
+        		  var status = ajaxResult.status;
+        		  
+        		  if (status != "success") {
+        			  alert(ajaxResult.data);
+        			  return;
+        		  }
+        		  var result = ajaxResult.data;
+            	  console.log("result값은?" + result.resultResult);
+            	  
+            	  $('#result').text(result.resultResult);
+        	  });
+        	  
+        	  
+        	  //가져온 데이터를 해당영역에 뿌리기~~~~~??!!!
+        	  
+        	  
+        	  
+        	  
+        	  
+          });
         } else { //검사안했으면? 검사페이지로 이동
-          $(".wrapper").load("json.mbti.html #container");
+          $(".wrapper").load("seeds/json.mbti.html #container");
         }
       });
     }

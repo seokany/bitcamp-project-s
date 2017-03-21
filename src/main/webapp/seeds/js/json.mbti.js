@@ -43,13 +43,13 @@ $(function() {
         var resultMsg = mbtiResult[0] + mbtiResult[1] + mbtiResult[2] + mbtiResult[3]
 
         $(".wrapper").addClass("dashboard");
-        $(".wrapper").load("mbti-result-istp.html .test-result", function() {
+        $(".wrapper").load("seeds/mbti-result-istp.html .test-result", function() {
           console.log($('.test-result').children("span").hasClass("result"));
           if ($('.test-result').children("span").hasClass("result")){
             $(".result").html(resultMsg);
             
             // 로그인한 사용자의 정보를 가져온다.
-            var sno = 0;
+            var sno;
             $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
               sno = ajaxResult.data.memberNo
               if (ajaxResult.status !="success") {
@@ -64,7 +64,7 @@ $(function() {
             		  "type": "mbti",
             		  "resultResult": resultMsg
               };
-              console.log("param:" + param.memberNo);
+              console.log("param.memberNo:" + param.memberNo);
               
               $.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
             	  if (ajaxResult.status != "success") {
@@ -72,7 +72,7 @@ $(function() {
             		  return;
             	  }
             	  console.log(ajaxResult.data);
-            	  location.href = 'seeds-temp.html';
+            	  //location.href = 'seeds-temp.html';
               }, 'json'); // post();
               
             });

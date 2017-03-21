@@ -24,6 +24,17 @@
     where reno=#{resultNo}
   </select>
   
+  <select id="getOneByMemberNo" parameterType="int" resultMap="result-map">
+    select
+      reno,
+      r.sno,
+      type,
+      rer
+    from result r
+    left outer join mentee m on m.sno = r.sno
+    where r.sno=#{memberNo}
+  </select>
+  
   <select id="getList" parameterType="result" resultMap="result-map">
     select rer 
     from result 
