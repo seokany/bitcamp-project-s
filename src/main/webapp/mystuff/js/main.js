@@ -1,7 +1,5 @@
 
 
-
-
 var currPageNo = 1;
 var pageSize = 5;
 var sno = 5;
@@ -150,7 +148,7 @@ $( function() {
 		        $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
-				        var sno = 5;
+		        	 var sno = 5;
 				        
 		        	if($(this).children(".btn").hasClass("checked")) {
 		        		$(this).children(".btn").removeClass("checked");
@@ -179,7 +177,7 @@ $( function() {
 		        })
 			})
 
-// 영상 더보기 
+// 영상 모달 띄우기
 			
 				$(document.body).on( "click", ".rec-video1", function() {
 		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
@@ -198,43 +196,7 @@ $( function() {
 					 console.log(list);
 					 
 
-					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
-						 
-						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
-						 $('#iframe iframe').attr('src',videoAddr);
-						 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
-						 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
-						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
-						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
-						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
-					 });
-				});
-		
-	})
-	
-	
-	
-	
-	// 영상 더보기 
-			
-				$(document.body).on( "click", ".rec-video1", function() {
-		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
-		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
-		var list = new Array();
-		$.getJSON(serverRoot + '/videoDetail/getOne.json', 
-				{
-			"cono": cono
-				}, 
-				function(ajaxResult) {
-					var status = ajaxResult.status;
-					if (status != "success")
-						return;
-					
-					 list = ajaxResult.data.list;
-					 console.log(list);
-					 
-
-					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
+					 $('.mystuff-modal').load('mystuff/talks.html #contents', function() {
 						 
 						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
 						 $('#iframe iframe').attr('src',videoAddr);
@@ -258,8 +220,15 @@ $( function() {
 	
 	
 	
-			
-			
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	
@@ -528,6 +497,67 @@ $( function() {
 });
 
 
+//영상 디테일 페이지 넘어가는...
+
+
+var sno = 5;
+var currPageNo = 1;
+var pageSize = 15;
+$(document.body).on( "click", ".video-box .fpc_page-tip", function() {
+	 $(".mystuff").load("mystuff/detail/video-detail.html .dashboard", function() {
+		 loadList(currPageNo,pageSize, sno);
+	 });
+	
+	 function loadList(currPageNo, pageSize, sno) {
+			$.getJSON(serverRoot + '/videoDetail/list.json', 
+			    {
+				  "pageNo": currPageNo,
+				  "pageSize": pageSize,
+				  "sno": sno
+				}, 
+				function(ajaxResult) {
+				      var status = ajaxResult.status;
+				      if (status != "success")
+				        return;
+				      
+				      var list = ajaxResult.data.list;
+				      console.log("videoDetail List");
+				      console.log(list);
+				      
+				      $.each(list, function(k, v) {
+				    	  $.getJSON(serverRoot + '/video/isLike.json', 
+				    		{
+				    		  "cono": v.contentsNo,
+				    		  "sno": sno
+				    		}, function(ajaxResult) {
+				  		      var status = ajaxResult.status;
+						      if (status != "success") return;
+						      
+						      var isLike = ajaxResult.data.isLike;
+						      
+						      if (isLike == 1) {
+						    	  list[k].isLike = true;
+						      } else {
+						    	  list[k].isLike = false;
+						      }
+
+						      var section = $('.video-detail-list');
+						      var template = Handlebars.compile($('#videoDetail').html());
+						      section.html(template({"list": list}));
+				    		});
+				    	  preparePagingButton(ajaxResult.data.totalCount);
+				    	  console.log("video");
+				    	  console.log(ajaxResult.data.totalCount);
+				    	  
+				    	  
+				      });
+				      console.log(list);
+				      
+				  
+			});  
+		}
+	 
+}); // mystuff video 더보기 눌렀을 때
 
 
 	

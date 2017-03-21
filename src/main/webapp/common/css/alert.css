@@ -63,9 +63,6 @@
 .Message-button a {
 	text-decoration: none;
 }
-a:visited {
-  color: #fff;
-}
 .Message-button:hover {
   background: rgba(0, 0, 0, 0.3);
 }
