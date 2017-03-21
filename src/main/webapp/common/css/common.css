@@ -68,18 +68,6 @@ h3 {
     bottom: 7px;
     padding-right: 15%;
 }
-
-
-.likes, .follows, .questions {
-	 display: inline-block;
-/* 	     border: 2px solid red; */
-    width: 20%;
-    height: 100%;
-    margin-right: 3%;
-}
-
-
-
 .menu, .myself, .message { /* 메뉴바 오른쪽 */
 	    margin: 0 5%;
 	    display: inline-block;

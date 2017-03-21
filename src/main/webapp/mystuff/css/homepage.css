@@ -24,13 +24,12 @@ body {
   width: 495px;
   height: 455px;
 }
-.mystuff {
-  position: relative;
-    position: relative;
-    margin: 5% auto;
-    padding: 0;
-/*     width: 1265px; */
-}
+/* .mystuff { */
+/*     position: relative; */
+/*     margin: 5% auto; */
+/*     padding: 0; */
+/*     width: 1265px; */ */
+/* } */
 
 .model-more, .video-more {
 	display:none;
