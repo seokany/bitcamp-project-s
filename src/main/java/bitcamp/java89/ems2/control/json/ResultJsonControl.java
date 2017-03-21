@@ -47,6 +47,13 @@ public class ResultJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, list);
   }
   
+  
+  @RequestMapping("/seeds/add")
+  public AjaxResult add(Result result) throws Exception {
+    resultService.add(result);
+    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
+  }
+  
 }
 
 
