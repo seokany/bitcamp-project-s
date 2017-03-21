@@ -107,7 +107,7 @@ body {
 /*-- dashboard 영역 --*/
 .dashboard {
   height: 740px;
-  margin: 3vw auto;
+  margin: 0.5vw auto;
   width: 1285px;
   background: #FFF;
   border: 10px solid #FFF;
@@ -121,7 +121,7 @@ body {
     background: #f9f9f9;
     position: absolute;
     left: -269px;
-    top: 43px;
+/*     top: 43px; */
     border: 1px solid #f2f2f2;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
