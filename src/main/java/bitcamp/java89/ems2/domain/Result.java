@@ -4,6 +4,7 @@ public class Result extends Mentee {
   private static final long serialVersionUID = 1L;
   
   protected int resultNo;
+  protected int menteeNo;
   protected String type;
   protected String resultResult;
   
@@ -12,6 +13,12 @@ public class Result extends Mentee {
   }
   public void setResultNumber(int resultNumber) {
     this.resultNo = resultNumber;
+  }
+  public int getMenteeNo() {
+    return menteeNo;
+  }
+  public void setMenteeNo(int menteeNo) {
+    this.menteeNo = menteeNo;
   }
   public String getType() {
     return type;
