@@ -8,58 +8,87 @@
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <link rel="stylesheet" type="text/css" href="../common/css/header.css">
+<link rel="stylesheet" type="text/css" href="css/expert.css">
 <style>
-body { 
-  margin: 0;
-  overflow-x: hidden;
- }
-.container {
-  position: relative;
+.fa-plus {
+    top: 49%;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    color: rgba(158, 158, 158, 0.47);
+    text-shadow: 1px 1px rgba(96, 125, 139, 0.58);
 }
-.contents {
-  display: table; 
-  margin: 30px auto;
+.dashboard {
+    position: relative;
 }
-.frame-area {
-  display: inline-block;
-  position: absolute;
-  width: 100vw;
+.detail-plan-area,
+.detail-mentee-area {
+    display: inline-block;
+    height: 100%;
 }
-.frame-area-center {
-  left: 0; 
+.detail-plan-area {
+    width: 65%;
+    background-image: url('../mystuff/img/map2.jpg');
+    background-size: 100% 100%;
 }
-.frame-area-left {
-  left: -110vw; 
+.detail-mentee-area {
+    width: 33.4%;
+    height: 98%;
+    border-left: 1px solid rgba(158, 158, 158, 0.25);
+    position: absolute;
+    padding: 10px;
 }
-.frame-area-right {
-  left: 110vw; 
+.across-close {
+    top: 12px;
+    right: 10px;
+    position: absolute;
+    color: rgba(158, 158, 158, 0.4);
+    cursor: pointer;
 }
-.board > div, .editor > div, .across > div {
-  position: relative;
-  width: 1250px;
-  height: 700px;
-  margin: 0 auto;
+.across-close:hover {
+    color: rgba(96, 125, 139, 0.4);
 }
-.board > div {
-  background: gold;
+.across-count {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 10px;
+    padding-top: 5px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    background: #FFC107;
+    cursor: default;
 }
-.editor > div {
-  background: coral;
+.mentee-info-area {
+    position: absolute;
+    top: 100px;
+    height: 640px;
 }
-.across > div {
-  background: aqua;
+.mentee-info {
+    width: 140px;
+    display: inline-block;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
 }
-.logo-bottom, .header-bottom {
-  background: linear-gradient(90deg, rgba(121, 85, 72, 0.56), rgba(96, 125, 139, 0.65));
+.mentee-info img {
+    width: 95%;
+    border-radius: 100px;
+    box-shadow: 1px 1px 3px #9E9E9E;
 }
-body {
-  background: linear-gradient(90deg, rgba(121, 85, 72, 0.15), rgba(96, 125, 139, 0.25));
+.mentee-info-name {
+    font-size: 19px;
+    font-weight: bold;
 }
-.header-menus li:hover, .header-menus li a:hover {
-  color: #795548;
-}
-.header-menus li {
-  color: #607D8B;
+.fat {
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    margin-right: 15px;
+    display: inline-block;
+    font: normal normal normal 24px FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }
 </style>
 <body>
@@ -67,21 +96,25 @@ body {
 <div class="container">
 	<div class="contents">
 	  <div class="frame-area frame-area-center board">
-	    <div class="board">
+	    <div class="board dashboard">
 	    </div>
     </div>
 	  <div class="frame-area frame-area-left   editor">
-	    <div class="editor">
+	    <div class="editor dashboard">
+	      <div class="editor-explain faT fa-pencil-square-o" aria-hidden="true"> 새로운 진로 플랜을 설계해보세요.</div>
+<!-- 	      <div class="fa fa-plus fa-4x" aria-hidden="true"></div> -->
 	    </div>
 	  </div>
 	  <div class="frame-area frame-area-right  across">
-	    <div class="across">
+	    <div class="across dashboard">
+	      <div class="across-explain">Board에서 확인할 플랜을 선택하세요.</div>
 	    </div>
     </div>
 	</div>
 </div>
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="../node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="../common/js/context.js"></script>
 <script>
 $(function() {
@@ -91,14 +124,62 @@ $(function() {
 	  });
 	  <!-- /header load -->
 	  
-	  <!-- expert service load -->
-// 	  $(function() {
-// 	    $(".board").load("main.html .board"); 
+	  <!-- expert service loader -->
+	  $(function() {
+	    $(".board").load("board.html .board");
 // 	    setTimeout(function() {
-// 	      $(".editor").load("editor.html #container"); 
+// 	      $(".editor").load("editor.html .editor");
+// 	      $(".across").load("seeing-mentee.html .across");
 // 	    }, 250);
-// 	  });
+	  });
 	  <!-- /expert service load -->
+	  
+	   var eno = 6;
+	   setTimeout(function() {
+	      $.getJSON(serverRoot + '/expert/board.json',
+	            {
+	              'pageNo': 1,
+	              'pageSize': 6, 
+	              'eno': eno
+	            }, function(ajaxResult) {
+	              var status = ajaxResult.status;
+	              if (status != "success") return; 
+	              
+	              var list = ajaxResult.data.list; 
+	              var board = $('.board-dash');
+	              var template = Handlebars.compile($('#boardTemp').html()); 
+	              board.html(template({'list': list})); 
+	          });
+	   }, 1000);
+	   
+    <!-- editor-explain click 이벤트 -->
+    $(document.body).on("click", ".editor-explain", function() {
+    	$(".editor-explain, .fa-plus").addClass("animated");
+    	$(".editor-explain, .fa-plus").addClass("fadeOutUp");
+    });
+    <!-- /editor-explain click 이벤트 -->
+    
+    <!-- across closs click 이벤트 -->
+    $(document.body).on("click", ".across-close", function() {
+        $(".this-across").addClass("animated");
+        $(".this-across").addClass("fadeOut");
+        setTimeout(function() {
+        	  $(".this-across").remove();
+		        $(".across").append("<div class='across dashboard animated fadeIn'><div class='across-explain'>Board에서 확인할 플랜을 선택하세요.</div></div>");
+        }, 800);
+		    $(".across").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+		    $(".board").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      });
+    <!-- /across closs click 이벤트 -->
+    
+    <!-- board에서 node 선택 시 across 이벤트 -->
+    $(document.body).on("click", ".nodes", function() {
+    	console.log("cono ", $(this).attr("cono"));
+      $(".across").load("detail.html .across");
+      $(".board").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+      $(".across").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+    });
+    <!-- /board에서 node 선택 시 across 이벤트 -->
 	  
 	  <!-- wheel & click 슬라이딩 이벤트 --> 
 	  $(document.body).on("click", "#editor-btn", function() {
@@ -171,6 +252,19 @@ $(function() {
 	  }, 250);
 	  <!-- /wheel & click 슬라이딩 이벤트 -->
 });
+</script>
+<script id="boardTemp" type="text/x-handlebars-template">
+{{#each list}}
+    <div id="node" cono="{{contentsNo}}" class="nodes animated fadeIn">
+      <div class="node-img">
+       <img class="node-img" alt="" src="{{planImage2}}">
+        <div class="animated swing" id="node-badge">{{messg-count}}</div>
+        <div class="animated fadeIn" id="node-modify">수정</div>
+        <div class="animated fadeIn" id="node-delete">삭제</div>
+      </div>
+      <div id="title">{{topicName}}<br/>{{planName}}</div>
+    </div>
+{{/each}}
 </script>
 </body>
 </html>
