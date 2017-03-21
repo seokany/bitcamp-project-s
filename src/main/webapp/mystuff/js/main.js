@@ -1,9 +1,9 @@
 
 
-var currPageNo = 1;
-var pageSize = 5;
-var sno = 5;
 $( function() { 
+	var currPageNo = 1;
+	var pageSize = 5;
+	var sno = 5;
     
 	
 	$.getJSON(serverRoot + '/video/list.json', 
@@ -497,67 +497,109 @@ $( function() {
 });
 
 
+
+
 //영상 디테일 페이지 넘어가는...
 
 
-var sno = 5;
-var currPageNo = 1;
-var pageSize = 15;
-$(document.body).on( "click", ".video-box .fpc_page-tip", function() {
-	 $(".mystuff").load("mystuff/detail/video-detail.html .dashboard", function() {
-		 loadList(currPageNo,pageSize, sno);
-	 });
-	
-	 function loadList(currPageNo, pageSize, sno) {
-			$.getJSON(serverRoot + '/videoDetail/list.json', 
-			    {
-				  "pageNo": currPageNo,
-				  "pageSize": pageSize,
-				  "sno": sno
-				}, 
-				function(ajaxResult) {
-				      var status = ajaxResult.status;
-				      if (status != "success")
-				        return;
-				      
-				      var list = ajaxResult.data.list;
-				      console.log("videoDetail List");
-				      console.log(list);
-				      
-				      $.each(list, function(k, v) {
-				    	  $.getJSON(serverRoot + '/video/isLike.json', 
-				    		{
-				    		  "cono": v.contentsNo,
-				    		  "sno": sno
-				    		}, function(ajaxResult) {
-				  		      var status = ajaxResult.status;
-						      if (status != "success") return;
-						      
-						      var isLike = ajaxResult.data.isLike;
-						      
-						      if (isLike == 1) {
-						    	  list[k].isLike = true;
-						      } else {
-						    	  list[k].isLike = false;
-						      }
 
-						      var section = $('.video-detail-list');
-						      var template = Handlebars.compile($('#videoDetail').html());
-						      section.html(template({"list": list}));
-				    		});
-				    	  preparePagingButton(ajaxResult.data.totalCount);
-				    	  console.log("video");
-				    	  console.log(ajaxResult.data.totalCount);
-				    	  
-				    	  
-				      });
-				      console.log(list);
-				      
-				  
-			});  
-		}
+
+
+$(document.body).on( "click", ".video-box .fpc_page-tip", function() {
+	var currPageNo = 1;
+	var pageSize = 15;
+	var snos = 5;
+	 $(".mystuff").load("mystuff/detail/video-detail.html .dashboard", function() {
+		 
+	 loadVideoList(currPageNo, pageSize, snos);
+	 $('#videoPrev').click(function() {
+		 if (currPageNo > 1) {
+			 loadVideoList(--currPageNo, 15, snos);
+		 }
+	 });
 	 
+	 $('#videoNext').click(function() {
+		 loadVideoList(++currPageNo, 15, snos);
+	   });
+	 
+	 function videoPreparePagingButton(totalCount) {
+		 // 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
+		 if (currPageNo <= 1) {
+			 $('#videoPrev').attr('disabled', true);
+		 } else {
+			 $('#videoPrev').attr('disabled', false);
+		 }
+		 
+		 var maxPageNo = parseInt(totalCount / pageSize);
+		 console.log(maxPageNo);
+		 if ((totalCount % pageSize) > 0) {
+			 maxPageNo++;
+		 }
+		 
+		 if (currPageNo >= maxPageNo) {
+			 $('#videoNext').attr('disabled', true); 
+		 } else {
+			 $('#videoNext').attr('disabled', false);
+		 }
+		 
+		 // 현재 페이지 번호를 출력한다.
+		 $('#vdoPageNo').text(currPageNo);
+	 }
+	 
+	 function loadVideoList(pageNo, pageSize, sno) {
+		 $.getJSON(serverRoot + '/videoDetail/list.json', 
+				 {
+			 "pageNo": pageNo,
+			 "pageSize": pageSize,
+			 "sno": sno
+				 }, 
+				 function(ajaxResult) {
+					 var status = ajaxResult.status;
+					 if (status != "success") {
+						 return;
+						 
+					 }
+					 console.log("=================================");
+					 console.log("video");
+					 console.log(ajaxResult.data.totalCount);
+					 var list = ajaxResult.data.list;
+					 console.log(list);
+					 
+					 $.each(list, function(k, v) {
+						 $.getJSON(serverRoot + '/video/isLike.json', 
+								 {
+							 "cono": v.contentsNo,
+							 "sno": sno
+								 }, function(ajaxResult) {
+									 var status = ajaxResult.status;
+									 if (status != "success") return;
+									 
+									 var isLike = ajaxResult.data.isLike;
+									 
+									 if (isLike == 1) {
+										 list[k].isLike = true;
+									 } else {
+										 list[k].isLike = false;
+									 }
+									 
+									 var section = $('.video-detail-list');
+									 var template = Handlebars.compile($('#videoDetail').html());
+									 section.html(template({"list": list}));
+									 videoPreparePagingButton(ajaxResult.data.totalCount);
+								 });
+						 
+						 
+						 
+					 });
+//		      href="http://localhost:8080/bitcamp-project-s/mystuff/detail/video-detail.html"
+					 
+				 });  
+	 }
+	 });
 }); // mystuff video 더보기 눌렀을 때
 
+
+
+  
 
 	

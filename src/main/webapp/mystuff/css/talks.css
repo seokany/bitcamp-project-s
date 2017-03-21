@@ -14,11 +14,11 @@
 }
 
 .mystuff-modal {
-    position: absolute;
-    width: 960px;
+     position: absolute;
     margin-left: 13%;
-    height: 100%;
-    top: -20px;
+    top: -20px; 
+/*      width: 960px;
+    height: 100%; */
 }
 
 #talk-description {

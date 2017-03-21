@@ -125,10 +125,14 @@ body {
 <script type="text/javascript" src="common/js/context.js"></script>
 <script type="text/javascript" src="common/js/header.js"></script>
 <script type="text/javascript" src="common/js/common.js"></script> <!-- 로그인한 멤버 넘버 넘기는 memberNo 변수 선언되어있음. -->
+<script type="text/javascript" src="mystuff/js/main.js"></script>
+<script type="text/javascript" src="mystuff/js/modal.js"></script>
+<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="auth/js/login.js"></script>
 <script type="text/javascript" src="seeds/js/alert.js"></script>
 <script type="text/javascript" src="seeds/js/seeds-temp.js"></script>
 <script type="text/javascript" src="seeds/js/json.mbti.js"></script>
+
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
   <div class="ssize video corner-container">
@@ -178,9 +182,6 @@ body {
 
 {{/each}}
 </script>
-
-
-
 <script id="mentoList" type="text/x-handlebars-template">
 {{#each list}}
 <div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="mystuff/img/map1.jpg" width="495" height="360" alt=""></a>
@@ -204,9 +205,7 @@ body {
               </div>
 {{/each}}
 </script>
-<script type="text/javascript" src="mystuff/js/main.js"></script>
-<script type="text/javascript" src="mystuff/js/modal.js"></script>
-<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script>
+
 
 <script id="mentoLike" type="text/x-handlebars-template">
 {{#each list}}

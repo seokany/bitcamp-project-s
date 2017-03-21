@@ -1,5 +1,5 @@
 
-$('#new-btn').click(function(event) {
+/*$('#new-btn').click(function(event) {
 	event.preventDefault(); 
 	location.href = 'view.html';
 });
@@ -36,7 +36,7 @@ function preparePagingButton(totalCount) {
   // 현재 페이지 번호를 출력한다.
   $('#pageNo').text(currPageNo);
 }
-
+*/
 
 $( function() {
 	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
