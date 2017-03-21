@@ -32,8 +32,10 @@ public class PersonJsonControl {
       pageSize = 4;
     }
     
-    List<Person> list = personService.getList(pageNo, pageSize);
+    List<Person> list = personService.getList(1, 4);
     int totalCount = personService.getSize();
+    
+    System.out.println(list);
     
     HashMap<String,Object> resultMap = new HashMap<>();
     resultMap.put("list", list);

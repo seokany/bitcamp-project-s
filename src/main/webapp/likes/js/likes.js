@@ -53,12 +53,17 @@ function loadList() {
 		  if (status != "success")
 			  return;
 		  
+		  
+		  
 		  var list = ajaxResult.data.list;
 		  var section = $('.persons');
 		  var template = Handlebars.compile($('#trTemplate').html());
 		  section.html(template({"list": list}));
 		  
+		  console.log(list);
+		  setTimeout(function() {
 		  listPlay();
+		  },5000);
 		  
 //		  $('.name-link').click(function(event) {
 //		  	event.preventDefault();
@@ -78,8 +83,11 @@ $('.persons .person').click(function(){
   $person.html($(this).html());
   $play.appendTo($person);
 
+  
   $poster = $('.poster', this).addClass('active');
-
+  
+  
+  
   $('.poster', $detail).css({
     top: $poster.position().top,
     left: $poster.position().left,
