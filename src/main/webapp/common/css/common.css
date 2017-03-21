@@ -103,3 +103,15 @@ h3 {
     background: url(https://s.pinimg.com/webapp/style/images/webapp-common-above_the_fold-1x-5d23fe54.png) -47px -296px no-repeat;
 	
 }
+
+
+/* likes 페이지 멘토 영상 넘어가는 버튼*/
+.btn-type {
+    text-align: center;
+    right: -27px;
+    position: absolute;
+    top: -43px;
+    display: inline-block;
+    width: 175px;
+    height: 28px;
+}
