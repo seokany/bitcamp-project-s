@@ -3,25 +3,25 @@ $( function() {
 	var memberNo = 0;
 	var date = new Date();
 	var photoPath;
-	$.get(clientRoot +"/common/header.html", function(result) {
+	$.get(clientRoot + '/common/header.html', function(result) {
 		  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-				$('#header').html(result);
-
-				if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
-					
-					// 로그온 상태 출력 창을 감춘다.
-//					$('.sign-in').css('display', 'none');
-//					$('.sign-default').css('display', 'none');
-					
-					// 로그인 버튼의 클릭 이벤트 핸들러 등록하기
-					$('.sign-out').click(function(event) {
-						$('.auth-login-form').load(clientRoot + "/auth/login.html .cont", function() {
-							$('.auth-login-form').css("display", "block");
-							$('.demo').addClass("animated fadeInRight");
+				$('#header').html(result, function() {
+					if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
+						$('.header-icon-power').css("display", "inline-block");
+						
+						// 로그인 버튼의 클릭 이벤트 핸들러 등록하기
+						$('.header-icon-power').click(function(event) {
+							$('.auth-login-form').load(clientRoot + "/auth/login.html .cont", function() {
+								$('.auth-login-form').css("display", "block");
+								$('.demo').addClass("animated fadeInRight");
+							});
 						});
-					});
-					return;
-				}
+						return;
+					} else {
+						$('.header-icon-user').css("display", "inline-block");
+						$('.header-icon-message').css("display", "inline-block");
+					}
+				});
 				
 				console.log("로그인되었네");
 				console.log(ajaxResult.data.memberNo);
@@ -118,6 +118,50 @@ $( function() {
 			  }); // loginUser
 	});
 	/*   /header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
+	
+	/*   header toggle menu event   */
+	  var isopen_usermenu = false;
+	  var isopen_messagemenu = false;
+	  
+	  $(document.body).on("click", function(e) {
+	    var target = $(e.target); 
+	    if (target.hasClass('cont')) {
+	    	$('.demo').removeClass("animated fadeInRight");
+	    	$('.demo').addClass("animated fadeOutRight");
+	    	setTimeout(function() {
+	    		$('.auth-login-form').css("display", "none");
+	    		$('.demo').removeClass("animated fadeOutRight");
+	    	}, 600);
+	    }
+	    if (!target.parent().hasClass("toggle")) {
+	      $(".user-menu").hide();
+	      $(".message-menu").hide();
+	    } else {
+	      if (e.target.classList[0] == "menu-btn") {
+	        if (!isopen_usermenu) {
+	        $(".message-menu").hide();
+	        $(".user-menu").show();
+	        isopen_usermenu = true;
+	        isopen_messagemenu = false;
+	      } else {
+	            $(".user-menu").hide();
+	            isopen_usermenu = false;
+	          }
+	      }
+	      if (e.target.classList[0] == "message-btn") {
+	        if (!isopen_messagemenu) {
+	        $(".user-menu").hide();
+	        $(".message-menu").show();
+	        isopen_messagemenu = true;
+	        isopen_usermenu = false;
+	        } else {
+	            $(".message-menu").hide();
+	            isopen_messagemenu = false;
+	        }
+	      }
+	    }
+	  });
+	/*   /header toggle menu event   */
 	
 	/*   Cookie 관리 스크립트   */
 	function getCookie(cname) {

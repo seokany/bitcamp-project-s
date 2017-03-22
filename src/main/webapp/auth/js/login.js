@@ -47,6 +47,9 @@ $(function() {
 			    		$('.auth-login-form').css("display", "none");
 			    		$('.demo').removeClass("animated fadeOutRight");
 			    	}, 600);
+			    	$('.header-icon-power').css("display", "none");
+			    	$('.header-icon-user').css("display", "inline-block");
+			    	$('.header-icon-message').css("display", "inline-block");
 					return;
 				} else {
 					location.href = "expert/driver.html";
@@ -85,7 +88,6 @@ $(function() {
   $(document).on("click", ".signUp_submit", function(e) {
 	  if ($('.signUp_input.passIn').val() != $('.signUp_input.passCheck').val()) {
 		  alert("패스워드가 일치하지 않습니다.");
-		  location.href = "/bitcamp-project-s/auth/login.html";
 	  }
 	  else{
 		  if($('input[name=user-type]:checked').val() =="mentee") {
