@@ -1,65 +1,96 @@
 @CHARSET "UTF-8";
-
-.person-detail {
+@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
+/* .person-detail {
     position: absolute;
     width: 990px;
     height: 545px;
     display: inline-block;
     margin-left: 12%;
     margin-top: 8%;
+} */
+
+
+.person-dash {
+	 color: #7f8c8d;
+	z-index:3000;
+	font-family: 'Lato';
+	  font-size: 16px;
+  font-weight: 300;
+  padding: 20px 0;
+    margin-top: 140px;
+    margin-left: 85px;
+}
+
+.row {
+    border: 1px solid red;
+    width: 800px;
+    position: relative;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.col-xs-12 {
+    height: 100%;
+}
+
+/* Card */
+.card {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VjZjBmMSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #ecf0f1));
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #ecf0f1 100%);
+  background-image: -webkit-linear-gradient(top, #ffffff 0%, #ecf0f1 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #ecf0f1 100%);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  display: block;
+  position: relative;
+  padding: 20px;
+    height: 100%;
+    width: 100%;
 }
 
 
-.person-detail > img {
-position: absolute;
+.card .card-image {
+    position: absolute;
     border: 1px solid blue;
     width: 260px;
     height: 400px;
     top: -145px;
     left: -115px;
 }
+.card-image img{
+	width:100%;
+	height:100%;
 
-.name-job {
+	}
+
+.card .card-info {
+  margin-left: 140px;
+      height: 100%;
+}
+
+.card .card-info .name {
+    font-size: 28px;
+    font-weight: 100;
     display: inline-block;
-    width: 35%;
-    /* right: 0px; */
-    /* position: absolute; */
-    text-align: left;
+    vertical-align: top;
     position: relative;
-    left: 160px;
-     margin-top: 10px;
-}
-
-.name-job > h3 {
-    right: 0px;
-    width: 100px;
-    height: 30px;
-    display: block;
-    /* margin: 0 auto; */
-    margin-left: 0px;
 }
 
 
-.name-job > span {
-    position: relative;
-    display: block;
-}
-
-.detail-desc {
-    display: inline-block;
-    width: 790px;
-    border: 1px solid black;
-    height: 330px;
-    margin-left: 157px;
-    margin-top: 15px;
+.card .card-info hr {
+  margin: 0 0 15px;
+  border: 1px solid;
+  border-color: gainsboro;
 }
 
 
-
-
-
-
-
+.content b{
+	    font-weight: 900;
+    font-size: large;
+}
 
 
 

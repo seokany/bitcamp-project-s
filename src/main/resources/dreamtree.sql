@@ -103,6 +103,11 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
   insert into copic(tno, cono) values(1, 40);
   insert into copic(tno, cono) values(1, 41);
   insert into copic(tno, cono) values(1, 42);
+  insert into copic(tno, cono) values(1, 43);
+  insert into copic(tno, cono) values(1, 44);
+  insert into copic(tno, cono) values(1, 45);
+  insert into copic(tno, cono) values(1, 46);
+  
   insert into copic(tno, cono) values(1, 494);
   insert into copic(tno, cono) values(1, 495);
   insert into copic(tno, cono) values(1, 496);
