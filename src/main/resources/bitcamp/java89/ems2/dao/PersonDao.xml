@@ -41,7 +41,7 @@
 			inner join topic tp on cp.tno = tp.tno
 			inner join snatr snt on tp.tno = snt.tno 
 			inner join result ret on snt.reno = ret.reno 
-		where ret.sno = '5';
+		where ret.sno = #{sno};
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   

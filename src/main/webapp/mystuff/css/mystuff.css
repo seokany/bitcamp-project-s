@@ -275,27 +275,59 @@ height: 368px;
 }
 
 .mt-photo{ 
-	  display: inline-block;
-/*     border: 2px solid red; */
+display: inline-block;
+    /* border: 2px solid red; */
     border-radius: 100%;
     width: 105px;
     height: 95px;
-    position: relative;
+    position: absolute;
     z-index: 2000;
-    top: -45px;
+    top: -10px;
     padding: 3px;
-        float: right;
+    left: 400px;
+    float: right;
 }
 
 
 .mt-photo img {
     border-radius: 100%;
-    width: 95px;
-    height: 85px;
+    width: 87px;
+    height: 77px;
     position: relative;
 }
 
+   .mt-btm {
+    position: absolute;
+     background:transparent;
+    background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
+    display: inline-block;
+    height: 445px;
+    width: 100%;
+    height: 28%;
+    font-family: 'Daum_SemiBold';
+    margin-top: 10px;
+    border-radius: 10px;
+    left: 0;
+    top: 190px;
+   }
 
+
+
+.mt-conts {
+  display: inline-block;
+width: 530px;
+    height: 184px;
+        margin: 7px 0 0 7px;
+}
+
+.mt-name {
+    left: 350px;
+    display: none;
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+
+}
 /** 슬라이드 prev next 버튼 **/
 
 .jcarousel-control-prev,

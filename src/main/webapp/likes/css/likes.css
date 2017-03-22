@@ -15,20 +15,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-/*--------------------
-Dashboard
---------------------*/
-.dashboard {
-    position: absolute;
-    top: 450px;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 1265px;
-  height: 700px;
-  background: #fff;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-}
 
 /*--------------------
 Persons
@@ -52,7 +38,7 @@ Persons
 .persons .person .poster.active {
   opacity: 0;
 }
-.persons .person .title {
+.persons .person .person-title {
   color: #525661;
   margin-bottom: 4px;
   font-size: 16px;
@@ -114,7 +100,7 @@ Detail
   -webkit-transition: all 0.5s cubic-bezier(0.67, 0.13, 0.1, 0.81);
   transition: all 0.5s cubic-bezier(0.67, 0.13, 0.1, 0.81);
 }
-.detail .title,
+.detail .person-title,
 .detail .info,
 .detail .desc,
 .detail .play,
@@ -129,7 +115,7 @@ Detail
   -webkit-transform: translateX(10px);
           transform: translateX(10px);
 }
-.detail .title {
+.detail .person-person-title {
   font-size: 35px;
   font-weight: 300;
   color: #525661;
@@ -179,7 +165,7 @@ Detail
   -webkit-transition-duration: .5s;
           transition-duration: .5s;
 }
-.detail.ready .title,
+.detail.ready .person-title,
 .detail.ready .info,
 .detail.ready .desc,
 .detail.ready .play,
@@ -192,7 +178,7 @@ Detail
   -webkit-transition-duration: .5s;
           transition-duration: .5s;
 }
-.detail.ready .title {
+.detail.ready .person-title {
   -webkit-transition-delay: .2s;
           transition-delay: .2s;
 }
@@ -208,3 +194,6 @@ Detail
   -webkit-transition-delay: .5s;
           transition-delay: .5s;
 }
+
+
+

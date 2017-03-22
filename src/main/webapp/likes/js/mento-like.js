@@ -1,75 +1,153 @@
 
-var currPageNo = 1;
-var pageSize = 4;
-var sno = 5;
+$(function() {
+	
+	$(document.body).on( "click", "#likes-btn, #tab-1", function() {
+		var currPageNo = 1;
+		var pageSize = 4;
+		var sno = 5;
+		$(".likes").load("likes/mento-like.html .dashboard", function() {
+			loadList(currPageNo, pageSize, sno);
+		});
+		$('#new-btn').click(function(event) {
+			event.preventDefault(); 
+			location.href = 'view.html';
+		});
 
-loadList(currPageNo, pageSize, sno);
+		$('#prevPgBtn').click(function() {
+			if (currPageNo > 1) {
+				loadList(--currPageNo, 4, sno);
+			}
+		});
 
-$('#new-btn').click(function(event) {
-	event.preventDefault(); 
-	location.href = 'view.html';
+		$('#nextPgBtn').click(function() {
+			loadList(++currPageNo, 4, sno);
+		});
+
+		function preparePagingButton(totalCount) {
+			// 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
+			if (currPageNo <= 1) {
+				$('#prevPgBtn').attr('disabled', true);
+			} else {
+				$('#prevPgBtn').attr('disabled', false);
+			}
+
+			var maxPageNo = parseInt(totalCount / pageSize);
+			if ((totalCount % pageSize) > 0) {
+				maxPageNo++;
+			}
+
+			if (currPageNo >= maxPageNo) {
+				$('#nextPgBtn').attr('disabled', true); 
+			} else {
+				$('#nextPgBtn').attr('disabled', false);
+			}
+
+			// 현재 페이지 번호를 출력한다.
+			$('#pageNo').text(currPageNo);
+		}
+		function loadList(pageNo, pageSize, sno) {
+			console.log("dasdsajcjcjcjc");
+			$.getJSON(serverRoot + '/mentoLike/list.json', 
+					{
+				"pageNo": pageNo,
+				"pageSize": pageSize,
+				"sno": sno
+					}, 
+					function(ajaxResult) {
+						var status = ajaxResult.status;
+						if (status != "success")
+							return;
+
+						var list = ajaxResult.data.list;
+						console.log(list);
+
+						var section = $('.mento-like-list');
+
+						var template = Handlebars.compile($('#mentoLike').html());
+						section.html(template({"list": list}));
+
+						mtHover();
+						preparePagingButton(ajaxResult.data.totalCount);
+						console.log(ajaxResult.data.totalCount);
+					});  
+		}
+	}); // 헤더 likes 버튼 및 멘토&설계도  클릭시 이벤트
+	
+	
+	// 좋아하는 영상 클릭시.
+	$(document.body).on( "click", "#tab-2", function() {
+		var currPageNo = 1;
+		var pageSize = 15;
+		var sno = 5;
+		$(".likes").load("likes/video-like.html .dashboard", function() {
+			likeVideoList(currPageNo, pageSize, sno);
+		});
+
+		$('#prevPgBtn').click(function() {
+			if (currPageNo > 1) {
+				likeVideoList(--currPageNo, 15, sno);
+			}
+		});
+
+		$('#nextPgBtn').click(function() {
+			likeVideoList(++currPageNo, 15, sno);
+		});
+
+		function preparePagingButton(totalCount) {
+			// 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
+			if (currPageNo <= 1) {
+				$('#prevPgBtn').attr('disabled', true);
+			} else {
+				$('#prevPgBtn').attr('disabled', false);
+			}
+
+			var maxPageNo = parseInt(totalCount / pageSize);
+			if ((totalCount % pageSize) > 0) {
+				maxPageNo++;
+			}
+
+			if (currPageNo >= maxPageNo) {
+				$('#nextPgBtn').attr('disabled', true); 
+			} else {
+				$('#nextPgBtn').attr('disabled', false);
+			}
+
+			// 현재 페이지 번호를 출력한다.
+			$('#pageNo').text(currPageNo);
+		}
+
+		function likeVideoList(pageNo, pageSize, sno) {
+			$.getJSON(serverRoot + '/videoLike/list.json', 
+					{
+				"pageNo": pageNo,
+				"pageSize": pageSize,
+				"sno": sno
+					}, 
+					function(ajaxResult) {
+						var status = ajaxResult.status;
+						if (status != "success")
+							return;
+
+						var list = ajaxResult.data.list;
+						console.log(list);
+
+						var section = $('.video-like-list');
+
+						var template = Handlebars.compile($('#videoLike').html());
+						section.html(template({"list": list}));
+
+						console.log("like");
+						console.log(ajaxResult.data.totalCount);
+						preparePagingButton(ajaxResult.data.totalCount);
+					});  
+		}
+
+	}); // 좋아하는 영상 클릭시 이벤트
+	
 });
 
-$('#prevPgBtn').click(function() {
-  if (currPageNo > 1) {
-    loadList(--currPageNo, 4, sno);
-  }
-});
-  
-$('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 4, sno);
-});
-  
-function preparePagingButton(totalCount) {
-  // 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
-  if (currPageNo <= 1) {
-    $('#prevPgBtn').attr('disabled', true);
-  } else {
-    $('#prevPgBtn').attr('disabled', false);
-  }
-  
-  var maxPageNo = parseInt(totalCount / pageSize);
-  if ((totalCount % pageSize) > 0) {
-    maxPageNo++;
-  }
-  
-  if (currPageNo >= maxPageNo) {
-    $('#nextPgBtn').attr('disabled', true); 
-  } else {
-    $('#nextPgBtn').attr('disabled', false);
-  }
-  
-  // 현재 페이지 번호를 출력한다.
-  $('#pageNo').text(currPageNo);
-}
 
-function loadList(pageNo, pageSize, sno) {
-	$.getJSON(serverRoot + '/mentoLike/list.json', 
-	    {
-		  "pageNo": pageNo,
-		  "pageSize": pageSize,
-		  "sno": sno
-		}, 
-		function(ajaxResult) {
-		      var status = ajaxResult.status;
-		      if (status != "success")
-		        return;
-		      
-		      var list = ajaxResult.data.list;
-		      console.log(list);
-		      
-		      var section = $('.mento-like-list');
-
-		      var template = Handlebars.compile($('#mentoLike').html());
-		      section.html(template({"list": list}));
-		  
-		      mtHover();
-		  preparePagingButton(ajaxResult.data.totalCount);
-		  console.log(ajaxResult.data.totalCount);
-	});  
-}
-
-$( function() { 
+/*$( function() { 
 
 		        // 좋아요 버튼 눌렀을 때
 		        
@@ -106,13 +184,13 @@ $( function() {
 		        
 		
 		      
-	/*	      $('.name-link').click(function(event) {
+		      $('.name-link').click(function(event) {
 		        event.preventDefault();
 		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-		      */
+		      
 		      
 //		      preparePagingButton(ajaxResult.data.totalCount);
-		  });  
+		  });  */
 	
 
 
@@ -123,7 +201,7 @@ $(".mt-list").hover(function(){
     $(this).css("cursor","pointer");
 	   $(this).children(".mt-btm").css({"background": "linear-gradient(90deg, rgba(105, 183, 235, 0.35), #b3dbd3, rgba(244, 214, 219, 0.55)"});
 	   $(this).children(".mt-btm").children(".mt-name").css("display", "inline-block");
-	   $(this).children(".mt-btm").children(".mt-photo").css("top", "-50px");
+	   $(this).children(".mt-btm").children(".like-mt-photo").css("top", "-50px");
  
 })
 
@@ -131,7 +209,7 @@ $(".mt-list").mouseleave(
 	    function () {
 	     $(this).children(".mt-btm").css("background", "transparent");
  	 $(this).children(".mt-btm").children(".mt-name").css("display", "none");
-        $(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
+        $(this).children(".mt-btm").children(".like-mt-photo").css("top", "-15px");
 	    }
 	  );
 }
@@ -182,7 +260,7 @@ $(".mt-list").mouseleave(
     
     
     
-    //  추천영상 더보기 버튼.
+    //  추천영상 bottom 허버시 이벤트
     
     $(".videoBox").hover(function(){
     	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
