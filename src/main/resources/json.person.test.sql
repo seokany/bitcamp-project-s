@@ -47,9 +47,9 @@
 	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 
 	
 	insert into contents(type) values('person'); 
-	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc,schl) 
+	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc,pschl) 
     values
-      (146, 
+      (43, 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/lee.jpg', 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/studio/lee(세로).jpg', 
       '이연희', 
@@ -57,9 +57,9 @@
       'SM엔터테인먼트소속의 여배우. 고아라에 이어 SM이 내세운 연기자로 첫사랑의 이미지를 가진 예쁜 얼굴과 큰 키, 날씬한 몸매로 외적인 면에서는 우월하다. 그러나 부족한 연기력으로 늘 비판을 받아왔다. 키가 크고 마른 체구에 운동을 정말 못하게 보이지만 의외로 운동 신경이 굉장히 뛰어난 편이다. 학교 동창생이었던 사람들의 증언을 들어보면 어지간한 남자아이들보다 축구를 잘했다고 하며, 고1 때는 반에서 체육부장을 맡기도 했다.',
       '비트대학교'
       );
-  insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) 
+  insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc,pschl) 
     values
-      (147, 
+      (44, 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/jobs.jpg', 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/studio/jobs(세로).jpg', 
       '스티브 잡스', 
@@ -67,9 +67,9 @@
       '버락 후세인 오바마 주니어는 미국의 정치인으로 제44대 대통령이다. 케냐 출신의 아버지와 유럽계 백인 어머니 사이에서 태어난 물라토로, 2008년 미국 대통령 선거에 민주당 소속으로 출마, 미국 최초로 아프리카계 미국인이자 하와이 출신으로 대통령에 당선되었으며, 2009년 1월 20일부터 임기를 시작하였다. 2005년 1월 일리노이 주 출신 미국 상원 의원으로 재직하다가 2008년 11월 대통령 선거 이후에 의원직을 사임하였다.',
       '비트대학교'
       );
-  insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) 
+  insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc,pschl) 
     values
-      (148, 
+      (45, 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/jordan.jpg', 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/studio/jordan(세로).jpg', 
       '조단', 
@@ -77,9 +77,9 @@
       '조단은 대한민국의 은퇴한 국가대표 피겨 스케이팅 선수이다. 2010년 동계 올림픽 여자 싱글 부문 챔피언, 2014년 동계 올림픽 여자 싱글 부문 은메달리스트, 2009년 · 2013년 세계 선수권 챔피언이며, 대한민국 최초의 올림픽 메달리스트, 세계선수권대회 메달리스트이다. 2003년, 2004년, 2005년, 2006년, 2013년, 2014년 한국 피겨스케이팅 종합 선수권 대회 우승자이기도 하다.',
       '비트대학교'
       );
-  insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) 
+  insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc,pschl) 
     values
-      (149, 
+      (46, 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/bear.jpg', 
       'http://localhost:8080/bitcamp-project-s/mystuff/img/personImg/studio/bear(세로).jpg', 
       '베어', 

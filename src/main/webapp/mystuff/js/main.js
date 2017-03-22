@@ -180,6 +180,38 @@ $( function() {
 		        	}
 		        })
 			})
+			
+  // mystuff 인물 모달 창 띄우기
+			
+			$(document.body).on( "click", ".model-slide > a", function() {
+				
+				console.log("-----------------------------------------------");
+				console.log("인물모달창");
+				console.log(this);
+				
+				var cono = $(this).attr('data-no');
+				console.log(cono);
+				
+				$.getJSON(serverRoot + '/person/getOne.json', 
+						{
+					"cono": cono
+						}, 
+						function(ajaxResult) {
+							var status = ajaxResult.status;
+							if (status != "success") {
+								return;
+							}
+							
+							 console.log(ajaxResult.data);
+				
+			})
+			
+			})
+			
+			
+			
+			
+			
 
 // 영상 모달 띄우기
 			
@@ -220,7 +252,7 @@ $( function() {
 	
 	
 	
-	
+	// 슬라이드 호출 함수
 	
     function jcarousels() {
 		$('.jcarousel').jcarousel();
@@ -713,12 +745,12 @@ $(document.body).on( "click", ".person-box .fpc_page-tip", function() {
 		 setTimeout(function(){
 		   close();
 		 },1700);
+		 
 		 };
 	 
 	 
-	 });
-}); // mystuff video 더보기 눌렀을 때
+       }); // 
 
-  
+    }); 
 
 	
