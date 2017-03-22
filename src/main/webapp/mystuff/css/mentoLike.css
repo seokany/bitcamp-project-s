@@ -53,26 +53,6 @@
   
 }
 
-
-.mt-photo{ 
-    border-radius: 100%;
-    width: 100px;
-    height: 90px;
-    position: absolute;
-    z-index: 2000;
-    top: -6px;
-    left: 395px;
-    padding: 6px;
-}
-
-
-.mt-photo img {
-    border-radius: 100%;
-    width: 87px;
-    height: 77px;
-    position: relative;
-}
-
    .mt-btm {
     position: absolute;
      background:transparent;

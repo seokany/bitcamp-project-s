@@ -1,104 +1,9 @@
 
-var currPageNo = 1;
-var pageSize = 4;
-var sno = 5;
-
-loadList(currPageNo, pageSize, sno);
-
-$('#new-btn').click(function(event) {
-	event.preventDefault(); 
-	location.href = 'view.html';
-});
-
-$('#prevPgBtn').click(function() {
-  if (currPageNo > 1) {
-    loadList(--currPageNo, 4, sno);
-  }
-});
-  
-$('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 4, sno);
-});
-  
-function preparePagingButton(totalCount) {
-  // 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
-  if (currPageNo <= 1) {
-    $('#prevPgBtn').attr('disabled', true);
-  } else {
-    $('#prevPgBtn').attr('disabled', false);
-  }
-  
-  var maxPageNo = parseInt(totalCount / pageSize);
-  if ((totalCount % pageSize) > 0) {
-	  
-    maxPageNo++;
-  }
-  
-  if (currPageNo >= maxPageNo) {
-    $('#nextPgBtn').attr('disabled', true); 
-  } else {
-    $('#nextPgBtn').attr('disabled', false);
-  }
-  
-  // 현재 페이지 번호를 출력한다.
-  $('#pageNo').text(currPageNo);
-}
-
-function loadList(pageNo, pageSize, sno) {
-	$.getJSON(serverRoot + '/planDetail/list.json', 
-	    {
-		  "pageNo": pageNo,
-		  "pageSize": pageSize,
-		  "sno": sno
-		}, 
-		function(ajaxResult) {
-		      var status = ajaxResult.status;
-		      if (status != "success")
-		        return;
-		      
-		      var list = ajaxResult.data.list;
-		      console.log("멘통");
-		      console.log(list);
-		      
-		      
-		      $.each(list, function(k, v) {
-		    	  $.getJSON(serverRoot + '/video/isLike.json', 
-		    		{
-		    		  "cono": v.contentsNo,
-		    		  "sno": sno
-		    		}, function(ajaxResult) {
-		  		      var status = ajaxResult.status;
-				      if (status != "success") return;
-				      
-				      var isLike = ajaxResult.data.isLike;
-				      
-				      if (isLike == 1) {
-				    	  list[k].isLike = true;
-				      } else {
-				    	  list[k].isLike = false;
-				      }
-
-				      var section = $('.mento-detail-list');
-				      
-				      var template = Handlebars.compile($('#mentoDetail').html());
-				      section.html(template({"list": list}));
-				      mentoHover();
-		    		});
-		    	  preparePagingButton(ajaxResult.data.totalCount);
-		    	  console.log("mento");
-		    	  console.log(ajaxResult.data.totalCount);
-		    	  
-		    	  
-		      });
-		      
-	});  
-}
-
 $( function() { 
 
 		        // 좋아요 버튼 눌렀을 때
 		        
-		        $(document.body).on( "click", ".mento-detail-list .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
+/*		        $(document.body).on( "click", ".mento-detail-list .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
 				        
@@ -126,7 +31,7 @@ $( function() {
 		                
 		                
 		        	}
-		        })
+		        })*/
 		    	
 		      
 	/*	      $('.name-link').click(function(event) {
@@ -139,7 +44,7 @@ $( function() {
 		       
 		  });  
 	
-   
+/*   
     $(document.body).on( "click", ".rec-btn", function() { // 추천목록 눌렀을 때
     	 
     	$("#rec-list").css("border-bottom", "2px solid blue");
@@ -160,10 +65,10 @@ $( function() {
         $("#all-rec-list").css("display", "none");
 //        $(".all-rec-model, .job-all, .all-rec-mento, video-all").css("display", "inline-block");
    
-    });
+    });*/
     
     
-    // 멘토 리스트 페이지
+/*    // 멘토 리스트 페이지
     function mentoHover() {
     	
     $(".mt-list").hover(function(){
@@ -180,69 +85,14 @@ $( function() {
     	$(this).children(".mt-btm").children(".mt-photo").css("top", "-15px");
     });
     
-    }
+    }*/
     
     
     
-    $(".hover").mouseleave(
-    	    function () {
-    	      $(this).removeClass("hover");
-    	    }
-    	  );
-    
-    $(".video").hover(function() { // 비디오 hover효과
-    	
-    	$(".video").css("background-color", "rgba(240, 128, 128, 0.27)");
-    	
-    })
-    
-    $(".video").mouseleave(
-    	    function () {
-    	      $(".video").css("background-color", "transparent");
-    	    }
-    	  );
-    //
+   
     
     
-    
-    //  추천영상 더보기 버튼.
-    
-    $(".videoBox").hover(function(){
-    	$(this).children(".video-box").css({"height":"20px", "width":"20px"});
-    })
-        $(".videoBox").mouseleave(
-    	    function () {
-    	    	$(this).children(".video-box").css({"height":"0px", "width":"0px"});
-    	    }
-    	  );
-    
-    $(".video-box").hover(function(){
-    	$(this).css({"height":"50px", "width":"50px"});
-    })
-        $(".video-box").mouseleave(
-    	    function () {
-    	      $(this).css({"height":"20px", "width":"20px"});
-    	    }
-    	  );
-    
-    
-    $(".jobBox").hover(function(){
-    	$(this).children(".job-box").css({"height":"20px", "width":"20px"});
-    })
-        $(".jobBox").mouseleave(
-    	    function () {
-    	    	$(this).children(".job-box").css({"height":"0px", "width":"0px"});
-    	    }
-    	  );
-    
-    $(".job-box").hover(function(){
-    	$(this).css({"height":"50px", "width":"50px"});
-    })
-        $(".job-box").mouseleave(
-    	    function () {
-    	      $(this).css({"height":"20px", "width":"20px"});
-    	    });
-
+   
     
     
 

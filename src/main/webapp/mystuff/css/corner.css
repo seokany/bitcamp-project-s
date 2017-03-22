@@ -6,7 +6,7 @@ color: #666;//trivial
   box-sizing: border-box;
 }
 .fpc_box {
-  position: relative;
+  position: absolute;
   background-color: #FFF;
 }
 .fpc_content {
@@ -59,11 +59,11 @@ color: #666;//trivial
   overflow: visible;
 }
 
-.modelBox:hover .model-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
+.personBox:hover .person-box  { /*edit corner size (First animation, when the whole page is rollovered)*/
   height: 20px;
   width: 20px;
 }
-.modelBox div.model-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
+.personBox div.person-box:hover { /*edit corner size (Second animation, when the corner itself is rollovered)*/
   height: 50px;
   width: 50px;
 } 
@@ -149,7 +149,6 @@ color: #666;//trivial
     font-weight: 900;
 }
 
-
 .corner-button p,
 .corner-button span{
 text-align: center;
@@ -170,6 +169,9 @@ text-align: center;
 /*   top: -5px; */
   right: 0;
   height: 125%;
+}
+.corner-contents:hover {
+	cursor:pointer;
 }
 .corner-contents:before {
   content: "";

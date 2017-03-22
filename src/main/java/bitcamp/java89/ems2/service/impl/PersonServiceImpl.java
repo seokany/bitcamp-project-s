@@ -19,10 +19,11 @@ public class PersonServiceImpl implements PersonService {
     return personDao.countAll();
   }
   
-  public List<Person> getList(int pageNo, int pageSize) throws Exception {
+  public List<Person> getList(int pageNo, int pageSize, int sno) throws Exception {
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("startRowIndex", (pageNo - 1) * pageSize);
     paramMap.put("rowSize", pageSize);
+    paramMap.put("sno", sno);
     
     return personDao.getList(paramMap);
   }

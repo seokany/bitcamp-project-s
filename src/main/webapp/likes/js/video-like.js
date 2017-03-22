@@ -1,23 +1,26 @@
 
-var currPageNo = 1;
+/*var currPageNo = 1;
 var pageSize = 15;
-var sno = 5;
+var sno = 5;*/
 
-loadList(currPageNo, 15, sno);
-
-$('#new-btn').click(function(event) {
-	event.preventDefault(); 
-	location.href = 'view.html';
+	
+/*	$(document.body).on( "click", "#tab-2", function() {
+	$(".likes").load("likes/video-like.html .dashboard", function() {
+		likeVideoList(currPageNo, pageSize, sno);
+     	});
+	}); // 좋아하는 영상 클릭시 이벤트
+	
 });
+
 
 $('#prevPgBtn').click(function() {
   if (currPageNo > 1) {
-    loadList(--currPageNo, 15, sno);
+	  likeVideoList(--currPageNo, 15, sno);
   }
 });
   
 $('#nextPgBtn').click(function() {
-  loadList(++currPageNo, 15, sno);
+	likeVideoList(++currPageNo, 15, sno);
 });
   
 function preparePagingButton(totalCount) {
@@ -43,7 +46,7 @@ function preparePagingButton(totalCount) {
   $('#pageNo').text(currPageNo);
 }
 
-function loadList(pageNo, pageSize, sno) {
+function likeVideoList(pageNo, pageSize, sno) {
 	$.getJSON(serverRoot + '/videoLike/list.json', 
 	    {
 		  "pageNo": pageNo,
@@ -67,7 +70,7 @@ function loadList(pageNo, pageSize, sno) {
 		      console.log(ajaxResult.data.totalCount);
 		  preparePagingButton(ajaxResult.data.totalCount);
 	});  
-}
+}*/
 
 $('.tooltip-viewport-bottom').tooltip({
 	placement: 'bottom',
@@ -152,15 +155,6 @@ $( function() {
 				});
 		
 	})
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
-		        
 		        
 		        
 		        
