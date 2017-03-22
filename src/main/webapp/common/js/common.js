@@ -1,3 +1,43 @@
+
+/*$('#new-btn').click(function(event) {
+	event.preventDefault(); 
+	location.href = 'view.html';
+});
+
+$('#prevPgBtn').click(function() {
+  if (currPageNo > 1) {
+    loadList(--currPageNo, 15, sno);
+  }
+});
+  
+$('#nextPgBtn').click(function() {
+  loadList(++currPageNo, 15, sno);
+});
+  
+function preparePagingButton(totalCount) {
+  // 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
+  if (currPageNo <= 1) {
+    $('#prevPgBtn').attr('disabled', true);
+  } else {
+    $('#prevPgBtn').attr('disabled', false);
+  }
+  
+  var maxPageNo = parseInt(totalCount / pageSize);
+  if ((totalCount % pageSize) > 0) {
+    maxPageNo++;
+  }
+  
+  if (currPageNo >= maxPageNo) {
+    $('#nextPgBtn').attr('disabled', true); 
+  } else {
+    $('#nextPgBtn').attr('disabled', false);
+  }
+  
+  // 현재 페이지 번호를 출력한다.
+  $('#pageNo').text(currPageNo);
+}
+*/
+
 $( function() {
 	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
 	var memberNo = 0;

@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="seeds/css/mbti-result-istp.css" />
 <link rel="stylesheet" type="text/css" href="mystuff/css/mystuff.css">
 <link rel="stylesheet" type="text/css" href="mystuff/css/homepage.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/video.css">
 <link rel="stylesheet" type="text/css" href="mystuff/css/mentoLike.css">
 <link rel="stylesheet" type="text/css" href="mystuff/css/jobHover.css">
 <link rel="stylesheet" type="text/css" href="mystuff/css/modal.css">
@@ -61,6 +62,7 @@ body {
 .dashboard {
     position: relative;
     margin: 1vw auto;
+    text-align: left;
 }
 .mystuff-explain,
 .likes-explain {
@@ -121,11 +123,16 @@ body {
 <script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="common/js/context.js"></script>
-<script type="text/javascript" src="common/js/common.js"></script>
+<script type="text/javascript" src="common/js/header.js"></script>
+<script type="text/javascript" src="common/js/common.js"></script> <!-- 로그인한 멤버 넘버 넘기는 memberNo 변수 선언되어있음. -->
 <script type="text/javascript" src="auth/js/login.js"></script>
+<script type="text/javascript" src="mystuff/js/main.js"></script>
+<script type="text/javascript" src="mystuff/js/modal.js"></script>
+<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="seeds/js/alert.js"></script>
 <script type="text/javascript" src="seeds/js/seeds-temp.js"></script>
 <script type="text/javascript" src="seeds/js/json.mbti.js"></script>
+
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
   <div class="ssize video corner-container">
@@ -143,16 +150,41 @@ body {
         </button>
       </div>
       <div class="corner-box video-box">
-        <a class="fpc_page-tip" href="http://localhost:8080/bitcamp-project-s/mystuff/detail/video-detail.html">
+        <a class="fpc_page-tip">
         <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
       </div>
     </div>
   </div>
 {{/each}}
 </script>
+<!-- 비디오 더보기 페이지 리스트 -->
+<script id="videoDetail" type="text/x-handlebars-template"> 
+{{#each list}}
+<div class="ssize vdoConts">
+<div class="video-conts">
+     <img class="rec rec-video1" id="video1" 
+            src='{{videoImage}}'></img>
+               <div class="video-btm" iframe-addr={{englishTitle}}>
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                 <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                   {{#if isLike}}
+                     <a href="#" class="btn heart checked"></a>
+                   {{else}}
+                     <a href="#" class="btn heart"></a>
+                   {{/if}}
+                 </button>
+        </div>
+
+     </div>
+</div>
+
+{{/each}}
+</script>
 <script id="mentoList" type="text/x-handlebars-template">
 {{#each list}}
-<div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="img/map1.jpg" width="495" height="360" alt=""></a>
+<div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="mystuff/img/map1.jpg" width="495" height="360" alt=""></a>
                   <div class="mento-conts">
                    <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 50px;">
           {{#if isLike}}
@@ -162,7 +194,7 @@ body {
           {{/if}}
                    </button>
               <div class="mento-btm">
-                 <div class="mt-photo"><img src='img/lee.jpg'></div>
+                 <div class="mt-photo"><img src='mystuff/img/lee.jpg'></div>
                  <div class="mento-name-favor"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
               </div>
                    <div class="mento-box corner-box">
@@ -173,19 +205,18 @@ body {
               </div>
 {{/each}}
 </script>
-<script type="text/javascript" src="mystuff/js/main.js"></script>
-<script type="text/javascript" src="mystuff/js/modal.js"></script>
-<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script> 
+
+
 <script id="mentoLike" type="text/x-handlebars-template">
 {{#each list}}
   <div class="mt-list">
     <div class="mt-conts">
       <button type="button" class="buttonHolder" data-no="{{contentsNo}}">
         <a href="#" class="btn heart checked"></a></button>
-      <img clas="map-img" src="../mystuff/img/map1.jpg">
+      <img clas="map-img" src="mystuff/img/map1.jpg">
     </div>
     <div class="mt-btm">
-      <div class="mt-photo"><img src='../mystuff/img/lee.jpg'></div>
+      <div class="mt-photo"><img src='mystuff/img/lee.jpg'></div>
       <div class="mt-name">
         <span class="mento-name" >천지연 개발자</span><br><p>Front end</p>
       </div>
@@ -204,7 +235,7 @@ $(function() {
 	  
    <!-- mentee service loader -->
     $(function() {
-      $(".seeds").load("seeds/seeds-temp.html .dashboard");
+      $(".seeds").load("seeds/seeds-temp.html .seeds");
       $(".mystuff").load("mystuff/mystuff.html .dashboard");
       $(".likes").load("likes/mento-like.html .dashboard");
     });

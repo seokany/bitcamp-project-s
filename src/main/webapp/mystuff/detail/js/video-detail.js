@@ -1,14 +1,10 @@
 
-var currPageNo = 1;
+/*var currPageNo = 1;
 var pageSize = 15;
 var sno = 5;
 
 loadList(currPageNo, pageSize, sno);
 
-$('#new-btn').click(function(event) {
-	event.preventDefault(); 
-	location.href = 'view.html';
-});
 
 $('#prevPgBtn').click(function() {
   if (currPageNo > 1) {
@@ -29,6 +25,7 @@ function preparePagingButton(totalCount) {
   }
   
   var maxPageNo = parseInt(totalCount / pageSize);
+  console.log(maxPageNo);
   if ((totalCount % pageSize) > 0) {
     maxPageNo++;
   }
@@ -52,10 +49,14 @@ function loadList(pageNo, pageSize, sno) {
 		}, 
 		function(ajaxResult) {
 		      var status = ajaxResult.status;
-		      if (status != "success")
-		        return;
-		      
+		      if (status != "success") {
+		    	  return;
+		    	  
+		      }
+	    	  console.log("video");
+	    	  console.log(ajaxResult.data.totalCount);
 		      var list = ajaxResult.data.list;
+		      console.log(list);
 		      
 		      $.each(list, function(k, v) {
 		    	  $.getJSON(serverRoot + '/video/isLike.json', 
@@ -77,19 +78,17 @@ function loadList(pageNo, pageSize, sno) {
 				      var section = $('.video-detail-list');
 				      var template = Handlebars.compile($('#videoDetail').html());
 				      section.html(template({"list": list}));
+				      preparePagingButton(ajaxResult.data.totalCount);
 		    		});
-		    	  preparePagingButton(ajaxResult.data.totalCount);
-		    	  console.log("video");
-		    	  console.log(ajaxResult.data.totalCount);
+
 		    	  
 		    	  
 		      });
-		      console.log(list);
 		      
 		  
 	});  
 }
-
+*/
 $( function() { 
 
 		        // 좋아요 버튼 눌렀을 때
@@ -141,7 +140,7 @@ $( function() {
 					 list = ajaxResult.data.list;
 					 
 
-					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
+					 $('.mystuff-modal').load('../talks.html #contents', function() {
 						 console.log(list);
 						 console.log("네임");
 						 console.log(list[0].speakerName);
@@ -159,8 +158,19 @@ $( function() {
 				});
 		
 	})
-		        
-		        
+	
+	
+	// esc 눌렀을 때
+    $(document.body).on( "click", ".modal-esc", function() { 
+    	$( ".modal-back" ).addClass("animated fadeOut");
+        $( ".modal-content" ).addClass("animated slideOutRight");
+        $( ".modal-back" ).css("animation-duration", "0.8s");
+        $( ".modal-content" ).css("animation-duration", "0.5s");
+        $( "#contents").remove();
+//        setTimeout( function() {
+//        	$(".pop-modal", parent.document).css("display", "none");
+//        }, 800); 
+    });
 		        
 		        
 		        
