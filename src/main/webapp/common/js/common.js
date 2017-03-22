@@ -139,6 +139,9 @@ $(function() {
 					});
 	      }
 	      if (target.parents().hasClass("menu-nav")) {
+	    	  loginEvent = false;
+	    	  console.log("login event 제어변수 상태");
+	    	  console.log(loginEvent);
 			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
 		    	$('.header-icon-power').css("display", "inline-block");
 		    	$('.header-icon-user').css("display", "none");
