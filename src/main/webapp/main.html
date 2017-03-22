@@ -101,65 +101,59 @@ body {
   background: url(http://goo.gl/OeVhun) center no-repeat;
   background-size: cover;
 }
-
 .warn-modal-blur-it {
   filter: blur(4px);
 }
-
 .warn-modal-wrapper {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0; 
   left: 0;
-  background: rgba(41, 171, 164, 0.8);
   visibility: hidden;
-  opacity: 0;
+  display: none;
   transition: all 0.25s ease-in-out;
 }
-
-.warn-modal-wrapper.open {
-  opacity: 1;
+.warn-modal-wrapper.warn-modal-open {
   visibility: visible;
-}
-
-.warn-modal {
-  width: 600px;
-  height: 400px;
   display: block;
-  margin: 50% 0 0 -300px;
-  position: relative;
+}
+.warn-modal {
+  width: 400px;
+  height: 270px;
+  display: block;
+  margin: -130px 0 0 -200px;
+  position: fixed;
   top: 50%; 
   left: 50%;
   background: #fff;
-  opacity: 0;
   transition: all 0.5s ease-in-out;
+  border: 1px solid rgba(226, 82, 92, 0.6);
 }
-
-.warn-modal-wrapper.open .modal {
+.warn-modal-wrapper.warn-modal-open .warn-modal {
   margin-top: -200px;
-  opacity: 1;
 }
-
 .warn-modal-head { 
-  width: 90%;
+  width: 100%;
   height: 32px;
   padding: 12px 30px;
   overflow: hidden;
   background: #e2525c;
 }
-
 .warn-modal-btn-close {
+  top: -10px;
+  right: -22px;
+  position: relative;
   font-size: 28px;
   display: block;
   float: right;
   color: #fff;
+  cursor: pointer;
 }
-
 .warn-modal-content {
   padding: 10%;
+  cursor: default;
 }
-
 .warn-modal-good-job {
   text-align: center;
   font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
@@ -170,6 +164,28 @@ body {
 }
 .warn-modal-good-job h1 {
   font-size: 45px;
+}
+.fa-px {
+    font-size: 60px;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    top: -15px;
+    position: relative;
+}
+h3.warn-modal-logInfo,
+h3.warn-modal-testInfo {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    top: 20px;
+}
+h3.warn-modal-testInfo {
+    display: none;
 }
 </style>
 <body>
@@ -195,14 +211,13 @@ body {
 <div class="warn-modal-wrapper">
   <div class="warn-modal">
     <div class="warn-modal-head">
-      <a class="warn-modalbtn-close warn-modal-trigger" href="#">
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </a>
+      <i class="warn-modal-btn-close warn-modal-trigger fa fa-times" aria-hidden="true"></i>
     </div>
     <div class="warn-modal-content">
         <div class="warn-modal-good-job">
-          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-          <h1>Good Job!</h1>
+          <i class="fa-px fa-info-circle" aria-hidden="true"></i>
+          <h3 class="warn-modal-logInfo">로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>
+          <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내해드려요.</h3>
         </div>
     </div>
   </div>
@@ -277,7 +292,6 @@ body {
                    {{/if}}
                  </button>
         </div>
-
      </div>
 </div>
 {{/each}}
@@ -384,10 +398,6 @@ body {
 {{/each}}
 </script>
 <script>
-
-
-
-
 $(function() {
    <!-- mentee service loader -->
     $(function() {
@@ -398,13 +408,28 @@ $(function() {
     <!-- /mentee service load -->
     
     <!-- eventControll -->
-    var eventControll = false;
+    console.log(loginEvent, testEvent);
     $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-    	if(ajaxResult.status == 'success') eventControll = true; 
+    	if(ajaxResult.status == 'success') {
+    		loginEvent = true; 
+//     		if(/* result table에 결과가 존재하면 */) 
+//     			testEvent = true;
+    	}
     });
     <!-- /eventControll -->
     
     <!-- wheel & click 슬라이딩 이벤트 --> 
+    $(document.body).on("click", ".warn-modal-trigger, .warn-modal-wrapper", function(e) {
+    	if (e.target.classList[0] == 'warn-modal-wrapper' || e.target.classList[1] == 'warn-modal-trigger') {
+        $('.warn-modal').addClass('animated hinge');
+    		setTimeout(function() {
+    			$('.warn-modal').removeClass('animated hinge');
+	        $('.warn-modal-wrapper').removeClass('warn-modal-open');
+	        $('.warn-modal').removeClass('animated bounceInRight');
+	        $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
+    		}, 1000);
+    	}
+    });
     $(document.body).on("click", "#seeds-btn", function() {
       if($(".frame-area-center").hasClass("mystuff")) {
         $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
@@ -418,7 +443,7 @@ $(function() {
       }
     });
     $(document.body).on("click", "#mystuff-btn", function() {
-    	if(eventControll) {
+    	if(loginEvent && testEvent) {
 	      if($(".frame-area-center").hasClass("seeds")) {
 	        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
 	        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
@@ -427,19 +452,25 @@ $(function() {
 	        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
 	      }
     	} else {
- 			    $('.warn-modal-wrapper').toggleClass('warn-modal-open');
- 			    $('.warn-modal-page-wrapper').toggleClass('warn-modal-blur-it');
- 			     return false;
+ 			    $('.warn-modal-wrapper').addClass('warn-modal-open');
+ 			    $('.warn-modal').addClass('animated bounceInRight');
+ 			    $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
     	}
     });
     $(document.body).on("click", "#likes-btn", function() {
-      if($(".frame-area-center").hasClass("seeds")) {
-        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
-        $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
-        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
-      } else if($(".frame-area-center").hasClass("mystuff")) {
-        $(".mystuff").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
-        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+      if(loginEvent && testEvent) {
+	      if($(".frame-area-center").hasClass("seeds")) {
+	        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+	        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      } else if($(".frame-area-center").hasClass("mystuff")) {
+	        $(".mystuff").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      }
+      } else {
+          $('.warn-modal-wrapper').addClass('warn-modal-open');
+          $('.warn-modal').addClass('animated bounceInRight');
+          $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
       }
     });
     
@@ -461,27 +492,33 @@ $(function() {
             $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
         }
       } else if($(".frame-area-center").hasClass("seeds")) {
-         if (wheelType < 0) {
-           $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
-           $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+         if(loginEvent && testEvent) {
+	         if (wheelType < 0) {
+	           $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	           $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	         } else {
+	             $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	             $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+	             setTimeout(function() {
+	               $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	             }, 350);
+	         }
          } else {
-             $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
-             $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
-             setTimeout(function() {
-               $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
-             }, 350);
+             $('.warn-modal-wrapper').addClass('warn-modal-open');
+             $('.warn-modal').addClass('animated bounceInRight');
+             $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
          }
       } else if($(".frame-area-center").hasClass("likes")) {
-         if (wheelType < 0) {
-           $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
-           $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
-           setTimeout(function() {
-             $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
-           }, 350);
-         } else {
-             $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
-             $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
-         }
+	         if (wheelType < 0) {
+	           $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	           $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+	           setTimeout(function() {
+	             $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	           }, 350);
+	         } else {
+	             $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	             $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	         }
       }
     };
       
@@ -490,7 +527,7 @@ $(function() {
         hasScrolled(); 
         wheelState = false; 
       }
-    }, 250);
+    }, 1000);
     <!-- /wheel & click 슬라이딩 이벤트 -->
 });
 </script>

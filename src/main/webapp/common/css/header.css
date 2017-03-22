@@ -67,7 +67,7 @@ body {
 .header-icon-user, 
 .header-icon-message {
     font-family: FontAwesome;
-    font-size: 3em;
+    font-size: 2em;
     font-style: normal;
     font-weight: normal;
     display: none;
@@ -76,7 +76,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 .header-icon-user {
-	font-size: 2.8em;
+	font-size: 1.9em;
 }
 .user-menu-toggle {
   display: inline-block;
@@ -538,7 +538,6 @@ span.message-context {
     margin: -1px;
     overflow: hidden;
     border: 0;
-    출처: http:// webdir.tistory.com/435 [WEBDIR];
     display: inline-block;
     padding: .5em .75em;
     color: #f5f5f5;

@@ -1,10 +1,3 @@
-.seeds {
-  height: 700px;
-/*   width: 1150px; */
-/*   margin: 67px auto; */
-/*   padding-top: 133px; */
-}
-
 #test1, #test2, #test3, #test4 {
   background-color: #ff8040;
   border-radius: 75px;
@@ -103,11 +96,6 @@
 }
 
 
-
-
-
-
-
 /* 새로 정한 카드 디자인 */
 
 *, *:before, *:after {
@@ -116,45 +104,33 @@
   padding: 0;
 }
 
-html, body {
+.seeds {
   font-size: 62.5%;
   font-family: 'Raleway', sans-serif;
-}
-
-.seeds {
 	height: 740px;
-  margin: 2.5vw auto;
   width: 1285px;
-}
-    
-
-
-
-body {
-  color: #686e74;
-  overflow-x: hidden;
-  min-height: 100vh;
+  margin: 0 auto;
 }
 
-.seeds > section {
+.seeds section {
   width: 900px;
   margin: 0 auto;
 }
 
-.title {
+.seeds .title {
   font-size: 46px;;
   font-weight: 900;
-  padding-top: 10vh;
   color: #686e74;
+  text-align: center;
 }
 
-.cards {
+.seeds .cards {
   padding-top: 6rem;
   display: flex;
   /* justify-content: space-between; */
 }
 
-.card {
+.seeds .card {
   width: 200px;
   height: 22.5rem;
   background-color: #f9fbfb;
@@ -169,16 +145,16 @@ body {
   box-shadow: 0 2rem 4rem #aac1c7;
   margin: 10px;
 }
-.card__svg-container {
+.seeds .card__svg-container {
   height: 50%;
   display: -webkit-box;
   -webkit-box-pack: center;
   -webkit-box-align: end;
 }
-.card__svg-wrapper {
+.seeds .card__svg-wrapper {
   width: 8rem;
 }
-.card__count-container {
+.seeds .card__count-container {
   flex-grow: 1;
   display: flex;
   -webkit-box-pack: center;
@@ -186,15 +162,15 @@ body {
   -webkit-box-align: center;
   align-items: center;
 }
-.card__count-text {
+.seeds .card__count-text {
   
 }
-.card__count-text--big {
+.seeds .card__count-text--big {
   text-transform: uppercase;
   font-size: 5rem;
   font-weight: 300;
 }
-.card__stuff-container {
+.seeds .card__stuff-container {
   margin: 0 auto;
   width: 90%;
   height: 15%;
@@ -209,17 +185,17 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-.card__stuff-icon, .card__stuff-text {
+.seeds .card__stuff-icon, .card__stuff-text {
   display: inline-block;
 }
 
-.card__stuff-text {
+.seeds .card__stuff-text {
   text-transform: uppercase;
   margin-left: .4rem;
   -webkit-transform: translate(0, -0.2rem);
           transform: translate(0, -0.2rem);
 }
-.card:after {
+.seeds .card:after {
   content: "";
   display: block;
   position: absolute;

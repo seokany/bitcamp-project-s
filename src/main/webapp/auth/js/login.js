@@ -1,5 +1,5 @@
 $(function() {
-	
+    
 	if ($('input[name=user-type]:checked').val() =="mentee") {
 		$('.sareaDiv').css("display", "none");
 	}
@@ -38,6 +38,9 @@ $(function() {
 		/*   로그인 버튼 이벤트   */ 
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
+				loginEvent = true;
+				console.log("login event 제어변수 상태");
+				console.log(loginEvent);
 				console.log("로그인 유저 정보");
 				console.log(ajaxResult.data);
 				if (ajaxResult.data.specialArea == null) {
