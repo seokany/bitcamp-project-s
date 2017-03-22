@@ -308,7 +308,7 @@ p.incorrect {
     content: '\00d7';
 }
 
-.title {
+.register .title {
     -webkit-transition-delay: .3s;
     width: 100%;
     left: -13%;
