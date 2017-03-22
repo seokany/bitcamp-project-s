@@ -56,11 +56,11 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc, pschl) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명','비트대학교'); 
 
 - 설계도 데이터
-	insert into plan(cono, eno, plnm,  plmap, plimg) values(494, 6, '설계도 이름', '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plnm,  plmap, plimg) values(495, 7, '설계도 이름', '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plnm,  plmap, plimg) values(496, 8, '설계도 이름', '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plnm,  plmap, plimg) values(497, 9, '설계도 이름', '설계도 내용', '설계도 썸네일');
-	insert into plan(cono, eno, plnm,  plmap, plimg) values(498, 10,'설계도 이름', '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plnm,  plmap, plimg) values(38, 6, '설계도 이름', '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plnm,  plmap, plimg) values(39, 7, '설계도 이름', '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plnm,  plmap, plimg) values(40, 8, '설계도 이름', '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plnm,  plmap, plimg) values(41, 9, '설계도 이름', '설계도 내용', '설계도 썸네일');
+	insert into plan(cono, eno, plnm,  plmap, plimg) values(42, 10,'설계도 이름', '설계도 내용', '설계도 썸네일');
 
 
 - 주제 데이터
@@ -69,12 +69,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into topic(tnm) values('재무'); 
 	
 	
-	- 좋아요 데이터
-	insert into lklst(cono, sno) values(2,5);
-	insert into lklst(cono, sno) values(3,5);
-	insert into lklst(cono, sno) values(4,5);
-	insert into lklst(cono, sno) values(5,5);
-	insert into lklst(cono, sno) values(6,5);
+
 
 - 콘텐츠 주제 데이터
 	insert into copic(tno, cono) values(1, 2); 
@@ -98,6 +93,8 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into copic(tno, cono) values(1, 20);
 	insert into copic(tno, cono) values(1, 21);
 	insert into copic(tno, cono) values(1, 22);
+	insert into copic(tno, cono) values(1, 23);
+	insert into copic(tno, cono) values(1, 24);
 
 	- 아래부터 설계도 리스트
   insert into copic(tno, cono) values(1, 37);

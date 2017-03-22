@@ -1,9 +1,6 @@
 -- 대화내용
 DROP TABLE IF EXISTS MESSG RESTRICT;
 
--- 대화내용
-DROP TABLE IF EXISTS TABLE RESTRICT;
-
 -- 콘텐츠헤더
 DROP TABLE IF EXISTS CONTENTS RESTRICT;
 
@@ -66,22 +63,6 @@ ALTER TABLE MESSG
 
 ALTER TABLE MESSG
   MODIFY COLUMN msno INTEGER NOT NULL AUTO_INCREMENT COMMENT '대화일련번호';
-
--- 대화내용
-CREATE TABLE TABLE (
-  msno  INTEGER  NOT NULL COMMENT '대화일련번호', -- 대화일련번호
-  msge  TEXT     NOT NULL COMMENT '내용', -- 내용
-  mswr  INTEGER  NOT NULL COMMENT '작성자', -- 작성자
-  msdat DATETIME NOT NULL COMMENT '등록일시' -- 등록일시
-)
-COMMENT '대화내용';
-
--- 대화내용
-ALTER TABLE TABLE
-  ADD CONSTRAINT PK_TABLE -- 대화내용 기본키
-    PRIMARY KEY (
-      msno -- 대화일련번호
-    );
 
 -- 콘텐츠헤더
 CREATE TABLE CONTENTS (
