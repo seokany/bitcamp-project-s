@@ -1,6 +1,9 @@
 -- 대화내용
 DROP TABLE IF EXISTS MESSG RESTRICT;
 
+-- 대화내용
+DROP TABLE IF EXISTS TABLE RESTRICT;
+
 -- 콘텐츠헤더
 DROP TABLE IF EXISTS CONTENTS RESTRICT;
 
@@ -63,6 +66,22 @@ ALTER TABLE MESSG
 
 ALTER TABLE MESSG
   MODIFY COLUMN msno INTEGER NOT NULL AUTO_INCREMENT COMMENT '대화일련번호';
+
+-- 대화내용
+CREATE TABLE TABLE (
+  msno  INTEGER  NOT NULL COMMENT '대화일련번호', -- 대화일련번호
+  msge  TEXT     NOT NULL COMMENT '내용', -- 내용
+  mswr  INTEGER  NOT NULL COMMENT '작성자', -- 작성자
+  msdat DATETIME NOT NULL COMMENT '등록일시' -- 등록일시
+)
+COMMENT '대화내용';
+
+-- 대화내용
+ALTER TABLE TABLE
+  ADD CONSTRAINT PK_TABLE -- 대화내용 기본키
+    PRIMARY KEY (
+      msno -- 대화일련번호
+    );
 
 -- 콘텐츠헤더
 CREATE TABLE CONTENTS (
@@ -181,7 +200,8 @@ CREATE TABLE PERSON (
   psimg2 VARCHAR(255) NOT NULL COMMENT '인물썸네일2', -- 인물썸네일2
   psnm   VARCHAR(50)  NOT NULL COMMENT '인물명', -- 인물명
   psjob  VARCHAR(100) NOT NULL COMMENT '인물직업', -- 인물직업
-  psdsc  TEXT         NOT NULL COMMENT '인물설명' -- 인물설명
+  psdsc  TEXT         NOT NULL COMMENT '인물설명', -- 인물설명
+  pschl  VARCHAR(100) NOT NULL COMMENT '학력' -- 학력
 )
 COMMENT '인물';
 
@@ -320,7 +340,7 @@ ALTER TABLE MESSG
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     )
-    REFERENCES QNA ( -- 질의응답
+    REFERENCES NEW_SCHEMA.QNA ( -- 질의응답
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     );
@@ -484,4 +504,3 @@ ALTER TABLE SNATR
     REFERENCES TOPIC ( -- 주제
       tno -- 주제번호
     );
-    
