@@ -89,6 +89,85 @@ body {
     position: fixed;
     z-index: 12;
 }
+
+/* modal */
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+.warn-modal-page-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(http://goo.gl/OeVhun) center no-repeat;
+  background-size: cover;
+}
+
+.warn-modal-blur-it {
+  filter: blur(4px);
+}
+
+.warn-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background: rgba(41, 171, 164, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.warn-modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.warn-modal {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: 50% 0 0 -300px;
+  position: relative;
+  top: 50%; 
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.warn-modal-wrapper.open .modal {
+  margin-top: -200px;
+  opacity: 1;
+}
+
+.warn-modal-head { 
+  width: 90%;
+  height: 32px;
+  padding: 12px 30px;
+  overflow: hidden;
+  background: #e2525c;
+}
+
+.warn-modal-btn-close {
+  font-size: 28px;
+  display: block;
+  float: right;
+  color: #fff;
+}
+
+.warn-modal-content {
+  padding: 10%;
+}
+
+.warn-modal-good-job {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #e2525c;
+}
+.warn-modal-good-job .fa-thumbs-o-up {
+  font-size: 60px;
+}
+.warn-modal-good-job h1 {
+  font-size: 45px;
+}
 </style>
 <body>
 <div id="header"></div>
@@ -108,6 +187,24 @@ body {
     </div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="warn-modal-wrapper">
+  <div class="warn-modal">
+    <div class="warn-modal-head">
+      <a class="warn-modalbtn-close warn-modal-trigger" href="#">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="warn-modal-content">
+        <div class="warn-modal-good-job">
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          <h1>Good Job!</h1>
+        </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -225,12 +322,6 @@ body {
 <script type="text/javascript" src="likes/js/mento-like.js"></script>
 <script>
 $(function() {
-	  <!-- header load -->
-	  $.get("common/header.html", function(result) {
-		  $('#header').html(result);
-	  });
-	  <!-- /header load -->
-	  
    <!-- mentee service loader -->
     $(function() {
       $(".seeds").load("seeds/seeds-temp.html .seeds");
@@ -238,6 +329,13 @@ $(function() {
       $(".likes").load("likes/mento-like.html .dashboard");
     });
     <!-- /mentee service load -->
+    
+    <!-- eventControll -->
+    var eventControll = false;
+    $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    	if(ajaxResult.status == 'success') eventControll = true; 
+    });
+    <!-- /eventControll -->
     
     <!-- wheel & click 슬라이딩 이벤트 --> 
     $(document.body).on("click", "#seeds-btn", function() {
@@ -253,13 +351,19 @@ $(function() {
       }
     });
     $(document.body).on("click", "#mystuff-btn", function() {
-      if($(".frame-area-center").hasClass("seeds")) {
-        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
-        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
-      } else if($(".frame-area-center").hasClass("likes")) {
-        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
-        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
-      }
+    	if(eventControll) {
+	      if($(".frame-area-center").hasClass("seeds")) {
+	        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      } else if($(".frame-area-center").hasClass("likes")) {
+	        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	      }
+    	} else {
+ 			    $('.warn-modal-wrapper').toggleClass('warn-modal-open');
+ 			    $('.warn-modal-page-wrapper').toggleClass('warn-modal-blur-it');
+ 			     return false;
+    	}
     });
     $(document.body).on("click", "#likes-btn", function() {
       if($(".frame-area-center").hasClass("seeds")) {
