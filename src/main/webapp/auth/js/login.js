@@ -39,7 +39,7 @@ $(function() {
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
 				console.log("로그인 유저 정보");
-				console.log(ajaxResult.data.specialArea);
+				console.log(ajaxResult.data);
 				if (ajaxResult.data.specialArea == null) {
 					$('.demo').removeClass("animated fadeInRight");
 			    	$('.demo').addClass("animated fadeOutRight");
@@ -156,27 +156,6 @@ $(function() {
   
   
   
-  
-  
-  
-  $(document).on("click", ".app_logout", function(e) {
-    if (animating) return;
-    $(".ripple").remove();
-    animating = true;
-    var that = this;
-    $(that).addClass("clicked");
-    setTimeout(function() {
-      $app.removeClass("active");
-      $login.show();
-      $login.css("top");
-      $login.removeClass("inactive");
-    }, logoutPhase1 - 120);
-    setTimeout(function() {
-      $app.hide();
-      animating = false;
-      $(that).removeClass("clicked");
-    }, logoutPhase1);
-  });
   
   $(document).on("click", ".new-sign", function(e) {
 	  $(".sign-in").addClass("animated fadeOutLeft");
