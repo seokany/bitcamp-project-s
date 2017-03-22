@@ -47,6 +47,7 @@ function loadList() {
 //	    {
 //		  "pageNo": pageNo,
 //		  "pageSize": pageSize
+			"sno": sno
 //		}, 
 		function(ajaxResult) {
 		  var status = ajaxResult.status;

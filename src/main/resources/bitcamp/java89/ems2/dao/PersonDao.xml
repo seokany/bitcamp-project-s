@@ -12,6 +12,7 @@
     <result column="psdsc"      property="personDescription"/>
     <result column="psimg1"     property="personImage1"/>
     <result column="psimg2"     property="personImage2"/>
+    <result column="pschl"      property="personSchool"/>
   </resultMap>
   
   <select id="count" parameterType="string" resultType="int">
@@ -41,7 +42,7 @@
 			inner join topic tp on cp.tno = tp.tno
 			inner join snatr snt on tp.tno = snt.tno 
 			inner join result ret on snt.reno = ret.reno 
-		where ret.sno = '5';
+		where ret.sno = #{sno};
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   

@@ -53,7 +53,7 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) values(10, '테스트 영상6', 'testVideo', 'https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/5f9c005e712ba7dc695a395350bd7679ef6ae2d4_2880x1620.jpg?quality=89&w=320', 'desc', 'spk', 'spkjob', 'thumb',201703); 
 
 - 인물 데이터
-	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명'); 
+	insert into person(cono, psimg1, psimg2, psnm, psjob, psdsc, pschl) values(3, '썸네일1', '썸네일2', '인물이름', '인물직업', '인물설명','비트대학교'); 
 
 - 설계도 데이터
 	insert into plan(cono, eno, plnm,  plmap, plimg) values(494, 6, '설계도 이름', '설계도 내용', '설계도 썸네일');

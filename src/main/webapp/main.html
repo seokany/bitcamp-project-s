@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <title>DREAMTREE</title>
 </head>
-<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css">
+<link rel="stylesheet" type="text/css" href="common/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="common/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="common/css/header.css">
 <link rel="stylesheet" type="text/css" href="common/css/common.css" />
 <link rel="stylesheet" type="text/css" href="auth/css/login.css">
@@ -23,6 +23,8 @@
 <link rel="stylesheet" type="text/css" href="mystuff/css/modal.css">
 <link rel="stylesheet" type="text/css" href="mystuff/css/corner.css">
 <link rel="stylesheet" type="text/css" href="mystuff/css/talks.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/mentoPage.css">
+<link rel="stylesheet" type="text/css" href="likes/css/likes.css" />
 <style>
 /*   driver   */
 body {
@@ -89,6 +91,85 @@ body {
     position: fixed;
     z-index: 12;
 }
+
+/* modal */
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+.warn-modal-page-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(http://goo.gl/OeVhun) center no-repeat;
+  background-size: cover;
+}
+
+.warn-modal-blur-it {
+  filter: blur(4px);
+}
+
+.warn-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background: rgba(41, 171, 164, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.warn-modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.warn-modal {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: 50% 0 0 -300px;
+  position: relative;
+  top: 50%; 
+  left: 50%;
+  background: #fff;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.warn-modal-wrapper.open .modal {
+  margin-top: -200px;
+  opacity: 1;
+}
+
+.warn-modal-head { 
+  width: 90%;
+  height: 32px;
+  padding: 12px 30px;
+  overflow: hidden;
+  background: #e2525c;
+}
+
+.warn-modal-btn-close {
+  font-size: 28px;
+  display: block;
+  float: right;
+  color: #fff;
+}
+
+.warn-modal-content {
+  padding: 10%;
+}
+
+.warn-modal-good-job {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #e2525c;
+}
+.warn-modal-good-job .fa-thumbs-o-up {
+  font-size: 60px;
+}
+.warn-modal-good-job h1 {
+  font-size: 45px;
+}
 </style>
 <body>
 <div id="header"></div>
@@ -108,6 +189,24 @@ body {
     </div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="warn-modal-wrapper">
+  <div class="warn-modal">
+    <div class="warn-modal-head">
+      <a class="warn-modalbtn-close warn-modal-trigger" href="#">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="warn-modal-content">
+        <div class="warn-modal-good-job">
+          <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          <h1>Good Job!</h1>
+        </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -123,12 +222,17 @@ body {
 <script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 <script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
 <script type="text/javascript" src="common/js/context.js"></script>
-<script type="text/javascript" src="common/js/header.js"></script>
 <script type="text/javascript" src="common/js/common.js"></script> <!-- 로그인한 멤버 넘버 넘기는 memberNo 변수 선언되어있음. -->
 <script type="text/javascript" src="auth/js/login.js"></script>
+<script type="text/javascript" src="mystuff/js/main.js"></script>
+<script type="text/javascript" src="mystuff/js/modal.js"></script>
+<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="seeds/js/alert.js"></script>
 <script type="text/javascript" src="seeds/js/seeds-temp.js"></script>
 <script type="text/javascript" src="seeds/js/json.mbti.js"></script>
+<script type="text/javascript" src="likes/js/mento-like.js"></script>
+<script type="text/javascript" src="likes/js/video-like.js"></script>
+
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
   <div class="ssize video corner-container">
@@ -175,49 +279,64 @@ body {
 
      </div>
 </div>
-
 {{/each}}
 </script>
-
-
-
 <script id="mentoList" type="text/x-handlebars-template">
 {{#each list}}
 <div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="mystuff/img/map1.jpg" width="495" height="360" alt=""></a>
-                  <div class="mento-conts">
-                   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 50px;">
-          {{#if isLike}}
-            <a href="#" class="btn heart checked"></a>
-          {{else}}
-            <a href="#" class="btn heart"></a>
-          {{/if}}
-                   </button>
-              <div class="mento-btm">
-                 <div class="mt-photo"><img src='mystuff/img/lee.jpg'></div>
-                 <div class="mento-name-favor"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
-              </div>
-                   <div class="mento-box corner-box">
-                      <a class="fpc_page-tip" href="http://localhost:8080/bitcamp-project-s/mystuff/detail/mento-detail.html">
-                     <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
-                   </div>
-               </div>
-              </div>
+  <div class="mento-conts">
+   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 50px;">
+ {{#if isLike}}
+   <a href="#" class="btn heart checked"></a>
+ {{else}}
+   <a href="#" class="btn heart"></a>
+ {{/if}}
+  </button>
+    <div class="mento-btm">
+     <div class="mt-photo"><img src='mystuff/img/lee.jpg'></div>
+     <div class="mento-name-favor"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
+    </div>
+     <div class="mento-box corner-box">
+       <a class="fpc_page-tip">
+       <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+    </div>
+  </div>
+ </div>
 {{/each}}
 </script>
-<script type="text/javascript" src="mystuff/js/main.js"></script>
-<script type="text/javascript" src="mystuff/js/modal.js"></script>
-<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script>
-
-<script id="mentoLike" type="text/x-handlebars-template">
+  <script id="mentoDetail" type="text/x-handlebars-template">
 {{#each list}}
-  <div class="mt-list">
+<div class="mt-list">
+  <div class="mt-conts">
+    <button type="button" class="buttonHolder" data-no="{{contentsNo}}">
+       {{#if isLike}}
+          <a href="#" class="btn heart checked"></a>
+       {{else}}
+          <a href="#" class="btn heart"></a>
+      {{/if}}
+    </button>
+     
+       <img clas="map-img" src="mystuff/img/map1.jpg">
+  </div>
+    <div class="mt-btm">
+     <div class="detail-mt-photo"><img src='mystuff/img/lee.jpg'></div>
+         <div class="mt-name"><span class="mento-name">천지연 개발자</span><br><p>Front end</p></div>
+    </div>
+   
+</div>
+
+{{/each}}
+</script>
+<script id="mentoLike" type="text/x-handlebars-template"> <!-- 멘토 좋아요는 4개 이하로 눌러 페이징 안돼-->
+{{#each list}}
+  <div class="mt-list mt-like-list">
     <div class="mt-conts">
       <button type="button" class="buttonHolder" data-no="{{contentsNo}}">
         <a href="#" class="btn heart checked"></a></button>
       <img clas="map-img" src="mystuff/img/map1.jpg">
     </div>
     <div class="mt-btm">
-      <div class="mt-photo"><img src='mystuff/img/lee.jpg'></div>
+      <div class="like-mt-photo"><img src='mystuff/img/lee.jpg'></div>
       <div class="mt-name">
         <span class="mento-name" >천지연 개발자</span><br><p>Front end</p>
       </div>
@@ -225,22 +344,64 @@ body {
   </div>
 {{/each}}
 </script>
-<script type="text/javascript" src="likes/js/mento-like.js"></script>
+<script id="videoLike" type="text/x-handlebars-template">
+{{#each list}}
+<div class="ssize vdoConts">
+<div class="video-conts videoBox">
+     <img class="rec rec-video1" id="video1" 
+            src='{{videoImage}}'></img>
+               <div class="video-btm" iframe-addr={{englishTitle}}>
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                          <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                    <a href="#" class="btn heart checked"></a>
+                   </button>
+     </div>
+        </div>
+     </div>
+</div>
+
+{{/each}}
+</script>
+<script id="personList" type="text/x-handlebars-template"> <!--  mystuff 인물 리스트. -->
+{{#each list}}
+<div class="model-slide"><a><img src='{{personImage1}}' width="493" height="210" alt=""></a></div>
+{{/each}}
+</script>
+
+<script id="personDetail" type="text/x-handlebars-template"> <!-- 인물 디테일 페이지. -->
+{{#each list}}
+    <div class="person">
+      <img src="{{personImage2}}" alt="" class="poster" />
+      <div class="person-title">{{personName}}</div>
+      <div class="info">
+        <span class="role">{{personJob}}</span>
+      </div>
+      <div class="desc">{{personDescription}}</div>
+    </div>
+{{/each}}
+</script>
 <script>
+
+
+
+
 $(function() {
-	  <!-- header load -->
-	  $.get("common/header.html", function(result) {
-		  $('#header').html(result);
-	  });
-	  <!-- /header load -->
-	  
    <!-- mentee service loader -->
     $(function() {
       $(".seeds").load("seeds/seeds-temp.html .seeds");
-      $(".mystuff").load("mystuff/mystuff.html .dashboard");
-      $(".likes").load("likes/mento-like.html .dashboard");
+//       $(".mystuff").load("mystuff/mystuff.html .dashboard");
+//       $(".likes").load("likes/mento-like.html .dashboard");
     });
     <!-- /mentee service load -->
+    
+    <!-- eventControll -->
+    var eventControll = false;
+    $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+    	if(ajaxResult.status == 'success') eventControll = true; 
+    });
+    <!-- /eventControll -->
     
     <!-- wheel & click 슬라이딩 이벤트 --> 
     $(document.body).on("click", "#seeds-btn", function() {
@@ -251,16 +412,24 @@ $(function() {
         $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
         $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
         $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      } else if ($("frame-area-center").hasClass("seeds")) {
+    	  $(".frame-area-center").addClass("animated pulse");
       }
     });
     $(document.body).on("click", "#mystuff-btn", function() {
-      if($(".frame-area-center").hasClass("seeds")) {
-        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
-        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
-      } else if($(".frame-area-center").hasClass("likes")) {
-        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
-        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
-      }
+    	if(eventControll) {
+	      if($(".frame-area-center").hasClass("seeds")) {
+	        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      } else if($(".frame-area-center").hasClass("likes")) {
+	        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	      }
+    	} else {
+ 			    $('.warn-modal-wrapper').toggleClass('warn-modal-open');
+ 			    $('.warn-modal-page-wrapper').toggleClass('warn-modal-blur-it');
+ 			     return false;
+    	}
     });
     $(document.body).on("click", "#likes-btn", function() {
       if($(".frame-area-center").hasClass("seeds")) {

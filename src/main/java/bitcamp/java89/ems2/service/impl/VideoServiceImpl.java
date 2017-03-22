@@ -17,8 +17,8 @@ public class VideoServiceImpl implements VideoService {
   @Autowired ContentsHeaderDao contentsDao;
   @Autowired VideoDao videoDao;
   
- public int getSize() throws Exception {
-    return videoDao.countAll();
+ public int getSize(int sno) throws Exception {
+    return videoDao.countAll(sno);
   }
  
   public List<Video> getList(int pageNo, int pageSize, int sno) throws Exception {

@@ -73,17 +73,39 @@
 	
 }
 
+.like-mt-photo, .detail-mt-photo {
+    border-radius: 100%;
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    z-index: 2000;
+    top: -6px;
+    left: 454px;
+    padding: 6px;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), 
+    inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+}
+
+.like-mt-photo img,
+.detail-mt-photo img {
+    border-radius: 100%;
+    width: 87px;
+    height: 77px;
+    position: relative;
+}
 
 .mt-photo{ 
+    display: inline-block;
     border-radius: 100%;
     width: 100px;
     height: 90px;
     position: absolute;
     z-index: 2000;
     top: -15px;
-    left: 448px;
+    left: 400px;
     padding: 6px;
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), 
+    inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
 }
 
 

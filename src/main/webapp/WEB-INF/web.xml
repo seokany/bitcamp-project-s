@@ -79,4 +79,14 @@
 <!--       <welcome-file>default.html</welcome-file> -->
 <!--       <welcome-file>default.htm</welcome-file> -->
 <!--     </welcome-file-list> -->
+
+	<!--  크로스 브라우저 이슈 해결을 위한 필터  -->
+<!-- 		<filter> -->
+<!-- 	    <filter-name>cors</filter-name> -->
+<!-- 	    <filter-class>bitcamp.java89.ems2.filter.SimpleCORSFilter</filter-class> -->
+<!-- 		</filter> -->
+<!-- 		<filter-mapping> -->
+<!-- 	    <filter-name>cors</filter-name> -->
+<!-- 	    <url-pattern>/*</url-pattern> -->
+<!-- 		</filter-mapping> -->
 </web-app>

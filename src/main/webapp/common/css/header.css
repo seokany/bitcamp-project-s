@@ -43,9 +43,6 @@ body {
   -webkit-margin-end: 0;
   -webkit-padding-start: 0;
 }
-.hide {
-  display: none; 
-}
 .header-menus a:link, .header-menus a:visited {
   text-decoration: none;
   color: rgba(128, 128, 128, 0.9);
@@ -62,21 +59,27 @@ body {
 }
 .header-icons {
   position: absolute;
+  color: #cfecd0;
   right: 30px;
   top: 35px;
 }
-.header-icons img{
-  margin: 0 5px;
+.header-icon-power, 
+.header-icon-user, 
+.header-icon-message {
+    font-family: FontAwesome;
+    font-size: 3em;
+    font-style: normal;
+    font-weight: normal;
+    display: none;
+    line-height: 1;
+    margin: 0 5px;
+    -webkit-font-smoothing: antialiased;
 }
-.sign-out-icon {
-  display: inline-block;
+.header-icon-user {
+	font-size: 2.8em;
 }
 .user-menu-toggle {
   display: inline-block;
-}
-.sign-default {
-  position: relative;
-  top: -1px;
 }
 .header-bottom, .header-top {
   background: #FFF;
@@ -106,10 +109,6 @@ body {
   color: #FFF;
 }
 
-.fa-power-off {
-	color: #cfecd0;
-}
-
 /*-- dashboard 영역 --*/
 .dashboard {
   height: 740px;
@@ -120,19 +119,19 @@ body {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
 
-
 /*--토글 영역(사용자메뉴)--*/
 .user-menu {
     width: 300px;
     background: #f9f9f9;
     position: absolute;
-    left: -269px;
-/*     top: 43px; */
+    left: -272px;
+    top: 40px;
     border: 1px solid #f2f2f2;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
     z-index: 3;
+    display: none;
 }
 .user-menu::after {
   display: block;
@@ -163,7 +162,6 @@ body {
   padding: 0px 10px;
   position: relative;
 }
-
 .user-menu .user-info .profile-img {
     width: 40px;
     height: 40px;
@@ -197,8 +195,6 @@ body {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
-
 input[type="file"] {
     top: 14px;
     right: 15px;
@@ -220,7 +216,6 @@ input[type="file"] {
   font-size: 11px;
   cursor: pointer;
 }
-
 .ui.btns.normal:hover, .ui.btns.normal:focus {
   outline: none;
   background: #006e63;
@@ -229,7 +224,6 @@ input[type="file"] {
     border: 1px solid #f2f2f2;
     padding: 2px 10px;
     height: 89px;
-/*     display: block; */
 }
 .user-menu .invites-info .next-invite-bar {
   height: 20px;
@@ -305,11 +299,6 @@ input[type="file"] {
   text-decoration: none;
 }
 
-
-
-
-
-
 /*--추천분야--*/
 .user-menu .recommand-info .btns {
   float: left;
@@ -352,7 +341,6 @@ input[type="file"] {
   color: #f2f2f2;
   cursor: pointer;
 }
-
 .ui.btns.color1:hover, .ui.btns.color1:focus {
   outline: none;
   background: #F1948A;
@@ -365,7 +353,6 @@ input[type="file"] {
   outline: none;
   background: #C39BD3;
 }
-
 
 /*--검사결과--*/
 .user-menu .result-info .btns {
@@ -402,9 +389,6 @@ input[type="file"] {
   padding: 5px 12px;
 }
 
-
-
-
 /*--필요한 검사--*/
 .user-menu .need-info .btns {
   float: left;
@@ -430,16 +414,10 @@ input[type="file"] {
   margin: 2px 10px;
 }
 
-
-
 /*--토글 영역(채팅메뉴)--*/
-
 .message-menu-toggle {
     display: inline-block;
 }
-
-
-
 .message-menu {
     width: 228px;
     background: #f9f9f9;
@@ -526,7 +504,6 @@ h3.name {
     background: #f2f2f2;
     color: #7dcfc6;
 }
-
 .message-number {
   color: #fff;
   position: absolute;
@@ -553,11 +530,9 @@ span.message-context {
   padding-left: 13px;
   width: 136px;
 }
-
-
 .photoChange {
-	    top: 10px;
-    right: 30px;
+    top: 7px;
+    right: 10px;
     position: absolute;
     padding: 0;
     margin: -1px;
@@ -577,16 +552,3 @@ span.message-context {
     border-radius: 2em;
     font-size: 13px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

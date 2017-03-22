@@ -136,7 +136,7 @@ body {
   min-height: 100vh;
 }
 
-section {
+.seeds > section {
   width: 900px;
   margin: 0 auto;
 }

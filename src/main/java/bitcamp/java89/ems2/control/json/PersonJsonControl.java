@@ -19,10 +19,10 @@ public class PersonJsonControl {
   @Autowired ServletContext sc;
   @Autowired PersonService personService;
   
-  @RequestMapping("/likes/person")
+  @RequestMapping("/person/list")
   public AjaxResult list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="4") int pageSize) throws Exception {
+      @RequestParam(defaultValue="4") int pageSize, int sno) throws Exception {
     
     if (pageNo < 1) {
       pageNo = 1;
@@ -32,7 +32,7 @@ public class PersonJsonControl {
       pageSize = 4;
     }
     
-    List<Person> list = personService.getList(1, 4);
+    List<Person> list = personService.getList(1, 4, sno);
     int totalCount = personService.getSize();
     
     System.out.println(list);

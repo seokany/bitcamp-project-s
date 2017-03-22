@@ -39,7 +39,7 @@ $(function() {
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
 				console.log("로그인 유저 정보");
-				console.log(ajaxResult.data.specialArea);
+				console.log(ajaxResult.data);
 				if (ajaxResult.data.specialArea == null) {
 					$('.demo').removeClass("animated fadeInRight");
 			    	$('.demo').addClass("animated fadeOutRight");
@@ -47,6 +47,9 @@ $(function() {
 			    		$('.auth-login-form').css("display", "none");
 			    		$('.demo').removeClass("animated fadeOutRight");
 			    	}, 600);
+			    	$('.header-icon-power').css("display", "none");
+			    	$('.header-icon-user').css("display", "inline-block");
+			    	$('.header-icon-message').css("display", "inline-block");
 					return;
 				} else {
 					location.href = "expert/driver.html";
@@ -85,7 +88,6 @@ $(function() {
   $(document).on("click", ".signUp_submit", function(e) {
 	  if ($('.signUp_input.passIn').val() != $('.signUp_input.passCheck').val()) {
 		  alert("패스워드가 일치하지 않습니다.");
-		  location.href = "/bitcamp-project-s/auth/login.html";
 	  }
 	  else{
 		  if($('input[name=user-type]:checked').val() =="mentee") {
@@ -154,27 +156,6 @@ $(function() {
   
   
   
-  
-  
-  
-  $(document).on("click", ".app_logout", function(e) {
-    if (animating) return;
-    $(".ripple").remove();
-    animating = true;
-    var that = this;
-    $(that).addClass("clicked");
-    setTimeout(function() {
-      $app.removeClass("active");
-      $login.show();
-      $login.css("top");
-      $login.removeClass("inactive");
-    }, logoutPhase1 - 120);
-    setTimeout(function() {
-      $app.hide();
-      animating = false;
-      $(that).removeClass("clicked");
-    }, logoutPhase1);
-  });
   
   $(document).on("click", ".new-sign", function(e) {
 	  $(".sign-in").addClass("animated fadeOutLeft");

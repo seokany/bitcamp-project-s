@@ -8,9 +8,7 @@ public class Person extends ContentsHeader {
   protected String personName;
   protected String personJob;
   protected String personDescription;
-  
-  
-  
+  protected String personSchool;
   public Object getPersonImage1() {
     return personImage1;
   }
@@ -41,6 +39,23 @@ public class Person extends ContentsHeader {
   public void setPersonDescription(String personDescription) {
     this.personDescription = personDescription;
   }
+  public String getPersonSchool() {
+    return personSchool;
+  }
+  public void setPersonSchool(String personSchool) {
+    this.personSchool = personSchool;
+  }
+  
+  
+  @Override
+  public String toString() {
+    return "Person [personImage1=" + personImage1 + ", personImage2=" + personImage2 + ", personName=" + personName
+        + ", personJob=" + personJob + ", personDescription=" + personDescription + ", personSchool=" + personSchool
+        + "]";
+  }
+  
+  
+
   
   
   
