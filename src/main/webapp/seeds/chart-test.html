@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 <style>
 #chartdiv {
@@ -26,6 +27,7 @@
 }
 .adding-part {
   font-family: "Covered By Your Grace";
+  font-size:17;
   position: fixed;
   top: 0;
   color: #808080;
@@ -44,22 +46,129 @@
 .perceiving {
     top: 201px;
 }
+
+/* 임시 대시보드 지정 */
+.temp-dashboard {
+  height: 700px;
+  width: 1150px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+/* 간단한 유형정리 */
+.mbti-type-e {
+  font-family: 'Roboto';
+  font-size:40px;
+  
+}
+.mbti-type-k {
+  font-size:20px;
+}
+.mbti-title {
+  border: 1px solid black;
+  width: 400px;
+  margin: 10px;
+  text-align: center;
+}
+
+.description-first, .description-second, .description-third {
+  border: 1px solid black;
+  width: 350px;
+  height: 300px;
+  display: inline-block;
+  font-size: 15px;
+  float: left;
+  margin: 0 10px;
+  position: relative;
+  background-color: #ffffff;
+  opacity: 0.5;
+}
+.description-first {
+  
+}
+.description-second {
+  background-color: #EBDEF0; 
+}
+.description-third {
+  background-color: #76D7C4; 
+}
+.description-wrapper {
+  height: 302px;
+}
+.description-first-wrapper {
+  background: #fcf3cf;
+  width: 350px;
+  height: 300px;
+  display: block;
+  top: 11px;
+  left: 49px;
+  margin-left: -60px;
+}
+
+
 </style>
 </head>
 <body>
 
-<div class="chart-wrapper">
-<div id="chartdiv"></div>
+<!-- 임시 대시보드 지정 -->
+<div class="temp-dashboard">
 
-	<div class="adding-part">
-		<div class="introverted">introverted</div>
-		<div class="intuition">intuition</div>
-		<div class="feeling">feeling</div>
-		<div class="perceiving">perceiving</div>
+
+  <!-- 차트 -->
+	<div class="chart-wrapper">
+	<div id="chartdiv"></div>
+	
+		<div class="adding-part">
+			<div class="introverted">introverted</div>
+			<div class="intuition">intuition</div>
+			<div class="feeling">feeling</div>
+			<div class="perceiving">perceiving</div>
+		</div>
+	
 	</div>
 
-</div>
+	<!-- 간단한 유형정리 -->
+	<div class="mbti-title">
+		<div class="mbti-type-e">ISTP</div>
+		<div class="mbti-type-k">성격유형 : “만능 재주꾼”</div>
+  </div>
+  
+  <div class="description-wrapper">
+    <div class="description-first-wrapper">
+    </div>
+	  <div class="description-first">
+	    <div class="description-first-title">일반적 특성</div>
+	    <div class="description-first-context">
+	      - 차분한 방관자<br><br>
+	      - 조용하고 논리적이며, 객관적이고 비판적이다.<br><br>
+	      - 사실이나 자료를 조직화시켜 나가기를 좋아하지만, 자기 일과 관련되지 않는 이상 어떤 상황이나 사람들의 일에 잘 뛰어들지 않는다.<br><br>
+	      - 가까운 사람들 이외는 사람을 잘 사귀지 않는다.<br><br>
+	      - 자신에 대한 표현을 억제하는 편이다.<br>
+	    </div>
+	  </div>
+	  
+	  
+	  <div class="description-second">
+	    <div class="description-second-title">기질적 특성</div>
+	    <div class="description-second-context">
+	    - 이들은 도구를 사용하는 직종을 골라야 한다. 어느 것이라고 믿기 어려울 정도로 정밀하게 작동하는 사람들을 보면 그는 틀림없이 ISTP유형이다.<br><br>
+	    - 기분파이며 의무, 책임, 약속에 구애되는 것을 싫어하며, 욕구가 복잡하다.<br>
+	    </div>
+	  </div>
+	  
+	  <div class="description-third">
+	    <div class="description-third-title">일과 관련된 특성</div>
+	    <div class="description-third-context">
+	    -현실적이고 구체적인 생산물과 관련된 일을 잘 한다.<br><br>
+	    - 필요한 자원을 잘 찾아내서 사용한다.<br><br>
+	    - 복잡한 자료와 인지되지 않은 사실들에 질서를 부여할 수 있다.<br><br>
+	    - 언어로 의사소통하는 데 관심과 능력이 부족하다.<br>
+	    </div>
+	  </div>
+  </div>
+  
 
+</div>
 
 
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
