@@ -38,14 +38,15 @@ function preparePagingButton(totalCount) {
 }
 */
 
-$( function() {
+$(function() {
 	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
 	var memberNo = 0;
 	var date = new Date();
 	var photoPath;
 	$.get(clientRoot + '/common/header.html', function(result) {
+		console.log("header 호출");
 		  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-				$('#header').html(result, function() {
+				$('#header').html(result);
 					if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
 						$('.header-icon-power').css("display", "inline-block");
 						
@@ -61,7 +62,6 @@ $( function() {
 						$('.header-icon-user').css("display", "inline-block");
 						$('.header-icon-message').css("display", "inline-block");
 					}
-				});
 				
 				console.log("로그인되었네");
 				console.log(ajaxResult.data.memberNo);

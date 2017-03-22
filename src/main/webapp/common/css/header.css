@@ -130,6 +130,7 @@ body {
     -webkit-border-radius: 2px;
     border-radius: 2px;
     z-index: 3;
+    display: none;
 }
 .user-menu::after {
   display: block;
