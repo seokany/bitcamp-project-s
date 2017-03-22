@@ -202,7 +202,24 @@ $( function() {
 								return;
 							}
 							
-							 console.log(ajaxResult.data);
+							console.log("인물 리스트0");
+							console.log(ajaxResult);
+							 console.log(ajaxResult.data.personJob);
+							 var name = ajaxResult.data.personName;
+							 var job = ajaxResult.data.personJob;
+							 var img = ajaxResult.data.personImage2;
+							 var schl = ajaxResult.data.personSchool;
+							 var desc = ajaxResult.data.personDescription;
+							 
+							 $('.mystuff-modal').load('mystuff/person-test.html .person-dash', function() {
+
+								 $('.card-image img').attr('src',img);
+								 $('.name .p-name').text(name);
+								 $('.p-job').html("<b>직업:</b>"+job);
+								 $('.content .p-schl').html("<b>학력:</b>"+schl);
+								 $('.p-desc').html(desc);
+								 
+							 }) // mystuff-modal 창에 로드 시키기.
 				
 			})
 			

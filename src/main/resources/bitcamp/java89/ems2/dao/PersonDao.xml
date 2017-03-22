@@ -50,11 +50,7 @@
     select psimg2,psnm,psjob,psdsc,pschl
     from person ps
       inner join contents ctt on ps.cono = ctt.cono
-      inner join copic cp on ctt.cono = cp.cono
-      inner join topic tp on cp.tno = tp.tno
-      inner join snatr snt on tp.tno = snt.tno 
-      inner join result ret on snt.reno = ret.reno 
-    where ret.sno = #{cono}
+    where ps.cono = #{cono}
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   

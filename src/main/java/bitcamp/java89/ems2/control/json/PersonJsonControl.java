@@ -50,6 +50,7 @@ public class PersonJsonControl {
     
 
     Person person = personService.getOne(cono);
+    System.out.println("person"+person);
 
     if (person == null) {
       return new AjaxResult(AjaxResult.FAIL, "해당 인물이 없습니다.");
