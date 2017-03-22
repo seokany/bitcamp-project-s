@@ -27,6 +27,13 @@ public class PersonServiceImpl implements PersonService {
     
     return personDao.getList(paramMap);
   }
+
+  @Override
+  public Person getOne(int cono) throws Exception {
+    
+    return personDao.getOne(cono);
+    
+  }
   
 //  public Student getDetail(int no) throws Exception {
 //    return studentDao.getOne(no);

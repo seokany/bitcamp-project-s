@@ -44,6 +44,25 @@ public class PersonJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, resultMap);
   }
   
+  
+  @RequestMapping("/person/getOne")
+  public AjaxResult getOne(int cono) throws Exception {
+    
+
+    Person person = personService.getOne(cono);
+
+    if (person == null) {
+      return new AjaxResult(AjaxResult.FAIL, "해당 인물이 없습니다.");
+    }
+    
+    return new AjaxResult(AjaxResult.SUCCESS, person);
+  }
+  
+  
+  
+  
+  
+  
 //  @RequestMapping("/student/detail")
 //  public AjaxResult detail(int memberNo) throws Exception {
 //    Student student = studentService.getDetail(memberNo);

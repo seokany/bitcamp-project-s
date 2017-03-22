@@ -181,7 +181,8 @@ CREATE TABLE PERSON (
   psimg2 VARCHAR(255) NOT NULL COMMENT '인물썸네일2', -- 인물썸네일2
   psnm   VARCHAR(50)  NOT NULL COMMENT '인물명', -- 인물명
   psjob  VARCHAR(100) NOT NULL COMMENT '인물직업', -- 인물직업
-  psdsc  TEXT         NOT NULL COMMENT '인물설명' -- 인물설명
+  psdsc  TEXT         NOT NULL COMMENT '인물설명', -- 인물설명
+  pschl  VARCHAR(100) NOT NULL COMMENT '학력' -- 학력
 )
 COMMENT '인물';
 
@@ -320,7 +321,7 @@ ALTER TABLE MESSG
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     )
-    REFERENCES QNA ( -- 질의응답
+    REFERENCES NEW_SCHEMA.QNA ( -- 질의응답
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     );
@@ -484,4 +485,3 @@ ALTER TABLE SNATR
     REFERENCES TOPIC ( -- 주제
       tno -- 주제번호
     );
-    

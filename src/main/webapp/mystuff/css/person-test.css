@@ -2,9 +2,8 @@
 
 .person-detail {
     position: absolute;
-    border: 1px solid red;
-    width: 50%;
-    height: 50%;
+    width: 990px;
+    height: 545px;
     display: inline-block;
     margin-left: 12%;
     margin-top: 8%;

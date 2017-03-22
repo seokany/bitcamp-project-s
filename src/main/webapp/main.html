@@ -380,7 +380,7 @@ h3.warn-modal-testInfo {
 </script>
 <script id="personList" type="text/x-handlebars-template"> <!--  mystuff 인물 리스트. -->
 {{#each list}}
-<div class="model-slide"><a><img src='{{personImage1}}' width="493" height="210" alt=""></a></div>
+<div class="model-slide"><a data-no={{contentsNo}}><img src='{{personImage1}}' width="493" height="210" alt=""></a></div>
 {{/each}}
 </script>
 
@@ -401,7 +401,7 @@ $(function() {
    <!-- mentee service loader -->
     $(function() {
       $(".seeds").load("seeds/seeds-temp.html .seeds");
-//       $(".mystuff").load("mystuff/mystuff.html .dashboard");
+      $(".mystuff").load("mystuff/mystuff.html .dashboard");
 //       $(".likes").load("likes/mento-like.html .dashboard");
     });
     <!-- /mentee service load -->
