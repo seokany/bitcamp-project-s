@@ -125,7 +125,7 @@ $( function() {
 		        
 		        // 영상 더보기 
 			
-	$(document.body).on( "click", ".rec-video1", function() {
+/*	$(document.body).on( "click", ".rec-video1", function() {
 		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
 		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
 		var list = new Array();
@@ -154,7 +154,7 @@ $( function() {
 					 });
 				});
 		
-	})
+	})*/
 		        
 		        
 		        

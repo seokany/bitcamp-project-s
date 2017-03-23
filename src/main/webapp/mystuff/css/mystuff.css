@@ -121,7 +121,11 @@ img { border: 0;}
 
    
    .job-name, .mento-name, .video-name {
-   position:relative;
+    color: #555;
+    position: relative;
+    font-size: 14px;
+    font-weight: 800;
+    font-style: italic;
    }
    .job-name-favor input,
    .mento-name-favor input,

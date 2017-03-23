@@ -18,31 +18,6 @@
 /*     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2); */
 }
 
-.app h2 {
-  color: #525661;
-  font-size: 17px;
-/*   box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1); */
-  padding: 20px 28px 0;
-  margin: -6px 0 0 0;
-}
-
-.mt-list {
-    display: inline-block;
-    width: 550px;
-    height: 280px;
-    border: 1px solid red;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-left: 54px;
-    position: relative;
-	
-}
-
-.mt-conts > img {
-	width:100%;
-	height:140%;
-}
-
 
 .pageBtn {
     margin-top: 20px;
@@ -52,22 +27,6 @@
     height: 30px;
   
 }
-
-   .mt-btm {
-    position: absolute;
-     background:transparent;
-/*     background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db); */
-    display: inline-block;
-    height: 445px;
-    width: 100%;
-    height: 28%;
-    font-family: 'Daum_SemiBold';
-    margin-top: 10px;
-    border-radius: 10px;
-    left: 0;
-    top: 190px;
-   }
-
 
 
 .mt-conts {

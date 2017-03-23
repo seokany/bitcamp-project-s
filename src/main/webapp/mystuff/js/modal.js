@@ -1,10 +1,10 @@
 $( function() { 
     $(document.body).on( "click", ".modal-esc", function() { 
     	$( ".modal-back" ).addClass("animated fadeOut");
-        $( ".modal-content" ).addClass("animated slideOutRight");
+        $( ".modal-content, .row" ).addClass("animated slideOutRight");
         $( ".modal-back" ).css("animation-duration", "0.8s");
-        $( ".modal-content" ).css("animation-duration", "0.5s");
-        $( "#contents").remove();
+        $( ".modal-content, .row" ).css("animation-duration", "0.5s");
+        $( "#contents, .person-dash").remove();
 //        setTimeout( function() {
 //        	$(".pop-modal", parent.document).css("display", "none");
 //        }, 800); 

@@ -5,10 +5,9 @@ $( function() {
 	var currPageNo = 1;
 	var pageSize = 5;
 	var sno = 5;
-    
-	$(".mystuff").load("mystuff/mystuff.html .dashboard", function() {
+	
 		
-
+	$(".mystuff").load("mystuff/mystuff.html .dashboard", function() {
 	
 	$.getJSON(serverRoot + '/person/list.json', 
 		    {
@@ -28,9 +27,6 @@ $( function() {
 		      section.html(template({"list": list}));
 			});
 			
-	
-	
-	
 	
 	
 	$.getJSON(serverRoot + '/video/list.json', 
@@ -140,6 +136,9 @@ $( function() {
 		  });  
 	
 	});
+
+
+
 		        // 좋아요 버튼 눌렀을 때
 		        
 		        $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 버튼 눌렀을 때
@@ -215,9 +214,9 @@ $( function() {
 
 								 $('.card-image img').attr('src',img);
 								 $('.name .p-name').text(name);
-								 $('.p-job').html("<b>직업:</b>"+job);
-								 $('.content .p-schl').html("<b>학력:</b>"+schl);
-								 $('.p-desc').html(desc);
+								 $('.p-job').html(job);
+								 $('.p-schl').html(schl);
+								 $('.p-descs').html(desc);
 								 
 							 }) // mystuff-modal 창에 로드 시키기.
 				
@@ -233,6 +232,7 @@ $( function() {
 // 영상 모달 띄우기
 			
 	$(document.body).on( "click", ".rec-video1", function() {
+		console.log("테스트중입.")
 		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
 		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
 		var list = new Array();
@@ -248,17 +248,36 @@ $( function() {
 					 list = ajaxResult.data.list;
 					 console.log(list);
 					 
-
+					 
+				       if($(".frame-area-center").hasClass("mystuff")) {
+				    	   
 					 $('.mystuff-modal').load('mystuff/talks.html #contents', function() {
+						 console.log("여기도 들어오나")
 						 
-						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
-						 $('#iframe iframe').attr('src',videoAddr);
+						 $('#iframe').append("<iframe src="+"'"+videoAddr+"'"+"style='width:;width: 100%;height: 386px;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
 						 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
 						 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
 						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
 						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
 						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
-					 });
+					     });
+				       } // 현재 페이지가 mystuff 라면 ~
+				       
+				       else if($(".frame-area-center").hasClass("likes")) {
+				    	   
+							 $('.video-like-modal').load('mystuff/talks.html #contents', function() {
+								 console.log("여기도 들어오나")
+								 
+								 $('#iframe').append("<iframe src="+"'"+videoAddr+"'"+"style='width:;width: 100%;height: 386px;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+								 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
+								 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
+								 $('.talkSpeaker .speakerName').text(list[0].speakerName);
+								 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
+								 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
+							     });
+						       }; // 현재 페이지가 mystuff 라면 ~
+				       
+				       
 				});
 		
 	})
