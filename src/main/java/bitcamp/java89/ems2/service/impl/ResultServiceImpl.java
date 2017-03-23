@@ -27,6 +27,11 @@ public class ResultServiceImpl implements ResultService {
     return resultDao.insert(result);
   }
   
+  @Override
+  public int hasResult(int memberNo) throws Exception {
+    return resultDao.hasResult(memberNo);
+  }
+  
   
   
 

@@ -25,13 +25,13 @@ body {
 }
 .header-wrap {
   width: 70vw;
-  min-width: 1340px;
+  min-width: 1260px;
   margin: 0 auto;
   position: relative;
 }
 .header-menus {
   position: absolute;
-  line-height: 100px;
+  top: 15px;
   left: 51%;
   transform: translateX(-50%);
 }
@@ -50,8 +50,7 @@ body {
 .header-menus li {
   margin: 0 15px;
   color: rgba(128, 128, 128, 0.9);
-  font-size: 34px;
-  font-weight: 300;
+  font-size: 28px;
   font-family: Menus;
 }
 .header-menus li:hover, .header-menus li a:hover {
@@ -61,22 +60,22 @@ body {
   position: absolute;
   color: #cfecd0;
   right: 30px;
-  top: 35px;
+  top: 25px;
 }
 .header-icon-power, 
 .header-icon-user, 
 .header-icon-message {
     font-family: FontAwesome;
-    font-size: 2em;
+    font-size: 1.6em;
     font-style: normal;
     font-weight: normal;
     display: none;
     line-height: 1;
-    margin: 0 5px;
+    margin: 0 4px;
     -webkit-font-smoothing: antialiased;
 }
 .header-icon-user {
-	font-size: 1.9em;
+	font-size: 1.4em;
 }
 .user-menu-toggle {
   display: inline-block;
@@ -86,23 +85,23 @@ body {
 }
 .header-top {
   background: #FFF;
-  height: 90px;
+  height: 60px;
 }
 .header-bottom {
   background: linear-gradient(90deg, rgba(207, 236, 208, 0.45), rgba(255, 197, 202, 0.45));
-  height: 100px;
+  height: 70px;
 }
 .logo-bottom {
-  line-height: 60px;
-  background: linear-gradient(90deg, #cfecd0, #ffc5ca);
-  border-radius: 15px;
-  padding: 0 20px;
-  margin: 15px 35px;
-  font-weight: 300;
-  font-size: 40px;
-  font-family: logo;
-  left: 0;
-  position: absolute;
+    line-height: 40px;
+    background: linear-gradient(90deg, #cfecd0, #ffc5ca);
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 10px 35px;
+    font-weight: 300;
+    font-size: 30px;
+    font-family: logo;
+    left: 0;
+    position: absolute;
 }
 .logo-bottom a:link, .logo-bottom a:visited {
   text-decoration: none;
@@ -124,8 +123,8 @@ body {
     width: 300px;
     background: #f9f9f9;
     position: absolute;
-    left: -272px;
-    top: 40px;
+    left: -276px;
+    top: 35px;
     border: 1px solid #f2f2f2;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;

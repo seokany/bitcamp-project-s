@@ -124,7 +124,7 @@ body {
   display: block;
   margin: -130px 0 0 -200px;
   position: fixed;
-  top: 50%; 
+  top: 60%; 
   left: 50%;
   background: #fff;
   transition: all 0.5s ease-in-out;
@@ -217,7 +217,7 @@ h3.warn-modal-testInfo {
         <div class="warn-modal-good-job">
           <i class="fa-px fa-info-circle" aria-hidden="true"></i>
           <h3 class="warn-modal-logInfo">로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>
-          <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내해드려요.</h3>
+          <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내드릴 수 있어요.</h3>
         </div>
     </div>
   </div>
@@ -399,6 +399,27 @@ h3.warn-modal-testInfo {
 {{/each}}
 </script>
 <script>
+<!-- eventControll -->
+function eventControll() {
+  if(memberInfo != null) {
+  console.log('event controll 제어 조건자 상태');
+  console.log(loginEvent, testEvent, memberInfo);
+   loginEvent = true; 
+   $('.warn-modal-logInfo').css('display', 'none');
+   $('.warn-modal-testInfo').css('display', 'block');
+	    $.getJSON(serverRoot + '/seeds/hasResult.json', {'memberNo': memberInfo.memberNo}, function(ajaxResult) {
+	      if (ajaxResult.status == 'success') {
+	        testEvent = true;
+
+	      } else {
+	    	  testEvent = false;
+	      }
+         console.log('test event 제어변수 상태');
+         console.log(testEvent);
+	    });
+  }
+}
+<!-- /eventControll -->
 $(function() {
    <!-- mentee service loader -->
     $(function() {
@@ -408,29 +429,39 @@ $(function() {
     });
     <!-- /mentee service load -->
     
-    <!-- eventControll -->
-    console.log(loginEvent, testEvent);
-    $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-    	if(ajaxResult.status == 'success') {
-    		loginEvent = true; 
-//     		if(/* result table에 결과가 존재하면 */) 
-//     			testEvent = true;
-    	}
-    });
-    <!-- /eventControll -->
+    <!--   warn modal function   -->
+    function warnModalStart() {
+        $('.warn-modal-wrapper').addClass('warn-modal-open');
+        $('.warn-modal').addClass('animated fadeInRight');
+        $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+    }
+    function warnModalEnd() {
+        $('.warn-modal').addClass('animated hinge');
+        setTimeout(function() {
+          $('.warn-modal').removeClass('animated hinge');
+          $('.warn-modal-wrapper').removeClass('warn-modal-open');
+          $('.warn-modal').removeClass('animated fadeInRight');
+          $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
+        }, 1000);
+      }
+    <!--   /warn modal function   -->
     
     <!-- wheel & click 슬라이딩 이벤트 --> 
     $(document.body).on("click", ".warn-modal-trigger, .warn-modal-wrapper", function(e) {
     	if (e.target.classList[0] == 'warn-modal-wrapper' || e.target.classList[1] == 'warn-modal-trigger') {
-        $('.warn-modal').addClass('animated hinge');
-    		setTimeout(function() {
-    			$('.warn-modal').removeClass('animated hinge');
-	        $('.warn-modal-wrapper').removeClass('warn-modal-open');
-	        $('.warn-modal').removeClass('animated bounceInRight');
-	        $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
-    		}, 1000);
+    		warnModalEnd();
     	}
     });
+    function sliding() {
+    	slideState = true;
+    	console.log("중복 슬라이딩 방지를 위한 제어변수 상태");
+    	console.log(slideState);
+    	setTimeout(function() {
+	    	console.log("중복 슬라이딩 방지를 위한 제어변수 상태");
+	    	console.log(slideState);
+    		slideState = false;
+    	}, 2000);
+    };
     $(document.body).on("click", "#seeds-btn", function() {
       if($(".frame-area-center").hasClass("mystuff")) {
         $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
@@ -439,8 +470,6 @@ $(function() {
         $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
         $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
         $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
-      } else if ($("frame-area-center").hasClass("seeds")) {
-    	  $(".frame-area-center").addClass("animated pulse");
       }
     });
     $(document.body).on("click", "#mystuff-btn", function() {
@@ -453,9 +482,7 @@ $(function() {
 	        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
 	      }
     	} else {
- 			    $('.warn-modal-wrapper').addClass('warn-modal-open');
- 			    $('.warn-modal').addClass('animated bounceInRight');
- 			    $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+    		warnModalStart();
     	}
     });
     $(document.body).on("click", "#likes-btn", function() {
@@ -469,9 +496,7 @@ $(function() {
 	        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
 	      }
       } else {
-          $('.warn-modal-wrapper').addClass('warn-modal-open');
-          $('.warn-modal').addClass('animated bounceInRight');
-          $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+    	   warnModalStart();
       }
     });
     
@@ -505,9 +530,7 @@ $(function() {
 	             }, 350);
 	         }
          } else {
-             $('.warn-modal-wrapper').addClass('warn-modal-open');
-             $('.warn-modal').addClass('animated bounceInRight');
-             $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+        	  	 warnModalStart();
          }
       } else if($(".frame-area-center").hasClass("likes")) {
 	         if (wheelType < 0) {
@@ -528,7 +551,7 @@ $(function() {
         hasScrolled(); 
         wheelState = false; 
       }
-    }, 1000);
+    }, 250);
     <!-- /wheel & click 슬라이딩 이벤트 -->
 });
 </script>

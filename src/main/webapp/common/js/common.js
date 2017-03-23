@@ -11,6 +11,10 @@ $(function() {
 						$('.header-icon-power').css("display", "inline-block");
 						return;
 					} else {
+						memberInfo = ajaxResult.data;
+						console.log('세션 획득 정보');
+						console.log(memberInfo);
+						eventControll();
 						$('.header-icon-user').css("display", "inline-block");
 						$('.header-icon-message').css("display", "inline-block");
 					}
@@ -140,6 +144,8 @@ $(function() {
 	      }
 	      if (target.parents().hasClass("menu-nav")) {
 	    	  loginEvent = false;
+				$('.warn-modal-logInfo').css('display', 'block');
+				$('.warn-modal-testInfo').css('display', 'none');
 	    	  console.log("login event 제어변수 상태");
 	    	  console.log(loginEvent);
 			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
