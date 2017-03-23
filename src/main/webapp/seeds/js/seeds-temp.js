@@ -6,13 +6,14 @@ $( function() {
 	  var memberNo = ajaxResult.data.memberNo;
 	  
     $(document.body).on('click', '#test1', function() {
+    	console.log("클릭이벤트 발생");
       console.log(ajaxResult.data.memberNo);
       console.log("status " + ajaxResult.status);
     if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
       console.log("로그인되지 않은 사용자다"); 
     // 검사지 페이지로 이동한다.
-      $(".wrapper").removeClass("dashboard");
-      $(".wrapper").load("seeds/json.mbti.html #container");
+      $(".seeds").removeClass("seeds-call");
+      $(".seeds").load("seeds/json.mbti.html #container");
     
     } else { // 로그인이 되었으면, ===> 검사 유무를 조사한다.
       console.log("로그인한 사용자다");
@@ -25,7 +26,7 @@ $( function() {
       
             console.log("검사상태 " + ajaxResult.status );
         if(ajaxResult.status == "success") { // 검사했으면? 검사결과 페이지로 이동하고 데이터를 가져온다.
-          $(".wrapper").load("seeds/mbti-result-istp.html .test-result",function(){
+          $(".seeds").load("seeds/mbti-result-istp.html .test-result",function(){
         	  
         	  //학생의 검사정보 가져오기
         	  $.getJSON(serverRoot + '/seeds/detail.json?memberNo=' + memberNo, function(ajaxResult) {
