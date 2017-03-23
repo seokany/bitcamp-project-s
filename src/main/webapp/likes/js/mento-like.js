@@ -6,24 +6,20 @@ $(function() {
 		var pageSize = 4;
 		var sno = 5;
 		$(".likes").load("likes/mento-like.html .dashboard", function() {
-			loadList(currPageNo, pageSize, sno);
-		});
-		$('#new-btn').click(function(event) {
-			event.preventDefault(); 
-			location.href = 'view.html';
+			likeMentoList(currPageNo, pageSize, sno);
 		});
 
 		$('#prevPgBtn').click(function() {
 			if (currPageNo > 1) {
-				loadList(--currPageNo, 4, sno);
+				likeMentoList(--currPageNo, 4, sno);
 			}
 		});
 
 		$('#nextPgBtn').click(function() {
-			loadList(++currPageNo, 4, sno);
+			likeMentoList(++currPageNo, 4, sno);
 		});
 
-		function preparePagingButton(totalCount) {
+		function mentoLikePreparePagingButton(totalCount) {
 			// 현재 페이지 번호가 1이면 이전 버튼을 비활성시킨다.
 			if (currPageNo <= 1) {
 				$('#prevPgBtn').attr('disabled', true);
@@ -45,7 +41,7 @@ $(function() {
 			// 현재 페이지 번호를 출력한다.
 			$('#pageNo').text(currPageNo);
 		}
-		function loadList(pageNo, pageSize, sno) {
+		function likeMentoList(pageNo, pageSize, sno) {
 			console.log("dasdsajcjcjcjc");
 			$.getJSON(serverRoot + '/mentoLike/list.json', 
 					{
@@ -67,7 +63,7 @@ $(function() {
 						section.html(template({"list": list}));
 
 						mtHover();
-						preparePagingButton(ajaxResult.data.totalCount);
+						mentoLikePreparePagingButton(ajaxResult.data.totalCount);
 						console.log(ajaxResult.data.totalCount);
 					});  
 		}

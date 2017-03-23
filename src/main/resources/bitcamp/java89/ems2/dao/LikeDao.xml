@@ -21,9 +21,12 @@
   
     <resultMap type="plan" id="mento-like">
     <id column="cono"        property="contentsNo"/>
+    <id column="eno"        property="memberNo"/>
+    <result column="name"       property="name"/>
+    <result column="sarea"       property="specialArea"/>
     <result column="plmap"       property="planMap"/>
     <result column="plimg"      property="planImage"/>
-
+    <result column="mimg"      property="photoPath"/>
   </resultMap>
   
   
@@ -83,7 +86,9 @@
   </select> 
   
      <select id="mentoList" resultMap="mento-like" parameterType="map">
-     select DISTINCT * from plan pl
+     select DISTINCT pl.cono,pl.eno,name,sarea,plmap,plimg,mimg from plan pl
+     inner join mento mto on mto.eno = pl.eno
+     inner join membs mb on mb.mno = mto.eno
   inner join contents ctt on pl.cono = ctt.cono
   inner join copic cp on ctt.cono = cp.cono
   inner join topic tp on cp.tno = tp.tno

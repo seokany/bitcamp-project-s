@@ -118,10 +118,13 @@
 }
 
 .seeds .title {
-  font-size: 46px;;
-  font-weight: 900;
-  color: #686e74;
-  text-align: center;
+    position: relative;
+    font-size: 40px;
+    font-weight: 900;
+    color: #686e74;
+    text-align: center;
+    width: 800px;
+    margin: 20px 0px 155px 230px;
 }
 
 .seeds .cards {
@@ -206,3 +209,46 @@
   -webkit-transform: translate(1.5rem, 22.5rem);
           transform: translate(1.5rem, 22.5rem);
 }
+
+
+
+.dream, .tree {
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 75px;
+    color: #f1ebe5;
+    text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
+    font-weight: bold;
+    letter-spacing: -4px;
+    text-align: center;
+    position: relative;
+    top: 60px;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    height: 96px;
+    border-radius: 20px;
+}
+
+.dream span,
+.tree span {
+    font-size: 38px;
+    margin-top: 10px;
+}
+
+.dream {
+	  color: cornflowerblue;
+    margin-left: -235px;
+}
+.tree {
+	    color: darkseagreen;
+    margin-left: 162px;
+}
+
+
+
+
+
+

@@ -1,8 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:700);
 .mento-list {
 	padding:auto;
 	width:1265px;
 	
 }
+.mento-top > hr{
+	    margin-top: 10px;
+    margin-left: 12px;
+    width: 220px;
+    border: 1px solid;
+    margin-bottom: 10px;
+} 
 
 .mento-btn {
 	  position: absolute;
@@ -10,7 +18,8 @@
 }
 .mento-detail-list, .mento-like-list {
     margin: 7px;
-	margin-top:12px;
+    margin-top: 25px;
+    height: 84%;
 }
 
 .app {
@@ -28,11 +37,17 @@
 }
 
 .app h2 {
-  color: #525661;
-  font-size: 17px;
-/*   box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1); */
-  padding: 20px 28px 0;
-  margin: -6px 0 0 0;
+-webkit-perspective: 400;
+    perspective: 400;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #525661;
+    /* box-shadow: inset 0 1px 0px rgba(0, 0, 0, 0.1); */
+    padding: 20px 28px 0 17px;
+    margin: -6px 0 0 0;
+    text-shadow: 1px 1px lightblue;
 }
 
 
@@ -50,18 +65,21 @@
 .mt-list {
     display: inline-block;
     width: 550px;
-    height: 280px;
-    border: 1px solid red;
+    height: 295px;
     margin: 0 auto;
     margin-top: 20px;
     margin-left: 54px;
     position: relative;
+    background: rgba(51, 122, 183, 0.28);
+    border-radius: 10px;
 	
 }
 
 .mt-conts > img {
-	width:100%;
-	height:140%;
+    width: 100%;
+    height: 148%;
+    margin-left: 3px;
+    margin-top: 5px;
 }
 
 .pageBtn {
@@ -129,7 +147,7 @@
     margin-top: 10px;
     border-radius: 10px;
     left: 0;
-    top: 190px;
+    top: 207px;
    }
 
 
@@ -142,21 +160,25 @@ width: 530px;
 }
 
 .mt-name {
+	
     left: 350px;
     display: none;
 /*     display: inline-block; */
     position: absolute;
-    top: 20px;
+    top: 15px;
 	
 }
+.mento-name {
+	font-family:'Roboto';
 
+	}
 
 
 /* 좋아요 버튼 */
 
 .buttonHolder{
     background: transparent;
-    top: 237px;
+    top: 247px;
     width: 26px;
     height: 38px;
     position: absolute;

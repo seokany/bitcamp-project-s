@@ -68,7 +68,7 @@ $(function() {
 						    	function refresh() {
 						  		  $.ajax({
 						                type: 'POST',
-						                url: 'http://localhost:8080/bitcamp-project-s/mystuff/homepage.html', 
+						                url: 'http://localhost:8080/bitcamp-project-s/main.html', 
 						                success: function(msg) {
 						                	$('.profile-img').removeAttr('src').attr('src', clientRoot + '/mystuff/img/' + photoPath);
 						                }
