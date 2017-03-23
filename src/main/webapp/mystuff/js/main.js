@@ -5,10 +5,9 @@ $( function() {
 	var currPageNo = 1;
 	var pageSize = 5;
 	var sno = 5;
-    
-	$(".mystuff").load("mystuff/mystuff.html .dashboard", function() {
+	
 		
-
+	$(".mystuff").load("mystuff/mystuff.html .dashboard", function() {
 	
 	$.getJSON(serverRoot + '/person/list.json', 
 		    {
@@ -28,9 +27,6 @@ $( function() {
 		      section.html(template({"list": list}));
 			});
 			
-	
-	
-	
 	
 	
 	$.getJSON(serverRoot + '/video/list.json', 
@@ -140,6 +136,9 @@ $( function() {
 		  });  
 	
 	});
+
+
+
 		        // 좋아요 버튼 눌렀을 때
 		        
 		        $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 버튼 눌렀을 때
@@ -250,7 +249,8 @@ $( function() {
 					 console.log(list);
 					 
 					 
-				    /*  if($(".frame-area-center").hasClass("mystuff")) {*/
+				       if($(".frame-area-center").hasClass("mystuff")) {
+				    	   
 					 $('.mystuff-modal').load('mystuff/talks.html #contents', function() {
 						 console.log("여기도 들어오나")
 						 
@@ -260,7 +260,24 @@ $( function() {
 						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
 						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
 						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
-					 });
+					     });
+				       } // 현재 페이지가 mystuff 라면 ~
+				       
+				       else if($(".frame-area-center").hasClass("likes")) {
+				    	   
+							 $('.video-like-modal').load('mystuff/talks.html #contents', function() {
+								 console.log("여기도 들어오나")
+								 
+								 $('#iframe').append("<iframe src="+"'"+videoAddr+"'"+"style='width:;width: 100%;height: 386px;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
+								 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
+								 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
+								 $('.talkSpeaker .speakerName').text(list[0].speakerName);
+								 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
+								 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
+							     });
+						       }; // 현재 페이지가 mystuff 라면 ~
+				       
+				       
 				});
 		
 	})

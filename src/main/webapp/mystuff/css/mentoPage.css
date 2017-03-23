@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:700);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 .mento-list {
 	padding:auto;
 	width:1265px;
@@ -7,7 +8,7 @@
 .mento-top > hr{
 	    margin-top: 10px;
     margin-left: 12px;
-    width: 220px;
+    width: 267px;
     border: 1px solid;
     margin-bottom: 10px;
 } 
@@ -70,8 +71,8 @@
     margin-top: 20px;
     margin-left: 54px;
     position: relative;
-    background: rgba(51, 122, 183, 0.28);
     border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(231, 76, 60, 0.35);
 	
 }
 
@@ -238,16 +239,120 @@ border-radius: 50%;
       text-shadow:0px 0px 6px #f94e66;
     }
 
-  /*   .btn:active{
-    background-color: transparent;
-      background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
-      background-image: linear-gradient(top, #efedec, #f7f4f4);
-      box-shadow: 0 3px 5px 0 rgba(0,0,0,.4), inset 0px -3px 1px 1px rgba(204,198,197,.5);
-    }
 
-    .btn:active:after{
-    background-color: transparent;
-      color:#dbd2d2;
-      text-shadow: 0px -1px 1px #bdb5b4, 0px 1px 1px white;
-    }
- */
+
+
+/* =================
+좋아요 페이지 카테고리 버튼
+====================*/
+
+
+.side-container{
+    width: 145px;
+    margin-top: 10px;
+    box-shadow: 0 2px 2px 2px rgba(51, 122, 183, 0.23);
+    transition: all 0.3s linear;
+    display: inline-block;
+    position: absolute;
+    margin-left: 1257px;
+    margin-top: -9px;
+    background: transparent;
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+}
+.side{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.side li{
+    height: 50px;
+    position: relative;
+}
+
+.side a {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 50px;
+    color: #bbb;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 25%;
+    border-left: 5px solid transparent;
+    letter-spacing: 1px;
+    transition: all 0.3s linear;
+    background: rgba(0, 0, 0, .0001);
+}
+.active a{
+    color: rgba(49, 112, 143, 0.82);
+    border-left: 5px solid rgba(178, 34, 34, 0.57);
+    outline: 0;
+}
+.side li:not(.active):hover a{
+    color: #777;
+    border-left: 5px solid #FCFCFC;
+}
+.side span[class ^= "icon"]{
+  position:absolute;
+  left:10px;
+  font-size: 1.5em;
+  transition: all 0.3s linear;
+}
+.side span[class ^= "text"]{
+    font-family: 'Hanna';
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+
+ @media only screen and (max-width : 860px){ 
+  
+ .side .text{
+    display:none;
+  }
+  
+  .side-container , a{
+    width: 70px;
+    
+  } 
+   
+/*  .nav a:hover{
+    width:200px; 
+    z-index:1;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid black;
+    box-shadow: 0 0 1px 1px black;
+  } */
+  
+ .side a:hover .text {
+    display:block;
+    padding-left:30%;
+  }
+}
+ @media only screen and (max-width : 480px){ 
+  .side-container,.nav a{ width:50px;}
+ .side span[class ^= "icon"]{ left:8px;}
+ } 
+
+
+.icon-home:before {
+    content: "\f015";
+}
+[class^=icon-]:before, [class*=" icon-"]:before {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+
+.icon-facetime-video:before {
+    content: "\f03d";
+}
+
