@@ -41,6 +41,12 @@
     where sno = #{memberNo} and type = #{type}
   </select>
   
+  <select id="hasResult" parameterType="int" resultType="int">
+    SELECT count(*) 
+    FROM result 
+    WHERE sno = #{memberNo}
+  </select>
+  
   <insert id="insert" parameterType="result">
     insert into result(sno,type,rer) 
     values(

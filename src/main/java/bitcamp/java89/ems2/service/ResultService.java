@@ -6,4 +6,5 @@ public interface ResultService {
   Result getDetail(int memberNo) throws Exception;
   Result getList(Result result) throws Exception;
   int add(Result result) throws Exception;
+  int hasResult(int memberNo) throws Exception;
 }

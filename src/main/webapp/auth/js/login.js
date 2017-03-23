@@ -39,10 +39,14 @@ $(function() {
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
 				loginEvent = true;
+	    		$('.warn-modal-logInfo').css('display', 'none');
+	    		$('.warn-modal-testInfo').css('display', 'block');
 				console.log("login event 제어변수 상태");
 				console.log(loginEvent);
 				console.log("로그인 유저 정보");
 				console.log(ajaxResult.data);
+				memberInfo = ajaxResult.data;
+				eventControll();
 				if (ajaxResult.data.specialArea == null) {
 					$('.demo').removeClass("animated fadeInRight");
 			    	$('.demo').addClass("animated fadeOutRight");
@@ -59,8 +63,6 @@ $(function() {
 					return;
 				}
 			}
-			console.log(ajaxResult.data);
-			alert(ajaxResult.data);
 		}, 'json');
 		
 	  

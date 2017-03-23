@@ -28,8 +28,17 @@ public class ResultJsonControl {
       return new AjaxResult(AjaxResult.FAIL, "해당 결과가 없습니다.");
     }
     
-    System.out.println("결과있음 멘티넘버:" +menteeNo);
     return new AjaxResult(AjaxResult.SUCCESS, list);
+  }
+  
+  @RequestMapping("/seeds/hasResult")
+  public AjaxResult hasResult(int memberNo) throws Exception {
+    int count = resultService.hasResult(memberNo);
+    System.out.println("/seeds/hasResult :" + memberNo);
+    
+    if (count == 0) 
+      return new AjaxResult(AjaxResult.FAIL, "테스트를 수행한 이력이 없습니다.");
+    return new AjaxResult(AjaxResult.SUCCESS, "테스트 수행 결과가 존재합니다.");
   }
   
   
