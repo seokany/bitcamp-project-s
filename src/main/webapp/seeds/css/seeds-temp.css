@@ -80,22 +80,36 @@
 .pulsate1 {
   box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(223, 206, 226, 1);
   animation: pulse1 1.5s ease-out 1s infinite forwards;
+  position: absolute;
+  top: -137px;
+  left: 85px;
 }
 .pulsate2 {
   box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(83, 127, 234, 1);
   animation: pulse2 1.5s ease-out 1s infinite forwards;
+  position: absolute;
+  top: -137px;
+  left: 96px;
 }
 .pulsate3 {
   box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 158, 229, 1);
   animation: pulse3 1.5s ease-out 1s infinite forwards;
+  position: absolute;
+  top: -137px;
+  left: 82px;
 }
 .pulsate4 {
   box-shadow: 0px 0px 0px -3px rgba(255, 255, 255, 1), 0px 0px 0px 0px rgba(145, 158, 229, 1);
   animation: pulse4 1.5s ease-out 1s infinite forwards;
+  position: absolute;
+  top: -137px;
+  left: 93px;
 }
 
+div#test4 {}
 
-/* 새로 정한 카드 디자인 */
+
+/* ìƒˆë¡œ ì •í•œ ì¹´ë“œ ë””ìžì¸ */
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -106,7 +120,7 @@
 .seeds {
   font-size: 62.5%;
   font-family: 'Raleway', sans-serif;
-	height: 740px;
+  height: 740px;
   width: 1285px;
   margin: 0 auto;
 }
@@ -135,24 +149,24 @@
 
 .seeds .card {
   width: 200px;
-  height: 22.5rem;
+  height: 250px;
   background-color: #f9fbfb;
   border-radius: 6px;
   position: relative;
   display: flex;
   flex-direction: column;
   color: #5a6c7a;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: .05rem;
+  /* font-weight: 700; */
+  line-height: 20.5px;
+  letter-spacing: 0.5px;
   box-shadow: 0 2rem 4rem #aac1c7;
   margin: 10px;
 }
 .seeds .card__svg-container {
-  height: 50%;
-  display: -webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: end;
+  /* height: 50%; */
+  /* display: -webkit-box; */
+  /* -webkit-box-pack: center; */
+  /* -webkit-box-align: end; */
 }
 .seeds .card__svg-wrapper {
   width: 8rem;
@@ -167,6 +181,9 @@
 }
 .seeds .card__count-text {
   
+font-size: 12px;
+  
+margin-right: -5px;
 }
 .seeds .card__count-text--big {
   text-transform: uppercase;
@@ -196,7 +213,8 @@
   text-transform: uppercase;
   margin-left: .4rem;
   -webkit-transform: translate(0, -0.2rem);
-          transform: translate(0, -0.2rem);
+  transform: translate(0, -0.2rem);
+  font-size: 11px;
 }
 .seeds .card:after {
   content: "";
@@ -216,7 +234,7 @@
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
     text-transform: uppercase;
     display: inline-block;
-    font-size: 75px;
+    font-size: 73px;
     color: #f1ebe5;
     text-shadow: 0 8px 9px #c4b59d, 0px -2px 1px #fff;
     font-weight: bold;
@@ -234,17 +252,17 @@
 
 .dream span,
 .tree span {
-    font-size: 38px;
+    font-size: 34px;
     margin-top: 10px;
 }
 
 .dream {
-	  color: cornflowerblue;
+    color: rgba(85, 85, 85, 0.78);
     margin-left: -235px;
 }
 .tree {
-	    color: darkseagreen;
-    margin-left: 162px;
+      color: rgba(85, 85, 85, 0.61);
+      margin-left: 162px;
 }
 
 

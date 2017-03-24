@@ -21,7 +21,6 @@
     <div class="mbti-type-k Brush">성격유형 : “만능 재주꾼”</div>
   </div>
   
-  
   <!-- 차트 -->
 	<div class="chart-wrapper">
 	
@@ -102,15 +101,6 @@
   </div>
 
 </div>
-
-
-
-
-
-
-
-
-
 
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
 
@@ -9902,25 +9892,25 @@ var chart = AmCharts.makeChart("chartdiv", {
 	  "marginBottom": 50,
 	  "dataProvider": [{
 	    "age": "extraverted",
-	    "left": -0.5,
-	    "right": 0.6
+	    "left": -5,
+	    "right": 6
 	  }, {
       "age": "sensing",
-      "left": -0.3,
-      "right": 0.6
+      "left": -3,
+      "right": 8
 	  }, {
       "age": "thinking",
-      "left": -0.6,
-      "right": 0.2
+      "left": -4,
+      "right": 2
     }, {
       "age": "judging",
-      "left": -0.3,
-      "right": 0.5
+      "left": -1,
+      "right": 5
     }],
 	  "startDuration": 1,
 	  "graphs": [{
-	    "fillAlphas": 0.8,
-	    "lineAlpha": 0.2,
+	    "fillAlphas": 10,
+	    "lineAlpha": 2,
 	    "type": "column",
 	    "valueField": "left",
 	    "title": "left",
@@ -9933,8 +9923,8 @@ var chart = AmCharts.makeChart("chartdiv", {
 	      return item.category + ": " + Math.abs(item.values.value) + "%";
 	    }
 	  }, {
-	    "fillAlphas": 0.8,
-	    "lineAlpha": 0.2,
+	    "fillAlphas": 10,
+	    "lineAlpha": 2,
 	    "type": "column",
 	    "valueField": "right",
 	    "title": "right",
