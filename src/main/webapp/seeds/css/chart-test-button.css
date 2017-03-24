@@ -1,0 +1,218 @@
+.button-wrapper {
+    width: 70px;
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 1157px;
+}
+.social-button-wrapper {
+	width: 80px;
+    display: inline-block;
+    position: absolute;
+    top: 114px;
+    left: 1219px;
+}
+.share-undo-button-wrapper {
+    margin-top: 87px;
+}
+
+
+
+
+.icon-button * {
+	display: none;
+}
+
+.main-wrapper {
+    border-radius: 4px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: relative;
+}
+
+.material-icons {
+    font-size: 41px;
+    color: white;
+    position: relative;
+    border-radius: 17%;
+    padding: 13px;
+    margin: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+}
+
+.material-icons:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: solid 2px;
+    transform: scale(0.8);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    border-radius: 17%;
+    transition: all 0.3s ease;
+}
+
+.material-icons:hover:after {
+    transform: scale(1);
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.19), 6px 0 6px rgba(0, 0, 0, 0.23);
+}
+
+.fa-times {
+    background-color: #8897b9;
+}
+
+.fa-times:hover {
+    color: #8897b9;
+}
+
+.fa-times:after {
+    border-color: #8897b9;
+}
+
+.fa-share-alt {
+    background-color: #88b2b9;
+}
+
+.fa-share-alt:hover {
+    color: #88b2b9;
+}
+
+.fa-share-alt:after {
+    border-color: #88b2b9;
+}
+.fa-undo {
+    background-color: #af88b9;
+}
+
+.fa-undo:hover {
+    color: #af88b9;
+}
+
+.fa-undo:after {
+    border-color: #af88b9;
+}
+
+.material-icons:hover {
+    background-color: transparent;
+    transform: rotate(90deg);
+    cursor: pointer;
+    box-shadow: none;
+}
+
+p {
+    color: #999;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+html {
+  font-size: 20px;
+}
+body {
+  background-color: #ccc;
+  padding: 50px;
+  text-align: center;
+}
+
+/* Wrapper */
+
+
+.icon-button {
+    background-color: white;
+    border-radius: 28px;
+    cursor: pointer;
+    /* display: inline-block; */
+    font-size: 29px;
+    height: 45px;
+    line-height: 10px;
+    margin: 0px 2px;
+    position: relative;
+    text-align: center;
+    width: 45px;
+}
+
+
+/* Circle */
+.icon-button span {
+  border-radius: 0;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all 0.3s;
+     -moz-transition: all 0.3s;
+       -o-transition: all 0.3s;
+          transition: all 0.3s;
+  width: 0;
+}
+.icon-button:hover span {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 28px;
+  margin: -1px;
+  margin-top: -1px;
+  left: 1px;
+  top: 1px;
+}
+.twitter span {
+  background-color: #4099ff;
+}
+.facebook span {
+  background-color: #3B5998;
+}
+.google-plus span {
+  background-color: #db5a3c;
+}
+
+/* Icons */
+.icon-button i {
+  background: none;
+    height: 10px;
+    left: -13px;
+    line-height: 51px;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 72px;
+    z-index: 10;
+}
+.icon-button .fa-facebook {
+  color:#4099ff
+}
+.icon-button .fa-google {
+  color:#db5a3c
+}
+.icon-button .fa-github-alt {
+  color:#17202A
+}
+
+.icon-button:hover .fa-facebook,
+.icon-button:hover .fa-google,
+.icon-button:hover .fa-github-alt {
+  color: white;
+}
+.icon-facebook:hover {
+  background-color: #4099ff;
+}
+.icon-google:hover {
+  background-color: #db5a3c;
+}
+.icon-git:hover {
+  background-color: #17202A;
+}

@@ -1,41 +1,39 @@
 $(function() {
-    
-	if ($('input[name=user-type]:checked').val() =="mentee") {
-		$('.sareaDiv').css("display", "none");
+	$(document.body).on('click', '.login-form-toggle', function() {
+	  $('.login-form-container').stop().addClass('login-form-active');
+	});
+	
+	$(document.body).on('click', '.login-form-close', function() {
+	  $('.login-form-container').stop().removeClass('login-form-active');
+	});
+	
+	$(document.body).on('click', '.auth-login-form', function(event) {
+		formClose(event);
+	});
+	
+	function formClose(e) {
+		console.log(e);
+		if (e != 'undefined') {
+			if (e.target.classList[0] != 'auth-login-form') return;
+		}
+		$('.login-form-container').addClass('animated fadeOutRight');
+		setTimeout(function() {
+		  $('.auth-login-form').css('display', 'none');
+		}, 800);
 	}
 	
-	$(document).on("click", "#user-type1", function(e) {
-		$('.sareaDiv').css("display", "none");
-	})
-	$(document).on("click", "#user-type2", function(e) {
-		$('.sareaDiv').css("display", "block");
-	})
-	
-  var animating = false,
-      submitPhase1 = 1100,
-      submitPhase2 = 400,
-      logoutPhase1 = 800,
-      $login = $(".login"),
-      $app = $(".app");
-  
-  function ripple(elem, e) {
-    $(".ripple").remove();
-    var elTop = elem.offset().top,
-        elLeft = elem.offset().left,
-        x = e.pageX - elLeft,
-        y = e.pageY - elTop;
-    var $ripple = $("<div class='ripple'></div>");
-    $ripple.css({top: y, left: x});
-    elem.append($ripple);
-  };
-  
-  $(document.body).on("click", ".login_submit", function(e) {
-		var param = {
-				email: $('#email').val(),
-				password: $('#password').val()
-			};
-	  
-		/*   로그인 버튼 이벤트   */ 
+/*   로그인 이벤트   */
+	function logIn(event, login) {
+		console.log(event, login);
+		if (event != 'undefined')
+			event.preventDefault();
+		var param = login; 
+		if (login == 'undefined') {
+			var param = {
+					email: $('#login-input-email').val(),
+					password: $('#login-input-password').val()
+				};
+		}
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
 				loginEvent = true;
@@ -48,15 +46,19 @@ $(function() {
 				memberInfo = ajaxResult.data;
 				eventControll();
 				if (ajaxResult.data.specialArea == null) {
-					$('.demo').removeClass("animated fadeInRight");
-			    	$('.demo').addClass("animated fadeOutRight");
+					$('.login-form-container').removeClass("animated fadeInRight");
+					$('.login-form-container').addClass("animated fadeOutRight");
 			    	setTimeout(function() {
 			    		$('.auth-login-form').css("display", "none");
-			    		$('.demo').removeClass("animated fadeOutRight");
+			    		$('.login-form-container').removeClass("animated fadeOutRight");
 			    	}, 600);
 			    	$('.header-icon-power').css("display", "none");
 			    	$('.header-icon-user').css("display", "inline-block");
 			    	$('.header-icon-message').css("display", "inline-block");
+			    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
+			    	userInfo(); 
+					$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+					$('.user-info h3').text(memberInfo.name);
 					return;
 				} else {
 					location.href = "expert/driver.html";
@@ -64,147 +66,84 @@ $(function() {
 				}
 			}
 		}, 'json');
-		
-	  
-    if (animating) return;
-    animating = true;
-    var that = this;
-    ripple($(that), e);
-    $(that).addClass("processing");
-    setTimeout(function() {
-      $(that).addClass("success");
-      setTimeout(function() {
-        $app.show();
-        $app.css("top");
-        $app.addClass("active");
-      }, submitPhase2 - 70);
-      setTimeout(function() {
-        $login.hide();
-        $login.addClass("inactive");
-        animating = false;
-        $(that).removeClass("success processing");
-      }, submitPhase2);
-    }, submitPhase1);
-  });
-  
-  
-  // 회원가입 클릭시 
-  
-  $(document).on("click", ".signUp_submit", function(e) {
-	  if ($('.signUp_input.passIn').val() != $('.signUp_input.passCheck').val()) {
-		  alert("패스워드가 일치하지 않습니다.");
-	  }
-	  else{
-		  if($('input[name=user-type]:checked').val() =="mentee") {
-		  
-		  var param = {
-				  name: $('.signUp_input.name').val(),
-				  age: $('.signUp_input.age').val(),
-				  email: $('.signUp_input.email').val(),
-				  password: $('.signUp_input.passIn').val()
-		  };
-		  
-		  $.post(serverRoot + '/mentee/add.json', param, function(ajaxResult) {
-			  if (ajaxResult.status == "success") {
-				  location.href = "/bitcamp-project-s/auth/login.html";	
-				  return;
-			  }
-			  console.log(ajaxResult.data);
-			  alert(ajaxResult.data);
-		  }, 'json');
-	   } // if 멘티로 체크되어있다면 
-		  else {
-		   
-		   var param = {
-					  name: $('.signUp_input.name').val(),
-					  age: $('.signUp_input.age').val(),
-					  specialArea: $('.signUp_input.sarea').val(),
-					  email: $('.signUp_input.email').val(),
-					  password: $('.signUp_input.passIn').val()
-			  };
-			  
-			  $.post(serverRoot + '/mento/add.json', param, function(ajaxResult) {
-				  if (ajaxResult.status == "success") {
-					  location.href = "/bitcamp-project-s/auth/login.html";	
-					  return;
-				  }
-				  console.log(ajaxResult.data);
-				  alert(ajaxResult.data);
-			  }, 'json');
-		   
-		   
-		   
-	   } // 멘토로 체크 되어있다면~ 
-	  }  
-		
-	  
-    if (animating) return;
-    animating = true;
-    var that = this;
-    ripple($(that), e);
-    $(that).addClass("processing");
-    setTimeout(function() {
-      $(that).addClass("success");
-      setTimeout(function() {
-        $app.show();
-        $app.css("top");
-        $app.addClass("active");
-      }, submitPhase2 - 70);
-      setTimeout(function() {
-        $login.hide();
-        $login.addClass("inactive");
-        animating = false;
-        $(that).removeClass("success processing");
-      }, submitPhase2);
-    }, submitPhase1);
-  });
-  
-  
-  
-  
-  $(document).on("click", ".new-sign", function(e) {
-	  $(".sign-in").addClass("animated fadeOutLeft");
-	  $(".sign-up").removeClass("animated fadeOutRight");
-	  $(".sign-up").addClass("animated fadeInRight");
-	$('.sign-up').css("display", "block");
-//	$('.sign-in').css("display", "none");
-	  
-  })
-  
-    $(document).on("click", ".close", function(e) {
-    	$(".sign-up").addClass("animated fadeOutRight");
-    	 $(".sign-in").removeClass("animated fadeOutLeft");
-    	 $(".sign-in").addClass("animated fadeInLeft");
-    	 $('.sign-in').css("display", "block");
+	}
+	$(document.body).on('keypress', '.login-button-go', function(event) {
+		logIn(event);
 	});
-}); // click()
+	$(document.body).on('click', '.login-button-go', function(event) {
+		logIn(event);
+	});
+/*   /로그인 이벤트   */
+	
+/*   회원가입 이벤트   */
+	function signUp(event) {
+		event.preventDefault();
+		console.log(event);
+		console.log('signUp ok?');
+			var param = {
+					name: $('#signup-form-username').val(),
+					age: $('#signup-form-age').val(),
+					email: $('#signup-form-email').val(),
+					password: $('#signup-form-password').val()
+			}
+			login = {
+					email: $('#signup-form-email').val(),
+					password: $('#signup-form-password').val()
+			}
+			console.log('signUp() :' + param);
+			console.log(param);
+		$.post(serverRoot + '/mentee/add.json', param, function(ajaxResult) {
+			console.log('회원가입 반환 데이터');
+			console.log(ajaxResult);
+			if (ajaxResult.status == "fail") {
+				console.log('회원가입 실패 시 반환 데이터');
+				console.log(ajaxResult.data);
+				var comn = '이메일 주소가 중복되었어요!';
+				warnModalStart(comn);
+			} else {
+				var result = window.sessionStorage.getItem('result');
+				var resultValue = window.sessionStorage.getItem('resultValues');
+				formClose(event);
+				logIn(event, login); 
+				if (result != null) {
+					var comn = 'confirm';
+					console.log(event);
+					warnModalStart(comn);
+				}
+			}
+		}, 'json');
 
-$(function(){
-	  $('.passIn').keyup(function(){
-	   $('.check').html('');
-	  }); //passIn.keyup
+	}
+	$(document.body).on('click', '.modal-confirm-no-btn', function(event) {
+		warnModalEnd();
+	});
+	$(document.body).on('click', '.modal-confirm-yes-btn', function(event) {
+		warnModalEnd();
+		var param = {
+				'memberNo' : memberInfo.memberNo,
+				'type' : 'mbti',
+				'resultResult' : window.sessionStorage.getItem('result'),
+				'eachResult' : window.sessionStorage.getItem('resultValues')
+				}
+		$.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
+			if (ajaxResult.status == 'success') {
+				var comn = '저장 완료!';
+				warnModalStart(comn);
+				console.log('modal-confirm-yes-btn :', param);
 
-	  $('.passCheck').keyup(function(){
-	   if ($('.passIn').val() != $('.passCheck').val()){
-		   $('.check').html('');
-		   $('.check').removeClass("correct")
-		   $('.check').addClass("incorrect")
-		   $('.check').html("비밀번호가 일치하지않습니다.");
-	   } else {
-		   $('.check').html('');
-		   $('.check').removeClass("incorrect")
-		   $('.check').addClass("correct")
-		   $('.check').html(" OK!! ");
-	   }
-	  }); //passCheck.keyup
-	  
-	 });
-
-
-
-
-
-
-
-
-
+			} else {
+				var comn = '저장 실패<br>테스트를 다시...'; 
+				warnModalStart(comn);
+			}
+			window.sessionStorage.removeItem('result');
+			window.sessionStorage.removeItem('resultValues');
+		});
+	});
+	$(document.body).on('keypress', '.login-button-next', function(event) {
+		signUp(event);
+	});
+	$(document.body).on('click', '.login-button-next', function(event) {
+		signUp(event);
+	});
+/*   /회원가입 이벤트   */
+});

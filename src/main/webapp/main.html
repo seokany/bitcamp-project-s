@@ -112,6 +112,7 @@ body {
   visibility: hidden;
   display: none;
   transition: all 0.25s ease-in-out;
+  z-index: 14;
 }
 .warn-modal-wrapper.warn-modal-open {
   visibility: visible;
@@ -153,7 +154,7 @@ body {
   padding: 10%;
   cursor: default;
 }
-.warn-modal-good-job {
+.warn-modal-good-job, .warn-modal-good-test {
   text-align: center;
   font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
   color: #e2525c;
@@ -186,6 +187,26 @@ h3.warn-modal-testInfo {
 h3.warn-modal-testInfo {
     display: none;
 }
+.warn-modal-comment > h3,
+.warn-modal-confirm > h3 {
+    position: relative;
+    margin: 0;
+    width: 400px;
+    left: -40px;
+    margin-bottom: 30px;
+}
+.warn-modal-good-test {
+  display: none;
+}
+.warn-modal-confirm div {
+    display: inline-block;
+    background: #e1525c;
+    padding: 5px;
+    border-radius: 2px;
+    color: #fff;
+    margin-right: 5px;
+    cursor: pointer;
+}
 </style>
 <body>
 <div id="header"></div>
@@ -215,8 +236,17 @@ h3.warn-modal-testInfo {
     <div class="warn-modal-content">
         <div class="warn-modal-good-job">
           <i class="fa-px fa-info-circle" aria-hidden="true"></i>
+          <div class="warn-modal-comment"></div>
           <h3 class="warn-modal-logInfo">로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>
           <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내드릴 수 있어요.</h3>
+        </div>
+        <div class="warn-modal-good-test">
+          <i class="fa-px fa-info-circle" aria-hidden="true"></i>
+          <div class="warn-modal-confirm">
+	          <h3>가입 전 테스트 결과가 있어요.<br>저장하시겠습니까?</h3>
+	          <div class="modal-confirm-yes-btn">저장하기</div>
+	          <div class="modal-confirm-no-btn">아니오</div>
+          </div>
         </div>
     </div>
   </div>
@@ -419,6 +449,32 @@ function eventControll() {
   }
 }
 <!-- /eventControll -->
+<!--   warn modal function   -->
+function warnModalStart(comn) {
+	if (comn == 'confirm') {
+     $('.warn-modal-good-job').hide();
+     $('.warn-modal-good-test').show();
+	}
+  if (comn != undefined) {
+     $('.warn-modal-comment h3').remove();
+     $('.warn-modal-logInfo').css('display', 'none');
+     $('.warn-modal-testInfo').css('display', 'none');
+     $('.warn-modal-comment').append('<h3>' + comn + '</h3>');
+  }
+    $('.warn-modal-wrapper').addClass('warn-modal-open');
+    $('.warn-modal').addClass('animated fadeInRight');
+    $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+}
+function warnModalEnd() {
+    $('.warn-modal').addClass('animated fadeOutRight');
+    setTimeout(function() {
+      $('.warn-modal').removeClass('animated fadeOutRight');
+      $('.warn-modal-wrapper').removeClass('warn-modal-open');
+      $('.warn-modal').removeClass('animated fadeInRight');
+      $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
+    }, 1000);
+  }
+<!--   /warn modal function   -->
 $(function() {
    <!-- mentee service loader -->
     $(function() {
@@ -427,23 +483,6 @@ $(function() {
       $(".likes").load("likes/mento-like.html .dashboard");
     });
     <!-- /mentee service load -->
-    
-    <!--   warn modal function   -->
-    function warnModalStart() {
-        $('.warn-modal-wrapper').addClass('warn-modal-open');
-        $('.warn-modal').addClass('animated fadeInRight');
-        $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
-    }
-    function warnModalEnd() {
-        $('.warn-modal').addClass('animated hinge');
-        setTimeout(function() {
-          $('.warn-modal').removeClass('animated hinge');
-          $('.warn-modal-wrapper').removeClass('warn-modal-open');
-          $('.warn-modal').removeClass('animated fadeInRight');
-          $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
-        }, 1000);
-      }
-    <!--   /warn modal function   -->
     
     <!-- wheel & click 슬라이딩 이벤트 --> 
     $(document.body).on("click", ".warn-modal-trigger, .warn-modal-wrapper", function(e) {
@@ -503,6 +542,7 @@ $(function() {
     var wheelType;
     
     $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+    	console.log(event);
       wheelState = true; 
       wheelType = event.originalEvent.wheelDelta;
     });

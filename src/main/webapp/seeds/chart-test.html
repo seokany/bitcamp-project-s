@@ -6,254 +6,47 @@
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css">
-
-<style>
-@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
-/* 차트 */
-#chartdiv {
-  width: 100%;
-  height: 100%;
-  
-}
-.chart-wrapper {
-  width: 850px;
-  height: 285px;
-  margin-left: 97px;
-  position: relative;
-  margin-bottom: 30px;
-}
-.amcharts-balloon-div, .amcharts-balloon-div-categoryAxis {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-.adding-part-a {
-  position: fixed;
-  color: #ffffff;
-}
-.adding-part-a > * {
-  position: absolute;
-  top: 115px;
-  left: 100px;
-  width: 115px;
-}
-
-.adding-part-b {
-  font-family: "Covered By Your Grace";
-  font-size:17;
-  position: fixed;
-  top: 0;
-  color: #ffffff;
-}
-.adding-part-b > * {
-  position: absolute;
-  top: 115px;
-  left: 846px;
-  width: 115px;
-}
-.intuition {
-  top: 168px;
-}
-.feeling {
-  top: 223px;
-}
-.perceiving {
-  top: 271px;
-}
-.adding-part-k {
-  font-size: 11px;
-}
-.extraverted {
-  top: 42px;
-  left: -14px;
-}
-.sensing {
-  top: 92px;
-  left: 16px;
-}
-.thinking {
-  top: 145px;
-  left: 15px;
-}
-.judging {
-  top: 199px;
-  left: 21px;
-}
-
-
-/* 임시 대시보드 지정 */
-
-.temp-dashboard {
-  height: 800px;
-  width: 1150px;
-  border: 1px solid black;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.8);
-}
-
-/* 유형 이름*/
-.mbti-type-e {
-  font-family: 'Roboto';
-  font-size:40px;
-  display: inline-block;
-}
-.mbti-type-k {
-  font-size:20px;
-  display: inline-block;
-}
-.mbti-title {
-  width: 400px;
-  margin: 10px;
-  margin-left: 364px;
-  text-align: center;
-  color: #ffffff;
-font–family: ‘Jeju Myeongjo’ ;
-}
-
-/* 간단한 유형정리 */
-.description-first, .description-second, .description-third {
-  border: 1px solid black;
-  width: 328px;
-  height: 314px;
-  display: inline-block;
-  font-size: 15px;
-  float: left;
-  position: relative;
-  background-color: rgba(255,255,255,0.5);
-}
-
-.description-first-context,.description-second-context,.description-third-context {
-  padding: 10px;
-  margin-top: 20px;
-  margin-left: 2px;
-}
-.description-first {
-  background-color: #F0ECE0;   /* #F1E1AD; */ 
-  margin-left: 28px;
-}
-
-.description-second {
-  background-color: #D7C6E5; 
-  margin-left: 49px;
-}
-.description-third {
-  background-color: #F4D5C9; 
-   margin-left: 50px;
-}
-.description-wrapper {
-  height: 302px;
-}
-.description-ul {
-  padding-left: 27px;
-  font-size: 14px;
-}
-.description-ul li {
-  margin:8px 0;
-}
-
-
-/* 리본 */
-.ribbon {
-  padding: 5px;
-  color: #1C2833;
-  text-transform: uppercase;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 100;
-  margin-top: 0;
-  width: 356px;
-}
-.ribbon-position1 {
-  background-color: #F1E1AD;
-  top: -6px;
-  left: -19px;
-}
-
-.ribbon-position2 {
-  background-color:#CAA8E6;
-  top: -6px;
-  left: -19px;
-}
-
-.ribbon-position3 {
-  background-color: #FFB192;
-  top: -6px;
-  left: -19px;
-}
-
-.ribbon-custom {
-  /* background-color: #F7DC6F; */
-  position: absolute;
-  z-index: 6;
-  font-weight: 600;
-}
-.ribbon-custom:before, .ribbon-custom:after {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  font-size: 0;
-  line-height: 0;
-  z-index: 5;
-  border-top: 0 solid transparent;
-  border-bottom: 15px solid transparent;
-  bottom: -15px;
-}
-.ribbon-custom:before {
-  border-left: 20px solid #FDF2E9;
-  right: 0;
-}
-.ribbon-custom:after {
-  border-right: 20px solid #FDF2E9;
-  left: 0;
-}
-
-
-</style>
+<link rel="stylesheet" type="text/css" href="css/chart-test.css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/chart-test-button.css" />
 </head>
 <body>
-
+ <!-- 88b2b9  8897b9  af88b9 -->
 <!-- 임시 대시보드 지정 -->
 <div class="temp-dashboard">
 
   <!-- 유형 이름 -->
   <div class="mbti-title">
     <div class="mbti-type-e">ISTP</div>
-    <div class="mbti-type-k">성격유형 : “만능 재주꾼”</div>
+    <div class="mbti-type-k Brush">성격유형 : “만능 재주꾼”</div>
   </div>
-  
   
   <!-- 차트 -->
 	<div class="chart-wrapper">
 	
 	<div class="adding-part-a">
-      <div class="adding-part-k extraverted">외향</div>
-      <div class="adding-part-k sensing">감각</div>
-      <div class="adding-part-k thinking">사고</div>
-      <div class="adding-part-k judging">판단</div>
+      <div class="adding-part-k extraverted Brush">외향</div>
+      <div class="adding-part-k sensing Brush">감각</div>
+      <div class="adding-part-k thinking Brush">사고</div>
+      <div class="adding-part-k judging Brush">판단</div>
   </div>
   
 	<div id="chartdiv"></div>
 	
 		<div class="adding-part-b">
-			<div class="introverted">introverted <span class="adding-part-k">내향</span></div>
-			<div class="intuition">intuition <span class="adding-part-k">직관</span></div>
-			<div class="feeling">feeling <span class="adding-part-k">감정</span></div>
-			<div class="perceiving">perceiving <span class="adding-part-k">인식</span></div>
+			<div class="introverted">introverted <span class="adding-part-k Brush">내향</span></div>
+			<div class="intuition">intuition <span class="adding-part-k Brush">직관</span></div>
+			<div class="feeling">feeling <span class="adding-part-k Brush">감정</span></div>
+			<div class="perceiving">perceiving <span class="adding-part-k Brush">인식</span></div>
 		</div>
 	
 	</div>
-
-
   
   <!-- 간단한 유형정리 -->
   <div class="description-wrapper">
     
-    
 	  <div class="description-first">
-    <h3 class="ribbon ribbon-custom ribbon-position1">일반적 특성</h3>
+    <div class="ribbon ribbon-custom ribbon-position1 jeju">일반적 특성</div>
 	    <div class="description-first-context">
 	      <ul class="description-ul">
 			    <li>차분한 방관자</li>
@@ -266,7 +59,7 @@ font–family: ‘Jeju Myeongjo’ ;
 	  </div>
 	  
 	  <div class="description-second">
-	  <h3 class="ribbon ribbon-custom ribbon-position2">기질적 특성</h3>
+	  <div class="ribbon ribbon-custom ribbon-position2 jeju">기질적 특성</div>
 	    <div class="description-second-context">
 	      <ul class="description-ul">
 	         <li>이들은 도구를 사용하는 직종을 골라야<br> 한다. 어느 것이라고 믿기 어려울 정도로<br> 정밀하게 작동하는 사람들을 보면 그는<br> 틀림없이 ISTP유형이다.</li>
@@ -276,7 +69,7 @@ font–family: ‘Jeju Myeongjo’ ;
 	  </div>
 	  
 	  <div class="description-third">
-	  <h3 class="ribbon ribbon-custom ribbon-position3">일과 관련된 특성</h3>
+	  <div class="ribbon ribbon-custom ribbon-position3">일과 관련된 특성</div>
 	    <div class="description-third-context">
 	       <ul class="description-ul">
 	         <li>현실적이고 구체적인 생산물과 관련된 일을 잘 한다.</li>
@@ -290,8 +83,24 @@ font–family: ‘Jeju Myeongjo’ ;
   </div> <!-- description-wrapper 끝 -->
   
 
-</div>
+  <!-- button 시작 -->
+  <div class="button-wrapper">
+    <div class="close-button-wrapper"><i class="fa fa-times material-icons" aria-hidden="true"></i></div>
+    
+    <div class="share-undo-button-wrapper">
+      <i class="fa fa-share-alt material-icons" aria-hidden="true"></i>
+      <i class="fa fa-undo material-icons" aria-hidden="true"></i>
+    </div>
+    
+  </div>
+  
+  <div class="social-button-wrapper">
+    <a href="#" class="icon-button icon-facebook"><i class="fa fa-facebook float-circler"></i><span></span></a>
+    <a href="#" class="icon-button icon-google  "><i class="fa fa-google"></i><span></span></a>
+    <a href="#" class="icon-button icon-git"><i class="fa fa-github-alt"></i><span></span></a>
+  </div>
 
+</div>
 
 <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
 
@@ -10073,15 +9882,6 @@ AmCharts.themes.chalk = {
     }
 };
 
-
-
-
-
-
-
-
-
-
 </script>
 <script type="text/javascript">
 
@@ -10092,25 +9892,25 @@ var chart = AmCharts.makeChart("chartdiv", {
 	  "marginBottom": 50,
 	  "dataProvider": [{
 	    "age": "extraverted",
-	    "left": -0.5,
-	    "right": 0.6
+	    "left": -5,
+	    "right": 6
 	  }, {
       "age": "sensing",
-      "left": -0.3,
-      "right": 0.6
+      "left": -3,
+      "right": 8
 	  }, {
       "age": "thinking",
-      "left": -0.6,
-      "right": 0.2
+      "left": -4,
+      "right": 2
     }, {
       "age": "judging",
-      "left": -0.3,
-      "right": 0.5
+      "left": -1,
+      "right": 5
     }],
 	  "startDuration": 1,
 	  "graphs": [{
-	    "fillAlphas": 0.8,
-	    "lineAlpha": 0.2,
+	    "fillAlphas": 10,
+	    "lineAlpha": 2,
 	    "type": "column",
 	    "valueField": "left",
 	    "title": "left",
@@ -10123,8 +9923,8 @@ var chart = AmCharts.makeChart("chartdiv", {
 	      return item.category + ": " + Math.abs(item.values.value) + "%";
 	    }
 	  }, {
-	    "fillAlphas": 0.8,
-	    "lineAlpha": 0.2,
+	    "fillAlphas": 10,
+	    "lineAlpha": 2,
 	    "type": "column",
 	    "valueField": "right",
 	    "title": "right",
@@ -10182,19 +9982,6 @@ var chart = AmCharts.makeChart("chartdiv", {
 	});
 
 </script>
-<script>
-$( function() {
-	$('*').removeAttr('onmouseover');
-	
-	
-	get=document.getElementsByClassName("chart-wrapper");
-	for(i=0; i<get.length; i++){
-	    get[i].removeEventListener("mouseover", "", false);
-	}
-});
-
-
-</script>
-
+<script type="text/javascript" src="js/chart-test-button.js"></script>
 </body>
 </html>

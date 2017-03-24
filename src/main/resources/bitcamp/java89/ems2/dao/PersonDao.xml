@@ -35,14 +35,14 @@
   </select>
   
   <select id="getList" resultMap="person-map" parameterType="map">
-		select * 
-		from person ps
-			inner join contents ctt on ps.cono = ctt.cono
-			inner join copic cp on ctt.cono = cp.cono
-			inner join topic tp on cp.tno = tp.tno
-			inner join snatr snt on tp.tno = snt.tno 
-			inner join result ret on snt.reno = ret.reno 
-		where ret.sno = #{sno};
+    select * 
+    from person ps
+      inner join contents ctt on ps.cono = ctt.cono
+      inner join copic cp on ctt.cono = cp.cono
+      inner join topic tp on cp.tno = tp.tno
+      inner join snatr snt on tp.tno = snt.tno 
+      inner join result ret on snt.reno = ret.reno 
+    where ret.sno = #{sno};
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   
@@ -55,41 +55,5 @@
   </select>
   
   
-<!--   <select id="getOne" parameterType="int" resultMap="person-map"> -->
-<!--     select -->
-<!--       m.mno, -->
-<!--       m.name,  -->
-<!--       m.tel,  -->
-<!--       m.email,  -->
-<!--       s.work,  -->
-<!--       s.lst_schl,  -->
-<!--       s.schl_nm,  -->
-<!--       s.path -->
-<!--     from stud s -->
-<!--       left outer join memb m on s.sno=m.mno -->
-<!--     where m.mno=#{value} -->
-<!--   </select> -->
-
-  <insert id="insert" parameterType="person">
-<!--     insert into stud(sno,work,lst_schl,schl_nm,path)  -->
-<!--     values( -->
-<!--       #{memberNo}, -->
-<!--       #{working}, -->
-<!--       <choose> -->
-<!--         <when test="working == true">'Y'</when>  -->
-<!--         <otherwise>'N'</otherwise> -->
-<!--       </choose>, -->
-<!--       --> -->
-<!--       #{grade},  -->
-<!--       #{schoolName},  -->
-<!--       #{photoPath}) -->
-  </insert>  
-  
-  <delete id="delete" parameterType="int">
-<!--   <![CDATA[ -->
-<!--     delete from stud where sno=#{value} -->
-<!--   ]]> -->
-  </delete>
 
 </mapper>
-

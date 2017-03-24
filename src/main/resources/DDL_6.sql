@@ -270,7 +270,8 @@ CREATE TABLE RESULT (
   reno INTEGER      NOT NULL COMMENT '검사결과일련번호', -- 검사결과일련번호
   sno  INTEGER      NOT NULL COMMENT '학생일련번호', -- 학생일련번호
   type VARCHAR(50)  NOT NULL COMMENT '적성검사종류', -- 적성검사종류
-  rer  VARCHAR(100) NOT NULL COMMENT '검사결과' -- 검사결과
+  rer  VARCHAR(100) NOT NULL COMMENT '검사결과', -- 검사결과
+  eare VARCHAR(100) NULL     COMMENT '개별결과' -- 개별결과
 )
 COMMENT '적성검사결과';
 
@@ -321,7 +322,7 @@ ALTER TABLE MESSG
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     )
-    REFERENCES NEW_SCHEMA.QNA ( -- 질의응답
+    REFERENCES QNA ( -- 질의응답
       cono, -- 설계도일련번호
       sno   -- 학생일련번호
     );

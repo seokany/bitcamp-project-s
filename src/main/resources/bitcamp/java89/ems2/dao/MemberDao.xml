@@ -21,11 +21,12 @@
   </select>
   
   
-  <insert id="insert" parameterType="member" 
+  <insert id="insert" parameterType="member"
           useGeneratedKeys="true" keyColumn="mno" keyProperty="memberNo">
     insert into membs(email, name, age, pwd)
     values(#{email}, #{name}, #{age}, password(#{password}))
   </insert> 
+  
 <!--   <select id="getList" resultMap="member-map">
     select 
       mno, 

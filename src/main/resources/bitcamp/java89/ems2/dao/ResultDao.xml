@@ -6,10 +6,11 @@
 <mapper namespace="bitcamp.java89.ems2.dao.ResultDao">
 
   <resultMap type="result" id="result-map">
-    <id     column="reno"        property="resultNo"/>
-    <result column="sno"        property="memberNo"/>
-    <result column="type"      property="type"/>
-    <result column="rer"       property="resultResult"/>
+    <id     column="reno"   property="resultNo"/>
+    <result column="sno"    property="memberNo"/>
+    <result column="type"   property="type"/>
+    <result column="rer"    property="resultResult"/>
+    <result column="eare"   property="eachResult"/>
   </resultMap>
   
   
@@ -48,11 +49,12 @@
   </select>
   
   <insert id="insert" parameterType="result">
-    insert into result(sno,type,rer) 
+    insert into result(sno,type,rer,eare) 
     values(
       #{memberNo},
       #{type}, 
-      #{resultResult})
+      #{resultResult},
+      #{eachResult})
   </insert>  
   
 </mapper>

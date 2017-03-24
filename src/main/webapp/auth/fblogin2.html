@@ -1,0 +1,159 @@
+<!doctype html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<html>
+    <head>
+      <title>My Facebook Login Page</title>
+      <meta charset="UTF-8">
+    </head>
+    <body>
+
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+			
+			//초기화
+			FB.init({
+				appId      : '1135624536565167', // App ID
+				//channelUrl : '//127.0.0.1:8020/rotuebook_html5/WebContent/testCase//FB_channel.html', // Channel File
+				status     : true, // check login status
+				cookie     : true, // enable cookies to allow the server to access the session
+				xfbml      : true  // parse XFBML
+                version    : 'v2.8'
+			});
+			
+			// Additional initialization code here
+			/*
+			FB.ui({ method: 'feed', 
+			  message: 'Facebook for Websites is super-cool'
+			 });
+			*/
+			
+			//페이지 로드 했을시 호출 
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					
+					FB.api('/me', function(user) {
+						if (user) {
+							console.log(user.name);
+			
+							var image = document.getElementById('image');
+							image.src = 'http://graph.facebook.com/' + user.id + '/picture';
+							var name = document.getElementById('name');
+							name.innerHTML = user.name
+							var id = document.getElementById('id');
+							id.innerHTML = user.id
+
+						}
+					});	
+					var uid = response.authResponse.userID;
+					var accessToken = response.authResponse.accessToken;
+					 console.log(accessToken);
+					 
+				} else if (response.status === 'not_authorized') {
+					// the user is logged in to Facebook, 
+					// but has not authenticated your app
+				} else {
+					// the user isn't logged in to Facebook.
+				}
+			});
+			
+			//로그인 되는 순간 호출
+			FB.Event.subscribe('auth.login', function(response) {
+				alert("로그인 되는 순간 호출");
+				document.location.reload();
+			});
+			//로그아웃 되는 순간 호출
+			FB.Event.subscribe('auth.logout', function(response) {
+				alert("로그아웃 되는 순간 호출");
+				document.location.reload();
+			});
+ 			
+			/*
+			FB.login(function(response) {
+				if (response.authResponse) {
+					console.log('Welcome!  Fetching your information.... ');
+					FB.api('/me', function(response) {
+						console.log('Good to see you, ' + response.name + '.');
+					});
+				} else {
+					console.log('User cancelled login or did not fully authorize.');
+				}
+			});
+			*/	  
+        };
+		
+		//Feed백에 글남기는 method
+		function postToFeed (){
+			// calling the API ...
+			var obj = {
+				method: 'feed',
+				link: 'http://hijigoo.cafe24.com/BLOG/FB_finish.html',
+				picture: 'http://fbrell.com/f8.jpg',
+				name: 'name',
+				caption: 'caption',
+				description: 'description'
+			};
+			
+			function callback(response) {
+				alert("callback Fn");;
+			}
+			
+			FB.ui(obj, callback);
+		};
+		
+        // Load the SDK Asynchronously
+        (function(d){
+           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/ko_KR/all.js";
+           ref.parentNode.insertBefore(js, ref);
+         }(document));
+		 //end Load the SDK Asynchronously
+		 
+      </script>
+     <h1>현재 페이지와 연동된 Facebook</h1>
+     <hr><hr>
+     
+     <p>login 버튼</p>
+    <!--HTML Tag --> 
+    <!--<div class="fb-login-button">Login with Facebook div</div>-->
+    <!--XFBML Tag -->
+    <fb:login-button show-faces="false" width="200" max-rows="1"></fb:login-button><br>
+    <!--<a href="#" id="auth-loginlink" style="float:left; font-size: small;" onclick="FB.login(function() { document.location.reload(); });">[login]</a><br>-->
+    <a href="#" onclick="FB.login();">[login]</a><br>
+    <hr>
+    
+    <p>logout 버튼</p>
+    <!--<a href="#" id="auth-logoutlink" style="float:left;font-size: small;" onclick="FB.logout(function() { document.location.reload(); });">[logout]</a><br>-->
+    <a href="#" onclick="FB.logout();">[logout]</a><br>
+    <hr>
+    
+    <p>like 버튼</p>
+    <div class="fb-like"></div><br>
+    <fb:like send="false" width="450" show_faces="true" font="verdana"></fb:like><br>
+    <fb:like send="true" width="450" show_faces="true" font="verdana"></fb:like>
+    <hr>
+    
+    <p>사용자정보 출력</p>
+    <div align="left">
+        <img id="image"/>
+        <div id="name"></div>
+        <div id="id"></div>
+    </div>
+    <hr>
+    
+    <p>feed에 글남기기</p>
+    <!--<a href="#" id="auth-logoutlink" style="float:left;font-size: small;" onclick="FB.logout(function() { document.location.reload(); });">[logout]</a><br>-->
+    <a href="#" onclick="postToFeed();">[feed]</a><br>
+    <p id='msg'></p>
+    <hr>
+    
+    <p>comment</p>
+    <fb:comments href="http://hijigoo.cafe24.com/BLOG/FB_finish.html" num_posts="4" width="470"></fb:comments><br>
+    <hr>
+    
+
+    </body>
+ </html>
+

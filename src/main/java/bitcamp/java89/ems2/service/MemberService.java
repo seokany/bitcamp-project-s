@@ -9,6 +9,7 @@ public interface MemberService {
   int add(Student student) throws Exception;
   int delete(int no) throws Exception;
 //  int getSize() throws Exception;*/
+  int hasEmail(String email) throws Exception; 
   int addMentee(Mentee mentee) throws Exception;
   int addMento(Mento mento) throws Exception;
   Member getOne(int memberNo) throws Exception;
