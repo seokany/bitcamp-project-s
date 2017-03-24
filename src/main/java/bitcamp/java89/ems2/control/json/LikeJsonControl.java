@@ -56,7 +56,7 @@ public class LikeJsonControl {
       
       HashMap<String,Object> resultMap = new HashMap<>();
       resultMap.put("list", list);
-      System.out.println("아아"+ list);
+//      System.out.println("아아"+ list);
       resultMap.put("totalCount", totalCount);
       
       return new AjaxResult(AjaxResult.SUCCESS, resultMap);
@@ -67,7 +67,7 @@ public class LikeJsonControl {
   @RequestMapping("/like/add")
   public AjaxResult likeAdd(int curNo, int sno) throws Exception {
     int count = likeService.likeAdd(curNo, sno);
-    System.out.println(count);
+//    System.out.println(count);
     if (count == 0) {
       return new AjaxResult(AjaxResult.FAIL, "이미 좋아요 됐으");
     }
@@ -84,44 +84,7 @@ public class LikeJsonControl {
     return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
   }
   
-  
-  
- /* @RequestMapping("/like/detail")
-  public AjaxResult detail(int memberNo) throws Exception {
-    Like like = likeService.getDetail(memberNo);
-    
-    if (like == null) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 학생이 없습니다.");
-    }
-    
-    return new AjaxResult(AjaxResult.SUCCESS, like);
-  }
-  @RequestMapping("/like/add")
-  public AjaxResult add(Like like) throws Exception {
-    likeService.add(like);
-    return new AjaxResult(AjaxResult.SUCCESS, "등록 성공입니다.");
-  }
 
-  @RequestMapping("/like/delete")
-  public AjaxResult delete(int memberNo, HttpServletRequest request) throws Exception {
-    int count = likeService.delete(memberNo);
-    if (count == 0) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 번호의 학생이 없습니다.");
-    }
-    return new AjaxResult(AjaxResult.SUCCESS, "삭제 성공입니다.");
-  }
-  
-  @RequestMapping("/like/update")
-  public AjaxResult update(Like like) throws Exception {
-
-    int count = likeService.update(like);
-    
-    if (count == 0) {
-      return new AjaxResult(AjaxResult.FAIL, "해당 번호의 학생이 없습니다.");
-    }
-    
-    return new AjaxResult(AjaxResult.SUCCESS, "변경 성공입니다.");
-  }*/
 }
 
 

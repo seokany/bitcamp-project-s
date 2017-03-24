@@ -1,7 +1,7 @@
 
 $(function() {
 	
-	$(document.body).on( "click", "#likes-btn, #tab-1", function() {
+	$(document.body).on( "click", "#likes-btn, .mento-like-btn", function() {
 		var currPageNo = 1;
 		var pageSize = 4;
 		var sno = 5;
@@ -65,13 +65,15 @@ $(function() {
 						mtHover();
 						mentoLikePreparePagingButton(ajaxResult.data.totalCount);
 						console.log(ajaxResult.data.totalCount);
+						
+						
 					});  
 		}
 	}); // 헤더 likes 버튼 및 멘토&설계도  클릭시 이벤트
 	
 	
 	// 좋아하는 영상 클릭시.
-	$(document.body).on( "click", "#tab-2", function() {
+	$(document.body).on( "click", ".video-like-btn", function() {
 		var currPageNo = 1;
 		var pageSize = 15;
 		var sno = 5;

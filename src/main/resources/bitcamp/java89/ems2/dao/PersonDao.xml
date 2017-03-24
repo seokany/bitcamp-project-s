@@ -85,15 +85,6 @@
 <!--       #{photoPath}) -->
   </insert>  
   
-  <update id="update" parameterType="student">
-<!--     update stud set -->
-<!-- 	    work=#{working},  -->
-<!-- 	    lst_schl=#{grade},  -->
-<!-- 	    schl_nm=#{schoolName},  -->
-<!-- 	    path=#{photoPath} -->
-<!--     where sno=#{memberNo} -->
-  </update>
-  
   <delete id="delete" parameterType="int">
 <!--   <![CDATA[ -->
 <!--     delete from stud where sno=#{value} -->

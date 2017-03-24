@@ -34,7 +34,7 @@ public class ResultJsonControl {
   @RequestMapping("/seeds/hasResult")
   public AjaxResult hasResult(int memberNo) throws Exception {
     int count = resultService.hasResult(memberNo);
-    System.out.println("/seeds/hasResult :" + memberNo);
+//    System.out.println("/seeds/hasResult :" + memberNo);
     
     if (count == 0) 
       return new AjaxResult(AjaxResult.FAIL, "테스트를 수행한 이력이 없습니다.");

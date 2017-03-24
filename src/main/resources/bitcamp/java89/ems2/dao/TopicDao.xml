@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.TopicDao">
+
+  <resultMap type="topic"       id="topic-map">
+    <id     column="tno"        property="topicNo"/>
+    <result column="mno"        property="memberNo"/>
+    <result column="name"       property="name"/>
+    <result column="email"      property="email"/>
+    <result column="mimg"       property="photoPath"/>
+    <result column="type"       property="type"/>
+    <result column="rer"        property="resultResult"/>
+    <result column="tnm"        property="topicName"/>
+  </resultMap>
+
+  
+  
+  <select id="getResult" parameterType="int" resultMap="topic-map">
+    select 
+      mno, 
+      name, 
+      age, 
+      email,
+      mimg,
+      type,
+      rer
+    from membs mb
+   inner join result re on re.sno = mb.mno
+    where mb.mno=#{memberNo}
+  </select>
+  
+  
+  <select id="getResultNames" resultMap="topic-map" parameterType="int">
+    select 
+      tnm
+    from membs mb
+     inner join result re on re.sno = mb.mno
+     inner join snatr snr on snr.reno = re.reno
+     inner join topic tp on tp.tno = snr.tno 
+    where mb.mno=#{memberNo}
+  </select>
+  
+  
+</mapper>
+
+
+
+
+
+
+
+

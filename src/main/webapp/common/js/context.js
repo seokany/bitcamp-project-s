@@ -11,3 +11,4 @@ var slideState = false;
 /*   /wheel 이벤트 제어를 위한 글로벌 변수   */
 
 var memberInfo; 
+var topicName;

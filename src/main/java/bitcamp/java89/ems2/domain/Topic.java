@@ -1,8 +1,6 @@
 package bitcamp.java89.ems2.domain;
 
-import java.io.Serializable;
-
-public class Topic implements Serializable {
+public class Topic extends Result {
   private static final long serialVersionUID = 1L;
   
   protected int topicNo;
