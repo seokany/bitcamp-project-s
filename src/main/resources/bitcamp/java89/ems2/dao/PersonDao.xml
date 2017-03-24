@@ -55,20 +55,7 @@
   </select>
   
   
-<!--   <select id="getOne" parameterType="int" resultMap="person-map"> -->
-<!--     select -->
-<!--       m.mno, -->
-<!--       m.name,  -->
-<!--       m.tel,  -->
-<!--       m.email,  -->
-<!--       s.work,  -->
-<!--       s.lst_schl,  -->
-<!--       s.schl_nm,  -->
-<!--       s.path -->
-<!--     from stud s -->
-<!--       left outer join memb m on s.sno=m.mno -->
-<!--     where m.mno=#{value} -->
-<!--   </select> -->
+
 
   <insert id="insert" parameterType="person">
 <!--     insert into stud(sno,work,lst_schl,schl_nm,path)  -->

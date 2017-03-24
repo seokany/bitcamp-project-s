@@ -79,6 +79,14 @@ $(function() {
           }
         });
         
+        /*$(".wrapper").addClass("dashboard");
+        $(".wrapper").load("seeds/chart-test.html .temp-dashboard", function() {
+          console.log($('.mbti-title').children("div").hasClass("mbti-type-e"));
+          if ($('.mbti-title').children("div").hasClass("mbti-type-e")){
+            $(".mbti-type-e").html(resultMsg);
+          }
+        });*/
+        
     $(document.body).on("change", ".radio input", function() {
         for (var i = 0; i < hasStep.length; i++) {
           if (hasStep[i] == $(this).attr('setanswer')) return; 
