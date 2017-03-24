@@ -28,8 +28,7 @@
 .adding-part-a > * {
   position: absolute;
   top: 115px;
-  left: 100px;
-  width: 115px;
+  width: 205px;
 }
 
 .adding-part-b {
@@ -41,37 +40,37 @@
 }
 .adding-part-b > * {
   position: absolute;
-  top: 115px;
+  top: 160px;
   left: 846px;
-  width: 115px;
+  width: 125px;
 }
 .intuition {
-  top: 168px;
+  top: 210px;
 }
 .feeling {
-  top: 223px;
+  top: 265px;
 }
 .perceiving {
-  top: 271px;
+  top: 318px;
 }
 .adding-part-k {
   font-size: 22px;
 }
 .extraverted {
   top: 38px;
-  left: -21px;
+  left: -110px;
 }
 .sensing {
   top: 89px;
-  left: 10px;
+  left: -80px;
 }
 .thinking {
   top: 142px;
-  left: 12px;
+  left: -80px;
 }
 .judging {
   top: 196px;
-  left: 9px;
+  left: -80px;
 }
 
 
@@ -83,6 +82,7 @@
   border: 1px solid black;
   margin: 0 auto;
   background: rgba(0,0,0,0.8);
+      position: relative;
 }
 
 /* 유형 이름*/
@@ -117,6 +117,7 @@
 }
 
 .description-first-context,.description-second-context,.description-third-context {
+	text-align: left;
   padding: 10px;
   margin-top: 20px;
   margin-left: 2px;

@@ -1,14 +1,15 @@
-/*$('.share-alt').on('click', function(e){
-	$(".branch").removeClass("no-animation");
-	$('.branch').toggleClass("open");
+var isopen_sharemenu = false;
+
+$(document.body).on('click', '.fa-share-alt', function(e){
+	if (!isopen_sharemenu) {
+		$('.social-button-wrapper').children().css("display", "inline-block");
+		$('.icon-button').children().css("display", "inline-block");
+		isopen_sharemenu = true;
+	} else {
+		$('.social-button-wrapper').children().css("display", "none");
+		$('.icon-button').children().css("display", "none");
+		isopen_sharemenu = false;
+	}
+	
 });
 
-$('.social').on('click', function(e){
-	$(".container").removeClass("no-animation");
-	$(".container").toggleClass("open");
-});
-
-$('.share').on('click', function(e){
-	$(".float-circle").removeClass("no-animation");
-	$(".float-circle").toggleClass("open");
-});*/
