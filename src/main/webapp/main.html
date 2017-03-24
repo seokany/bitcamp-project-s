@@ -113,6 +113,7 @@ body {
   visibility: hidden;
   display: none;
   transition: all 0.25s ease-in-out;
+  z-index: 14;
 }
 .warn-modal-wrapper.warn-modal-open {
   visibility: visible;
@@ -216,6 +217,7 @@ h3.warn-modal-testInfo {
     <div class="warn-modal-content">
         <div class="warn-modal-good-job">
           <i class="fa-px fa-info-circle" aria-hidden="true"></i>
+          <div class="warn-modal-comment"></div>
           <h3 class="warn-modal-logInfo">로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>
           <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내드릴 수 있어요.</h3>
         </div>
@@ -420,6 +422,28 @@ function eventControll() {
   }
 }
 <!-- /eventControll -->
+<!--   warn modal function   -->
+function warnModalStart(comn) {
+  if (comn != 'none') {
+     $('.warn-modal-comment h3').remove();
+     $('.warn-modal-logInfo').css('display', 'none');
+     $('.warn-modal-testInfo').css('display', 'none');
+     $('.warn-modal-comment').append('<h3>' + comn + '</h3>');
+  }
+    $('.warn-modal-wrapper').addClass('warn-modal-open');
+    $('.warn-modal').addClass('animated fadeInRight');
+    $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+}
+function warnModalEnd() {
+    $('.warn-modal').addClass('animated hinge');
+    setTimeout(function() {
+      $('.warn-modal').removeClass('animated hinge');
+      $('.warn-modal-wrapper').removeClass('warn-modal-open');
+      $('.warn-modal').removeClass('animated fadeInRight');
+      $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
+    }, 1000);
+  }
+<!--   /warn modal function   -->
 $(function() {
    <!-- mentee service loader -->
     $(function() {
@@ -428,23 +452,6 @@ $(function() {
 //       $(".likes").load("likes/mento-like.html .dashboard");
     });
     <!-- /mentee service load -->
-    
-    <!--   warn modal function   -->
-    function warnModalStart() {
-        $('.warn-modal-wrapper').addClass('warn-modal-open');
-        $('.warn-modal').addClass('animated fadeInRight');
-        $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
-    }
-    function warnModalEnd() {
-        $('.warn-modal').addClass('animated hinge');
-        setTimeout(function() {
-          $('.warn-modal').removeClass('animated hinge');
-          $('.warn-modal-wrapper').removeClass('warn-modal-open');
-          $('.warn-modal').removeClass('animated fadeInRight');
-          $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
-        }, 1000);
-      }
-    <!--   /warn modal function   -->
     
     <!-- wheel & click 슬라이딩 이벤트 --> 
     $(document.body).on("click", ".warn-modal-trigger, .warn-modal-wrapper", function(e) {
@@ -504,6 +511,7 @@ $(function() {
     var wheelType;
     
     $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+    	console.log(event);
       wheelState = true; 
       wheelType = event.originalEvent.wheelDelta;
     });

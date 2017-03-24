@@ -6,8 +6,14 @@ public class Result extends Mentee {
   protected int resultNo;
   protected String type;
   protected String resultResult;
+  protected String eachResult;
   
-  
+  public String getEachResult() {
+    return eachResult;
+  }
+  public void setEachResult(String eachResult) {
+    this.eachResult = eachResult;
+  }
   public int getResultNo() {
     return resultNo;
   }
@@ -26,7 +32,9 @@ public class Result extends Mentee {
   public void setResultResult(String resultResult) {
     this.resultResult = resultResult;
   }
-  
-
-  
+  @Override
+  public String toString() {
+    return "Result [resultNo=" + resultNo + ", type=" + type + ", resultResult=" + resultResult + ", eachResult="
+        + eachResult + "]";
+  }
 }

@@ -1,3 +1,12 @@
+function userInfo() {
+	  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+			memberInfo = ajaxResult.data;
+			console.log('세션 획득 정보');
+			console.log(memberInfo);
+			eventControll();
+	  });
+}
+
 $(function() {
 	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
 	var memberNo = 0;
@@ -41,8 +50,8 @@ $(function() {
 				    previewMaxHeight: 800,  // 미리보기 이미지 높이 
 				    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 				    done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-//				    	console.log('done()...');
-//				    	console.log(data.result.data[0]);
+				    	console.log('done()...');
+				    	console.log(data.result.data[0]);
 				       photoPath = data.result.data[0];
 //				        $('#photo-path').val(data.result);
 				       console.log("하하하하");
@@ -68,27 +77,32 @@ $(function() {
 						    	console.log(date.getTime())
 						    	console.log(location.href); 
 						    	
-						    	refresh();			    		
-						    	function refresh() {
-						  		  $.ajax({
-						                type: 'POST',
-						                url: 'http://localhost:8080/bitcamp-project-s/main.html', 
-						                success: function(msg) {
-						                	$('.profile-img').removeAttr('src').attr('src', clientRoot + '/mystuff/img/' + photoPath);
-						                }
-						            });
-						  		} 
+//						    	refresh();			    		
+//						    	function refresh() {
+//						  		  $.ajax({
+//						                type: 'POST',
+//						                url: 'http://localhost:8080/bitcamp-project-s/main.html', 
+//						                success: function(msg) {
+//						                	$('.profile-img').removeAttr('src').attr('src', clientRoot + '/mystuff/img/' + photoPath);
+//						                }
+//						            });
+//						  		} 
 						    		
 
 							    	
 						    }, 'json'); // 새 파일 업로드 post 요청. update 요청.
 						    
+						    $('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
+						    userInfo(); 
+						    setTimeout(function() {
+						    	console.log('로드 오케이?');
+						    	console.log(memberInfo);
+					    	$('.user-info h3').text(memberInfo.name);
+						    $('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+						    }, 10000);
 						    
-				        
 				    } // 사진 새로 바꿨을 때 호출되는 함수.
-				});
-				
-				
+				}); // 업로드 컴플릿 펑션 
 			  }); // loginUser
 	});
 	/*   /header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
@@ -137,13 +151,14 @@ $(function() {
 	        }
 	      }
 	      if (target.hasClass("header-icon-power")) {
-				$('.auth-login-form').load(clientRoot + "/auth/login.html .cont", function() {
+				$('.auth-login-form').load(clientRoot + "/auth/login.html .login-form-container", function() {
 					$('.auth-login-form').css("display", "block");
-					$('.demo').addClass("animated fadeInRight");
+					$('.login-form-card').addClass("animated fadeInRight");
 					});
 	      }
 	      if (target.parents().hasClass("menu-nav")) {
 	    	  loginEvent = false;
+	    	  memberInfo = null; 
 				$('.warn-modal-logInfo').css('display', 'block');
 				$('.warn-modal-testInfo').css('display', 'none');
 	    	  console.log("login event 제어변수 상태");

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DREAMTREE sign up</title>
+</head>
+<body>
+<div class="cont">
+  <div class="demo">
+    <div class="login sign-in">
+      <!-- login logo 들어갈 공간 -->
+      <div class="login_logo">
+        <div class="logo_dream">DREAM</div>
+        <img src="common/img/dreamtree.png">
+        <div class="logo_tree">TREE</div>
+      </div>
+      
+      <div class="login_form sign-in-form">
+        <!-- login 사용자 이름 들어갈 공간 -->
+        <div class="login_row">
+          <svg class="login_icon name svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input id='email' type='text' class="login_input email" placeholder="UserEmail"/>
+        </div>
+        
+        <!-- login 사용자 비밀번호 들어갈 공간 -->
+        <div class="login_row">
+          <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          </svg>
+          <input id='password' type="password" class="login_input pass" placeholder="Password"/>
+        </div>
+        
+        <button type="button" class="login_submit">로그인하기</button>
+        <p class="login_signup"> 아이디가 없습니까? &nbsp;<a class="new-sign">가입하기</a></p>
+      </div>
+      <!-- 로그인 폼 끝 -->
+    </div>
+    
+        <div class="login sign-up">
+      <!-- login logo 들어갈 공간 -->
+      <div class="register">
+      <h1 class="title">REGISTER
+        <div class="close"></div>
+        </h1>
+      </div>
+      
+      <div class="login_form sign-up-form">
+      
+       <!-- 회원가입 정보 들어갈 곳. -->
+       <div class="login_row">
+          <svg class="login_icon name svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input type="text" class="signUp_input name" placeholder="Username"/>
+        </div>
+        
+       <div class="login_row">
+          <svg class="login_icon age svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input type="number" class="signUp_input age" placeholder="Age"/>
+        </div>
+        
+        <div class="login_row">
+          <svg class="login_icon email svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input type="email" class="signUp_input email" placeholder="UserEmail"/>
+        </div>
+        
+        <!-- login 사용자 비밀번호 들어갈 공간 -->
+        <div class="login_row">
+          <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          </svg>
+          <input type="password" class="signUp_input passIn" placeholder="Password"/>
+        </div>
+        
+        <div class="login_row">
+          <svg class="login_icon pass svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          </svg>
+          <input type="password" class="signUp_input passCheck" placeholder="Check-Password"/>
+         <p class="check"></p> 
+        </div>
+        
+        
+        <button type="button" class="signUp_submit">회원가입</button>
+      </div>
+      <!-- 로그인 폼 끝 -->
+    </div>
+    
+  </div>
+</div>
+
+<script src="../common/js/context.js"></script>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../common/js/bit.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ $( function() {
 	  var memberNo = ajaxResult.data.memberNo;
 	  
     $(document.body).on('click', '#test1', function() {
-    	console.log("클릭이벤트 발생");
+      console.log("클릭이벤트 발생");
       console.log(ajaxResult.data.memberNo);
       console.log("status " + ajaxResult.status);
     if (ajaxResult.status == "fail") { // 로그인 되지 않았으면,
@@ -51,7 +51,7 @@ $( function() {
         	  
           });
         } else { //검사안했으면? 검사페이지로 이동
-          $(".wrapper").load("seeds/json.mbti.html #container");
+          $(".seeds").load("seeds/json.mbti.html #container");
         }
       });
     }

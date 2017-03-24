@@ -24,7 +24,7 @@ public class ResultJsonControl {
     Result list = resultService.getList(result);
     
     if (list == null) {
-      System.out.println("해당결과없음");
+      System.out.println("/seeds/list.FAIL");
       return new AjaxResult(AjaxResult.FAIL, "해당 결과가 없습니다.");
     }
     
@@ -34,7 +34,7 @@ public class ResultJsonControl {
   @RequestMapping("/seeds/hasResult")
   public AjaxResult hasResult(int memberNo) throws Exception {
     int count = resultService.hasResult(memberNo);
-    System.out.println("/seeds/hasResult :" + memberNo);
+    System.out.println("/seeds/hasResult.memberNo :" + memberNo);
     
     if (count == 0) 
       return new AjaxResult(AjaxResult.FAIL, "테스트를 수행한 이력이 없습니다.");
@@ -43,12 +43,8 @@ public class ResultJsonControl {
   
   
   @RequestMapping("/seeds/add")
-  public AjaxResult add(int memberNo, String type, String resultResult) throws Exception {
-    Result result = new Result();
-    result.setMemberNo(memberNo);
-    result.setType(type);
-    result.setResultResult(resultResult);
-    
+  public AjaxResult add(Result result) throws Exception {
+    System.out.println("/seeds/add.result :" + result);
     
    int count = resultService.add(result);
    
