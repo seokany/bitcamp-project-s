@@ -71,7 +71,10 @@ public class MemberServiceImpl implements MemberService {
     return memberDao.update(member);
   }
 
-
+  @Override
+  public int hasEmail(String email) throws Exception {
+    return menteeDao.count(email); 
+  }
   @Override
   public int addMentee(Mentee mentee) throws Exception {
     if (menteeDao.count(mentee.getEmail()) > 0) {

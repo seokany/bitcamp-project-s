@@ -5,13 +5,13 @@
 /* 초기화 */
 body { overflow: auto; }
 
-h3 {
+/* h3 {
     position: relative;
     margin: 0 auto;
     margin-left: 10%;
     width: 50%;
     margin-top: 5px;
-}
+} */
 
 /* .user-info {
 	border: 2px solid red;
