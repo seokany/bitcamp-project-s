@@ -1,18 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title hear</title>
+</head>
+<body>
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+		</body>
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1135624536565167',
-      xfbml      : true,
-      version    : 'v2.8'
-    });
-    FB.AppEvents.logPageView();
-  };
-
+	
+	// Load the SDK asynchronously
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
+     if (d.getElementById(id)) 
+     {return;}
+     js = d.createElement(s); 
+     js.id = id;
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+	
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1135624536565167',
+      cookie		 : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    
+    FB.AppEvents.logPageView();
+  };
+	
+	// 로그인 여부를 확인
+	function checkLoginState() {
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		});
+	}
+	
+	function statusChangeCallback(response) {
+		console.log('response를 통해 다양한 정보를 확인');
+		console.log(response);
+		if (response.status === 'connected') {
+			console.log('사용자가 Facebook에 로그인하고 앱에 로그인했습니다.');
+			FB.api('/me', function(response) {
+				console.log('Successful login for: ' + response.name);
+			});
+		} else if (response.status === 'not_authorized') {
+			console.log('사용자가 Facebook에 로그인했지만 앱에 로그인하지 않았음');
+		} else {
+			console.log('사용자가 Facebook에 로그인하지 않았으므로 앱에 로그인했는지 알 수 없음');
+		}
+		}
+	
 </script>
