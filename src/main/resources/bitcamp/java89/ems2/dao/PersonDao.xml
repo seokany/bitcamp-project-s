@@ -35,14 +35,14 @@
   </select>
   
   <select id="getList" resultMap="person-map" parameterType="map">
-		select * 
-		from person ps
-			inner join contents ctt on ps.cono = ctt.cono
-			inner join copic cp on ctt.cono = cp.cono
-			inner join topic tp on cp.tno = tp.tno
-			inner join snatr snt on tp.tno = snt.tno 
-			inner join result ret on snt.reno = ret.reno 
-		where ret.sno = #{sno};
+    select * 
+    from person ps
+      inner join contents ctt on ps.cono = ctt.cono
+      inner join copic cp on ctt.cono = cp.cono
+      inner join topic tp on cp.tno = tp.tno
+      inner join snatr snt on tp.tno = snt.tno 
+      inner join result ret on snt.reno = ret.reno 
+    where ret.sno = #{sno};
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   
@@ -85,12 +85,12 @@
 <!--       #{photoPath}) -->
   </insert>  
   
-  <update id="update" parameterType="student">
+  <update id="update" parameterType="person">
 <!--     update stud set -->
-<!-- 	    work=#{working},  -->
-<!-- 	    lst_schl=#{grade},  -->
-<!-- 	    schl_nm=#{schoolName},  -->
-<!-- 	    path=#{photoPath} -->
+<!--      work=#{working},  -->
+<!--      lst_schl=#{grade},  -->
+<!--      schl_nm=#{schoolName},  -->
+<!--      path=#{photoPath} -->
 <!--     where sno=#{memberNo} -->
   </update>
   
@@ -101,4 +101,3 @@
   </delete>
 
 </mapper>
-
