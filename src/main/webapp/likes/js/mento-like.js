@@ -140,8 +140,18 @@ $(function() {
 
 	}); // 좋아하는 영상 클릭시 이벤트
 	
+	
+	
+	
+	
 });
 
+$(document.body).on( "click", ".side li", function() { 
+	
+	$(this).addClass('active')
+	$(this).siblings().removeClass('active');
+	
+});
 
 /*$( function() { 
 

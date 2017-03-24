@@ -196,4 +196,7 @@ Detail
 }
 
 
-
+.video-like-modal {
+	position: absolute;
+  left: 150px;
+}
