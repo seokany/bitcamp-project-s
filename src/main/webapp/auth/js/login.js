@@ -28,11 +28,14 @@ $(function() {
 		if (event != 'undefined')
 			event.preventDefault();
 		var param = login; 
-		if (login == 'undefined') {
-			var param = {
+		console.log(login == undefined);
+		if (login == undefined) {
+			param = {
 					email: $('#login-input-email').val(),
 					password: $('#login-input-password').val()
 				};
+			console.log('login().param');
+			console.log(param);
 		}
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
 			if (ajaxResult.status == "success") {
@@ -68,7 +71,8 @@ $(function() {
 		}, 'json');
 	}
 	$(document.body).on('keypress', '.login-button-go', function(event) {
-		logIn(event);
+		logIn(event, login);
+		var login = 'undefined';
 	});
 	$(document.body).on('click', '.login-button-go', function(event) {
 		logIn(event);
