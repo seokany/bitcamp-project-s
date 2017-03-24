@@ -5,7 +5,6 @@ import bitcamp.java89.ems2.domain.Member;
 public interface MenteeDao {
   
 /*  ArrayList<Member> getList() throws Exception;
-  int count(String email) throws Exception;
   int countByEmail(String email) throws Exception;
   int countByEmailPassword(Map<String,String> paramMap) throws Exception;
   int insert(Member member) throws Exception;

@@ -34,6 +34,7 @@ public class ResultJsonControl {
   @RequestMapping("/seeds/hasResult")
   public AjaxResult hasResult(int memberNo) throws Exception {
     int count = resultService.hasResult(memberNo);
+
     System.out.println("/seeds/hasResult.memberNo :" + memberNo);
     
     if (count == 0) 

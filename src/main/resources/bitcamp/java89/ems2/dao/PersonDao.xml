@@ -54,37 +54,5 @@
 <!--     limit #{startRowIndex}, #{rowSize} -->
   </select>
   
-  
-
-
-  <insert id="insert" parameterType="person">
-<!--     insert into stud(sno,work,lst_schl,schl_nm,path)  -->
-<!--     values( -->
-<!--       #{memberNo}, -->
-<!--       #{working}, -->
-<!--       <choose> -->
-<!--         <when test="working == true">'Y'</when>  -->
-<!--         <otherwise>'N'</otherwise> -->
-<!--       </choose>, -->
-<!--       --> -->
-<!--       #{grade},  -->
-<!--       #{schoolName},  -->
-<!--       #{photoPath}) -->
-  </insert>  
-  
-  <update id="update" parameterType="person">
-<!--     update stud set -->
-<!--      work=#{working},  -->
-<!--      lst_schl=#{grade},  -->
-<!--      schl_nm=#{schoolName},  -->
-<!--      path=#{photoPath} -->
-<!--     where sno=#{memberNo} -->
-  </update>
-  
-  <delete id="delete" parameterType="int">
-<!--   <![CDATA[ -->
-<!--     delete from stud where sno=#{value} -->
-<!--   ]]> -->
-  </delete>
 
 </mapper>

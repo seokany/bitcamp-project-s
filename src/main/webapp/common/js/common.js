@@ -28,7 +28,6 @@ $(function() {
 						$('.header-icon-message').css("display", "inline-block");
 					}
 				
-				console.log(ajaxResult.data.memberNo);
 				console.log(ajaxResult.data.photoPath);
 				
 				memberNo = ajaxResult.data.memberNo;
@@ -128,12 +127,16 @@ $(function() {
 		  isopen_usermenu = false;
 		  isopen_messagemenu = false;
 	    } else {
-	      if (target.hasClass("header-icon-user")) {
+	      if (target.hasClass("header-icon-user")) { // 사용자 정보 창
 	        if (!isopen_usermenu) {
 	        $(".message-menu").hide();
-	        $(".user-menu").show();
+	        $(".user-menu").show(); // 사용자 정보 창 div
 	        isopen_usermenu = true;
             isopen_messagemenu = false;
+            
+            
+            
+            
 	      } else {
 	            $(".user-menu").hide();
 	            isopen_usermenu = false;

@@ -25,9 +25,7 @@ public class AuthJsonControl {
     
     Member member = authService.getMemberInfo(email, password);
     Mento mento = authService.getMentoInfo(email, password);
-
-    System.out.println("/auth/login :" + member);
-        
+    
     if (member == null) {
       return new AjaxResult(AjaxResult.FAIL, "이메일 또는 암호가 틀리거나, 가입된 회원이 아닙니다.");
     }
@@ -55,15 +53,26 @@ public class AuthJsonControl {
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {
     Member member = (Member)session.getAttribute("member");
-    System.out.println("/auth/loginUser :" + member);
+    
+//    System.out.println(member.getMemberNo());
+//    Topic topic = authService.getResult(member.getMemberNo());
+//    List<Topic> topicName = authService.getResultNames(member.getMemberNo());
+    
+//    System.out.println("/auth/loginUser :" + member);
 
     if (member == null) { // 로그인이 되지 않은 상태
       return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
     } 
      else {
+//       HashMap<String,Object> resultMap = new HashMap<>();
+//       resultMap.put("topic", topic);
+//       resultMap.put("topicName", topicName);
+//       System.out.println("이게 테스트요~"+resultMap);
         return new AjaxResult(AjaxResult.SUCCESS, member);
     }
   }
+  
+  
 }
 
 
