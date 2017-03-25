@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DREAMTREE</title>
+</head>
+<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.min.css">
+<link rel="stylesheet" type="text/css" href="common/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="common/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="common/css/header.css">
+<link rel="stylesheet" type="text/css" href="common/css/common.css" />
+<link rel="stylesheet" type="text/css" href="auth/css/login.css">
+<link rel="stylesheet" type="text/css" href="seeds/css/alert.css" />
+<link rel="stylesheet" type="text/css" href="seeds/css/seeds-temp.css" />
+<link rel="stylesheet" type="text/css" href="seeds/css/json.mbti.css" />
+<link rel="stylesheet" type="text/css" href="seeds/css/mbti-result-istp.css" />
+<link rel="stylesheet" type="text/css" href="mystuff/css/mystuff.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/homepage.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/video.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/mentoLike.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/jobHover.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/modal.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/corner.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/talks.css">
+<link rel="stylesheet" type="text/css" href="mystuff/css/mentoPage.css">
+<link rel="stylesheet" type="text/css" href="likes/css/likes.css" />
+<link rel="stylesheet" type="text/css" href="mystuff/css/person-test.css" />
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="seeds/css/chart-test.css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="seeds/css/chart-test-button.css" />
+<style>
+/*   driver   */
+body {
+  margin: 0;
+  overflow: hidden;
+ }
+.all-container {
+  position: relative;
+}
+.contents {
+  display: table; 
+  margin: 30px auto;
+}
+.frame-area {
+  display: inline-block;
+  position: absolute;
+  width: 100vw;
+}
+.frame-area-center {
+  left: 0; 
+}
+.frame-area-left {
+  left: -110vw; 
+}
+.frame-area-right {
+  left: 110vw; 
+}
+/*   /driver   */
+.fa-plus {
+    top: 49%;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    color: rgba(158, 158, 158, 0.47);
+    text-shadow: 1px 1px rgba(96, 125, 139, 0.58);
+}
+.dashboard {
+    position: relative;
+    margin: 1vw auto;
+    text-align: left;
+}
+.mystuff-explain,
+.likes-explain {
+    left: 50%;
+    top: 50%;
+    margin-left: -224px;
+    margin-top: -50px;
+    position: absolute;
+    color: #9E9E9E;
+    font-size: 24px;
+    text-shadow: 1px 1px 1px rgba(96, 125, 139, 0.45);
+    cursor: default;
+}
+.likes-explain {
+    margin-left: -170px;
+}
+
+/* login */
+.auth-login-form {
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    z-index: 12;
+}
+
+/* modal */
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+.warn-modal-page-wrapper {
+  width: 100%;
+  height: 100%;
+  background: url(http://goo.gl/OeVhun) center no-repeat;
+  background-size: cover;
+}
+.warn-modal-blur-it {
+  filter: blur(4px);
+}
+.warn-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  visibility: hidden;
+  display: none;
+  transition: all 0.25s ease-in-out;
+  z-index: 14;
+}
+.warn-modal-wrapper.warn-modal-open {
+  visibility: visible;
+  display: block;
+}
+.warn-modal {
+  width: 400px;
+  height: 270px;
+  display: block;
+  margin: -130px 0 0 -200px;
+  position: fixed;
+  top: 60%; 
+  left: 50%;
+  background: #fff;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid rgba(226, 82, 92, 0.6);
+}
+.warn-modal-wrapper.warn-modal-open .warn-modal {
+  margin-top: -200px;
+}
+.warn-modal-head { 
+  width: 100%;
+  height: 32px;
+  padding: 12px 30px;
+  overflow: hidden;
+  background: #e2525c;
+}
+.warn-modal-btn-close {
+  top: -10px;
+  right: -22px;
+  position: relative;
+  font-size: 28px;
+  display: block;
+  float: right;
+  color: #fff;
+  cursor: pointer;
+}
+.warn-modal-content {
+  padding: 10%;
+  cursor: default;
+}
+.warn-modal-good-job {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #e2525c;
+}
+.warn-modal-good-job .fa-thumbs-o-up {
+  font-size: 60px;
+}
+.warn-modal-good-job h1 {
+  font-size: 45px;
+}
+.fa-px {
+    font-size: 60px;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    top: -15px;
+    position: relative;
+}
+h3.warn-modal-logInfo,
+h3.warn-modal-testInfo {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    top: 20px;
+}
+h3.warn-modal-testInfo {
+    display: none;
+}
+</style>
+<body>
+<div id="header"></div>
+<div class="all-container">
+	<div class="contents">
+	  <div class="frame-area frame-area-center seeds">
+	  </div>
+	  <div class="frame-area frame-area-right   mystuff">
+      <div class="mystuff dashboard">
+        <div class="mystuff-explain">로그인하셔야 추천 정보를 드릴 수 있어요.</div>
+      </div>
+	  </div>
+	  <div class="frame-area frame-area-right  likes">
+      <div class="likes dashboard">
+        <div class="likes-explain choose">아직 '좋아요'한 컨텐츠가 없어요.</div>
+      </div>
+    </div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="warn-modal-wrapper">
+  <div class="warn-modal">
+    <div class="warn-modal-head">
+      <i class="warn-modal-btn-close warn-modal-trigger fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="warn-modal-content">
+        <div class="warn-modal-good-job">
+          <i class="fa-px fa-info-circle" aria-hidden="true"></i>
+          <div class="warn-modal-comment"></div>
+          <h3 class="warn-modal-logInfo">로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>
+          <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내드릴 수 있어요.</h3>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-meta.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-exif.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-exif-map.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-load-image/js/load-image-orientation.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script type="text/javascript" src="node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+<script type="text/javascript" src="node_modules/handlebars/dist/handlebars.js"></script>
+<script type="text/javascript" src="common/js/context.js"></script>
+<script type="text/javascript" src="common/js/common.js"></script> <!-- 로그인한 멤버 넘버 넘기는 memberNo 변수 선언되어있음. -->
+<script type="text/javascript" src="auth/js/login.js"></script>
+<script type="text/javascript" src="mystuff/js/main.js"></script>
+<script type="text/javascript" src="mystuff/js/modal.js"></script>
+<script type="text/javascript" src="mystuff/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="seeds/js/alert.js"></script>
+<script type="text/javascript" src="seeds/js/seeds-temp.js"></script>
+<script type="text/javascript" src="seeds/js/json.mbti.js"></script>
+<script type="text/javascript" src="likes/js/mento-like.js"></script>
+<script type="text/javascript" src="likes/js/video-like.js"></script>
+
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<script type="text/javascript" src="seeds/js/chart-heavy.js"></script>
+<script type="text/javascript" src="seeds/js/chart-theme.js"></script>
+<script type="text/javascript" src="seeds/js/chart-test.js"></script>
+<script type="text/javascript" src="seeds/js/chart-test-button.js"></script>
+
+<script id="trTemplate" type="text/x-handlebars-template">
+{{#each list}}
+  <div class="ssize video corner-container">
+    <div class="video-conts fpc_box videoBox">
+      <img class="rec rec-video1" id="video1" src='{{videoImage}}'></img>
+      <div class="video-btm" iframe-addr={{englishTitle}}>
+      <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+      <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+        <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+          {{#if isLike}}
+            <a href="#" class="btn heart checked"></a>
+          {{else}}
+            <a href="#" class="btn heart"></a>
+          {{/if}}
+        </button>
+      </div>
+      <div class="corner-box video-box">
+        <a class="fpc_page-tip">
+        <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</script>
+<!-- 비디오 더보기 페이지 리스트 -->
+<script id="videoDetail" type="text/x-handlebars-template"> 
+{{#each list}}
+<div class="ssize vdoConts">
+<div class="video-conts">
+     <img class="rec rec-video1" id="video1" 
+            src='{{videoImage}}'></img>
+               <div class="video-btm" iframe-addr={{englishTitle}}>
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                 <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                   {{#if isLike}}
+                     <a href="#" class="btn heart checked"></a>
+                   {{else}}
+                     <a href="#" class="btn heart"></a>
+                   {{/if}}
+                 </button>
+        </div>
+     </div>
+</div>
+{{/each}}
+</script>
+<script id="mentoList" type="text/x-handlebars-template">
+{{#each list}}
+<div class="mento-slide mentoBox"><a class="frame-modal" frame-src="../mentos/chat.html" href="person.html"><img class="map-img" src="mystuff/img/map1.jpg" width="495" height="360" alt=""></a>
+  <div class="mento-conts">
+   <button type="button" class="buttonHolder" data-no="{{contentsNo}}" style="top: 50px;">
+ {{#if isLike}}
+   <a href="#" class="btn heart checked"></a>
+ {{else}}
+   <a href="#" class="btn heart"></a>
+ {{/if}}
+  </button>
+    <div class="mento-btm">
+     <div class="mt-photo"><img src='mystuff/img/lee.jpg'></div>
+     <div class="mento-name-favor"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
+    </div>
+     <div class="mento-box corner-box">
+       <a class="fpc_page-tip">
+       <div class="corner-contents"><div class="corner-button"><p>더보기</p></div></div></a>
+    </div>
+  </div>
+ </div>
+{{/each}}
+</script>
+  <script id="mentoDetail" type="text/x-handlebars-template">
+{{#each list}}
+<div class="mt-list">
+  <div class="mt-conts">
+    <button type="button" class="buttonHolder" data-no="{{contentsNo}}">
+       {{#if isLike}}
+          <a href="#" class="btn heart checked"></a>
+       {{else}}
+          <a href="#" class="btn heart"></a>
+      {{/if}}
+    </button>
+     
+       <img clas="map-img" src="mystuff/img/map1.jpg">
+  </div>
+    <div class="mt-btm">
+     <div class="detail-mt-photo"><img src='mystuff/img/lee.jpg'></div>
+         <div class="mt-name"><span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p></div>
+    </div>
+   
+</div>
+
+{{/each}}
+</script>
+<script id="mentoLike" type="text/x-handlebars-template"> <!-- 멘토 좋아요는 4개 이하로 눌러 페이징 안돼-->
+{{#each list}}
+  <div class="mt-list mt-like-list">
+    <div class="mt-conts">
+      <button type="button" class="buttonHolder" data-no="{{contentsNo}}">
+        <a href="#" class="btn heart checked"></a></button>
+      <img clas="map-img" src="mystuff/img/map1.jpg">
+    </div>
+    <div class="mt-btm">
+      <div class="like-mt-photo"><img src='mystuff/img/lee.jpg'></div>
+      <div class="mt-name">
+        <span class="mento-name">{{name}}</span><br><p>{{specialArea}}</p>
+      </div>
+    </div>
+  </div>
+{{/each}}
+</script>
+<script id="videoLike" type="text/x-handlebars-template">
+{{#each list}}
+<div class="ssize vdoConts">
+<div class="video-conts videoBox">
+     <img class="rec rec-video1" id="video1" 
+            src='{{videoImage}}'></img>
+               <div class="video-btm" iframe-addr={{englishTitle}}>
+       <div class="video-name-favor"><span class="video-name">{{speakerName}}</span></div>
+       
+       <div class="video-title"><p class="vdo-title"><a href="">{{koreanTitle}}</a></p></div>
+                          <button data-no="{{contentsNo}}" type="button" class="buttonHolder" style="top: 181px; right: 5px;">
+                    <a href="#" class="btn heart checked"></a>
+                   </button>
+     </div>
+        </div>
+     </div>
+</div>
+
+{{/each}}
+</script>
+<script id="personList" type="text/x-handlebars-template"> <!--  mystuff 인물 리스트. -->
+{{#each list}}
+<div class="model-slide"><a data-no={{contentsNo}}><img src='{{personImage1}}' width="493" height="210" alt=""></a></div>
+{{/each}}
+</script>
+
+<script id="personDetail" type="text/x-handlebars-template"> <!-- 인물 디테일 페이지. -->
+{{#each list}}
+    <div class="person">
+      <img src="{{personImage2}}" alt="" class="poster" />
+      <div class="person-title">{{personName}}</div>
+      <div class="info">
+        <span class="role">{{personJob}}</span>
+        <span class="p-grade">{{personSchool}}</span>
+      </div>
+      <div class="desc">{{personDescription}}</div>
+    </div>
+{{/each}}
+</script>
+<script>
+<!-- eventControll -->
+function eventControll() {
+  if(memberInfo != null) {
+  console.log('event controll 제어 조건자 상태');
+  console.log(loginEvent, testEvent, memberInfo);
+   loginEvent = true; 
+   $('.warn-modal-logInfo').css('display', 'none');
+   $('.warn-modal-testInfo').css('display', 'block');
+	    $.getJSON(serverRoot + '/seeds/hasResult.json', {'memberNo': memberInfo.memberNo}, function(ajaxResult) {
+	      if (ajaxResult.status == 'success') {
+	        testEvent = true;
+
+	      } else {
+	    	  testEvent = false;
+	      }
+         console.log('test event 제어변수 상태');
+         console.log(testEvent);
+	    });
+  }
+}
+<!-- /eventControll -->
+<!--   warn modal function   -->
+function warnModalStart(comn) {
+  if (comn != 'none') {
+     $('.warn-modal-comment h3').remove();
+     $('.warn-modal-logInfo').css('display', 'none');
+     $('.warn-modal-testInfo').css('display', 'none');
+     $('.warn-modal-comment').append('<h3>' + comn + '</h3>');
+  }
+    $('.warn-modal-wrapper').addClass('warn-modal-open');
+    $('.warn-modal').addClass('animated fadeInRight');
+    $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+}
+function warnModalEnd() {
+    $('.warn-modal').addClass('animated hinge');
+    setTimeout(function() {
+      $('.warn-modal').removeClass('animated hinge');
+      $('.warn-modal-wrapper').removeClass('warn-modal-open');
+      $('.warn-modal').removeClass('animated fadeInRight');
+      $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
+    }, 1000);
+  }
+<!--   /warn modal function   -->
+$(function() {
+   <!-- mentee service loader -->
+    $(function() {
+      $(".seeds").load("seeds/seeds-temp.html .seeds");
+      $(".mystuff").load("mystuff/mystuff.html .dashboard");
+      $(".likes").load("likes/mento-like.html .dashboard");
+    });
+    <!-- /mentee service load -->
+    
+    <!-- wheel & click 슬라이딩 이벤트 --> 
+    $(document.body).on("click", ".warn-modal-trigger, .warn-modal-wrapper", function(e) {
+    	if (e.target.classList[0] == 'warn-modal-wrapper' || e.target.classList[1] == 'warn-modal-trigger') {
+    		warnModalEnd();
+    	}
+    });
+    function sliding() {
+    	slideState = true;
+    	console.log("중복 슬라이딩 방지를 위한 제어변수 상태");
+    	console.log(slideState);
+    	setTimeout(function() {
+	    	console.log("중복 슬라이딩 방지를 위한 제어변수 상태");
+	    	console.log(slideState);
+    		slideState = false;
+    	}, 2000);
+    };
+    $(document.body).on("click", "#seeds-btn", function() {
+      if($(".frame-area-center").hasClass("mystuff")) {
+        $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+      } else if($(".frame-area-center").hasClass("likes")) {
+        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+        $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+        $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+      }
+    });
+    $(document.body).on("click", "#mystuff-btn", function() {
+    	if(loginEvent && testEvent) {
+	      if($(".frame-area-center").hasClass("seeds")) {
+	        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      } else if($(".frame-area-center").hasClass("likes")) {
+	        $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	      }
+    	} else {
+    		warnModalStart();
+    	}
+    });
+    $(document.body).on("click", "#likes-btn", function() {
+      if(loginEvent && testEvent) {
+	      if($(".frame-area-center").hasClass("seeds")) {
+	        $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+	        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      } else if($(".frame-area-center").hasClass("mystuff")) {
+	        $(".mystuff").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	      }
+      } else {
+    	   warnModalStart();
+      }
+    });
+    
+    var wheelState;
+    var wheelType;
+    
+    $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+    	console.log(event);
+      wheelState = true; 
+      wheelType = event.originalEvent.wheelDelta;
+    });
+      
+    function hasScrolled() {
+      if($(".frame-area-center").hasClass("mystuff")) {
+        if (wheelType < 0) {
+          $(".mystuff").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+          $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+        } else {
+            $(".mystuff").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+            $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+        }
+      } else if($(".frame-area-center").hasClass("seeds")) {
+         if(loginEvent && testEvent) {
+	         if (wheelType < 0) {
+	           $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	           $(".mystuff").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	         } else {
+	             $(".seeds").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
+	             $(".mystuff").switchClass("frame-area-right", "frame-area-left", 2000, "easeInOutBack");
+	             setTimeout(function() {
+	               $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
+	             }, 350);
+	         }
+         } else {
+        	  	 warnModalStart();
+         }
+      } else if($(".frame-area-center").hasClass("likes")) {
+	         if (wheelType < 0) {
+	           $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	           $(".mystuff").switchClass("frame-area-left", "frame-area-right", 2000, "easeInOutBack");
+	           setTimeout(function() {
+	             $(".seeds").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	           }, 350);
+	         } else {
+	             $(".likes").switchClass("frame-area-center", "frame-area-right", 2000, "easeInOutBack");
+	             $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
+	         }
+      }
+    };
+      
+    setInterval(function() {
+      if (wheelState) {
+        hasScrolled(); 
+        wheelState = false; 
+      }
+    }, 250);
+    <!-- /wheel & click 슬라이딩 이벤트 -->
+});
+</script>
+</body>
+</html>

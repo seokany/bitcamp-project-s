@@ -1,5 +1,8 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java89.ems2.dao.MentoDao;
 import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.domain.Mento;
+import bitcamp.java89.ems2.domain.Topic;
 import bitcamp.java89.ems2.service.AuthService;
 
 @RestController
@@ -54,21 +58,21 @@ public class AuthJsonControl {
   public AjaxResult loginUser(HttpSession session) throws Exception {
     Member member = (Member)session.getAttribute("member");
     
-//    System.out.println(member.getMemberNo());
-//    Topic topic = authService.getResult(member.getMemberNo());
-//    List<Topic> topicName = authService.getResultNames(member.getMemberNo());
-    
-//    System.out.println("/auth/loginUser :" + member);
-
     if (member == null) { // 로그인이 되지 않은 상태
       return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
     } 
-     else {
-//       HashMap<String,Object> resultMap = new HashMap<>();
-//       resultMap.put("topic", topic);
-//       resultMap.put("topicName", topicName);
-//       System.out.println("이게 테스트요~"+resultMap);
-        return new AjaxResult(AjaxResult.SUCCESS, member);
+    else {
+    System.out.println(member.getMemberNo());
+    Topic topic = authService.getResult(member.getMemberNo());
+    List<Topic> topicName = authService.getResultNames(member.getMemberNo());
+    
+    System.out.println("/auth/loginUser :" + member);
+
+      HashMap<String,Object> resultMap = new HashMap<>();
+       resultMap.put("topic", topic);
+      resultMap.put("topicName", topicName);
+       System.out.println("이게 테스트요~"+resultMap);
+        return new AjaxResult(AjaxResult.SUCCESS, resultMap);
     }
   }
   
