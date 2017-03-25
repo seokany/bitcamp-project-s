@@ -1,3 +1,11 @@
+@charset "UTF-8";
+
+.chart-result {
+  position: relative;
+}
+
+
+
 .button-wrapper {
     width: 70px;
     display: inline-block;
@@ -9,7 +17,7 @@
 	width: 80px;
     display: inline-block;
     position: absolute;
-    top: 114px;
+    top: 118px;
     left: 1219px;
 }
 .share-undo-button-wrapper {
@@ -120,8 +128,7 @@ p {
 html {
   font-size: 20px;
 }
-body {
-  background-color: #ccc;
+.button-all-wrapper {
   padding: 50px;
   text-align: center;
 }

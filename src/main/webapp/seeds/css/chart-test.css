@@ -1,3 +1,6 @@
+@charset "UTF-8";
+
+
 @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
 .Brush {
   font-family: 'Nanum Brush Script', serif;
@@ -58,31 +61,33 @@
 }
 .extraverted {
   top: 38px;
-  left: -110px;
+  left: -12px;
 }
 .sensing {
   top: 89px;
-  left: -80px;
+  left: 21px;
 }
 .thinking {
   top: 142px;
-  left: -80px;
+  left: 23px;
 }
 .judging {
-  top: 196px;
-  left: -80px;
+  top: 194px;
+  left: 16px;
 }
 
 
 /* 임시 대시보드 지정 */
 
 .temp-dashboard {
-  height: 800px;
-  width: 1150px;
-  border: 1px solid black;
-  margin: 0 auto;
-  background: rgba(0,0,0,0.8);
-      position: relative;
+    height: 800px;
+    width: 1150px;
+    /* border: 1px solid black; */
+    margin: 60px auto;
+    /* background: rgba(0,0,0,0.8); */
+    /* position: absolute; */
+    top: 0;
+    left: 0;
 }
 
 /* 유형 이름*/
