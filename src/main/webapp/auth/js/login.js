@@ -53,9 +53,11 @@ $(function() {
 		    	$('.header-icon-power').css("display", "none");
 		    	$('.header-icon-user').css("display", "inline-block");
 		    	$('.header-icon-message').css("display", "inline-block");
-		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
-				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
-				$('.user-info h3').text(memberInfo.name);
+		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call', function() {
+					$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+					$('.user-info h3').text(memberInfo.name);
+		    	});
+
 			}
 		}, 'json');
 	}

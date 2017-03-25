@@ -33,9 +33,7 @@ $(function() {
 						$('.header-icon-message').css("display", "inline-block");
 					}
 				
-				console.log(ajaxResult.data.photoPath);
-				
-				memberNo = ajaxResult.data.memberNo;
+				memberNo = memberInfo.memberNo;
 				// 로그인 되었으면
 				setInterval(function(){
 					$(".new-message blink").toggle();
@@ -47,7 +45,7 @@ $(function() {
 				$('.recommand-info .two').text(topicName[1].topicName);
 				$('.recommand-info .three').text(topicName[2].topicName);
 				$('.result-info .test-name').text(memberInfo.type);
-				$('.result-info .test-result').text(memberInfo.resultResult);				
+				$('.result-info .test-result').text(memberInfo.resultResult);
 				// 파일 업로드
 				$('#photo').fileupload({
 				    url: serverRoot + '/common/fileupload.json', // 서버에 요청할 URL
