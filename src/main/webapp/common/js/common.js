@@ -37,6 +37,9 @@ $(function() {
 				
 				memberNo = ajaxResult.data.memberNo;
 				// 로그인 되었으면
+				setInterval(function(){
+					$(".new-message blink").toggle();
+					}, 550);
 				
 				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
 				$('.user-info h3').text(memberInfo.name);
@@ -176,7 +179,7 @@ $(function() {
 				$('.warn-modal-testInfo').css('display', 'none');
 	    	  console.log("login event 제어변수 상태");
 	    	  console.log(loginEvent);
-			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) { // 로그아웃시
 		    	$('.header-icon-power').css("display", "inline-block");
 		    	$('.header-icon-user').css("display", "none");
 		    	$('.header-icon-message').css("display", "none");
