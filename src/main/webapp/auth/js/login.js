@@ -41,10 +41,21 @@ $(function() {
 			if (ajaxResult.status == "success") {
 				console.log('logIn().ajaxResult');
 				console.log(ajaxResult.status);
-				warnModalEnd();
 				userInfo();
 				eventControll();
 				// 서비스 대상에 따른 페이지 분기점
+				$('.login-form-container').removeClass("animated fadeInRight");
+				$('.login-form-container').addClass("animated fadeOutRight");
+		    	setTimeout(function() {
+		    		$('.auth-login-form').css("display", "none");
+		    		$('.login-form-container').removeClass("animated fadeOutRight");
+		    	}, 600);
+		    	$('.header-icon-power').css("display", "none");
+		    	$('.header-icon-user').css("display", "inline-block");
+		    	$('.header-icon-message').css("display", "inline-block");
+		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
+				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+				$('.user-info h3').text(memberInfo.name);
 			}
 		}, 'json');
 	}
