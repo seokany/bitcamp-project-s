@@ -1,11 +1,14 @@
+/*   user session 정보 받아오는 함수   */
 function userInfo() {
+	console.log('userInfo().start');
 	  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
-			memberInfo = ajaxResult.data;
+			memberInfo = ajaxResult.data.topic;
 			console.log('세션 획득 정보');
 			console.log(memberInfo);
 			eventControll();
 	  });
 }
+/*   /user session 정보 받아오는 함수   */
 
 $(function() {
 	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
@@ -20,22 +23,28 @@ $(function() {
 						$('.header-icon-power').css("display", "inline-block");
 						return;
 					} else {
-						memberInfo = ajaxResult.data;
+						memberInfo = ajaxResult.data.topic;
+						topicName = ajaxResult.data.topicName;
 						console.log('세션 획득 정보');
 						console.log(memberInfo);
+//						console.log(topicName[0].topicName);
 						eventControll();
 						$('.header-icon-user').css("display", "inline-block");
 						$('.header-icon-message').css("display", "inline-block");
 					}
-				
-				console.log(ajaxResult.data.photoPath);
-				
-				memberNo = ajaxResult.data.memberNo;
+				memberNo = memberInfo.memberNo;
 				// 로그인 되었으면
+				setInterval(function(){
+					$(".new-message blink").toggle();
+					}, 550);
 				
-				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + ajaxResult.data.photoPath);
-				$('.user-info h3').text(ajaxResult.data.name);
-				
+				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+				$('.user-info h3').text(memberInfo.name);
+				$('.recommand-info .one').text(topicName[0].topicName);
+				$('.recommand-info .two').text(topicName[1].topicName);
+				$('.recommand-info .three').text(topicName[2].topicName);
+				$('.result-info .test-name').text(memberInfo.type);
+				$('.result-info .test-result').text(memberInfo.resultResult);
 				// 파일 업로드
 				$('#photo').fileupload({
 				    url: serverRoot + '/common/fileupload.json', // 서버에 요청할 URL
@@ -58,7 +67,7 @@ $(function() {
 				        
 					
 					    	var param = {
-					    			"memberNo": memberNo,
+					    			"memberNo": memberInfo.memberNo,
 					    			"name": $('.user-info h3').val(),
 					    			"photoPath": photoPath
 					    	};
@@ -92,18 +101,19 @@ $(function() {
 						    }, 'json'); // 새 파일 업로드 post 요청. update 요청.
 						    
 						    $('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
-						    userInfo(); 
 						    setTimeout(function() {
+						    	userInfo(); 
 						    	console.log('로드 오케이?');
-						    	console.log(memberInfo);
-					    	$('.user-info h3').text(memberInfo.name);
+						    	console.log(memberInfo.name);
+						    	$('.user-info h3').text(memberInfo.name);
 						    $('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
-						    }, 10000);
+						    }, 5000);
 						    
 				    } // 사진 새로 바꿨을 때 호출되는 함수.
 				}); // 업로드 컴플릿 펑션 
 			  }); // loginUser
 	});
+	
 	/*   /header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
 	
 	/*   header toggle menu event   */
@@ -161,12 +171,11 @@ $(function() {
 	      }
 	      if (target.parents().hasClass("menu-nav")) {
 	    	  loginEvent = false;
-	    	  memberInfo = null; 
 				$('.warn-modal-logInfo').css('display', 'block');
 				$('.warn-modal-testInfo').css('display', 'none');
 	    	  console.log("login event 제어변수 상태");
 	    	  console.log(loginEvent);
-			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) { // 로그아웃시
 		    	$('.header-icon-power').css("display", "inline-block");
 		    	$('.header-icon-user').css("display", "none");
 		    	$('.header-icon-message').css("display", "none");
@@ -174,6 +183,8 @@ $(function() {
 				  $(".message-menu").hide();
 				  isopen_usermenu = false;
 				  isopen_messagemenu = false;
+			}, function() {
+				userInfo(); 
 			});
 	      }
 	    }

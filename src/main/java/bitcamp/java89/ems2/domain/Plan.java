@@ -6,16 +6,7 @@ public class Plan extends ContentsHeader{
   protected Object planMap;
   protected String planName;
   protected String planImage;
-  protected String planImage2; // 임시 사용
   
-  
-  
-  public String getPlanImage2() {
-    return planImage2;
-  }
-  public void setPlanImage2(String planImage2) {
-    this.planImage2 = planImage2;
-  }
   public String getPlanName() {
     return planName;
   }

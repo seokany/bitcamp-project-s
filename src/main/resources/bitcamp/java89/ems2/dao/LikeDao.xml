@@ -16,7 +16,6 @@
     <result column="sjob"   property="speakerJob"/>
     <result column="simg"    property="speakerImage"/>
     <result column="posted"    property="posted"/>
-
   </resultMap>
   
     <resultMap type="plan" id="mento-like">

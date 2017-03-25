@@ -449,6 +449,7 @@ h3.warn-modal-testInfo {
 <script>
 <!-- eventControll -->
 function eventControll() {
+	console.log('eventControll.start');
   if(memberInfo != null) {
   console.log('event controll 제어 조건자 상태');
   console.log(loginEvent, testEvent, memberInfo);
@@ -559,13 +560,20 @@ $(function() {
     
     var wheelState;
     var wheelType;
-    
+    var scrollTarget;
+    var scrollCount = 0;
     $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+    	console.log('scrollTarget 비교 정보');
     	console.log(event);
+    	console.log(event.target);
+    	console.log(scrollTarget);
+    	if (scrollTarget == event.target) return;
+    	console.log(scrollCount++);
+    	scrollTarget = event.target;
       wheelState = true; 
       wheelType = event.originalEvent.wheelDelta;
     });
-      
+    
     function hasScrolled() {
       if($(".frame-area-center").hasClass("mystuff")) {
         if (wheelType < 0) {
