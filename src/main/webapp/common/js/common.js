@@ -33,9 +33,9 @@ $(function() {
 						$('.header-icon-message').css("display", "inline-block");
 					}
 				
-				console.log(ajaxResult.data.photoPath);
+				console.log(memberInfo.photoPath);
 				
-				memberNo = ajaxResult.data.memberNo;
+				memberNo = memberInfo.memberNo;
 				// 로그인 되었으면
 				setInterval(function(){
 					$(".new-message blink").toggle();
@@ -107,7 +107,7 @@ $(function() {
 						    setTimeout(function() {
 						    	userInfo(); 
 						    	console.log('로드 오케이?');
-						    	console.log(memberInfo);
+						    	console.log(memberInfo.name);
 						    	$('.user-info h3').text(memberInfo.name);
 						    $('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
 						    }, 5000);
@@ -174,7 +174,6 @@ $(function() {
 	      }
 	      if (target.parents().hasClass("menu-nav")) {
 	    	  loginEvent = false;
-	    	  memberInfo = null; 
 				$('.warn-modal-logInfo').css('display', 'block');
 				$('.warn-modal-testInfo').css('display', 'none');
 	    	  console.log("login event 제어변수 상태");
@@ -187,6 +186,8 @@ $(function() {
 				  $(".message-menu").hide();
 				  isopen_usermenu = false;
 				  isopen_messagemenu = false;
+			}, function() {
+				userInfo(); 
 			});
 	      }
 	    }

@@ -26,8 +26,8 @@ $(function() {
 	function logIn(event, login) {
 		console.log('logIn().start');
 		console.log(event, login);
-		if (event != 'undefined')
-			event.preventDefault();
+		/*if (event != 'undefined') 
+			event.preventDefault();*/
 		var param = login; 
 		if (login == undefined) {
 			param = {
@@ -38,10 +38,11 @@ $(function() {
 			console.log(param);
 		}
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
-			if (ajaxResult.status == "success") {
+			if (ajaxResult.status != "success") {
+				alert(ajaxResult.data);
+			}
 				console.log('logIn().ajaxResult');
 				console.log(ajaxResult.status);
-				userInfo();
 				eventControll();
 				// 서비스 대상에 따른 페이지 분기점
 				$('.login-form-container').removeClass("animated fadeInRight");
@@ -53,10 +54,12 @@ $(function() {
 		    	$('.header-icon-power').css("display", "none");
 		    	$('.header-icon-user').css("display", "inline-block");
 		    	$('.header-icon-message').css("display", "inline-block");
-		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
-				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
-				$('.user-info h3').text(memberInfo.name);
-			}
+		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call', function() {
+		    		userInfo();
+		    		$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+		    		$('.user-info h3').text(memberInfo.name);
+		    	});
+			
 		}, 'json');
 	}
 	$(document.body).on('keypress', '.login-button-go', function(event) {
