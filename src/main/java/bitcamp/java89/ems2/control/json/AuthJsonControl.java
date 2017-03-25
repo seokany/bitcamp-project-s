@@ -26,6 +26,7 @@ public class AuthJsonControl {
   @RequestMapping("/auth/login")
   public AjaxResult login(String email, String password,
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
+    System.out.println("/auth/login :" + email + "/" + password);
     
     Member member = authService.getMemberInfo(email, password);
     Mento mento = authService.getMentoInfo(email, password);
@@ -35,16 +36,12 @@ public class AuthJsonControl {
     }
     session.setAttribute("member", member); // HttpSession에 저장한다.
     
-    
     int count = authService.getOne(member.getMemberNo()); // 들어온 애가 멘토인지~ 확인.
-    
     if (count == 0) { // 멘토가 아니라면
-       
         return new AjaxResult(AjaxResult.SUCCESS, member);
     }
     else {
-        
-    return new AjaxResult(AjaxResult.SUCCESS, mento);
+      return new AjaxResult(AjaxResult.SUCCESS, mento);
     }
   }
 
@@ -65,6 +62,14 @@ public class AuthJsonControl {
     System.out.println(member.getMemberNo());
     Topic topic = authService.getResult(member.getMemberNo());
     List<Topic> topicName = authService.getResultNames(member.getMemberNo());
+    System.out.println("/auth/loginUser.topic :" + topic);
+    System.out.println("/auth/loginUser.topic.getTopicName :" + topic.getTopicName());
+    System.out.println("/auth/loginUser.topicName :" + topicName);
+//    if(topic.getTopicName() == null) {
+//      System.out.println("/auth/loginUser.topicName = null? :");
+//      topic.setTopicName("추천 분야가 없습니다.");
+//      topicName.set(0, topic);
+//    }
     
     System.out.println("/auth/loginUser :" + member);
 

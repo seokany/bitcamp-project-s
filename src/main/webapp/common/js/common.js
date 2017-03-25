@@ -1,4 +1,6 @@
+/*   user session 정보 받아오는 함수   */
 function userInfo() {
+	console.log('userInfo().start');
 	  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			memberInfo = ajaxResult.data.topic;
 			console.log('세션 획득 정보');
@@ -6,6 +8,7 @@ function userInfo() {
 			eventControll();
 	  });
 }
+/*   /user session 정보 받아오는 함수   */
 
 $(function() {
 	/*   header 호출 스크립트 및 로그인 유저 로그인 상태 확인.   */
@@ -24,7 +27,7 @@ $(function() {
 						topicName = ajaxResult.data.topicName;
 						console.log('세션 획득 정보');
 						console.log(memberInfo);
-						console.log(topicName[0].topicName);
+//						console.log(topicName[0].topicName);
 						eventControll();
 						$('.header-icon-user').css("display", "inline-block");
 						$('.header-icon-message').css("display", "inline-block");
