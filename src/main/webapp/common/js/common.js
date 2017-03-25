@@ -34,6 +34,9 @@ $(function() {
 				
 				memberNo = ajaxResult.data.memberNo;
 				// 로그인 되었으면
+				setInterval(function(){
+					$(".new-message blink").toggle();
+					}, 550);
 				
 				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
 				$('.user-info h3').text(memberInfo.name);

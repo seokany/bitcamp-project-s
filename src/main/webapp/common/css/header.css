@@ -525,6 +525,18 @@ font-size: 12px;
 }
 
 /*--토글 영역(채팅메뉴)--*/
+
+.new-message {
+	   position: absolute;
+    right: -13px;
+    top: -8px;
+    text-shadow: 1px 1px bisque;
+    color: chocolate;
+    font-size: 10px;
+    font-style: italic;
+}
+
+
 .message-menu-toggle {
     display: inline-block;
 }
@@ -532,8 +544,8 @@ font-size: 12px;
     width: 228px;
     background: #f9f9f9;
     position: absolute;
-    left: -158px;
-    top: 44px;
+    left: -175px;
+    top: 40px;
     border: 1px solid #f2f2f2;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;

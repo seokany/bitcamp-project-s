@@ -11,7 +11,6 @@
     <result column="plmap"       property="planMap"/>
     <result column="plnm"      property="planName"/>
     <result column="plimg"      property="planImage"/>
-    <result column="plimg2"      property="planImage2"/>
   </resultMap>
   
   <resultMap type="bitcamp.java89.ems2.domain.Mento" id="mento-map">
@@ -126,7 +125,7 @@
   </select>
   
   <select id="boardList" resultMap="plan-map" parameterType="map">
-    select cono, plnm, plimg2
+    select cono, plnm, plimg
     from plan 
     where cono != 4
     <!--  where eno = eno -->
