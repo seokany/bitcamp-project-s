@@ -59,7 +59,6 @@ $(function() {
 		    		$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
 		    		$('.user-info h3').text(memberInfo.name);
 		    	});
-			
 		}, 'json');
 	}
 	$(document.body).on('keypress', '.login-button-go', function(event) {
