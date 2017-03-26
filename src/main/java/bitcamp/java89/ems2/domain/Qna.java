@@ -1,8 +1,10 @@
 package bitcamp.java89.ems2.domain;
 
-public class qna {
+public class Qna extends Plan{
   
-  protected Object chatting;
+    private static final long serialVersionUID = 1L;
+    
+protected Object chatting;
 
   public Object getChatting() {
     return chatting;

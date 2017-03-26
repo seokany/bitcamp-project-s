@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bitcamp.java89.ems2.dao.QnaDao">
+  <resultMap type="qna" id="qna-map">
+    <id     column="mno"        property="memberNo"/>
+    <id     column="cono"        property="contentsNo"/>
+    <result column="name"        property="name"/>
+    <result column="mimg"       property="photoPath"/>
+  </resultMap>
+  
+  
+
+  
+<select id="getList" resultMap="qna-map" parameterType="int">
+	select 
+	     mb.mno, 
+	     pl.cono, 
+	     name, 
+	     mimg 
+	    from plan pl
+	     inner join mento mto on mto.eno = pl.eno
+	     inner join qna on qna.cono = pl.cono
+	     inner join mentee mte on mte.sno = qna.sno
+	     inner join membs mb on mb.mno = mte.sno
+	    where pl.cono=#{cono}
+</select>
+  
+ 
+ 
+</mapper>
+
+
+
+
+

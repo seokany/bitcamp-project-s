@@ -248,7 +248,7 @@ border-radius: 50%;
 
 
 .side-container{
-    width: 195px;
+    width: 196px;
     margin-top: 10px;
     /* box-shadow: 0 2px 2px 2px rgba(51, 122, 183, 0.23); */
     transition: all 0.3s linear;
@@ -277,7 +277,7 @@ border-radius: 50%;
 
 .side a {
     border-top: 1px solid rgba(255,255,255,0.1);
-    text-decoration: none;
+    /* text-decoration: none; */
     display: block;
     height: 100%;
     width: 100%;
@@ -290,7 +290,7 @@ border-radius: 50%;
     letter-spacing: 1px;
     transition: all 0.3s linear;
     background: rgba(0, 0, 0, .0001);
-    margin-left: 3px;
+    margin-left: 7px;
 }
 .active {
     display: inline-block;
@@ -311,7 +311,7 @@ border-radius: 50%;
 .side span[class ^= "icon"]{
     position: absolute;
     left: 10px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     transition: all 0.3s linear;
 }
 .side span[class ^= "text"]{
