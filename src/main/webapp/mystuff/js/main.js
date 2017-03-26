@@ -150,7 +150,6 @@ $( function() {
 		        	   $(this).children(".btn").removeClass("checked");
 		        	   console.log($(this).parents(".mt-like-list"));
 		        	  if($(this).parents(".mt-like-list")) {
-		        		  console.log("들어왔니?");
 		        		  $(this).parents(".mt-like-list").remove();  
 		        	  }
 		        	  
