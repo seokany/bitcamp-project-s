@@ -121,7 +121,12 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 	insert into snatr(tno, reno) values(1, 1); 
 	insert into snatr(tno, reno) values(2, 1); 
 	insert into snatr(tno, reno) values(3, 1);
-
+- 질의응답 데이터
+insert into qna(cono,sno) values(38,5);
+insert into qna(cono,sno) values(38,1);
+insert into qna(cono,sno) values(38,2);
+	
+	
 	
 	- 좋아요 비디오 목록 불러오기
 	 select * from video vd
