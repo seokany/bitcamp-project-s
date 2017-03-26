@@ -1,0 +1,112 @@
+body {
+  background-color: #eeeff2;
+}
+#mento-set-wrap {
+  width: 800px;
+  margin: 0 auto;
+  font-family: Malgun Gothic;
+}
+.mento-set-s-title{
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 10px 0;
+  padding-left: 12px;
+}
+.mento-set-box {
+  background-color: #fff;
+  margin-bottom: 20px;
+      height: 490px;
+}
+fieldset {
+  background-color: #fff;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+      border-top: transparent;
+      padding-top: 0;
+}
+.mento-set-ul {
+  list-style: none;
+  padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
+}
+.mento-set-ul li {
+  display: inline-block;
+  margin-right: 21px;
+      font-size: 11px;
+}
+.mento-set-title {
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 0;
+  color: #fff;
+  background-color: #F7DC6F;
+  height: 30px;
+   font-size: 18px;
+ font-weight: 700;
+}
+.column {
+  width: 800px;
+  display: inline-block;
+}
+.label-checkbox,
+.crbtn {
+  padding: 3px 0;
+  cursor: pointer;
+  overflow: hidden;
+  display: inline-block;
+}
+.label-checkbox input[type="checkbox"],
+.crbtn input[type="checkbox"] {
+  display: none;
+}
+
+label.disabled,
+label.disabled * {
+  cursor: default;
+}
+
+/* ############[ Checkbox ]############ */
+.label-checkbox span {
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin: 0 5px 0 0;
+  position: relative;
+  display: inline-block;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  transition: all 0.5s ease-in-out;
+}
+.label-checkbox:hover span {
+  border-color: #25303c;
+}
+.label-checkbox.checked span {
+  border-color: #25303c;
+  background-color: #25303c;
+}
+
+
+.textarea {
+  width: 722px;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: 19px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: #ea4d7c;
+  color: white;
+  width: 80px;
+  height: 43px;
+  margin: 6px 18px 0;
+  float: right;
+}

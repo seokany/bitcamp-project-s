@@ -82,23 +82,6 @@ public class AuthJsonControl {
   }
   
   
-  
-  
-  
-  @RequestMapping("/auth/simpleLoginUser")
-  public AjaxResult simpleLoginUser(HttpSession session) throws Exception {
-    Member member = (Member)session.getAttribute("member");
-    System.out.println("/auth/simpleLoginUser :" + member);
-
-    if (member == null) { // 로그인이 되지 않은 상태
-      return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
-    } 
-     else {
-        return new AjaxResult(AjaxResult.SUCCESS, member);
-    }
-  }
-  
-  
 }
 
 
