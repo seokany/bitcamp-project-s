@@ -140,17 +140,13 @@ $(function() {
 	    } else {
 	      if (target.hasClass("header-icon-user")) { // 사용자 정보 창
 	        if (!isopen_usermenu) {
-	        $(".message-menu").hide();
-	        $(".user-menu").show(); // 사용자 정보 창 div
-	        isopen_usermenu = true;
-            isopen_messagemenu = false;
-            
-            
-            
-            
-	      } else {
-	            $(".user-menu").hide();
-	            isopen_usermenu = false;
+		        $(".message-menu").hide();
+		        $(".user-menu").show(); // 사용자 정보 창 div
+		        isopen_usermenu = true;
+	            isopen_messagemenu = false;
+		      } else {
+	    		  $(".user-menu").hide();
+	    		  isopen_usermenu = false;
 	          }
 	      }
 	      if (target.hasClass("header-icon-message")) {

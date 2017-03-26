@@ -44,12 +44,17 @@ body {
   width: 100vw;
 }
 .frame-area-center {
+  top: 0;
   left: 0; 
 }
 .frame-area-left {
   left: -110vw; 
 }
 .frame-area-right {
+  left: 110vw; 
+}
+.frame-area-out {
+  top: 110vh; 
   left: 110vw; 
 }
 /*   /driver   */
@@ -215,12 +220,12 @@ h3.warn-modal-testInfo {
 	  <div class="frame-area frame-area-center seeds">
 	  </div>
 	  <div class="frame-area frame-area-right   mystuff">
-      <div class="mystuff dashboard">
+      <div class="mystuff-call dashboard">
         <div class="mystuff-explain">로그인하셔야 추천 정보를 드릴 수 있어요.</div>
       </div>
 	  </div>
 	  <div class="frame-area frame-area-right  likes">
-      <div class="likes dashboard">
+      <div class="likes-call dashboard">
         <div class="likes-explain choose">아직 '좋아요'한 컨텐츠가 없어요.</div>
       </div>
     </div>
