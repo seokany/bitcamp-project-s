@@ -52,6 +52,21 @@ $(function() {
             console.log(window.sessionStorage.getItem('result'));
             window.sessionStorage.setItem('resultValues', resultValues);
             console.log(window.sessionStorage.getItem('resultValues'));
+            $('.seeds').load('seeds/seeds-temp.html','.seeds-wrapper',function(){
+            	console.log('들어왔니 펑션 안으로?');
+            	$('.seeds-modal-call').addClass('seeds-modal',function(){
+            		console.log('modal 추가 됐다.');
+            		$('.seeds-modal').load('seeds/chart-test.html','.chart-result', function() {
+                        chartCreater(mbtiValues[0], mbtiValues[1], mbtiValues[2], mbtiValues[3], 
+                                mbtiValues[4], mbtiValues[5], mbtiValues[6], mbtiValues[7]);
+            		});
+            	});
+            });
+            	
+            	
+                
+            
+            
         } else {
         	console.log("로그인 상태 : DB 전송할 데이터");
         	console.log(resultMsg, resultValues, memberInfo.memberNo);
@@ -71,13 +86,13 @@ $(function() {
 	      }
       });
         
-        $(".wrapper").addClass("dashboard");
-        $(".wrapper").load("seeds/mbti-result-istp.html .test-result", function() {
-          console.log($('.test-result').children("span").hasClass("result"));
-          if ($('.test-result').children("span").hasClass("result")){
-            $(".result").html(resultMsg);
-          }
-        });
+//        $(".wrapper").addClass("dashboard");
+//        $(".wrapper").load("seeds/mbti-result-istp.html .test-result", function() {
+//          console.log($('.test-result').children("span").hasClass("result"));
+//          if ($('.test-result').children("span").hasClass("result")){
+//            $(".result").html(resultMsg);
+//          }
+//        });
         
         /*$(".wrapper").addClass("dashboard");
         $(".wrapper").load("seeds/chart-test.html .temp-dashboard", function() {

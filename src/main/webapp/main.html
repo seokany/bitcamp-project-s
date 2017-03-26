@@ -25,6 +25,15 @@
 <link rel="stylesheet" type="text/css" href="mystuff/css/mentoPage.css">
 <link rel="stylesheet" type="text/css" href="likes/css/likes.css" />
 <link rel="stylesheet" type="text/css" href="mystuff/css/person-test.css" />
+
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="seeds/css/chart-test.css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="seeds/css/chart-test-button.css" />
+
+
 <style>
 /*   driver   */
 body {
@@ -278,6 +287,16 @@ h3.warn-modal-testInfo {
 <script type="text/javascript" src="likes/js/mento-like.js"></script>
 <script type="text/javascript" src="likes/js/video-like.js"></script>
 
+
+<script type="text/javascript" src="seeds/js/amcharts.js"></script>
+<script type="text/javascript" src="seeds/js/chart-heavy.js"></script>
+<script type="text/javascript" src="seeds/js/chart-theme.js"></script>
+<script type="text/javascript" src="seeds/js/chart-test.js"></script>
+<script type="text/javascript" src="seeds/js/chart-test-button.js"></script>
+</body>
+
+
+
 <script id="trTemplate" type="text/x-handlebars-template">
 {{#each list}}
   <div class="ssize video corner-container">
@@ -430,6 +449,7 @@ h3.warn-modal-testInfo {
 <script>
 <!-- eventControll -->
 function eventControll() {
+	console.log('eventControll.start');
   if(memberInfo != null) {
   console.log('event controll 제어 조건자 상태');
   console.log(loginEvent, testEvent, memberInfo);
@@ -540,13 +560,20 @@ $(function() {
     
     var wheelState;
     var wheelType;
-    
+    var scrollTarget;
+    var scrollCount = 0;
     $(".contents").on("mousewheel DOMMouseScroll", function(event) {
+    	console.log('scrollTarget 비교 정보');
     	console.log(event);
+    	console.log(event.target);
+    	console.log(scrollTarget);
+    	if (scrollTarget == event.target) return;
+    	console.log(scrollCount++);
+    	scrollTarget = event.target;
       wheelState = true; 
       wheelType = event.originalEvent.wheelDelta;
     });
-      
+    
     function hasScrolled() {
       if($(".frame-area-center").hasClass("mystuff")) {
         if (wheelType < 0) {

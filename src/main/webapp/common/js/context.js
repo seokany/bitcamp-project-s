@@ -10,5 +10,7 @@ var testEvent = false;
 var slideState = false;
 /*   /wheel 이벤트 제어를 위한 글로벌 변수   */
 
+/*   user session 정보   */
 var memberInfo; 
 var topicName;
+/*   /user session 정보   */

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 #container {
   padding-top: 17px;
   font-size: 16px;
@@ -49,13 +51,13 @@
   font-weight: bold;
 }
 .radios:before {
-  content: "그렇다";
+  content: "ê·¸ë ‡ë‹¤";
   top: 5px;
   left: 270px;
   color: #4C9070;
 }
 .radios:after {
-  content: "그렇지 않다";
+  content: "ê·¸ë ‡ì§€ ì•Šë‹¤";
   top: 5px;
   right: 216px;
   color: #94657E;
@@ -143,7 +145,7 @@
 }
 
 .button-two span:after {
-  content: '»';
+  content: 'Â»';
   position: absolute;
   opacity: 0;
   top: 0;

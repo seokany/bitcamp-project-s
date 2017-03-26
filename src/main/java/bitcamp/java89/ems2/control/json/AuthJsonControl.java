@@ -1,5 +1,8 @@
 package bitcamp.java89.ems2.control.json;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import bitcamp.java89.ems2.dao.MentoDao;
 import bitcamp.java89.ems2.domain.Member;
 import bitcamp.java89.ems2.domain.Mento;
+import bitcamp.java89.ems2.domain.Topic;
 import bitcamp.java89.ems2.service.AuthService;
 
 @RestController
@@ -22,6 +26,7 @@ public class AuthJsonControl {
   @RequestMapping("/auth/login")
   public AjaxResult login(String email, String password,
       HttpServletResponse response, HttpSession session, Model model) throws Exception {
+    System.out.println("/auth/login :" + email + "/" + password);
     
     Member member = authService.getMemberInfo(email, password);
     Mento mento = authService.getMentoInfo(email, password);
@@ -31,16 +36,12 @@ public class AuthJsonControl {
     }
     session.setAttribute("member", member); // HttpSession에 저장한다.
     
-    
     int count = authService.getOne(member.getMemberNo()); // 들어온 애가 멘토인지~ 확인.
-    
     if (count == 0) { // 멘토가 아니라면
-       
         return new AjaxResult(AjaxResult.SUCCESS, member);
     }
-    else {
-        
-    return new AjaxResult(AjaxResult.SUCCESS, mento);
+    else { 
+      return new AjaxResult(AjaxResult.SUCCESS, mento);
     }
   }
 
@@ -54,21 +55,29 @@ public class AuthJsonControl {
   public AjaxResult loginUser(HttpSession session) throws Exception {
     Member member = (Member)session.getAttribute("member");
     
-//    System.out.println(member.getMemberNo());
-//    Topic topic = authService.getResult(member.getMemberNo());
-//    List<Topic> topicName = authService.getResultNames(member.getMemberNo());
-    
-//    System.out.println("/auth/loginUser :" + member);
-
     if (member == null) { // 로그인이 되지 않은 상태
       return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
     } 
-     else {
-//       HashMap<String,Object> resultMap = new HashMap<>();
-//       resultMap.put("topic", topic);
-//       resultMap.put("topicName", topicName);
-//       System.out.println("이게 테스트요~"+resultMap);
-        return new AjaxResult(AjaxResult.SUCCESS, member);
+    else {
+//    System.out.println(member.getMemberNo());
+    Topic topic = authService.getResult(member.getMemberNo());
+    List<Topic> topicName = authService.getResultNames(member.getMemberNo());
+/*    System.out.println("/auth/loginUser.topic :" + topic);
+    System.out.println("/auth/loginUser.topic.getTopicName :" + topic.getTopicName());
+    System.out.println("/auth/loginUser.topicName :" + topicName);*/
+//    if(topic.getTopicName() == null) {
+//      System.out.println("/auth/loginUser.topicName = null? :");
+//      topic.setTopicName("추천 분야가 없습니다.");
+//      topicName.set(0, topic);
+//    }
+    
+//    System.out.println("/auth/loginUser :" + member);
+
+      HashMap<String,Object> resultMap = new HashMap<>();
+       resultMap.put("topic", topic);
+      resultMap.put("topicName", topicName);
+       System.out.println("이게 테스트요~"+resultMap);
+        return new AjaxResult(AjaxResult.SUCCESS, resultMap);
     }
   }
   

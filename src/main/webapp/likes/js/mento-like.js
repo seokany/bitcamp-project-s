@@ -203,7 +203,7 @@ $(document.body).on( "click", ".side li", function() {
 
 
 
-function mtHover() {
+function mtHover() { // 설계도 hover 시 bottom 그라디언트 띄우기.
 	
 $(".mt-list").hover(function(){
     $(this).css("cursor","pointer");
