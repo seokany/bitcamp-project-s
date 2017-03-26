@@ -1,7 +1,7 @@
 $( function() {
   
   // 서버에서 로그인 사용자 정보를 가져온다.
-  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
+  $.getJSON(serverRoot + '/auth/simpleLoginUser.json', function(ajaxResult) {
 	  
 	  var memberNo = ajaxResult.data.memberNo;
 	  

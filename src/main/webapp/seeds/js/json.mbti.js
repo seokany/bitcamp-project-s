@@ -46,6 +46,7 @@ $(function() {
 
         console.log('검사결과 DB or Session 분기 처리'); 
         console.log(memberInfo == null);
+        
         if (memberInfo == null) {
         	console.log("비로그인 상태 : Session 전송 후 저장된 데이터 확인");
             window.sessionStorage.setItem('result', resultMsg);
