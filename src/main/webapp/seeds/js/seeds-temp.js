@@ -18,7 +18,7 @@ $( function() {
     } else { // 로그인이 되었으면, ===> 검사 유무를 조사한다.
       console.log("로그인한 사용자다");
       $.getJSON(serverRoot + '/seeds/list.json',
-    		  
+    
           {
             "menteeNo" : ajaxResult.data.memberNo,
             "type" : 'mbti'

@@ -157,7 +157,6 @@ $( function() {
 		        	   console.log($(this).parents(".mt-like-list"));
 		        	   console.log($(this).parents(".vdoConts"));
 		        	  if($(this).parents(".mt-like-list")) {
-		        		  console.log("들어왔니?");
 		        		  $(this).parents(".mt-like-list").remove();  
 		        	  } if($(this).parents(".vdoConts")) {
 		        		  $(this).parents(".vdoConts").remove();
