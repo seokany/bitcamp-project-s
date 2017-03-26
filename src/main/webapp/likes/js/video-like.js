@@ -79,91 +79,7 @@ $('.tooltip-viewport-bottom').tooltip({
 
 
 
-$( function() { 
-
-		        // 좋아요 버튼 눌렀을 때
-		        
-		        $(document.body).on( "click", ".video-like-list .buttonHolder", function() {// 좋아요 버튼 눌렀을 때
-		        	 event.preventDefault();
-		        	 var curNo = $(this).attr("data-no");
-				        
-		        	if($(this).children(".btn").hasClass("checked")) {
-		        		$(this).children(".btn").removeClass("checked");
-		        		$(this).children(".btn").css("color","black");
-		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
-				        	  if (ajaxResult.status != "success") {
-				    	          alert(ajaxResult.data);
-				    	          return;
-				    	      }
-				        	  console.log("삭제했다.");
-				          }, 'json');
-		        	} else {
-		        		$(this).children(".btn").addClass("checked");
-		                $(this).children(".checked").css("color","#f94e66");
-				          
-		                $.post(serverRoot + '/like/add.json?curNo=' + curNo + '&sno=' + sno, function(ajaxResult) {
-				        	  if (ajaxResult.status != "success") {
-				    	          alert(ajaxResult.data);
-				    	          return;
-				    	      }
-				        	  console.log("했다.");
-				          }, 'json');
-		                
-		                
-		        	}
-		        })
-		    	
-		      
-	/*	      $('.name-link').click(function(event) {
-		        event.preventDefault();
-		        location.href = 'view.html?memberNo=' + $(this).attr("data-no");
-		      */
-		      
-//		      preparePagingButton(ajaxResult.data.totalCount);
-		        
-		        
-		        
-		        // 영상 더보기 
-			
-/*	$(document.body).on( "click", ".rec-video1", function() {
-		var videoAddr = $(this).parent('.video-conts').children('.video-btm').attr('iframe-addr').replace('www.ted.com','embed.ted.com');
-		var cono = $(this).parent('.video-conts').children('.video-btm').children('.buttonHolder').attr('data-no');
-		var list = new Array();
-		$.getJSON(serverRoot + '/videoDetail/getOne.json', 
-				{
-			"cono": cono
-				}, 
-				function(ajaxResult) {
-					var status = ajaxResult.status;
-					if (status != "success")
-						return;
-					
-					 list = ajaxResult.data.list;
-					 console.log(list);
-					 
-
-					 $('.mystuff-modal').load('../mystuff/talks.html #contents', function() {
-						 
-						 $('#iframe').append("<iframe src=''style='width:;width: 100%;height: 480px;position: relative;' background-color: black; frameborder='0' scrolling='no' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>")
-						 $('#iframe iframe').attr('src',videoAddr);
-						 $('#talk-speaker-description .speakerName').text(list[0].speakerName);
-						 $('#talk-speaker-description .videoDsc').text(list[0].videoDescription);
-						 $('.talkSpeaker .speakerName').text(list[0].speakerName);
-						 $('.talkSpeaker .speakerJob').text(list[0].speakerJob);
-						 $('.talkSpeaker').children('#talk-speaker-thumb').attr('src',list[0].videoImage);
-					 });
-				});
-		
-	})*/
-		        
-		        
-		        
-		        
-		        
-		  });  
-	
-    
-   
+$( function() {
     $(document.body).on( "click", ".rec-btn", function() { // 추천목록 눌렀을 때
     	 
     	$("#rec-list").css("border-bottom", "2px solid blue");
@@ -245,8 +161,4 @@ $( function() {
     	    function () {
     	      $(this).css({"height":"20px", "width":"20px"});
     	    });
-
-    
-    
-
-	
+});

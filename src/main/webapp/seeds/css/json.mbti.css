@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 #container {
   padding-top: 17px;
   font-size: 16px;
@@ -143,7 +145,7 @@
 }
 
 .button-two span:after {
-  content: '»';
+  content: 'Â»';
   position: absolute;
   opacity: 0;
   top: 0;

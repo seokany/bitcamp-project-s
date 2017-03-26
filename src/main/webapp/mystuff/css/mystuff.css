@@ -203,7 +203,10 @@ img { border: 0;}
   overflow: hidden;
   
 }
+.jcarousel:hover {
+	cursor:pointer;
 
+	}
 .mt-carousel { /* 멘토 jcarousel */
 background: linear-gradient(135deg, rgba($red,1) 0%,rgba($blue,1) 100%);
 	height: 450px;

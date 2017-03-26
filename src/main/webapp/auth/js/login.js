@@ -24,11 +24,11 @@ $(function() {
 	
 /*   로그인 이벤트   */
 	function logIn(event, login) {
+		console.log('logIn().start');
 		console.log(event, login);
-		if (event != 'undefined')
-			event.preventDefault();
+		/*if (event != 'undefined') 
+			event.preventDefault();*/
 		var param = login; 
-		console.log(login == undefined);
 		if (login == undefined) {
 			param = {
 					email: $('#login-input-email').val(),
@@ -38,36 +38,27 @@ $(function() {
 			console.log(param);
 		}
 		$.post(serverRoot + '/auth/login.json', param, function(ajaxResult) {
-			if (ajaxResult.status == "success") {
-				loginEvent = true;
-	    		$('.warn-modal-logInfo').css('display', 'none');
-	    		$('.warn-modal-testInfo').css('display', 'block');
-				console.log("login event 제어변수 상태");
-				console.log(loginEvent);
-				console.log("로그인 유저 정보");
-				console.log(ajaxResult.data);
-				memberInfo = ajaxResult.data;
-				eventControll();
-				if (ajaxResult.data.specialArea == null) {
-					$('.login-form-container').removeClass("animated fadeInRight");
-					$('.login-form-container').addClass("animated fadeOutRight");
-			    	setTimeout(function() {
-			    		$('.auth-login-form').css("display", "none");
-			    		$('.login-form-container').removeClass("animated fadeOutRight");
-			    	}, 600);
-			    	$('.header-icon-power').css("display", "none");
-			    	$('.header-icon-user').css("display", "inline-block");
-			    	$('.header-icon-message').css("display", "inline-block");
-			    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call');
-			    	userInfo(); 
-					$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
-					$('.user-info h3').text(memberInfo.name);
-					return;
-				} else {
-					location.href = "expert/driver.html";
-					return;
-				}
+			if (ajaxResult.status != "success") {
+				alert(ajaxResult.data);
 			}
+				console.log('logIn().ajaxResult');
+				console.log(ajaxResult.status);
+				eventControll();
+				// 서비스 대상에 따른 페이지 분기점
+				$('.login-form-container').removeClass("animated fadeInRight");
+				$('.login-form-container').addClass("animated fadeOutRight");
+		    	setTimeout(function() {
+		    		$('.auth-login-form').css("display", "none");
+		    		$('.login-form-container').removeClass("animated fadeOutRight");
+		    	}, 600);
+		    	$('.header-icon-power').css("display", "none");
+		    	$('.header-icon-user').css("display", "inline-block");
+		    	$('.header-icon-message').css("display", "inline-block");
+		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call', function() {
+		    		userInfo();
+		    		$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+		    		$('.user-info h3').text(memberInfo.name);
+		    	});
 		}, 'json');
 	}
 	$(document.body).on('keypress', '.login-button-go', function(event) {

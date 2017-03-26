@@ -144,16 +144,24 @@ $( function() {
 		        $(document.body).on( "click", ".buttonHolder", function() {// 좋아요 버튼 눌렀을 때
 		        	 event.preventDefault();
 		        	 var curNo = $(this).attr("data-no");
-		        	 var sno = 5;
-				        
+		        	 var sno = memberInfo.memberNo;
+		        	 
 		        	if($(this).children(".btn").hasClass("checked")) {
 		        	   $(this).children(".btn").removeClass("checked");
+			        	 $($('.mystuff-call').find('.buttonHolder')).each(function() {
+			        		 if ($(this).attr('data-no') == curNo) {
+			        			 $(this).children('.heart').removeClass('checked');
+			        			 $(this).children(".heart").css("color","black");
+			        		 }
+			        	 });
 		        	   console.log($(this).parents(".mt-like-list"));
+		        	   console.log($(this).parents(".vdoConts"));
 		        	  if($(this).parents(".mt-like-list")) {
 		        		  $(this).parents(".mt-like-list").remove();  
+		        	  } if($(this).parents(".vdoConts")) {
+		        		  $(this).parents(".vdoConts").remove();
 		        	  }
 		        	  
-		        			 
 		        		$(this).children(".btn").css("color","black");
 		                $.post(serverRoot + '/like/delete.json?curNo=' + curNo, function(ajaxResult) {
 				        	  if (ajaxResult.status != "success") {
@@ -322,7 +330,6 @@ $( function() {
             })
          .jcarouselPagination();
     };
-	
 	
     
 
@@ -503,7 +510,6 @@ $(document.body).on( "click", ".video-box .fpc_page-tip", function() {
 
 
 //멘토 디테일 페이지 넘어가는...
-
 
 
 $(document.body).on( "click", ".mento-box .fpc_page-tip", function() {
