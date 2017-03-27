@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 /*멘티 채팅창 관련 소스*/
-.chat {
+/* .chat {
   height: 682px;
   width: 400px;
 }
@@ -88,7 +88,7 @@
 }
 
 
-/* Right triangle placed top right flush. */
+Right triangle placed top right flush.
 .tri-right.right-top {
   float: right;
   display: block;
@@ -117,7 +117,7 @@
   border: 25px solid;
   border-color: lightyellow transparent transparent transparent;
 }
-/* Right triangle, left side slightly down */
+Right triangle, left side slightly down
 .tri-right.border.left-in:before {
   content: ' ';
   position: absolute;
@@ -198,4 +198,331 @@
 }
 .message-bottom .message-submit:hover {
   background: #1D7745;
+} */
+body .window {
+    font-family: "Muli", sans-serif;
+    color: #555;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+body .window .windowrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+body .window .windowrap .bot {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: calc(100% - 2px);
+  height: 75px;
+  background: #fff;
+  z-index: 3;
+  border-top: 1px solid #BE93C5;
+  border-right: 1px solid #BE93C5;
+  border-left: 1px solid #BE93C5;
+  padding-top: 5px;
+}
+body .window .windowrap .bot h3 {
+  display: table;
+  margin: 15px auto 0px;
+  font-size: 1.8em;
+  text-align: left;
+  color: #BE93C5;
+  font-weight: 100;
+  text-align: center;
+  position: relative;
+}
+body .window .windowrap .bot h3:before {
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background: url("https://puu.sh/r4snD/5c858bf1af.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  left: -40px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border: 1px solid #BE93C5;
+  border-radius: 100%;
+}
+body .window .windowrap:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  top: 80px;
+  background: -webkit-linear-gradient(top, #BE93C5, transparent);
+  background: linear-gradient(to bottom, #BE93C5, transparent);
+  z-index: 2;
+}
+body .window:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 10px;
+  top: 10px;
+  z-index: 0;
+  background-size: 5px;
+}
+body .window .enter {
+  position: absolute;
+  bottom: 3px;
+  z-index: 1;
+  width: calc(100% - 22px);
+  left: 0;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #7BC6CC;
+  font-family: "Muli", sans-serif;
+}
+body .window .enter:focus {
+  outline: none;
+}
+body .window #btn {
+  display: block;
+  z-index: 3;
+  background: #BE93C5;
+  bottom: 5px;
+  right: 0;
+  height: 45px;
+  border: 0px;
+  width: 45px;
+  color: #fff;
+}
+body .window .send {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  bottom: 4px;
+  right: 0px;
+}
+body .window .send:before {
+  content: "\f1d9";
+  font-family: FontAwesome;
+  position: absolute;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  color: #fff;
+}
+body .window .chatwindow {
+  position: absolute;
+  min-height: calc(100% - 155px);
+  height: auto;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  overflow: scroll;
+  bottom: 35px;
+  left: 0px;
+  z-index: 1;
+  background: #BE93C5;
+  background: -webkit-linear-gradient(to bottom, #BE93C5, #7BC6CC);
+  background: -webkit-linear-gradient(top, #BE93C5, #7BC6CC);
+  background: linear-gradient(to bottom, #BE93C5, #7BC6CC);
+}
+body .window .chatwindow::-webkit-scrollbar {
+  width: 0px;
+}
+body .window .chatwindow .right, body .window .chatwindow .left {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  color: #555;
+  display: block;
+  float: right;
+  clear: both;
+  padding: 10px 20px;
+  margin: 10px;
+  max-width: 80%;
+  position: relative;
+  -webkit-animation-name: bouncein;
+          animation-name: bouncein;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: easeOut;
+          animation-timing-function: easeOut;
+}
+@-webkit-keyframes bouncein {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes bouncein {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+body .window .chatwindow .right:before, body .window .chatwindow .left:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 15px 10px 0;
+  border-color: transparent rgba(255, 255, 255, 0.7) transparent transparent;
+  bottom: -10px;
+  right: 17.5px;
+}
+body .window .chatwindow .left {
+  float: left;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 20px 5px 20px;
+}
+body .window .chatwindow .left p {
+  display: inline;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  font-size: 1em;
+  margin: 0px;
+  line-height: 1.5;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    font-size: 0em;
+  }
+  99.99% {
+    font-size: 0em;
+  }
+  100% {
+    font-size: 1em;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    font-size: 0em;
+  }
+  99.99% {
+    font-size: 0em;
+  }
+  100% {
+    font-size: 1em;
+  }
+}
+body .window .chatwindow .left .bye {
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  font-size: 0em;
+  display: inline;
+}
+body .window .chatwindow .left .bye span {
+  -webkit-animation-name: bouncing;
+          animation-name: bouncing;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  color: rgba(0, 0, 0, 0.6);
+}
+body .window .chatwindow .left .bye span:nth-of-type(2) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+body .window .chatwindow .left .bye span:nth-of-type(3) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+@-webkit-keyframes bouncing {
+  0% {
+    margin-top: 0px;
+    opacity: 0;
+  }
+  50% {
+    margin-top: -5px;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 0;
+  }
+}
+@keyframes bouncing {
+  0% {
+    margin-top: 0px;
+    opacity: 0;
+  }
+  50% {
+    margin-top: -5px;
+    opacity: 1;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    font-size: 1.2em;
+  }
+  99.99% {
+    font-size: 1.2em;
+  }
+  100% {
+    font-size: 0em;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    font-size: 1.2em;
+  }
+  99.99% {
+    font-size: 1.2em;
+  }
+  100% {
+    font-size: 0em;
+  }
+}
+body .window .chatwindow .left:before {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  right: auto;
+  left: 17.5px;
+  border-color: transparent rgba(255, 255, 255, 0.5) transparent transparent;
+}
+
+
+.chat-modal {
+    width: 33.4%;
+    height: 98%;
+    border-left: 1px solid rgba(158, 158, 158, 0.25);
+    position: absolute;
+    padding: 10px;
+    right: 0px;
+    top: 0px;
 }

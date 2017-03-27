@@ -5,7 +5,8 @@
   
 <mapper namespace="bitcamp.java89.ems2.dao.QnaDao">
   <resultMap type="qna" id="qna-map">
-    <id     column="mno"        property="memberNo"/>
+    <id     column="sno"        property="memberNo"/>
+    <id     column="eno"        property="mentoNo"/>
     <id     column="cono"        property="contentsNo"/>
     <result column="name"        property="name"/>
     <result column="mimg"       property="photoPath"/>
@@ -16,7 +17,8 @@
   
 <select id="getList" resultMap="qna-map" parameterType="int">
 	select 
-	     mb.mno, 
+	     mte.sno,
+	     mto.eno, 
 	     pl.cono, 
 	     name, 
 	     mimg 

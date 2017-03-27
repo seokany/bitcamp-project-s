@@ -3,7 +3,7 @@ package bitcamp.java89.ems2.domain;
 public class Mento extends Member {
   private static final long serialVersionUID = 1L;
   
-  //protected int mentoNo;
+  protected int mentoNo;
   protected String specialArea;
   protected String defaultArea;
   protected String career;
@@ -14,7 +14,12 @@ public class Mento extends Member {
 //  public void setMentoNo(int mentoNo) {
 //    this.mentoNo = mentoNo;
 //  }
-  
+  public int getMentoNo() {
+    return mentoNo;
+  }
+  public void setMentoNo(int mentoNo) {
+    this.mentoNo = mentoNo;
+  }
   public String getSpecialArea() {
     return specialArea;
   }

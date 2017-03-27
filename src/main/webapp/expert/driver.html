@@ -11,7 +11,9 @@
 <link rel="stylesheet" type="text/css" href="css/expert.css">
 <link rel="stylesheet" href="../mystuff/css/modal.css">
 <link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="css/chat.css">
 <style>
+
 .fa-plus {
     top: 49%;
     left: 50%;
@@ -39,15 +41,19 @@
     border-left: 1px solid rgba(158, 158, 158, 0.25);
     position: absolute;
     padding: 10px;
+    top: 0px;
+    right: 0px;
 }
-.across-close {
+.across-close, .chat-close {
     top: 12px;
     right: 10px;
     position: absolute;
     color: rgba(158, 158, 158, 0.4);
     cursor: pointer;
+    z-index: 200;
 }
-.across-close:hover {
+.across-close:hover,
+, .chat-close:hover {
     color: rgba(96, 125, 139, 0.4);
 }
 .across-count {
@@ -75,9 +81,10 @@
     cursor: pointer;
 }
 .mentee-info img {
-    width: 95%;
+    width: 110px;
     border-radius: 100px;
     box-shadow: 1px 1px 3px #9E9E9E;
+    height: 110px;
 }
 .mentee-info-name {
     font-size: 19px;
@@ -175,7 +182,8 @@ $(function() {
     
     <!-- board에서 node 선택 시 across 이벤트 -->
     $(document.body).on("click", ".nodes", function() {
-    	var cono = $(this).attr("cono");
+    	console.log($(this).attr("cono"));
+      cono = $(this).attr("cono");
       $(".board").switchClass("frame-area-center", "frame-area-left", 2000, "easeInOutBack");
       $(".across").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
       $(".across").load("detail.html .across", function() {
@@ -223,6 +231,110 @@ $(function() {
         $(".board").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
       }
 	  });
+	  
+	  var sno;
+	  var cono;
+	  var eno;
+	  // 멘티 한명 클릭시 채팅창 보이기
+	  $(document.body).on("click", ".mentee-info", function() {
+		  userInfo();
+		  console.log("들어왔닛??");
+		  sno = $(this).attr('sno'); 
+		  $('.chat-modal').load(clientRoot + '/expert/chat-2.html .window',function() {
+		        $(".chat-modal").css('display','block');
+			  $('.detail-mentee-area').css("display","none");
+			  
+			  
+			  console.log("ddasd");
+			  
+			  
+			  $.getJSON(serverRoot + '/message/list.json', 
+			      {
+			        "cono": cono, 
+			        "sno" : sno,
+			        "mno" : memberInfo.memberNo
+			      }, function(ajaxResult) {
+			        var status = ajaxResult.status; 
+			        if (status != "success") return; 
+			        
+			        var list = ajaxResult.data.list;
+			        $.each(list, function(k, v) {
+			          var text   = list[k].message;
+			          var writer = list[k].writerNo;
+			          
+			          if (writer == sno) {
+			              $('.chatwindow').append('<div class="right">' + text + '</div>');
+			          } else {
+			              $('.chatwindow').append('<div class="left bye">' + text + '</div>');
+			          }
+			        });
+			      });
+
+			$('#messenger').submit(function () {
+			   return false;
+			  });
+			  $("#message").attr("autocomplete", "off");
+			  
+			    <!---- mentee message send service---->
+			  $('#btn').click(function() {
+			     var text = $('#message').val();
+			     
+			       $.getJSON(serverRoot + '/message/mento-send.json',
+			           {
+			             "msge": text, 
+			             "cono": cono,
+			             "sno" : sno, 
+			             "eno" : memberInfo.memberNo
+			           }, function(ajaxResult) {
+			             var status = ajaxResult.status;
+			             if (status != "success") return;
+			       });
+			       $('.chatwindow').append('<div class="left">' + text + '</div>');
+			       $('#message').val('');
+
+			  });
+			  
+			  
+			  
+			  
+		  });
+		  
+	  })
+	  
+	  
+	  // 멘티와 채팅창 닫기 버튼 눌ㄹ시 이벤트
+	      $(document.body).on("click", ".chat-close", function() {
+	    	  console.log($('.chat-close'));
+     /*    $(".chat-modal").addClass("animated");
+        $(".chat-modal").addClass("fadeOut"); */
+        $(".chat-modal").css('display','none');
+        $(".detail-mentee-area").css('display','block');
+        $('.window').remove();
+       /*  setTimeout(function() {
+            $(".window").remove();
+            $('.across .detail-mentee-area').load(clientRoot + '/expert/detail.html .detail-mentee-area');
+        }, 800);
+ */
+      });
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	  
 	  var wheelState;
 	  var wheelType;
@@ -290,8 +402,8 @@ $(function() {
 </script>
 <script id="QnaMentee" type="text/x-handlebars-template">
 {{#each list}}
-   <div class="mentee-info">
-          <img alt="" src="{{photoPath}}">
+   <div class="mentee-info" sno={{memberNo}}>
+          <img alt="" src="../mystuff/img/lee.jpg">
           <div class="mentee-info-name">{{name}}</div>
         </div>
 {{/each}}

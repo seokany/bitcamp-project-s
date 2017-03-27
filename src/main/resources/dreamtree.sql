@@ -125,6 +125,10 @@ insert into video(cono, kotl, entl, voimg, vodsc, spnm, sjob, simg, posted) valu
 insert into qna(cono,sno) values(38,5);
 insert into qna(cono,sno) values(38,1);
 insert into qna(cono,sno) values(38,2);
+
+insert into qna(cono,sno) values(5,5);
+insert into qna(cono,sno) values(5,1);
+insert into qna(cono,sno) values(5,2);
 	
 	
 	
