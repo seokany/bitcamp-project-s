@@ -208,9 +208,10 @@ h3.warn-modal-testInfo {
     width: 400px;
     left: -40px;
     margin-bottom: 30px;
-}
-.warn-modal-good-test {
-  display: none;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: #e2525c;
 }
 .warn-modal-confirm div {
     display: inline-block;
@@ -221,6 +222,23 @@ h3.warn-modal-testInfo {
     margin-right: 5px;
     cursor: pointer;
 }
+.warn-modal-head .fa-times {
+    background-color: rgba(158, 158, 158, 0);
+}
+.warn-modal-head .fa-times:hover {
+    color: #fff;
+}
+.modal-confirm-btn {
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    padding: 4px;
+    background: #e2525c;
+    width: 100px;
+    border-radius: 4px;
+    margin: 0 auto;
+    cursor: pointer;
+}
 </style>
 <body>
 <div id="header"></div>
@@ -228,6 +246,7 @@ h3.warn-modal-testInfo {
 	<div class="contents">
 	  <div class="frame-area frame-area-center seeds">
 	  </div>
+	  <div class="json-mbti"></div>
 	  <div class="frame-area frame-area-right   mystuff">
       <div class="mystuff-call dashboard">
         <div class="mystuff-explain">로그인하셔야 추천 정보를 드릴 수 있어요.</div>
@@ -250,17 +269,6 @@ h3.warn-modal-testInfo {
     <div class="warn-modal-content">
         <div class="warn-modal-good-job">
           <i class="fa-px fa-info-circle" aria-hidden="true"></i>
-          <div class="warn-modal-comment"></div>
-          <h3 class="warn-modal-logInfo">로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>
-          <h3 class="warn-modal-testInfo">추천 진로는 테스트 완료 후<br> 안내드릴 수 있어요.</h3>
-        </div>
-        <div class="warn-modal-good-test">
-          <i class="fa-px fa-info-circle" aria-hidden="true"></i>
-          <div class="warn-modal-confirm">
-	          <h3>가입 전 테스트 결과가 있어요.<br>저장하시겠습니까?</h3>
-	          <div class="modal-confirm-yes-btn">저장하기</div>
-	          <div class="modal-confirm-no-btn">아니오</div>
-          </div>
         </div>
     </div>
   </div>
@@ -461,34 +469,66 @@ function eventControll() {
    loginEvent = true; 
    $('.warn-modal-logInfo').css('display', 'none');
    $('.warn-modal-testInfo').css('display', 'block');
-	    $.getJSON(serverRoot + '/seeds/hasResult.json', {'memberNo': memberInfo.memberNo}, function(ajaxResult) {
-	      if (ajaxResult.status == 'success') {
+	      if (memberInfo.resultNo >= '1') {
 	        testEvent = true;
-
 	      } else {
 	    	  testEvent = false;
 	      }
          console.log('test event 제어변수 상태');
          console.log(testEvent);
-	    });
   }
 }
 <!-- /eventControll -->
+<!--   modal contector   -->
+function modalConnector() {
+	if (!loginEvent) {
+		console.log('modalConnector.loginEvent');
+		console.log(!loginEvent);
+		warnModalStart('log-off');
+	} else if (loginEvent && !testEvent) {
+	    console.log('modalConnector.login.testEvent');
+	    console.log(loginEvent, !testEvent);
+			warnModalStart('test-none');
+	}
+}
+<!--   /modal contector   -->
 <!--   warn modal function   -->
 function warnModalStart(comn) {
-	if (comn == 'confirm') {
-     $('.warn-modal-good-job').hide();
-     $('.warn-modal-good-test').show();
+	console.log('warnModalStart(comn)');
+	console.log(comn);
+	if (comn == 'log-off') {
+		$('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+		$('.warn-modal-comment').append("<h3>로그인하셔야 진로를<br> 추천해드릴 수 있어요.</h3>"
+				+ "<div class='modal-confirm-btn'>확인</div>");
+	} else if (comn == 'test-none') {
+		$('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+		$('.warn-modal-comment').append("<h3>추천 진로는 테스트 완료 후<br> 안내드릴 수 있어요.</h3>"
+				+ "<div class='modal-confirm-btn'>확인</div>");
+	} else if (comn == 'confirm') {
+	    $('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+	    $('.warn-modal-comment').append("<h3>가입 전 테스트 결과가 있어요.<br>저장하시겠습니까?</h3>"
+	        + "<div class='modal-confirm-yes-btn'>저장하기</div>"
+	        + "<div class='modal-confirm-no-btn'>아니오</div>");
+	} else if (comn == 'save-success') {
+	    $('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+	    $('.warn-modal-comment').append("<h3>저장 완료!</h3>"
+	        + "<div class='modal-confirm-success-btn'>확인</div>");
+	} else if (comn == 'save-fail') {
+	      $('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+	      $('.warn-modal-comment').append("<h3>저장 실패...</h3>"
+	          + "<div class='modal-confirm-btn'>확인</div>");
+	} else if (comn == 'email-check') {
+	      $('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+	      $('.warn-modal-comment').append("<h3>이미 가입된 이메일이에요!</h3>"
+	          + "<div class='modal-confirm-btn'>확인</div>");
+	} else if (comn == 'password-check') {
+	      $('.warn-modal-content').append("<div class='warn-modal-comment'></div>");
+	      $('.warn-modal-comment').append("<h3>비밀번호가 서로 달라요.</h3>"
+	          + "<div class='modal-confirm-btn'>확인</div>");
 	}
-  if (comn != undefined) {
-     $('.warn-modal-comment h3').remove();
-     $('.warn-modal-logInfo').css('display', 'none');
-     $('.warn-modal-testInfo').css('display', 'none');
-     $('.warn-modal-comment').append('<h3>' + comn + '</h3>');
-  }
-    $('.warn-modal-wrapper').addClass('warn-modal-open');
     $('.warn-modal').addClass('animated fadeInRight');
     $('.warn-modal-page-wrapper').addClass('warn-modal-blur-it');
+    $('.warn-modal-wrapper').addClass('warn-modal-open');
 }
 function warnModalEnd() {
     $('.warn-modal').addClass('animated fadeOutRight');
@@ -497,6 +537,7 @@ function warnModalEnd() {
       $('.warn-modal-wrapper').removeClass('warn-modal-open');
       $('.warn-modal').removeClass('animated fadeInRight');
       $('.warn-modal-page-wrapper').removeClass('warn-modal-blur-it');
+      $('.warn-modal-comment').remove();
     }, 1000);
   }
 <!--   /warn modal function   -->
@@ -545,7 +586,7 @@ $(function() {
 	        $(".mystuff").switchClass("frame-area-left", "frame-area-center", 2000, "easeInOutBack");
 	      }
     	} else {
-    		warnModalStart();
+    		modalConnector();
     	}
     });
     $(document.body).on("click", "#likes-btn", function() {
@@ -559,7 +600,7 @@ $(function() {
 	        $(".likes").switchClass("frame-area-right", "frame-area-center", 2000, "easeInOutBack");
 	      }
       } else {
-    	   warnModalStart();
+    	  modalConnector();
       }
     });
     
@@ -601,7 +642,7 @@ $(function() {
 	             }, 350);
 	         }
          } else {
-        	  	 warnModalStart();
+        	   modalConnector();
          }
       } else if($(".frame-area-center").hasClass("likes")) {
 	         if (wheelType < 0) {
