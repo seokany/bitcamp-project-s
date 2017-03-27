@@ -62,11 +62,6 @@ $(function() {
             		});
             	});
             });
-            	
-            	
-                
-            
-            
         } else {
         	console.log("로그인 상태 : DB 전송할 데이터");
         	console.log(resultMsg, resultValues, memberInfo.memberNo);
@@ -83,24 +78,14 @@ $(function() {
                 }
 	          });
 	        }
+	        stepCount = 0; 
+	        stepChange = 0;
+	        hasStep = new Array(); 
+	        mbti = [0, 0, 0, 0];
+	        mbtiValues = [0, 0, 0, 0, 0, 0, 0, 0];
+	        mbtiResult = {};
 	      }
       });
-        
-//        $(".wrapper").addClass("dashboard");
-//        $(".wrapper").load("seeds/mbti-result-istp.html .test-result", function() {
-//          console.log($('.test-result').children("span").hasClass("result"));
-//          if ($('.test-result').children("span").hasClass("result")){
-//            $(".result").html(resultMsg);
-//          }
-//        });
-        
-        /*$(".wrapper").addClass("dashboard");
-        $(".wrapper").load("seeds/chart-test.html .temp-dashboard", function() {
-          console.log($('.mbti-title').children("div").hasClass("mbti-type-e"));
-          if ($('.mbti-title').children("div").hasClass("mbti-type-e")){
-            $(".mbti-type-e").html(resultMsg);
-          }
-        });*/
         
     $(document.body).on("change", ".radio input", function() {
         for (var i = 0; i < hasStep.length; i++) {

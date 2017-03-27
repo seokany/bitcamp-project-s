@@ -2,7 +2,6 @@ package bitcamp.java89.ems2.domain;
 
 public class Result extends Mentee {
   private static final long serialVersionUID = 1L;
-  
   protected int resultNo;
   protected String type;
   protected String resultResult;
