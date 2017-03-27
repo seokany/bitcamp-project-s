@@ -11,12 +11,12 @@
     <result column="name"       property="name"/>
     <result column="email"      property="email"/>
     <result column="mimg"       property="photoPath"/>
+    <result column="reno"       property="resultNo"/>
     <result column="type"       property="type"/>
     <result column="rer"        property="resultResult"/>
+    <result column="eare"        property="eachResult"/>
     <result column="tnm"        property="topicName"/>
   </resultMap>
-
-  
   
   <select id="getResult" parameterType="int" resultMap="topic-map">
     select 
@@ -25,15 +25,17 @@
       age, 
       email,
       mimg,
+      reno,
       type,
-      rer
+      rer,
+      eare
     from membs mb
    inner join result re on re.sno = mb.mno
     where mb.mno=#{memberNo}
   </select>
   
   
-  <select id="getResultNames" resultMap="topic-map" parameterType="int">
+  <select id="getResultNames" resultType="string" parameterType="int">
     select 
       tnm
     from membs mb
