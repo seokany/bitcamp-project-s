@@ -54,34 +54,22 @@ public class AuthJsonControl {
   @RequestMapping("/auth/loginUser")
   public AjaxResult loginUser(HttpSession session) throws Exception {
     Member member = (Member)session.getAttribute("member");
-    
     if (member == null) { // 로그인이 되지 않은 상태
       return new AjaxResult(AjaxResult.FAIL, "로그인을 하지 않았습니다.");
-    } 
-    else {
-//    System.out.println(member.getMemberNo());
-    Topic topic = authService.getResult(member.getMemberNo());
-    List<Topic> topicName = authService.getResultNames(member.getMemberNo());
-/*    System.out.println("/auth/loginUser.topic :" + topic);
-    System.out.println("/auth/loginUser.topic.getTopicName :" + topic.getTopicName());
-    System.out.println("/auth/loginUser.topicName :" + topicName);*/
-//    if(topic.getTopicName() == null) {
-//      System.out.println("/auth/loginUser.topicName = null? :");
-//      topic.setTopicName("추천 분야가 없습니다.");
-//      topicName.set(0, topic);
-//    }
-    
-//    System.out.println("/auth/loginUser :" + member);
-
-      HashMap<String,Object> resultMap = new HashMap<>();
-       resultMap.put("topic", topic);
+    } else {
+      Topic topic = authService.getResult(member.getMemberNo());
+      System.out.println("/auth/loginUser.topic :" + topic);
+      List<String> topicName = authService.getResultNames(member.getMemberNo());
+      System.out.println("/auth/loginUser.topicName :" + topicName);
+      System.out.println("/auth/loginUser :" + member);
+      HashMap<String, Object> resultMap = new HashMap<>(); 
+      resultMap.put("topic", topic);
+      if (topic == null)
+        resultMap.put("topic", member);
       resultMap.put("topicName", topicName);
-       System.out.println("이게 테스트요~"+resultMap);
-        return new AjaxResult(AjaxResult.SUCCESS, resultMap);
+      return new AjaxResult(AjaxResult.SUCCESS, resultMap);
     }
   }
-  
-  
 }
 
 
