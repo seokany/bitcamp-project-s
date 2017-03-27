@@ -26,8 +26,8 @@ $(function() {
 	function logIn(event, login) {
 		console.log('logIn().start');
 		console.log(event, login);
-		/*if (event != 'undefined') 
-			event.preventDefault();*/
+		if (event != 'undefined') 
+			event.preventDefault();
 		var param = login; 
 		if (login == undefined) {
 			param = {
@@ -56,7 +56,8 @@ $(function() {
 		    	$('.header-icon-message').css("display", "inline-block");
 		    	$('.user-menu').load(clientRoot + '/common/header.html .user-menu-call', function() {
 		    		userInfo();
-		    		$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+		    		if (memberInfo.photoPath != undefined)
+		    			$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
 		    		$('.user-info h3').text(memberInfo.name);
 		    	});
 		}, 'json');
@@ -93,23 +94,21 @@ $(function() {
 			if (ajaxResult.status == "fail") {
 				console.log('회원가입 실패 시 반환 데이터');
 				console.log(ajaxResult.data);
-				var comn = '이메일 주소가 중복되었어요!';
-				warnModalStart(comn);
+				warnModalStart('email-check');
 			} else {
 				var result = window.sessionStorage.getItem('result');
 				var resultValue = window.sessionStorage.getItem('resultValues');
 				formClose(event);
 				logIn(event, login); 
 				if (result != null) {
-					var comn = 'confirm';
 					console.log(event);
-					warnModalStart(comn);
+					warnModalStart('confirm');
 				}
 			}
 		}, 'json');
 
 	}
-	$(document.body).on('click', '.modal-confirm-no-btn', function(event) {
+	$(document.body).on('click', '.modal-confirm-no-btn, .modal-confirm-btn', function(event) {
 		warnModalEnd();
 	});
 	$(document.body).on('click', '.modal-confirm-yes-btn', function(event) {
@@ -122,13 +121,12 @@ $(function() {
 				}
 		$.post(serverRoot + '/seeds/add.json', param, function(ajaxResult) {
 			if (ajaxResult.status == 'success') {
-				var comn = '저장 완료!';
-				warnModalStart(comn);
+				warnModalStart('save-success');
 				console.log('modal-confirm-yes-btn :', param);
-
+				userInfo();
+				eventControll();
 			} else {
-				var comn = '저장 실패<br>테스트를 다시...'; 
-				warnModalStart(comn);
+				warnModalStart('save-fail');
 			}
 			window.sessionStorage.removeItem('result');
 			window.sessionStorage.removeItem('resultValues');

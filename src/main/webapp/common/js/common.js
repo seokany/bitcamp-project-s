@@ -3,8 +3,10 @@ function userInfo() {
 	console.log('userInfo().start');
 	  $.getJSON(serverRoot + '/auth/loginUser.json', function(ajaxResult) {
 			memberInfo = ajaxResult.data.topic;
+			memberName = ajaxResult.data.topicName;
 			console.log('세션 획득 정보');
 			console.log(memberInfo);
+			console.log(topicName);
 			eventControll();
 	  });
 }
@@ -27,7 +29,7 @@ $(function() {
 						topicName = ajaxResult.data.topicName;
 						console.log('세션 획득 정보');
 						console.log(memberInfo);
-//						console.log(topicName[0].topicName);
+						console.log(topicName);
 						eventControll();
 						$('.header-icon-user').css("display", "inline-block");
 						$('.header-icon-message').css("display", "inline-block");
@@ -37,12 +39,14 @@ $(function() {
 				setInterval(function(){
 					$(".new-message blink").toggle();
 					}, 550);
-				
-				$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
+				if (memberInfo.photoPath != undefined)
+	    			$('.profile-img').attr('src', clientRoot + '/mystuff/img/' + memberInfo.photoPath);
 				$('.user-info h3').text(memberInfo.name);
-				$('.recommand-info .one').text(topicName[0].topicName);
-				$('.recommand-info .two').text(topicName[1].topicName);
-				$('.recommand-info .three').text(topicName[2].topicName);
+				/* topicName length 만큼 반복문 돌려서 생성해야 함 */ 
+				$('.recommand-info .one').text(topicName[0]);
+				$('.recommand-info .two').text(topicName[1]);
+				$('.recommand-info .three').text(topicName[2]);
+				/*   /topicName length 만큼 반복문 돌려서 생성해야 함   */ 
 				$('.result-info .test-name').text(memberInfo.type);
 				$('.result-info .test-result').text(memberInfo.resultResult);
 				// 파일 업로드
@@ -139,17 +143,13 @@ $(function() {
 	    } else {
 	      if (target.hasClass("header-icon-user")) { // 사용자 정보 창
 	        if (!isopen_usermenu) {
-	        $(".message-menu").hide();
-	        $(".user-menu").show(); // 사용자 정보 창 div
-	        isopen_usermenu = true;
-            isopen_messagemenu = false;
-            
-            
-            
-            
-	      } else {
-	            $(".user-menu").hide();
-	            isopen_usermenu = false;
+		        $(".message-menu").hide();
+		        $(".user-menu").show(); // 사용자 정보 창 div
+		        isopen_usermenu = true;
+	            isopen_messagemenu = false;
+		      } else {
+	    		  $(".user-menu").hide();
+	    		  isopen_usermenu = false;
 	          }
 	      }
 	      if (target.hasClass("header-icon-message")) {
@@ -175,7 +175,8 @@ $(function() {
 				$('.warn-modal-testInfo').css('display', 'none');
 	    	  console.log("login event 제어변수 상태");
 	    	  console.log(loginEvent);
-			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) { // 로그아웃시
+			$.getJSON(serverRoot + '/auth/logout.json', function(ajaxResult) {
+				console.log('/auth/logout.json 수행');
 		    	$('.header-icon-power').css("display", "inline-block");
 		    	$('.header-icon-user').css("display", "none");
 		    	$('.header-icon-message').css("display", "none");
@@ -183,8 +184,8 @@ $(function() {
 				  $(".message-menu").hide();
 				  isopen_usermenu = false;
 				  isopen_messagemenu = false;
-			}, function() {
-				userInfo(); 
+				  console.log('/auth/logout.json.userInfo() 수행');
+				  userInfo(); 
 			});
 	      }
 	    }

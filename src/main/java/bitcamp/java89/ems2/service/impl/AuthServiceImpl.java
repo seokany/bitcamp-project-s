@@ -71,7 +71,7 @@ public Topic getResult(int memberNo) throws Exception {
 }
 
 @Override
-public List<Topic> getResultNames(int memberNo) throws Exception {
+public List<String> getResultNames(int memberNo) throws Exception {
  
   return topicDao.getResultNames(memberNo);
 }
